@@ -1,0 +1,1238 @@
+\documentclass{letter}
+\usepackage{geometry,amsmath,amssymb,bbm}
+\geometry{letterpaper}
+\usepackage{fullpage}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\nin}{\not\in}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmname}[1]{\textsc{#1}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+Set Theory and Logic by Robert R. Stoll
+
+1.2.1 Explain why $2 \in \{1, 2, 3\}$.
+
+\tmtextit{Solution:} The set $\{1, 2, 3\}$ contains 2 in it.
+
+1.2.2 Is $\{1, 2\} \in \{\{1, 2, 3\}, \{1, 3\}, 1, 2\}$? Justify your answer.
+
+\tmtextit{Solution:} No, the only elements of the set are $\{1, 2, 3\}, \{1,
+3\}, 1, \tmop{and} 2$. Thus $\{1, 2\}$ is not contained in the set.
+
+1.2.3 Try to devise a set which is a member of itself.
+
+\tmtextit{Solution:} $A =\{A\}$
+
+1.2.4 Given an example of sets $A, B, \tmop{and} C$ such that $A \in B, B \in
+C, \tmop{and} A \nin C$.
+
+\tmtextit{Solution:} $A =\{1\}, B =\{A\}, C =\{B\}$
+
+1.2.5 Describe in prose each of the following sets.
+
+(a) $\{x \in \mathbbm{Z}| x \tmop{is} \tmop{divisible} \tmop{by} 2 \tmop{and}
+x \tmop{is} \tmop{divisible} \tmop{by} 3\}$
+
+\tmtextit{Solution:} All the integers that are divisible by 6.
+
+(b) $\{x | x \in A \tmop{and} x \in B\}$
+
+\tmtextit{Solution:} All the elements that are in $A$ and in $B$.
+
+(c) $\{x| x \in A \tmop{or} x \in B\}$
+
+\tmtextit{Solution:} All the elements included in $A \tmop{or} B$.
+
+(d) $\{x \in \mathbbm{Z}^+ | x \in \{x \in \mathbbm{Z}| \tmop{for} \tmop{some}
+\tmop{integer} y, x = 2 y\} \tmop{and} x \in \{x \in \mathbbm{Z}| \tmop{for}
+\tmop{some} \tmop{integer} y, x = 3 y\}\}$
+
+\tmtextit{Solution:} All positive integers that are divisible by 6.
+
+(e) $\{x^2 | x$ is a prime\}
+
+\tmtextit{Solution:} The set of all the primes squared.
+
+(f) $\{a / b \in \mathbbm{Q}| a + b = 1 \tmop{and} a, b \in \mathbbm{Q}\}$
+
+\tmtextit{Solution:} The set of all rationals such that the sum of the
+numerator and denominator is 1.
+
+(g) $\{(x, y) \in \mathbbm{R}^2 | x^2 + y^2 = 1\}$
+
+\tmtextit{Solution:} The set of all points that lie on the circle of radius 1.
+
+(h) $\{(x, y) \in \mathbbm{R}^2 | y = 2 x \tmop{and} y = 3 x\}$
+
+\tmtextit{Solution:} Since $2 x = 3 x$ only when $x = 0$, then the set only
+contains the ordered pair $(0, 0)$.
+
+1.2.6 Prove that if $a, b, c, \tmop{and} d$ are any objects, not necessarily
+distinct from one another, then
+
+$\{\{a\}, \{a, b\}=\{\{c\}, \{c, d\}\}$ iff both $a = c$ and $b = d$.
+
+\tmtextit{Solution:} If $a = c \tmop{and} b = d$, then $\{a\}=\{c\} \tmop{and}
+\{a, b\}=\{c, d\}$. More importantly,
+
+$\{\{a\}, \{a, b\}=\{\{c\}, \{c, d\}\}$. Now if $\{\{a\}, \{a, b\}\}=\{\{c\},
+\{c, d\}\}$, then $\{a\}=\{c\}$ since these are the only unit set elements in
+their respective sets and this implies that $a = c$. Furthermore $\{a,
+b\}=\{c, d\}$ and with $a = c$, we can only conclude that $b = d$.
+
+1.3.1 Prove each of the following, using any properties of numbers that may
+be needed.
+
+(a) $\{x \in \mathbbm{Z}| \tmop{for} \tmop{an} \tmop{integer} y, x = 6 y\}=\{x
+\in \mathbbm{Z}| \tmop{for} \tmop{integers} u \tmop{and} v, x = 2 u \tmop{and}
+x = 3 v\}$
+
+\tmtextit{Solution:} Since $x = 6 y$ can be written as $x = 2 \cdot 3 \cdot
+y$, we see that $x = 2 u \tmop{and} x = 3 v$, when $u = 3 y \tmop{and} v = 2
+y$. Thus $\{x \in \mathbbm{Z}| \tmop{for} \tmop{an} \tmop{integer} y, x = 6
+y\} \subseteq \{x \in \mathbbm{Z}| \tmop{for} \tmop{integers} u \tmop{and} v,
+x = 2 u \tmop{and} x = 3 v\}$. Now, $x = 2 u = 3 v$ and thus $\tmop{lcm} (2,
+3) = 6$ must divide $x$ by a factor of some integer $y$. So $\{x \in
+\mathbbm{Z}| \tmop{for} \tmop{an} \tmop{integer} y, x = 6 y\} \supseteq \{x
+\in \mathbbm{Z}| \tmop{for} \tmop{integers} u \tmop{and} v, x = 2 u \tmop{and}
+x = 3 v\}$.
+
+(b) $\{x \in \mathbbm{R}|$for a real number $y, x = y^2 \}=\{x \in
+\mathbbm{R}| x \geq 0\}$
+
+\tmtextit{Solution:} For any $y \in \mathbbm{R}, y^2 \geq 0$. Since $x = y^2$,
+then $\{x \in \mathbbm{R}|$for a real number $y, x = y^2 \} \subseteq \{x \in
+\mathbbm{R}| x \geq 0\}$. Now $x \geq 0 \Rightarrow \sqrt{x} \geq 0$. Thus $y
+= \sqrt{x} \in \mathbbm{R}$ and we have $\{x \in \mathbbm{R}|$for a real
+number $y, x = y^2 \} \supseteq \{x \in \mathbbm{R}| x \geq 0\}$.
+
+(c) $\{x \in \mathbbm{Z}| \tmop{for} \tmop{an} \tmop{integer} y, x = 6 y\}
+\subseteq \{x \in \mathbbm{Z}| \tmop{for} \tmop{an} \tmop{integer} y, x = 2
+y\}$
+
+\tmtextit{Solution:} Since $x = 6 y = 2 \cdot 3 \cdot y$, then $x$ is
+divisible by 2.
+
+1.3.2 Prove each of the following for sets $A, B, \tmop{and} C .$
+
+(a) If $A \subseteq B \tmop{and} B \subseteq C, \tmop{then} A \subseteq C$.
+
+\tmtextit{Solution:} Since any element in $A$ is found inside $B$ and any
+element of $B$ is found inside $C$, then $C$ must contain those elements of
+$A$ since it contains all of $B$.
+
+(b) If $A \subseteq B \tmop{and} B \subset C, \tmop{then} A \subset C$.
+
+\tmtextit{Solution:} Any element in $A$ is found in $B$ and $C$ contains $B$
+and some elements not in $B$, hence $C$ contains some elements not in $A$
+since all of $A$ is contained by $B$.
+
+(c) If $A \subset B \tmop{and} B \subseteq C, \tmop{then} A \subset C$.
+
+\tmtextit{Solution:} All elements from $A$ are in $B$, while $B$ contains some
+not in $A$. Also $C$ contains all of $B$, thus $C$ must contain some elements
+not in $A$, whether they are in $B$ or not.
+
+(d) If $A \subset B \tmop{and} B \subset C, \tmop{then} A \subset C$.
+
+\tmtextit{Solution:} So $A$ is contained in $B$ with $B$ having some elements
+not in $A$ and $C$ contains $B$ with some elements not in $B$, thus $C$ must
+also contain elements which cannot be in $A$, seeing as $B$ properly contains
+$A$.
+
+1.3.3 Give an example of sets $A, B, C, D$ and $E$ which satisfy the following
+conditions simultaneously:
+
+$A \subset B, B \in C, C \subset D, \tmop{and} D \subset E$
+
+\tmtextit{Solution:} $A =\{1\}, B =\{1, 2\}, C =\{B\}, D =\{B, 3\}, E =\{B, 3,
+4\}$
+
+1.3.4 Which of the following are true for all sets $A, B, \tmop{and} C$?
+
+(a) If $A \nin B \tmop{and} B \nin C, \tmop{then} A \nin C$.
+
+\tmtextit{Solution:} False; $A =\{1\}, B =\{2\}, C =\{A\}$
+
+(b) If $A \neq B \tmop{and} B \neq C, \tmop{then} A \neq C$.
+
+\tmtextit{Solution:} False; $A =\{1\}, B =\{1, 2\}, C =\{1\}$
+
+(c) If $A \in B \tmop{and} B \nsubseteq C, \tmop{then} A \nin C$.
+
+\tmtextit{Solution:} False; $A =\{1\}, B =\{A, \{2\}\}, C =\{B, A\}$
+
+(d) If $A \subset B \tmop{and} B \subseteq C, \tmop{then} A \nsubseteq C$.
+
+\tmtextit{Solution:} True; at most $B = C$, in which case $A \subset C$.
+
+(e) If $A \subseteq B \tmop{and} B \in C, \tmop{then} A \nin C$.
+
+\tmtextit{Solution:} False; $A =\{1\}, B =\{1, 2\}, C =\{A, B\}$
+
+1.3.5 Show that for every set $A, A \subseteq \varnothing \tmop{iff} A =
+\varnothing$.
+
+\tmtextit{Solution:} Assume $A \subseteq \varnothing$. We know that the empty
+set is a subset of every set so $\varnothing \subseteq A$ and hence $A =
+\varnothing$. Now assume that $A = \varnothing$. But this means that $A
+\subseteq \varnothing \tmop{and} \varnothing \subseteq A$. So $A \subseteq
+\varnothing$ is trivial.
+
+1.3.6 Let $A_1, A_2, \ldots, A_n$ be $n$ sets. Show that $A_1 \subseteq A_2
+\subseteq \cdots \subseteq A_n \subseteq A_1 \tmop{iff} A_1 = A_2 = \cdots =
+A_n$
+
+\tmtextit{Solution:} If $A_1 \subseteq A_2 \subseteq \cdots \subseteq A_n
+\subseteq A_1, \tmop{then} A_1 = A_n$ since $A_1 \subseteq A_n \tmop{and} A_n
+\subseteq A_1$. Now for any $A_i, 1 < i < n$, $A_i \subseteq A_n$, yet $A_1
+\subseteq A_i$ and thus $A_n \subseteq A_i$ since $A_1 = A_n$. Hence $A_i =
+A_n = A_1$. Now, if $A_1 = A_2 = \cdots = A_n$, then it's clear that $A_1
+\subseteq A_2 \subseteq \cdots \subseteq A_n$, yet $A_1 = A_n \Rightarrow A_1
+\supseteq A_n$. Hence $A_1 \subseteq A_2 \subseteq \cdots \subseteq A_n
+\subseteq A_1$.
+
+1.3.7 Give several examples of a set $X$ such that each element of $X$ is a
+subset of $X$.
+
+\tmtextit{Solution:} $X =\{X\}, X =\{\}= \varnothing$
+
+1.3.8 List the members of $\mathcal{P}(A) \tmop{if} A =\{\{1, 2\}, \{3\},
+1\}$.
+
+\tmtextit{Solution:} $\mathcal{P}(A) =\{\varnothing, \{1\}, \{\{3\}\}, \{\{1,
+2\}\}, \{1, \{3\}\}, \{1, \{1, 2\}\}, \{\{3\}, \{1, 2\}\}, A\}$
+
+1.3.9 For each positive integer $n$, give an example of a set $A_n$ of $n$
+elements such that for each pair of elements of $A_n$, one member is an
+element of the other.
+
+\tmtextit{Solution:} $A_n =\{a_1, a_2, \ldots, a_n \}=\{a_i | a_i =\{a_j | 1
+\leq j < i\} \tmop{and} 1 \leq i \leq n\}$
+
+1.4.1 Prove that for all sets $A$ and $B, \varnothing \subseteq A \cap B
+\subseteq A \cup B$.
+
+\tmtextit{Solution:} First, we know that the $\varnothing$ is a subset of
+every set, so it must be a subset of $A \cap B$. Now, assume that $x \in A
+\cap B$, that means that $x \in A \tmop{and} x \in B$. Since $x$ is both, then
+it's clearly in the set containing all elements from $A$ or $B$. Thus $x \in A
+\cup B$.
+
+1.4.2 Let $\mathbbm{Z}$ be the universal set and let $A =\{x \in \mathbbm{Z}|
+\tmop{for} \tmop{some} \tmop{positive} \tmop{integer} y, x = 2 y\}$,
+
+$B =\{x \in \mathbbm{Z}| \tmop{for} \tmop{some} \tmop{positive} \tmop{integer}
+y, x = 2 y - 1\}, C =\{x \in \mathbbm{Z}| x < 10\}$. Describe $\overline{A},
+\overline{A \cup B}, \overline{C}, A - \overline{C},$ and $C - (A \cup B)$,
+either in prose or by a defining property.
+
+\tmtextit{Solution:} $\overline{A}$ is all positive odd integers, $\overline{A
+\cup B}$ is all nonpositive integers, $\overline{C}$ is all positive integers
+greater than or equal to 10, $A - \overline{C} =\{2, 4, 6, 8\}$, $C - (A \cup
+B) = C \cap \overline{A \cup B} = \overline{A \cup B}$.
+
+1.4.3 Consider the following subsets of $\mathbbm{Z}^+$, the set of positive
+integers: $A =\{x \in \mathbbm{Z}^+ | \tmop{for} \tmop{some} \tmop{integer} y,
+x = 2 y\}, B =\{x \in \mathbbm{Z}^+ | \tmop{for} \tmop{some} \tmop{integer} y,
+x = 2 y + 1\}, C =\{x \in \mathbbm{Z}^+ | \tmop{for} \tmop{some}
+\tmop{integer} y, x = 3 y\}$.
+
+(a) Describe $A \cap C, B \cup C, \tmop{and} B - C$.
+
+\tmtextit{Solution:} $A \cap C =\{x \in \mathbbm{Z}^+ | \tmop{for} \tmop{some}
+\tmop{integer} y, x = 6 y\}$, $B \cup C =\{x \in \mathbbm{Z}^+ | x$ is a
+positive odd integer or $x$ is divisible by $6\}$, $B - C =\{x \in
+\mathbbm{Z}^+ | x$ is a positive odd integer and $x$ is not divisible by
+$3\}$.
+
+(b) Verify that $A \cap (B \cup C) = (A \cap B) \cup (A \cap C) .$
+
+\tmtextit{Solution:} The intersection between the set that contains all
+positive even integers, $A$, and the set containing all positive odd integers
+and those positive integers divisible by 6, $B \cup C$, will be all those
+positive integers divisible by 6. Now the union between all the positive
+integers divisible by 6, $A \cap C$, and the empty set, $A \cap B$, is just
+the set all the positive integers divisible by $6$.
+
+1.4.4 If $A$ is any set, what are each of the following sets? $A \cap
+\varnothing, A \cup \varnothing, A - \varnothing, A - A, \varnothing - A$.
+
+\tmtextit{Solution:} $A \cap \varnothing = \varnothing, A \cup \varnothing =
+A, A - \varnothing = A, A - A = \varnothing, \varnothing - A = \varnothing$
+
+1.4.5 Determine $\varnothing \cap \{\varnothing\}, \{\varnothing\} \cap
+\{\varnothing\}, \{\varnothing, \{\varnothing\}\}- \varnothing, \{\varnothing,
+\{\varnothing\}\}-\{\varnothing\}, \{\varnothing,
+\{\varnothing\}\}-\{\{\varnothing\}\}$.
+
+\tmtextit{Solution:} $\varnothing \cap \{\varnothing\}= \varnothing,
+\{\varnothing\} \cap \{\varnothing\}=\{\varnothing\}, \{\varnothing,
+\{\varnothing\}\}- \varnothing =\{\varnothing, \{\varnothing\}\},
+\{\varnothing, \{\varnothing\}\}-\{\varnothing\}=\{\{\varnothing\}\},
+\{\varnothing, \{\varnothing\}\}-\{\{\varnothing\}\}=\{\varnothing\}$
+
+1.4.6 Suppose $A$ and $B$ are subsets of $U$. Show that in each of (a), (b),
+and (c) below, if any one of the relations stated holds, then each of the
+others holds.
+
+(a) $A \subseteq B, \overline{B} \subseteq \overline{A}, A \cup B = B, A \cap
+B = A$
+
+\tmtextit{Solution:} Well let's start with $A \cap B = A$. This means that all
+the elements that $A$ and $B$ have in common are $A$, so all the elements of
+$A$ are contained in $B$, hence $A \subseteq B$. Then clearly $A \cup B = B$,
+since $A$ does not ``add'' anything to $B$. Moreover, all the elements not in
+$A$, including those in $B$ contain all those elements not in $B$, so
+$\overline{B} \subseteq \overline{A}$.
+
+(b) $A \cap B = \varnothing, A \subseteq \overline{B}, B \subseteq
+\overline{A}$
+
+\tmtextit{Solution:} $A \cap B = \varnothing$ means that $A$ and $B$ are
+disjoint. Thus all elements not in $B$ would contain $A$ and all those
+elements not in $A$ would contain $B$, hence $A \subseteq \overline{B}
+\tmop{and} B \subseteq \overline{A}$.
+
+(c) $A \cup B = U, \overline{A} \subseteq B, \overline{B} \subseteq A$
+
+\tmtextit{Solution:} With $A \cup B = U$, then $A$ and $B$ combined have all
+elements of the universe of discourse. The complement of $B$ must then be a
+subset of $A$ since $A$ might have elements in the universe not in $B$,
+clearly then $A$ would have those in common with both $A$ and $B$, while the
+complement of $B$ does not have those. By same argument, $\overline{B}
+\subseteq A$.
+
+1.4.7 Prove that for all sets $A, B, \tmop{and} C ; (A \cap B) \cup C = A \cap
+(B \cup C) \tmop{iff} C \subseteq A$.
+
+\tmtextit{Solution:} Suppose that $(A \cap B) \cup C = A \cap (B \cup C)$.
+This means that $(A \cap B) \cup C \subseteq A \cap (B \cup C) \\
+$and $(A \cap B) \cup C \supseteq A \cap (B \cup C)$. Consider $(A \cap B)
+\cup C \subseteq A \cap (B \cup C)$ and the element $x \in (A \cap B) \cup C$,
+which translates to $x \in (A \cap B)$ or $x \in C$. If $x \in A \cap B$, then
+$x \in A$ and $x \in B$ which means that $x \in B \cup C$ and $x \in A$. If $x
+\in C$, then $x \in B \cup C$ but for $x$ to be an element of $A \cap (B \cup
+C)$, then it must be that $x$ is also in $A$ and this implies that $C
+\subseteq A$.
+
+1.4.8 Prove that for all sets $A, B, \tmop{and} C ; (A - B) - C = (A - C) -
+(B - C)$
+
+\tmtextit{Solution:} Firstly, let $x \in (A - B) - C$. This means that $x \in
+(A \cap \overline{B}) \cap \overline{C} $ and hence we have $x \in A$ and $x
+\in \overline{B}$ and $x \in \overline{C}$. Since $x \in A \tmop{and} x \nin
+C$, then $x \in A - C$. Yet, since $x \nin B \tmop{and} x \in \overline{C}$,
+then $x \nin B \cap \overline{C}$ hence $x \in \overline{(B \cap \overline{C}}
+$). So $x \in A - C$ and $x \in \overline{(B \cap \overline{C}} $)
+$\Rightarrow x \in (A \cap \overline{C}) \cap \text{$\overline{(B \cap
+\overline{C}} $)}$. Thus we have $x \in (A - B) - (B - C)$. Now consider $x
+\in (A - C) - (B - C)$, so $x \in (A \cap \overline{C}) \cap \overline{(B \cap
+\overline{C}})$ which means that $x \in (A \cap \overline{C}$) so $x \in A$
+and $x \in \overline{C}$. Plus $x \in \overline{B \cap \overline{C}}$ then $x
+\nin B \cap \overline{C} \Rightarrow x \nin B$ or $x \nin \overline{C}$ but we
+know that $x \in \overline{C}$, therefore $x \nin B \Rightarrow x \in
+\overline{B}$. In conclusion, we have $x \in A$ and $x \in \overline{B}$ and
+$x \in \overline{C}$. Hence $x \in (A \cap \overline{B}) \cap \overline{C}$,
+so $x \in (A - B) - C$.
+
+1.4.9 (c) Show that for every set $A, A + A = \varnothing \tmop{and} A +
+\varnothing = A$.
+
+\tmtextit{Solution:} So $A + A = (A - A) \cup (A - A) = (A \cap \overline{A})
+\cup (A \cap \overline{A}) = \varnothing \cup \varnothing = \varnothing$ \ and
+$\\
+A + \varnothing = (A - \varnothing) \cup (A - \varnothing) = (A \cap U) \cup
+(A \cap U) = A \cup A = A$.
+
+1.5.1 Prove that parts $3', 4', \tmop{and} 5'$ of Theorem 5.1 are identities.
+
+\tmtextit{Solution:} $3' : A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+
+Say $x \in A \cap (B \cup C)$, then $x \in A \tmop{and} x \in B \tmop{or} x
+\in C$. If $x \in B$ and $x \in A$, then $x \in A \cap B$. Otherwise, $x \in
+C$ and $x \in A$, which means $x \in A \cap C$. So, either $x \in A \cap C
+\tmop{or} x \in A \cap B$. Hence $x \in (A \cap B) \cup (A \cap C)$.
+Conversely, say $x \in (A \cap B) \cup (A \cap C)$, then $x \in A \cap B$ or
+$x \in A \cap C$. In either case, we have $x \in A$ but $x \in B$ or $x \in
+C$. Hence $x \in A \cap (B \cup C)$.
+
+$4' : A \cap U = A$
+
+Say $x \in A \cap U$, then $x \in A \tmop{and} x \in U$. Since $A \subseteq
+U$, then $x$ is definitely in $A$. So $A \cap U \subseteq A$. Now, say $x \in
+A$. Again since $A \subseteq U$, then $x \in U$ and thus $x \in A \cap U$
+showing that $A \subseteq A \cap U$. We have shown our equality.
+
+1.5.2 Prove the unprimed parts of Theorem 5.2 using the membership relation.
+Try to prove the same results using only Theorem 5.1. In at least one such
+proof write out the dual of each step to demonstrate that a proof of the dual
+results.
+
+\tmtextit{Solution:} 11: $A \cup U = U$
+
+Say $x \in A \cup U$, then $x \in A \tmop{or} x \in U$. If $x \in U$, then
+we're done. If $x \in A$, then $x \in U$ since $A \subseteq U$ and again we're
+done. Conversely, say $x \in U$, then $x \in U \cup A$, no matter what $A$ is.
+
+1.5.3 Using only the identities in Theorems 5.1 and 5.2, show that each of the
+following equations is an identity.
+
+(a) $(A \cap B \cap X) \cup (A \cap B \cap C \cap X \cap Y) \cup (A \cap X
+\cap \bar{A}) = A \cap B \cap X$
+
+\tmtextit{Solution:} $\begin{array}{ll}
+  (A \cap B \cap X) \cup (A \cap B \cap C \cap X \cap Y) \cup (A \cap X \cap
+  \bar{A}) & = \text{$(A \cap B \cap X) \cup (U \cup X \cap Y) \cup
+  \varnothing$}\\
+  & = (A \cap B \cap X)
+\end{array}$
+
+(b) $(A \cap B \cap C) \cup ( \overline{A} \cap B \cap C) \cup \overline{B}
+\cup \overline{C} = U$
+
+\tmtextit{Solution:} $\begin{array}{ll}
+  (A \cap B \cap C) \cup ( \bar{A} \cap B \cap C) \cup \bar{B} \cup \bar{C} &
+  = (A \cup \bar{A}) \cap (B \cap C) \cup \bar{B} \cup \bar{C}\\
+  & = (B \cup \bar{B}) \cap ( \bar{B} \cup C) \cup \bar{C}\\
+  & = \bar{B} \cup (C \cup \bar{C})\\
+  & = U
+\end{array}$
+
+1.5.4 Rework Exercise 4.9(b), using solely the algebra of sets developed in
+this section.
+
+\tmtextit{Solution:} Associative:
+
+$(A - B) - C = (A - C) - (B - C) = (A \cap \bar{C}) \cap ( \overline{B \cap
+\bar{C}}) = A \cap \overline{C} \cap ( \overline{B} \cup C) = A \cap ( \bar{C}
+\cap \bar{B}) \cup (C \cap \bar{C}) = A \cap ( \bar{C} \cap \bar{B}) \cup
+\varnothing = A \cap \bar{B} \cap \bar{C} = (A - B) - C$
+
+1.5.7 Referring to Example 5.2, prove the following.
+
+(a) For all sets $A$ and $B, A = B \tmop{iff} A + B = \varnothing$.
+
+\tmtextit{Solution:} If $A = B$, then $A + B = (A - B) \cup (B - A) = (A - A)
+\cup (B - B) = \varnothing \cup \varnothing = \varnothing$. Conversely, if $A
++ B = \varnothing$, then $(A - B) \cup (B - A) = \varnothing$. Of course, this
+is only possible when $A - B = \varnothing$ and $B - A = \varnothing$. Yet $A
+- B = \varnothing \Rightarrow A \subseteq B$ and $B - A = \varnothing
+\Rightarrow B \subseteq A$. Thus we have $A = B$.
+
+(c) For all sets $A$ and $B, A = B = \varnothing \tmop{iff} A \cup B =
+\varnothing$.
+
+\tmtextit{Solution:} If $A = B = \varnothing$, then $A \cup B = \varnothing
+\cup \varnothing = \varnothing$. Now, if $A \cup B = \varnothing$, then we
+know that $A = \varnothing = B$ otherwise this is not possible.
+
+1.6.1 Show that if $(x, y, z) = (u, v, w)$, then $x = u, y = v, \tmop{and} z =
+w$.
+
+\tmtextit{Solution:} Since an ordered triple can be defined in terms of
+ordered pairs, we have if $(x, y, z) = ((x, y), z)$ $= ((u, v), w) = (u, v,
+w)$, then by Theorem 6.1, we know that $(x, y) = (u, v)$ and $z = w$. Thus by
+applying Theorem 6.1 again, we get that $x = u \tmop{and} y = v$. QED
+
+1.6.2 Write the members of $\{1, 2\} \times \{2, 3, 4\}$. What are the domain
+and range of this relation? What is its graph?
+
+\tmtextit{Solution:} $\{1, 2\} \times \{2, 3, 4\}=\{(1, 2), (1, 3), (1, 4),
+(2, 2), (2, 3), (2, 4)\}$
+
+$\tmop{Domain} =\{1, 2\} \tmop{Range} =\{2, 3, 4\}$
+
+1.6.3 State the domain and the range of each of the following relations, and
+then draw it's graph.
+
+(a) $\{(x, y) \in \mathbbm{R} \times \mathbbm{R}| x^2 + 4 y^2 = 1\}$
+
+\tmtextit{Solution:} $\tmop{Domain} =\{x| x = \sqrt{1 - 4 y^2}, \tmop{for}
+\tmop{some} y \in \mathbbm{R}\}=\{x| 0 \leq x \leq 1\} \\
+\tmop{Range} =\{y| y = \frac{\sqrt{1 - x^2}}{2}, \tmop{for} \tmop{some} x \in
+\mathbbm{R}\}=\{y| 0 \leq y \leq \frac{1}{2} \}$
+
+(b) $\{(x, y) \in \mathbbm{R} \times \mathbbm{R}| x^2 = y^2 \}$
+
+\tmtextit{Solution:} $\tmop{Domain} =\mathbbm{R}= \tmop{Range}$
+
+(d) $\{(x, y) \in \mathbbm{R} \times \mathbbm{R}| x^2 + y^2 < 1 \tmop{and} x >
+0\}$
+
+\tmtextit{Solution:} $\tmop{Domain} =\{x | x = \sqrt{1 - y^2} \tmop{and} x >
+0\}=\{x | 0 < x < 1\}; \tmop{Range} =\{y | \um 1 < y < 1\}$
+
+(e) {\tmname{$\{(x, y) \in \mathbbm{R} \times \mathbbm{R}| y \geq 0 \tmop{and}
+y \leq x \tmop{and} x + y \leq 1\}$}}
+
+\tmtextit{Solution:} $\tmop{Domain} =\{x | x \leq 1 - y \tmop{and} 0 \leq y
+\leq x\}=\{x | 0 \leq x \leq 1\}; \tmop{Range} =\{y | 0 \leq y \leq 1 / 2\}$
+
+1.6.4 Write the relation in Exercise 6.3(c) as the union of four relations and
+that in Exercise 6.3(e) as the intersection of three relations.
+
+\tmtextit{Solution:} (e) Let $\rho =\{(x, y) \in \mathbbm{R} \times
+\mathbbm{R}| y \geq 0\}, \sigma =\{(x, y) \in \mathbbm{R} \times \mathbbm{R}|
+y \leq x\}, \beta =\{(x, y) \in \mathbbm{R} \times \mathbbm{R}| x + y \leq
+1\}$, then $\rho \cap \sigma \cap \beta$.
+
+1.6.5 The formation of the cartesian product of two sets is a binary operation
+for sets. Show by examples that this operation is neither commutative nor
+associative.
+
+\tmtextit{Solution:} To show that the cartesian product is not associative:
+
+$\{a\} \times (\{b\} \times \{c\}) =\{a\} \times \{(b, c)\}=\{(a, (b, c))\}
+\neq \{(a, b), c\}=\{(a, b)\} \times \{c\}= (\{a\} \times \{b\}) \times \{c\}$
+
+To show that the cartesian product is not commutative
+
+$\{a\} \times \{b\}=\{(a, b)\} \neq \{(b, a)\}=\{b\} \times \{a\}$
+
+1.6.6 Let $\beta$ be the relation ``is a brother of,'' and let $\sigma$ be the
+relation ``is a sister of.'' Describe $\beta \cup \sigma, \beta \cap \sigma,
+\tmop{and} \beta - \sigma$.
+
+\tmtextit{Solution:} $\beta \cup \sigma$ would be the relation ``is a sibling
+of'', $\beta \cap \sigma$ must be the empty set since it is impossible for a
+person to be both a brother and a sister of someone, and $\beta - \sigma$ must
+be simply $\beta$ since $\beta \tmop{and} \sigma$ are disjoint.
+
+1.6.7 Let $\beta \tmop{and} \sigma$ have the same meaning as in Exercise 6.6.
+Let $A$ be the set of students now in the reader's school. What is $\beta
+[A]$? What is $(\beta \cup \sigma) [A]$?
+
+\tmtextit{Solution:} $\beta [A]$ is the set of all people who have a brother
+in my school. $(\beta \cup \sigma) [A]$ is the set of all people who have a
+brother or sister in my school.
+
+1.6.8 Prove that if $A, B, C, \tmop{and} D$ are sets, then $(A \cap B) \times
+(C \cap D) = (A \times C) \cap (B \times D) .$ Deduce that the cartesian
+multiplication of sets distributes over the operation of intersection, that
+is, that $(A \cap B) \times C = (A \times C) \cap (B \times D)$ and $A \times
+(B \cap C) = (A \times B) \cap (A \times C)$ for all $A, B, \tmop{and} C.$
+
+\tmtextit{Solution:} Say $x \in (A \cap B) \times (C \cap D)$. Then $x = (y,
+z)$ for some $y \in A \cap B$ and some $z \in C \cap D$. So $y \in A$ and $y
+\in B$ and $z \in C$ and $z \in D$. Now $y \in A \tmop{and} z \in C$, so $x
+\in A \times C$ and with $y \in B$ and $z \in D$, then $x \in B \times D$.
+Hence $x \in (A \times C) \cap (B \times D)$. Now, suppose that $x \in (A
+\times C) \cap (B \times D)$, then $x \in A \times C$ and $x \in B \times D$.
+But this means for some $y \in A$ and some $z \in C$ such that $x = (y, z)$,
+then $y \in B$ and $z \in D$. Hence $y \in A$ and $y \in B$, so $y \in A \cap
+B$ and $z \in C$ and $z \in D$, thus $z \in C \cap D$. Conclusively we get $x
+\in (A \cap B) \times (C \cap D)$.
+
+1.6.9 Exhibit four sets $A, B, C, \tmop{and} D$ for which $(A \cup B) \times
+(C \cup D) \neq (A \times C) \cup (B \times D) .$
+
+\tmtextit{Solution:} Let $A =\{1\}, B =\{2\}, C =\{3\}, \tmop{and} D =\{4\}$,
+then $(A \cup B) \times (C \cup D) =\{1, 2\} \times \{3, 4\}=\{(1, 3), (1, 4),
+(2, 3), (2, 4)\} \neq \{(1, 3), (2, 4)\}=\{(1, 3)\} \cup \{(2, 4)\}= (A \times
+C) \cup (B \times D) .$
+
+1.6.10 In spite of the result in the preceding exercise, cartesian
+multiplication distributes over the operation of union. Prove this.
+
+\tmtextit{Solution:} Say $x \in A \times (B \cup C)$, then $x = (y, z)$ for
+some $y \in A$ and $z \in B$ or $z \in C$. If $z \in B$, then $x \in A \times
+B$. Otherwise, $z \in C \Rightarrow x \in A \times C$. Thus $x \in A \times B
+\tmop{or} x \in A \times C$, so $x \in (A \times B) \cup (A \times C)$. Now,
+suppose that $x \in (A \times B) \cup (A \times C)$, which means $x \in A
+\times B$ or $x \in A \times C$. So for some $z \in B \tmop{or} z \in C$ and
+some $y \in A$, $x = (y, x)$. But $z \in B \tmop{or} z \in C$, so $z \in B
+\cup C$. Thus $y \in A$ and $z \in B \cup C$, hence $x \in A \times (B \cup
+C)$.
+
+1.7.4 Let $\rho \tmop{and} \sigma$ be equivalence relations. Prove that $\rho
+\cap \sigma$ is an equivalence relation.
+
+\tmtextit{Solution:} To show that $\rho \cap \sigma$ is an equivalence
+relation, we show that it is reflexive, symmetric, and transitive. For
+reflexivity, we remark that any element $(x, x) \in \rho \tmop{and} (x, x) \in
+\sigma$ means that $(x, x) \in \rho \cap \sigma$. To show that it is
+symmetric, if $(x, y) \in \rho \cap \sigma$, then we know that $(x, y) \in
+\rho \tmop{and} (x, y) \in \sigma$, but since $\rho \tmop{and} \sigma$ are
+equivalence relations then $(y, x) \in \rho \tmop{and} (y, x) \in \sigma$,
+hence it must be that $(y, x) \in \rho \cap \sigma$. For transitivity, if $(x,
+y) \tmop{and} (y, z)$ both in $\rho \cap \sigma$, then $(x, y), (y, z) \in
+\rho$ and $(x, y), (y, z) \in \sigma$, but since both $\sigma \tmop{and} \rho$
+are both equivalence relations then $(x, z) \in \rho$ and $(x, z) \in \sigma$,
+hence $(x, z) \in \rho \cap \sigma$.
+
+1.7.5 Let $\rho$ be an equivalence relation on $X \tmop{and} \tmop{let} Y$ be
+a set. Show that $\rho \cap (Y \times Y)$ is an equivalence relation on $X
+\cap Y$.
+
+\tmtextit{Solution:} Let $\sigma$ denote the relation $\rho \cap (Y \times Y)$
+and we say that $x \sigma y$ iff $(x, y) \in \sigma$. Now, $x \sigma x$ since
+for all $x \in X$, $x \rho x$ and
+
+1.7.6 Give an example of these relations.
+
+(a) A relation which is reflexive and symmetric but not transitive.
+
+\tmtextit{Solution:} The relation $\rho$ where $x \rho y$ iff $| x - y | \leq
+1$.
+
+(b) A relation which is reflexive and transitive but not symmetric.
+
+\tmtextit{Solution:} The relation $\leq$ is reflexive and transitive but not
+symmetric.
+
+(c) A relation which is symmetric and transitive but not reflexive in some
+set.
+
+\tmtextit{Solution:} The relation $\rho$ such that $x \rho y$ is not true.
+
+1.7.10 Let $\rho$ be a relation which is reflexive and transitive in the set
+$A$. For $a, b \in A$, define $a \sim b \tmop{iff} a \rho b \tmop{and} b \rho
+a$.
+
+(a) Show that $\sim$ is an equivalence relation on $A$.
+
+\tmtextit{Solution:} To show $\sim$ is reflexive, we note that for any $a \in
+A$, that $a \rho a$ since $\rho$ is reflexive, thus $a \sim a$. If $a \sim b$,
+then $a \rho b \tmop{and} b \rho a$, but $b \sim a$ iff $b \rho a \tmop{and} a
+\rho b$, so $\sim$ is symmetric. Now suppose that $a \sim b \tmop{and} b \sim
+c$, this means that $a \rho b \tmop{and} b \rho a \tmop{and} b \rho c
+\tmop{and} c \rho b$, yet $\rho$ is transitive, so $a \rho c$ and $c \rho a$,
+hence $a \sim c$ and $\sim$ is transitive.
+
+(b) For $[a], [b] \in A / \sim,$define $[a] \rho' [b] \tmop{iff} a \rho b$.
+Show that this definition is independent of $a$ and $b$ in the sense that if
+$a' \in [a], b' \in [b], \tmop{and} a \rho b, \tmop{then} a' \rho b' .$
+
+\tmtextit{Solution:} Firstly, if $a' \in [a] \tmop{and} b' \in [b]$, then we
+know that means that $[a'] = [a] \tmop{and} [b'] = [b]$. Thus if $a \rho b$
+and $a' \in [a] \tmop{and} b' \in [b]$, then $[a] \rho' [b]$ and likewise it
+must also be that $[a'] \rho' [b']$. Hence by definition of $\rho'$, $a' \rho
+b'$.
+
+(c) Show that $\rho'$ is reflexive and transitive. Further, show that if $[a]
+\rho' [b] \tmop{and} [b] \rho' [a], \tmop{then} [a] = [b]$.
+
+\tmtextit{Solution:} $[a] \rho' [a] \tmop{iff} a \rho a$, but $\rho$ is
+reflexive so $a \rho a$ holds true for all $a$ and thus $\rho'$ is reflexive.
+If $[a] \rho' [b] \tmop{and} [b] \rho' [c]$, then $a \rho b \tmop{and} b \rho
+c$, but $\rho$ is transitive so $a \rho c$ and hence $[a] \rho' [c]$. Now if
+$[a] \rho' [b] \tmop{and} [b] \rho' [a]$, then $a \rho b \tmop{and} b \rho a$.
+But $\rho$ is not symmetric, so $a \rho b \tmop{and} b \rho a$ are only
+possible when $a = b$, due to the reflexiveness of $\rho$. So it must be that
+$[a] = [b]$.
+
+1.7.11 In the set $\mathbbm{Z}^+ \times \mathbbm{Z}^+$ define $(a, b) \sim (c,
+d) \tmop{iff} a + d = b + c$. Show that $\sim$ is an equivalence relation on
+this set. Indicate the graph $\mathbbm{Z}^+ \times \mathbbm{Z}^+$, and
+describe the $\sim$-equivalence classes.
+
+\tmtextit{Solution:} To show $\sim$ is reflexive, $(a, b) \sim (a, b)$ since
+$a + b = b + a$ which we know is true by commutativity of integers. Now if
+$(a, b) \sim (c, d)$, then $a + d = b + c$ and $(c, d) \sim (a, b)$ since $c +
+b = d + a$, which we know is true again by commutativity, hence we have shown
+that $\sim$ is symmetric. To see that $\sim$ is transitive, if $(a, b) \sim
+(c, d) \tmop{and} (c, d) \sim (e, f)$, so $a + d = b + c \tmop{and} c + f = d
++ e$, then $a + d = b + d + e - f \Leftrightarrow a + f = b + e$ thus $(a, b)
+\sim (e, f)$.
+
+1.8.1 Give an example of a function on $\mathbbm{R} \tmop{onto} \mathbbm{Z}$.
+
+\tmtextit{Solution:} The floor function $f : \mathbbm{R} \rightarrow
+\mathbbm{Z}$, such that $f (x)$ is the biggest integer that is $\leq$ to $x$.
+
+1.8.2 Show that if $A \subseteq X, \tmop{then} i_X | A = i_A$.
+
+\tmtextit{Solution:} We know that $i_X (x) = x$ for all $x \in X$. So let $A
+\subseteq X$, then for all $a \in A$, $(i_X | A) (a) = i_X (a) = a$. Thus $i_X
+|A =\{(a, a) | a \in A\}$ but this is just the definition of $i_A$, so $i_X |A
+= i_A$.
+
+1.8.3 If $X \tmop{and} Y$ are sets of $n$ and $m$ elements, respectively,
+$Y^X$ has how many elements? How many members of $\mathcal{P}(X \times Y)$ are
+functions?
+
+\tmtextit{Solution:} We have $m$ possible choices for each of the $n$ elements
+of $X$, thus we have $m^n$ elements in $Y^X$. $Y^X$ are all the functions
+possible from $X \rightarrow Y$, thus it must be that the only members of
+$\mathcal{P}(X \times Y)$ are those that are in $Y^X$ since $Y^X \subseteq
+\mathcal{P}(X \times Y)$, so the answer is $m^n$.
+
+1.8.4 Using only mappings of the form $f : \text{$\mathbbm{Z}^+ \rightarrow
+\mathbbm{Z}^+$}$, give an example of a function which
+
+(a) is one-to-one but not onto;
+
+\tmtextit{Solution:} $f (x) = 2 x$
+
+(b) is onto but not one-to-one.
+
+\tmtextit{Solution:} $f (x) = \left\{ \begin{array}{l}
+  x \tmop{when} x = 1\\
+  x - 1 \tmop{when} x \neq 1
+\end{array} \right.$
+
+1.8.5 Let $A =\{1, 2, \cdots, n\}$. Prove that if a map $f : A \rightarrow A$
+is onto, then it is one-to-one, and that if a map $g : A \rightarrow A$ is
+one-to-one, then it is onto.
+
+\tmtextit{Solution:} Suppose that $f : A \rightarrow A$ is onto, then since
+for all $a \in f [A] = A$, there being $n$, there must exist an element $x \in
+A$ such that $f (x) = a$. But since there are $n$ elements in the domain that
+means that $x$ gets mapped uniquely to an element in $f [A]$ since otherwise
+it would violate the definition of a function, that is to say either we didn't
+use all the elements in the domain or some $x$ maps to more than one element
+in the range. Hence $f$ is one-to-one. Now, if $g : A \rightarrow A$ is
+one-to-one, then the $n$ elements of the domain get mapped to exactly $n$
+elements in the range. But this is the size of the range, hence $g$ is onto.
+
+1.8.6 Let $f : \mathbbm{R}^+ \rightarrow \mathbbm{R}$, where $f (x) = \int_1^x
+\frac{\tmop{dt}}{t}$. Show as best you can that $f$ is a one-to-one and onto
+function.
+
+\tmtextit{Solution:} Since $\int^x_1 \frac{\tmop{dt}}{t} = \ln x$, then $f (x)
+= \ln x$. Suppose that $f (x_1) = f (x_2)$, which means that $\ln x_1 = \ln
+x_2$, applying the exponential function to both sides of the equation, yields
+$e^{\ln x_!} = e^{\ln x_2} \Leftrightarrow x_1 = x_2$ and thus $f$ is
+one-to-one. \
+
+1.8.8 Referring to Example 8.8, prove that if $f$ is a function and $A
+\tmop{and} B$ are sets, then $f [A \cup B] = f [A] \cup f [B]$.
+
+\tmtextit{Solution:} Let $y \in f [A \cup B]$, then that means that there
+exists an $x \in A \cup B$ such that $f (x) = y$. Since $x \in A \cup B$, then
+$x \in A$ or $x \in B$. If $x \in A$, then $y \in f [A]$ and clearly $y \in f
+[A] \cup f [B]$. Otherwise, $x \in B$, in which case $y \in f [B]$ and clearly
+$y \in f [A] \cup f [B]$. Hence, in either case, $y \in f [A] \cup f [B]$. Now
+suppose that $y \in f [A] \cup f [B]$, then $y \in f [A] \tmop{or} y \in f
+[B]$. If $y \in f [A]$, then there is an $x \in A \tmop{such} \tmop{that} f
+(x) = y$. Since $x \in A$, then clearly $x \in A \cup B$ and thus $y \in f [A
+\cup B]$. Otherwise $y \in f [B]$, which means that there is an $x \in B$ such
+that $f (x) = y$. Since $x \in B$ then clearly $x \in A \cup B$ and thus $y
+\in f [A \cup B]$. In both cases, $y \in f [A \cup B]$.
+
+1.8.9 Referring to the preceding exercise, prove further that $f [A \cap B]
+\subseteq f [A] \cap f [B]$, and show that proper inclusion can occur.
+
+\tmtextit{Solution:} Let $y \in f [A \cap B]$. This means that there exists an
+$x \in A \cap B \tmop{such} \tmop{that} f (x) = y$. But since $x \in A \cap
+B$, then $x \in A$ and $x \in B$. Thus $y \in f [A] \tmop{and} y \in f [B]$.
+Hence $y \in f [A] \cap f [B]$. To show that the proper inclusion can occur,
+let $A =\{1, 2\}, B =\{1, 3\}, \tmop{and} f =\{(1, a), (2, b), (3, b$\}. Then
+$f [A \cap B] =\{a\} \subset \{a, b\}= f [A] \cap f [B]$.
+
+1.8.10 Prove that a function $f$ is one-to-one iff for all sets $A \tmop{and}
+B$, $f [A \cap B] = f [A] \cap f [B]$.
+
+\tmtextit{Solution:} Suppose that $f$ is one-to-one and let $A$ and $B$ be any
+set. It suffices to show that $f [A] \cap f [B] \subseteq f [A \cap B]$ since
+we already know $f [A \cap B] \subseteq f [A] \cap f [B]$ by exercise 1.8.9.
+So say $y \in f [A] \cap f [B]$, then we know $y \in f [A] \tmop{and} y \in f
+[B]$, which means that there exists an $x_1 \in A \tmop{such} \tmop{that} f
+(x_1) = y$ and $x_2 \in B$ such that $f (x_2) = y$. Hence $f (x_1) = f (x_2) =
+y$, yet $f$ is one-to-one, so $x_1 = x_2$. Thus $x_1 = x_2 \in A$ and $x_1 =
+x_2 \in B$, so $x_1 = x_2 \in A \cap B$. We conclude then that $y \in f [A
+\cap B]$. To show the converse, let us consider the contrapositive, so $f$ is
+not injective, then we know that there exists a $x_1 \tmop{and} x_2$ such that
+$f (x_1) = f (x_2)$. Now, let $A =\{x_1 \}$ and $B =\{x_2 \}$ to show that $f
+[A \cap B] \neq f [A] \cap f [B]$.
+
+1.8.11 Prove that a function $f : X \rightarrow Y$ is onto $Y \tmop{iff} f [X
+- A] \supseteq Y - f [A]$ for all sets $A$.
+
+\tmtextit{Solution:} Suppose that $f$ is onto. For any set $A$ either $A \cap
+X = \varnothing$ or $A \cap X \neq \varnothing$. If $A \cap X = \varnothing$,
+then $f [X - A] = f [X] = Y = Y - f [A]$ since $f$ is onto which makes $f [X -
+A] \supseteq Y - f [A]$ clear. Now assume that $A \cap X \neq \varnothing$ and
+let $y \in (Y - f [A])$. This means that if $f (x) = y$, then $x \in X - A$.
+Thus $y \in f [X - A]$ and we have our inclusion. Conversely, suppose that $Y
+- f [A] \subseteq f [X - A]$. \ So $f : X \rightarrow Y$ and it's clear that
+if $A \cap X = \varnothing$, then $Y - \varnothing = Y \subseteq f [X] = f [X
+- A]$. Since $f [X] \subseteq Y$ by definition, then $f [X] = Y$ and $f$ is
+onto. Otherwise, $A \cap X \neq \varnothing$ and we see that $(Y - f [A]) \cup
+f [A] = Y \subseteq f [X] = f [(X - A) \cup A] = f [X - A] \cup f [A]$. Again
+$f [X] \subseteq Y$, so $Y = f [X]$ and $f$ is onto.
+
+1.8.12 Prove that a function $f : X \rightarrow Y$ is one-to-one and onto iff
+$f [X - A] = Y - f [A]$ for all sets $A$.
+
+\tmtextit{Solution:} Suppose that $f$ is one-to-one and onto. Then by 1.8.11,
+$Y - f [A] \subseteq f [X - A]$, so let $y \in f [X - A]$. Now we know
+$\exists x \in (X - A)$ such that $f (x) = y$. Then $x \in X$ and $x \nin A$,
+so $y \in f [A]$ but $y \in Y$. So $y \in Y - f [A]$ and $f [X - A] \subseteq
+Y - f [A]$. Hence $f [X - A] = Y - f [A]$. Conversely, suppose that $f [X - A]
+= Y - f [A]$. Then by 1.8.11, $f$ is onto. Now we use 1.8.10 and will know
+that $f$ is one-to-one if we show that $f [X \cap \overline{A}] = f [X] \cap f
+[ \overline{A]}$. Well in the case where $X \cap A = \varnothing$, then we
+have $f [X \cap \overline{A}] = f [X] = f [X] \cap f [X] = f [X] \cap f [
+\overline{A}]$, where we get the last equality since the function is only
+defined on $X$, and $f$ is one-to-one. Now for when $X \cap A \neq
+\varnothing$,
+
+1.9.1 Let $f : \mathbbm{R} \rightarrow \mathbbm{R}$ where $f (x) = (1 + (1 -
+x)^{1 / 2})^{1 / 5}$. Express $f$ as the composite of four functions, none of
+which is the identity function.
+
+\tmtextit{Solution:} Let $g, h, j, k$ all be functions from $\mathbbm{R}
+\rightarrow \mathbbm{R}$. Then $g (x) = 1 - x$, $h (x) = x^{1 / 2}$, $j (x) =
+1 + x$, $k (x) = x^{1 / 5}$ so that we have $f = k \circ j \circ h \circ g$.
+
+1.9.2 If $f : X \rightarrow Y$ and $A \subseteq X$, show that $f | A = f \circ
+i_A$.
+
+\tmtextit{Solution:} We know that $i_A : A \rightarrow A \subseteq X$ where
+$f (a) = a$ for all $a \in A$. Then $f \circ i_A =\{(a, f (a)) | a \in A\}$,
+but this is exactly $f \cap (A \times Y)$.
+
+1.9.3 Complete the proof of the assertions made in Example 9.2.
+
+\tmtextit{Solution:} We must show that $g : X / \rho \rightarrow f [X]
+\tmop{with} g ([x]) = f (x)$ is one-to-one and onto. So, if $g ([x_1]) = g
+([x_2])$, then $f (x_1) = f (x_2)$. But $f (x_1) = f (x_2)$ iff $x_1 \rho
+x_2$. Hence, $x_2 \in [x_1]$ and $x_1 \in [x_2]$, thus $[x_1] = [x_2]$. Now,
+for any $f (x)$ there exists an $[x]$ such that $g ([x]) = f (x)$. \
+
+1.9.5 Prove that $f : A \rightarrow B$ is a one-to-one correspondence between
+$A$ and $B$ iff there exists a map $g : B \rightarrow A$ such that $g \circ f
+= i_A$ and $f \circ g = i_B$.
+
+\tmtextit{Solution:} Suppose that $f : A \rightarrow B$ is a one-to-one
+correspondnce between $A$ and $B$. Then we know that $f^{- 1} : B \rightarrow
+A$ is also a one-to-one correspondence between $B$ and $A$. Thus $f^{- 1}
+\circ f = i_A$ and $f \circ f^{- 1} = i_B$. Conversely, suppose that there
+exists a map $g : B \rightarrow A$ such that $g \circ f = i_A$ and $f \circ g
+= i_B$. Now we note that $g = f^{- 1}$ (or $f = g^{- 1}$, if one were so
+inclined) and that $g$ is a one-to-one correspondence between $B$ and $A$ by
+definition. Thus $f : A \rightarrow B$ must also be a one-to-one
+correspondence between $A$ and B.
+
+1.9.6 If $f : A \rightarrow B$ and $g : B \rightarrow C$ are both one-to-one
+and onto, show that $g \circ f : A \rightarrow C$ is one-to-one and onto and
+that $(g \circ f)^{\um 1} = f^{\um 1} \circ g^{\um 1}$.
+
+\tmtextit{Solution:} Suppose that $g (f (x_1)) = g (f (x_2))$, then since $g$
+is one-to-one we have $f (x_1) = f (x_2)$. Yet $f$ is also one-to-one which we
+conclude that $x_1 = x_2$ and thus $g \circ f$ is one-to-one. For any element
+$c \in C$, we know that there exists an element $b \in B$ such that $g (b) =
+c$ since $g$ is onto and that there exists an element $a \in A$ such that $f
+(a) = b$, since $f$ is onto. Hence we know that for any element $c \in C$
+there exists an element $a \in A$ such that $g (f (a)) = c$, so $g \circ f$ is
+onto. For the last part, we refer to the solution of exercise 1.9.11.
+
+1.9.7 For a function $f : A \rightarrow A$, $f^n$ is the standard abbreviation
+for $f \circ f \circ \cdots \circ f$ with $n$ occurrences of $f$. Suppose that
+$f^n = i_A$. Show that $f$ is one-to-one and onto.
+
+\tmtextit{Solution:} If $f^n = i_A$, then it must be that $f^{n - 1} = f^{-
+1}$, since $f^n = f \circ f^{n - 1} = i_A$. Certainly $f^{- 1}$ cannot exist
+without $f$ being one-to-one. Furthermore, by the proof to Exercise 1.8.5 that
+with $f$ being a map from $A$ to $A$ and also one-to-one, then this implies
+that $f$ is also onto.
+
+1.9.8 Justify the following restatement of Theorem 7.1. Let $X$ be a set. Then
+there exists a one-to-one correspondence between the equivalence relations on
+$X$ and the partitions of $X$.
+
+\tmtextit{Solution:} Consider $f$ the function which takes an equivalence
+relation $\rho$ to the collection of equivalence classes of $\rho$, also known
+as a partition.
+
+1.9.9 Prove that if the inverse of the function $f$ in $\mathbbm{R}$ exists,
+then the graph of $f^{- 1}$ may be obtained from that of $f$ by a reflection
+in the line $y = x$.
+
+\tmtextit{Solution:} The graph to $f$ is all the points $(x, y)$ on the
+Cartesian plane such that $(x, y) \in f$. Reflection about the line $y = x$
+means that every point $(x, y)$ in the Cartesian plane will end up as $(y,
+x)$. Thus the graph of the reflection of $f$ will be the points taken from the
+set $\{(y, x) | (x, y) \in f\}$, but this is also the definition of the $f^{-
+1}$.
+
+1.9.10 Show that each of the following functions has an inverse. Determine the
+domain of each inverse and its value at each member of its domain. Further,
+sketch the graph of each inverse.
+
+(a) $f : \mathbbm{R} \rightarrow \mathbbm{R}$ where $f (x) = 2 x - 1$
+
+\tmtextit{Solution:} $f^{- 1} : \mathbbm{R} \rightarrow \mathbbm{R}$ where
+$f^{- 1} (x) = \frac{1}{2} (x + 1)$. The domain is all real numbers.
+
+(b) $f : \mathbbm{R} \rightarrow \mathbbm{R}$ where $f (x) = x^3$
+
+\tmtextit{Solution:} $f^{- 1} (x) = \sqrt[3]{x}$ where the domain is
+$\mathbbm{R}$.
+
+(c) $f =\{(x, (1 - x^2)^{1 / 2}) | 0 \leq x \leq 1\}$
+
+\tmtextit{Solution:} $f = f^{- 1}$ and the domain remains the same.
+
+(d) $f =\{(x, \frac{x}{x - 1}) | - 2 \leq x < 1\}$
+
+\tmtextit{Solution:} $f^{- 1} =\{(x, \frac{x}{x - 1}) | - \infty < x \leq 2 /
+3\}$
+
+1.9.11 Establish the identity $(g \circ f)^{- 1} = f^{- 1} \circ g^{- 1}$ for
+one-to-one functions $f$ and $g$.
+
+\tmtextit{Solution:} We know that the composition of functions is associative.
+Furthermore, for any invertible function $h$, $h \circ h^{- 1} = h^{- 1} \circ
+h = i$ and $i \circ h = h \circ i = h$. Now, $(g \circ f) \circ (f^{- 1} \circ
+g^{- 1}) = g \circ (f \circ f^{- 1}) \circ g^{- 1} = g \circ i \circ g^{- 1} =
+g \circ g^{- 1} = i$ and $(f^{- 1} \circ g^{- 1}) \circ (g \circ f) = f^{- 1}
+\circ (g^{- 1} \circ g) \circ f = f^{- 1} \circ i \circ f = f^{- 1} \circ f =
+i$. Thus, we have shown that $f^{- 1} \circ g^{- 1}$ is the inverse of $g
+\circ f$, namely that $(g \circ f)^{- 1} = f^{- 1} \circ g^{- 1}$.
+
+1.9.12 Prove that if the inverse of $f$ exists, then $f^{- 1} [A \cap B] =
+f^{- 1} [A] \cap f^{- 1} [B]$.
+
+\tmtextit{Solution:} Since we know that $f^{- 1}$ is one-to-one by definition,
+then the equality holds by the the proof from the solution to Exercise 1.8.10.
+
+1.9.13 The definition of the composite of two functions is applicable to any
+pair of relations. With this in mind, show that if $f$ is any function and $g
+=\{(y, x) | (x, y) \in f\}$ then $g \circ f$ is an equivalence relation.
+
+\tmtextit{Solution:} We first note that $g \circ f =\{(x, x) | (x, y) \in f
+\tmop{and} (y, x) \in g\}$. This is also the identity relation and thus an
+equivalence relation. It's clearly reflexive. Symmetric since for any element
+$(x, y) \in g \circ f$, then $(y, x) \in g \circ f$ which is true since $y =
+x$. Transitivity follows by a similar argument.
+
+1.9.14 Let $A, B, A', \tmop{and} B'$ be sets such that $A$ and $A'$ are in
+one-to-one correspondence and $B$ and $B'$ are in one-to-one correspondence.
+Show that
+
+(a) there exists a one-to-one correspondence between $A \times B$ and $A'
+\times B'$
+
+\tmtextit{Solution:} Since $A$ is in a one-to-one correspondence then we know
+that there exists an function $f$ such that for any unique element $a \in A$,
+then $f (a) \in A'$. Moreover $f (a)$ is unique and $f [A] = A'$. The same
+holds for $B$ and $B'$ except we can call this function $g$. Now, to show that
+$A \times B$ is in one-to-one correspondence with $A' \times B'$, then we can
+define a function $h$ such that $h ((a, b)) = (f (a), g (b))$ for all $(a, b)
+\in A \times B$.
+
+(c) if, further, $A \cap B = \varnothing$and $A' \cap B' = \varnothing$, then
+there exists a one-to-one correspondence between $A \cup B$ and $A' \cup B'$
+
+\tmtextit{Solution:} Using $f$ and $g$ from part (a), we define the one-to-one
+corresponding function $h : A \cup B \rightarrow A' \cup B' $ by $h (x) =
+\left\{ \begin{array}{l}
+  f (x) \tmop{when} x \in A\\
+  g (x) \tmop{when} x \in B
+\end{array} \right.$.
+
+1.9.15 For sets $A, B, \tmop{and} C$ show that
+
+(a) $A \times B$ is in one-to-one correspondence with $B \times A$
+
+\tmtextit{Solution:} Let us consider the mapping $f : A \times B \rightarrow B
+\times A$ such that $(a, b) \rightarrow (b, a)$. If $f ((a, b)) = f ((a',
+b'))$, then we have $(b, a) = (b', a')$ and $f$ is one-to-one. Furthermore,
+consider $(b, a) \in B \times A$, then there exists $(a, b) \in A \times B$
+such that $f ((a, b)) = (b, a)$, hence $f$ is onto.
+
+(b) $(A \times B) \times C$ is in one-to-one correspondence with $A \times (B
+\times C)$
+
+\tmtextit{Solution:} Consider the mapping $f : (A \times B) \times C
+\rightarrow A \times (B \times C)$ such that $((a, b), c) \rightarrow (a, (b,
+c))$.
+
+(c) $A \times (B \cup C)$ is in one-to-one correspondence with $(A \times B)
+\cup (A \times C)$.
+
+\tmtextit{Solution:} Since $A \times (B \cup C) = (A \times B) \cup (A \times
+C)$, we just need to consider the identity mapping here.
+
+1.10.1 Let $\rho$ be a relation, that is, a set each of whose members is an
+ordered pair. Show that $\rho$ is a relation in $\bigcup \bigcup \rho$ .
+
+\tmtextit{Solution:} $\bigcup \bigcup \rho = \text{$\bigcup \{ \bigcup
+\{\rho\}\}= \text{$\bigcup \{\rho\}= \rho$}$}$ and $\rho$ is a relation.
+
+1.11.1 Show that if $\rho$ is a partial ordering relation, then so is
+$\breve{\rho}$.
+
+\tmtextit{Solution:} $\breve{\rho}$ is reflexive since $x
+\text{$\breve{\rho}$} x$ iff $x \rho x$, which it must since $\rho$ is a
+partial ordering relation. $\breve{\rho}$ is transitive because if $z
+\text{$\breve{\rho}$} y$ and $y \text{$\breve{\rho}$} x$ then $z
+\text{$\breve{\rho}$} x$ since $\rho$ is transitive. $\breve{\rho}$ being
+antisymmetric is straightforward as $x \text{$\breve{\rho}$} y$ and $y
+\text{$\breve{\rho}$} x$ mean that $x = y$.
+
+1.11.2 For the set of real-valued continuous functions with the nonnegative
+reals as domain, define $f = O (g)$ to mean that there exist positive
+constants $M$ and $N$ such that $f (x) \leq \tmop{Mg} (x)$ for all $x > N$.
+Show that this is a preordering, and define the associated equivalence
+relation.
+
+\tmtextit{Solution:} We show that $f = O (f)$. Clearly, letting $M = 1$, then
+$f (x) = M f (x)$ for all $x$ and so the inequality is satisfied. Let $f = O
+(g)$ and $g = O (h)$. This means that $f (x) \leq M g (x)$ for all $x > N$ and
+$g (y) \leq S h (y)$ for all $y > N'$, thus $f (z) \leq M g (z) \leq M S h
+(z)$ for $z > N N'$. So $f = O (h)$. We have shown reflexitivity and
+transitivity so this is in fact a preordering.
+
+2.3.1 Show that similarity is an equivalence relation on any collection of
+sets.
+
+{\tmem{Solution:}} Reflexive: $A \sim A$ since the identity function is a
+bijection.
+
+Symmetric: Suppose $A \sim B$. Let $f$ be the bijection from $A$ to $B$. Then
+we know that $f^{- 1}$ is a bijection from $B$ to $A$ and thus $B \sim A$.
+
+Transitive: Suppose $A \sim B$ and $B \sim C$. Let $f$ be a bijection from $A$
+to $B$ and $g$ be a bijection from $B$ to $C$. Then $g \circ f$ is a bijection
+from $A$ to $C$, hence $A \sim C$.
+
+3.3.5 From properties (1), (3), (4) of addition, prove that
+
+(i) addition has the cancellation property
+
+{\tmem{Solution:}} If $a + x = b + x$. By 4, we know that $x + z = 0$, so $(a
++ x) + z = (b + x) + z$. Then by associativity, we have $a + (x + z) = b + (x
++ z)$ and we conclude that by 3, $a = b$.
+
+(ii) for each $x$ the solution of $z + x = 0$ is unique
+
+{\tmem{Solution:}} Assume that $z + x = 0$ and $z' + x = 0$. Then $z + x = z'
++ x$ and by the previous exercise $z = z'$.
+
+(iii) for each $x$ and $y$, the equation $z + x = y$ has a unique solution.
+
+{\tmem{Solution:}} Assume that $z + x = y$ and $z' + x = y$. Then $z + x = z'
++ x$ and by the previous exercise $z = z'$.
+
+3.3.8 Prove each of the following properties of the system of integers.
+
+(iii) $<$ is transitive
+
+{\tmem{Solution:}} If $x < y$ and $y < z$, then $y - x \in \mathbbm{Z}^+$ and
+$z - y \in \mathbbm{Z}^+$. By theorem 3.3.1 (11), $(y - x) + (z - y) \in
+\mathbbm{Z}^+$ and by associativity and commutativity, we have $(y - y) + (z -
+x) = z - x \in \mathbbm{Z}^+$. Hence by theorem 3.3.1 (3), $x < z$.
+
+4.1.1 Translate the following composite sentences into symbolic notation,
+using letters to stand for the prime components (which here we understand to
+mean sentences which contain no connectives).
+
+(a) Either it is raining or someone left the shower on.
+
+{\tmem{Solution:}} $R \vee S$
+
+(b) If it is foggy tonight, then either John must stay home or he must take a
+taxi.
+
+{\tmem{Solution:}} $F \rightarrow S \vee T$
+
+(c) John will sit, and he or George will wait.
+
+{\tmem{Solution:}} $S \wedge (J \vee G)$
+
+(d) John will sit and wait, or George will wait.
+
+{\tmem{Solution:}} $(S \wedge W) \vee G$
+
+(e) I will go either by bus or by taxi.
+
+{\tmem{Solution:}} $G \rightarrow (B \vee T)$
+
+(f) Neither the North nor the South won the Civil War.
+
+{\tmem{Solution:}} $W \rightarrow \sim (N \wedge S)$
+
+(g) If, and only if, irrigation ditches are dug will the crops survive; should
+the crops not survive, then the farmers will go bankrupt and leave.
+
+{\tmem{Solution:}} $(D \leftrightarrow C) \wedge (\sim C \rightarrow (B \wedge
+L))$
+
+(h) If I am either tired or hungry, then I cannot study.
+
+{\tmem{Solution:}} $(T \vee H) \rightarrow \sim S$
+
+(i) If John gets up and goes to school, he will be happy; and if he does not
+get up, he will not be happy.
+
+{\tmem{Solution:}} $(U \wedge S \rightarrow H) \wedge (\sim U \rightarrow \sim
+H)$
+
+4.1.2 Let $C$ be ``Today is clear,'' $R$ be ``It is raining today,'' $S$ be
+``It is snowing today,'' and $Y$ be ``Yesterday was cloudy.'' Translate into
+acceptable English the following.
+
+(b) $Y \leftrightarrow C$
+
+{\tmem{Solution:}} Yesterday was cloudy if and only if today is clear.
+
+(c) $Y \wedge (C \vee R)$
+
+{\tmem{Solution:}} Yesterday was cloudy and either today is clear or it's
+raining today.
+
+(d) $(Y \rightarrow R) \vee C$
+
+{\tmem{Solution:}} Today is clear or if yesterday was cloudy, then it is
+raining today.
+
+(e) $C \leftrightarrow (R \wedge \neg S) \vee Y$
+
+{\tmem{Solution:}} If and only if, it's clear today either yesterday was
+cloudy or it is the case that it is raining today and not snowing.
+
+(f) $(C \leftrightarrow R) \wedge (\neg S \vee Y)$
+
+{\tmem{Solution:}} Today is clear if and only if it is raining today, but
+either it's not snowing today or yesterday was cloudy.
+
+4.2.1 Suppose that the statements $P, Q, R$ and $S$ are assigned the truth
+values T, F, F, and T, respectively. Find the truth value or each of the
+following statements.
+
+(a) $(P \vee Q) \vee R$
+
+{\tmem{Solution:}} T
+
+(b) $P \vee (Q \vee R)$
+
+{\tmem{Solution:}} T
+
+(c) $R \rightarrow (S \wedge P)$
+
+{\tmem{Solution:}} T
+
+(d) $P \rightarrow (R \rightarrow S)$
+
+{\tmem{Solution:}} T
+
+(e) $P \rightarrow (R \vee S)$
+
+{\tmem{Solution:}} T
+
+(f) $P \vee R \leftrightarrow R \wedge \neg S$
+
+{\tmem{Solution:}} F
+
+(g) $S \leftrightarrow P \rightarrow (\neg P \vee S)$
+
+{\tmem{Solution:}} T
+
+(h) $Q \wedge \neg S \rightarrow (P \leftrightarrow S)$
+
+{\tmem{Solution:}} T
+
+(i) $R \wedge S \rightarrow (P \rightarrow \neg Q \vee S)$
+
+{\tmem{Solution:}} T
+
+(j) $(P \vee \neg Q) \vee R \rightarrow (S \wedge \neg S)$
+
+{\tmem{Solution:}} F
+
+4.2.3 Suppose the value of $P \rightarrow Q$ is T; what can be said about the
+value of $\neg P \wedge Q \leftrightarrow P \vee Q$ ?
+
+{\tmem{Solution:}} When $P$ is T and $Q$ is T, then $\neg P \wedge Q
+\leftrightarrow P \vee Q$ is F. When $P$ is F and $Q$ is T, then $\neg P
+\wedge Q \leftrightarrow P \vee Q$ is T. When $P$ is F and $Q$ is F, then
+$\neg P \wedge Q \leftrightarrow P \vee Q$ is T. Ultimately, if you do not
+know $P$ and $Q$, then you can say nothing about the value of $\neg P \wedge Q
+\leftrightarrow P \vee Q$.
+
+4.2.4 (a) Suppose the value of $P \leftrightarrow Q$ is T; what can be said
+about the values of $P \leftrightarrow \neg Q$ and $\neg P \leftrightarrow Q$
+?
+
+{\tmem{Solution:}} Both $P \leftrightarrow \neg Q$ and $\neg P \leftrightarrow
+Q$ are F.
+
+(b) Suppose the value of $P \leftrightarrow Q$ is F; what can be said about
+the values of $P \leftrightarrow \neg Q$ and $\neg P \leftrightarrow Q$ ?
+
+{\tmem{Solution:}} $P \leftrightarrow \neg Q$ and $\neg P \leftrightarrow Q$
+will be T.
+
+4.2.7 Referring to the statement in the preceding exercise, suppose it is
+agreed that: If the government obtains an injunction, then troops will be sent
+into the mills. If the troops are sent into the mills, then the strike will
+not be settled. The strike will be settled. Management is stubborn. Determine
+wehther the statement in question is true or not.
+
+{\tmem{Solution:}} We have $G \rightarrow R, R \rightarrow \neg S, M,
+\tmop{and} S$ as all being true statements. Thus we know $\neg (G \rightarrow
+R) = G \wedge \neg R$ is false. Now $\begin{array}{lllllllll}
+  L & \vee & M & \rightarrow & (S & \leftrightarrow & [G & \wedge & \neg R])\\
+  & T &  & \rightarrow & (T & \leftrightarrow &  & F) & \\
+  & T &  & \rightarrow &  & F &  &  & \\
+  &  &  & F &  &  &  &  & 
+\end{array}$ and the statement is false.
+
+5.2.3 Let $\mathbbm{Z}_n$ be the set of residue classes $[a]$ of $\mathbbm{Z}$
+modulo $n$. Show that the relation $\{(([a], [b]), [a + b]) | [a], [b] \in
+\mathbbm{Z}_n \}$ is a binary operation in $\mathbbm{Z}_n$. Show that
+$\mathbbm{Z}_n$ together with this operation and $[0]$ is a commutative group.
+
+{\tmem{Solution:}} We could clearly see that given $[a], [b] \in
+\mathbbm{Z}_n$ that $(a + b) \tmop{mod} n \in [c]$ and $[c] \in
+\mathbbm{Z}_n$. To show commutativity, we note that $a + b = b + a, \forall a,
+b \in \mathbbm{Z}_n$. Thus $f ([a], [b]) = [a + b] = [b + a] = f ([b], [a])$.
+
+5.2.5 Show that $\mathbbm{R}$ together with the operation $\star$ such that
+$x \star y = (x^3 + y^3)^{1 / 3}$ and $0$ is a group.
+
+{\tmem{Solution:}} Let $x, y, z \in \mathbbm{R}$, then $x \star (y \star z) =
+x \star \sqrt[3]{y^3 + z^3} = \sqrt[3]{x^3 + ( \sqrt[3]{y^3 + z^3})^3 =}
+\sqrt[3]{x^3 + y^3 + z^3}^{}$ and $(x \star y) \star z = \sqrt[3]{x^3 + y^3}
+\star z = \sqrt[3]{( \sqrt[3]{x^3 + y^3})^3 + z^3 =} \sqrt[3]{x^3 + y^3 +
+z^3}^{}$, hence $x \star (y \star z) = (x \star y) \star z$ and we have shown
+associativity. We note that $0 \in \mathbbm{R}$ is the identity since $x \star
+0 = \sqrt[3]{x^3 + 0^3} = \sqrt[3]{x^3} = x, \forall x \in \mathbbm{R}$. We
+know that if $x \in \mathbbm{R}$, then $- x \in \mathbbm{R}$, hence we have $x
+\star - x = \sqrt[3]{x^3 + (- x)^3} = \sqrt[3]{x^3 - x^3} = \sqrt[3]{0} = 0$
+and $- x = x^{- 1}, \forall x \in \mathbbm{R}$.
+
+5.2.6 Write out the elements of $G (X)$ for $X =\{1, 2\}$ and for $X =\{1, 2,
+3\}$. Show that the group associated with the latter set of mappings is not
+commutative.
+
+{\tmem{Solution:}} If $X =\{1, 2\}$, then $G (X) =\{\{(1, 1), (2, 2)\}, \{(1,
+2), (2, 1)\}\}$. Now, if $X =\{1, 2, 3\}$, then $G (X) =\{\{(1, 1), (2, 2),
+(3, 3)\}, \{(1, 2), (2, 3), (3, 1)\}, \{(1, 3), (2, 1), (3, 2)\}, \{(1, 2), 
+(2, 1), (3, 3)\}, \{(1, 3), (2, 2), (3, 1)\}, \\
+\{(1, 1), (2, 3), (3, 2)\}\}$.
+Let $g =\{(1, 2), (2, 3), (3, 1)\}$ and $g' =\{(1, 3), (2, 2), (3, 1)\}$. Then
+$g \circ g' =\{(1, 1), (2, 3), (3, 2)\} \neq \{(1, 2), (2, 1), (3, 3)\}= g'
+\circ g$.
+
+8.3.3 Show that $\{(1 + 2 m) / (1 + 2 n) | m, n \in \mathbbm{Z}\}$ is a group
+under ordinary multiplication.
+
+{\tmem{Solution:}} Let $A =\{(1 + 2 m) / (1 + 2 n) | n, m \in \mathbbm{Z}\}$
+under multiplication. Check closure, so let $(1 + 2 m) / (1 + 2 n)$ and $(1 +
+2 k) / (1 + 2 r)$ be elements in $A$.
+\[ ( \frac{1 + 2 m}{1 + 2 n}) ( \frac{1 + 2 k}{1 + 2 r}) = \frac{1 + 2 m + 2 k
+   + 4 k m}{1 + 2 n + 2 r + 4 n r} = \frac{1 + 2 (m + k + 2 k m)}{1 + 2 (n + r
+   + 2 n r)} \in A \]
+Clearly $1 = \frac{1}{1}$ is the identity. The inverse for any element, $(1 +
+2 m) / (1 + 2 n)$, is $(1 + 2 n) / (1 + 2 m)$. Now to show associativity:
+
+8.4.7 Show that if $a, b$ and $a b$ are groups elements each of order 2, then
+$a b = b a$.
+
+{\tmem{Solution:}} $(a a) = (a b) (a b)$. Then multiply on the left by $a$
+and use association to get $(a a) a = (a a) b (a b)$. Now multiply on the
+right by $b$ and use association to yield $(a a) a b = (a a) b a (b b)$. The
+result after using what was given $a b = b a$.
+
+\end{document}

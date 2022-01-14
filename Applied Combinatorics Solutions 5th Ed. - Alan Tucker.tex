@@ -1,0 +1,802 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\usepackage{wrapfig}
+\usepackage{shapepar}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{calligra}
+\usepackage{amsmath}
+\usepackage[symbol*]{footmisc}
+%\usepackage[enableskew]{youngtab}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{youngtab}
+\newcommand{\un}[1]{\underline{#1}}
+
+\begin{document}
+Applied Combinatorics 5th Ed. by Alan Tucker
+\begin{enumerate}
+
+\item[5.1.7] Given nine different English books, seven different French books, and five different German books: 
+\begin{enumerate}
+\item[(a)] How many ways are there to select one book? \\
+There are $9 + 7 + 5 = 21$ ways to select one book.
+\item[(b)] How many ways are there to select three books, one of each language? \\
+Following the multiplication principle, there are $9 \times 7 \times 5 = 315$ ways to 
+select three books, one of each language.
+\item[(c)] How many ways are there to make a row of three books in which exactly one language is missing (the ordre of the three books makes a difference)? \\
+To complete this problem, we will use something like example 5.1.4 as our base. Since we have
+to choose 3 books from a set of books of only two of the possible 3 languages (which we'll denote
+E - English, F - French, and G - German). We will also 
+let \un{9E} \un{8E} \un{7F} represent $9 \times 8 \times 7$. So, now we show the possibilities
+for English and French: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{9E} \un{8E} \un{7F} & \un{9E} \un{7F} \un{8E} & \un{9E} \un{7F} \un{6F} &
+\un{7F} \un{9E} \un{8E} & \un{7F} \un{9E} \un{6F} & \un{7F} \un{6F} \un{9E} \\
+\hline
+\end{tabular} \\
+German and French: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{5G} \un{4G} \un{7F} & \un{5G} \un{7F} \un{6F} & \un{5G} \un{7F} \un{4G} &
+\un{7F} \un{6F} \un{5G} & \un{7F} \un{5G} \un{6F} & \un{7F} \un{5G} \un{4G} \\
+\hline
+\end{tabular} \\
+German and English: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{9E} \un{8E} \un{5G} & \un{9E} \un{5G} \un{8E} & \un{9E} \un{5G} \un{4G} &
+\un{5G} \un{9E} \un{8E} & \un{5G} \un{4G} \un{9E} & \un{5G} \un{9E} \un{4G} \\
+\hline
+\end{tabular} \\
+Summing up all the boxes and we yield 5316 ways.
+\end{enumerate}
+
+\item[5.1.9] How many ways are there to pick 2 different cards from a standard 52-card deck such that:
+\begin{enumerate}
+\item[(a)] The first card is an Ace and the second card is not a Queen? \\
+We want to choose two cards the first must be an ace, therefore we have $4$ choices.
+Now, we have $52 - 1 = 51$ cards left, yet the second card cannot be a queen, hence we got $51 - 4 = 47$ cards in which to choose from. Thus we have $4 \times 47 = 188$ ways to pick 2 different cards.
+\item[(b)] The first card is a spade and the second card is not a Queen? \\
+First off, let us just toss out the four queens, then we can choose from any of the 12 spades, 
+(13 cards to a suit but we can't have a queen of spades because it was thrown out so 13 - 1 = 12). 
+Thus, we have $12 \times 47$, where 47 is 52 minus the 4 queens and the already chosen spade. Now, 
+let's take into account that the first one picked was the queen of spades, then we can choose the second card
+from 48 possible cards, that is 52 minus the queen of spades minus the rest of the queens. Hence we have
+$(12 \times 47) + (1 \times 48)$.
+\end{enumerate}
+
+\item[5.1.10] How many nonempty collections of letters can be formed from three As and five Bs?
+\begin{enumerate}
+\item[] Where one A is as good as the next (same goes for any B), we have $4 \times 6 = 24$ possible collections of letters from three A's and five B's, where we've taken into account the fact that we can have some amount of A's and no B's or some amount of B's and no A's. Yet the problem asked for nonempty collections and the collection where we have no A's and no B's was added in. Thus we have $24 - 1 = 23$ nonempty collections.
+\end{enumerate}
+
+\item[5.1.12] How many four-letter "words" (sequences of letters with repetition) are there in which the first and last letter are vowels? In which vowels appear only (if at all) as the first and last letter?
+\begin{enumerate}
+\item[] So for the first question, \emph{"How many four-letter "words" (sequence of letters with repetition) are
+there in which the first and last letter are vowels?"} Since the first and last position in the four-letter word
+can be vowels that leaves us with 5 possibilities for both while the second and third position can be any of the
+26 letters of the alphabet. Thus we can conclude that we have $5 \times 5 \times 26 \times 26$ or $5^226^2$ possible
+four-letter words satisfying this condition. Now for the second question, \emph{"In which vowels appear only (if at 
+all) as the first and last letter?"} So we know now that we cannot have a vowel in the second or third spot, so we
+have 21 possibilities for each one (26 minus the 5 vowels), but in the mean time we also have the entire alphabet
+able to be put in the first and last position so 26 possibilities for the first and last position. Thus, we have
+$21 \times 21 \times 26 \times 26$ or $21^226^2$ possible words for this question.
+\end{enumerate}
+
+\item[5.1.15] What is the probability that the top two cards in a shuffled deck do not form a pair?
+\begin{enumerate}
+\item[] Suppose that the deck is shuffled. Then the first card has 52 possible choices. After knowing the first card there are $52 - 1 = 51$ cards left, yet only $51 - 3 = 48$ permissible cards left (that is those that will not give us doubles. So there are $51 \times 48$ outcomes with no pairs. To yield the probability we put that number over all the possible outcomes, which we can get from $52 \times 51$. Thus, we have $(51 \times 48)/(52 \times 51)$.
+\end{enumerate}
+
+\item[5.1.21] How many three-letter sequences without repeated letters can be made using $a, b, c, d, e, f$ in which either $e$ or $f$ (or both) is used?
+\begin{enumerate}
+\item[] So, we have a total of 6 letters ($a, b, c, d, e,$ and $f$) in which to make a 3 letter sequence 
+with no repeated letters and we must have
+either $e$ or $f$ or both in said sequence. So we can show the possible sequences of $e$ without $f$ and $f$ without $e$: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{e} \un{ } \un{ } & \un{ } \un{e} \un{ } & \un{ } \un{ } \un{e} &
+\un{f} \un{ } \un{ } & \un{ } \un{f} \un{ } & \un{ } \un{ } \un{f} \\
+\hline
+\end{tabular} \\
+in all cases for one open spot in each box we have 4 possibilities and 3 for the other open position. Thus 
+$4 \times 3 \times 6$. Yet, this isn't all because we can have both $e$ and $f$ in the sequence, so: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{e} \un{f} \un{ } & \un{e} \un{ } \un{f} & \un{ } \un{f} \un{e} &
+\un{f} \un{e} \un{ } & \un{f} \un{ } \un{e} & \un{ } \un{e} \un{f} \\
+\hline
+\end{tabular} \\
+with the only open position in each box having 4 possibilities, hence $4 \times 6$. Then,  
+$(4 \times 3 \times 6) + (4 \times 6) = 96$ possible sequences.
+\end{enumerate}
+
+\item[5.1.31] How many times is "25" written when listing all numbers from 1 to 100,000?
+\begin{enumerate}
+\item[] Since there are 4 possibilities for "25", namely: \\
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\un{ } \un{ } \un{ } \un{2} \un{5} & \un{ } \un{ } \un{2} \un{5} \un{ } & 
+\un{ } \un{2} \un{5} \un{ } \un{ } & \un{2} \un{5} \un{ } \un{ } \un{ } \\
+\hline
+\end{tabular} \\
+and with the other 3 empty spots in each box, each position can have 10 digits (0 through 9), hence
+$4 \times 10 \times 10 \times 10 = 4000$ times "25" is written when listing all numbers from 1 to
+100,000.
+\end{enumerate}
+
+\item[5.1.36] If two different integers between 1 and 100 inclusive are chosen at random, what is the probability that the difference of the two numbers is 15?
+\begin{enumerate}
+\item[] First thing to note here is that if the first number chosen is between 1 and 15 or between 86
+and 100, then there is only 1 number between 1 and 100 such that the difference is 15. Furthermore,
+for the rest of the numbers, 16 to 85 (70 numbers in total) there are 2 numbers between 1 and 100 such
+that the difference is 15. So, since the probability is the number of such particular 
+outcomes divided by the number of all outcomes and we must choose a different number the second time,
+we can conclude that the probability of randomly choosing two numbers with a difference of 15 is 
+$[(30 \times 1) + (70 \times 2)]/(100 \times 99)$.
+\end{enumerate}
+
+\item[5.1.43] How many ways are there to place two identical queens on an $8 \times 8$ chessboard so that the queens are not in a common row, column, or diagonal?
+\begin{enumerate}
+\item[] Let 'Q' represent the queen and 'X' be all the places in which we can't put the other queen. \\
+If we count the empty squares on the chessboard on the below left, we get 42, Since the board is symmetrical
+then we can get 42 squares everytime we put a queen on any of the spots on the bottom right chessboard and since
+there are 28 squares in that diagram we have $42 \times 28$.\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ Q&X&X&X&X&X&X&X \\
+ \hline
+ X&X& && && & \\
+ \hline
+X&&X && && & \\
+ \hline
+X&& &X& && & \\
+ \hline
+X&& &&X && & \\
+ \hline
+X&& && &X& & \\
+ \hline
+X&& && &&X & \\
+ \hline
+X&& && && &X \\
+\hline
+\end{tabular} \begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ 1&2&3&4&5&6&7&8 \\
+ \hline
+28&& && && &9 \\
+ \hline
+27&&&& && &10 \\
+ \hline
+26&&&&&& &11 \\
+ \hline
+25&& && && &12 \\
+ \hline
+24&& && && &13 \\
+ \hline
+23&& && && &14 \\
+ \hline
+22&21&20&19&18&17&16&15 \\
+\hline
+\end{tabular} \\
+We can also do this more: \\
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+X&X&X&&&&& \\
+ \hline
+X&Q&X&X&X&X&X&X \\
+ \hline
+X&X&X&& && & \\
+ \hline
+&X&&X&&& & \\
+ \hline
+&X& &&X && & \\
+ \hline
+&X& && &X& & \\
+ \hline
+&X& && &&X & \\
+ \hline
+&X&&&&&&X\\
+\hline
+\end{tabular} \begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ &&&&&&& \\
+ \hline
+&1&2&3&3&5&6& \\
+ \hline
+&20&&& &&7& \\
+ \hline
+&19&&&&&8& \\
+ \hline
+&18& && &&9& \\
+ \hline
+&17& && &&10& \\
+ \hline
+&16&15&14&13&12&11& \\
+ \hline
+&&&&&&& \\
+\hline
+\end{tabular} \\
+(where above we have $20 \times 40$ and below we have $12 \times 38$) \\
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ &X& &X& &X& & \\
+ \hline
+ & &X&X&X& & & \\
+ \hline
+ X&X&X&Q&X&X&X&X\\
+ \hline
+ & &X&X&X& & & \\
+ \hline
+ &X& &X& &X& & \\
+ \hline
+ X& & &X& & &X& \\
+ \hline
+ & & &X& & & &X\\
+ \hline
+ & & &X& & & & \\
+\hline
+\end{tabular} \begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+&&&&&&& \\
+ \hline
+&& && && & \\
+ \hline
+&&1&2&3&4& & \\
+ \hline
+&&12&&&5& & \\
+ \hline
+&&11&& &6& & \\
+ \hline
+&&10&9&8&7& & \\
+ \hline
+&& && && & \\
+ \hline
+&&&&&&& \\
+\hline
+\end{tabular} \\
+Without displaying the last one, we can see that it will clearly be $4 \times 36$, where we have
+the four innermost squares being the last squares not accounted for in the previous diagrams. So now
+we can sum up all these possibilities, $(4 \times 36) + (12 \times 38) + (20 \times 40) + (42 \times 28)$. 
+Yet, we didn't take into account that the two queens were identical, thus this entire number must be
+divided by two. Hence, $2576/2 = 1288$ number of ways that satisfies our requirements.
+\end{enumerate}
+
+\item[5.1.44] How many different positive integers can be obtained as a sum of two or more of the numbers 1, 3, 5, 10, 20, 50, 82?
+\begin{enumerate}
+\item[] As was mentioned in class, any set with $n$ elements has $2^n$ subsets. So, since this set of integers
+has 7 elements, we would have $2^7$. But, we want elements that are two or more so we have to eliminate the 
+sets with only one number and the empty set (which was taken into account), so we have to subtract 8. Furthermore,
+we have to verify that each set produces a distinct sum after summing up all the elements in the subset. It 
+turns out (by direct computation) that there are 4 sums which are represented by two different subsets, namely
+83, 85, 86, and 88. Thus, we have $2^7 - 8 - 4 = 116$ different positive integers that we can get from the sum
+of two or more integers from the set $\{1, 3, 5, 10, 20, 50, 82 \}$.
+\end{enumerate}
+
+\item[5.1.46] How many different rectangles can be drawn on an $8 \times 8$ chessboard (the rectangles could have sides of length 1 through 8; two rectangles are different if they contain different subsets of individual squares)?
+\begin{enumerate}
+\item[] An $8 \times 8$ chessboard can be constructed by 9 equally spaced vertical lines and 9 equally
+spaced horizontal lines so that they construct 64 squares. If we consider the paradigm of this problem as
+constructing a rectangle by choosing a vertical line and then choosing a different vertical line, then we
+9 possibilities for the first rectangle and 8 possibilities for the second, leaving us with $9 \times 8$ 
+possibilities. But we have overcounted because choosing, line 4, for example and then choosing line 6 is
+the same as choosing line 6 then choosing line 4. Thus $(9 \times 8)/2 = 36$. Yet, we have to take into
+account the horizontal lines when constructing the rectangles and by the same reasoning we have 36 
+possibilities also. Hence there can be $36 \times 36 = 1296$ different rectangles drawn on an $8 \times 8$
+chessboard.
+\end{enumerate}
+
+
+\item[1.] Show that ${n \choose 0} + {n \choose 1} + \cdots + {n \choose i} + \cdots + {n \choose n} = 2^n$.
+\begin{enumerate}
+\item[] As was hinted in class, if we think of a set, $S$, with $n$ elements in it. Then there are $2^n$ subsets of
+$S$, each one of them distinct. Furthermore, there are subsets that have 1 element in them, some subsets that
+have 2 elements in them, and so on. So, there are ${n \choose 0}$ subsets that contain no elements in it, there
+are ${n \choose 1}$ subsets that have only 1 element in them, and so on. Therefore the left handed side of the 
+equality is the sum of all the different subsets of $S$, which we know is equal to $2^n$.
+\end{enumerate}
+
+
+\item[5.2.3] How many ways are there to distribute seven different books among 15 children if no child gets more than one book?
+\begin{enumerate}
+\item[] Since the first book we have, 15 choices, and the second book, we have 14 choices and so on till we have
+9 choices (which is 15 - 7 + 1). Then it becomes quite clear that the answer is $P(15, 7)$.
+\end{enumerate}
+
+\item[5.2.12] How many ways are there to partition 14 people into:
+\begin{enumerate}
+\item[(a)] Three groups of sizes 3, 5, and 6? \\
+So for the first group (the one of size 3), we can choose 3 of the 14 people, so $C(14, 3)$, then the next
+group (the one of size 5), we can choose 5 from the remaining 11 people left, so $C(11 , 5)$ and since the people
+left are automatically the last group (the one of size 6), we simply have $C(14, 3) \times C(11, 5)$. Alternatively,
+we could have selected the group of 6 first and the group of 5 second and it would have yielded 
+$C(14, 6) \times C(8, 5)$. In either case, $C(14, 6) \times C(8, 5) = C(14, 3) \times C(11, 5) = 168,168$ ways to 
+partition 14 people into 3 groups of sizes 3, 5, and 6.
+\item[(b)] Two (unordered) groups of size 7? \\ 
+Since once we choose 7 of the 14 people for one group, the leftover 7 automatically go into the other
+group. Thus we have $C(14, 7)$ but we want unordered groups, so we need to divide by 2. Hence $C(14, 7)/2$.
+\end{enumerate}
+
+\item[5.2.15] How many $n$-digit ternary (0, 1, 2) sequences with exactly nine 0s are there?
+\begin{enumerate}
+\item[] So if we have $n$ positions in which to put the nine 0's. So we have $C(n, 9)$. Now the rest of the spaces,
+there being $n - 9$ in which we can put either a 1 or a 2, that is 2 possibilities, hence we have $2^{n-9}$. Thus
+we have $C(n, 9) \times 2^{n-9}$ ternary sequences with exactly nine 0's.
+\end{enumerate}
+
+\item[5.2.18] Suppose a class of 50 students has 20 males and 30 females. The instructor will pick one (different) student to compete in three different national competitions-in mathematics, chemistry, and English.
+\begin{enumerate}
+\item[a)] What is the probability that there is exactly one female student selected? \\ 
+Firstly, we want to know the total amount of ways to pick 3 different students from a group of 50 to 
+compete in 3 different national competitions, which we can do $P(50, 3)$ ways. Then we know we have
+30 females in which to select one so she can compete in any of the 3 different competitions, so we have
+$30 \times 3$. Now for each female selected, we have to choose 2 males to compete in 2 different competitions, 
+which we can do $P(20, 2)$ ways. Thus $[30 \times 3 \times P(20, 2)]/P(50, 3)$ is the probability that 
+there is exactly one female student selected.
+\item[b)] What is the probability that there are at least two male students selected? \\
+Since we have already got the probability for exactly 2 males, all we need to add is the case
+of there being exactly 3 males, which we can do in $P(20, 3)$ number of ways. Hence, 
+$[(P(20, 2) \times 30 \times 3) + P(20, 3)]/P(50, 3)$.
+\end{enumerate}
+
+\item[5.2.22] If 13 players are each dealt 4 cards from a 52-card deck, what is the probability that each player gets one card of each suit? 
+\begin{enumerate}
+\item[] First off, to give 13 players exactly 1 card from each suit, we have 13! possibilities. Since
+there are 4 suits, we have $13! \times 13! \times 13! \times 13! = 13!^4$. Now that there are 4 cards in
+each players hand, there is $4!$ ways that they could have received them and since there are 13 players, so we
+have $4!^{13}$. Hence $4!^{13} \times 13!^4$ possibilities. Now to find the probability we need to put that
+over all the possible permutations of the 52 card deck. Thus $(4!^{13} \times 13!^4)/52!$.
+\end{enumerate}
+
+\item[5.2.25] What is the probability that an arrangement of $a, b, c, d, e, f$ has
+\begin{enumerate}
+\item[a)] $a$ and $b$ side-by-side? \\ 
+Let us suppose that we have 6 positions, \un{1} \un{2} \un{3} \un{4} \un{5} \un{6}, 
+that are to be filled by the letters $a, b, c, d, e,$ and $f$. Now we want $a$ and $b$ side by side. 
+So, let us first place $a$ in one of the 6 open positions. We need to note here that when $a$ is
+placed in positions 2 - 5 that there are two possible positions for $b$ and only 1 position for $b$ when
+$a$ goes into either position 1 or 6. Thus we have $(4 \times 2) + (2 \times 1)$. Now after putting the
+$a$ and $b$ we have 4 spots in which we can permute the last four letters, hence $[(4 \times 2) +
+(2 \times 1)] \times 4!$. Now to find the probability we have to put this over all the possible
+permutations of the 6 letters, so finally we have 
+\[
+\frac{[(4 \times 2) + (2 \times 1)] \times 4!}{6!} = \frac{10 \times 4!}{6!} =
+\frac{2 \times 5!}{6!} = \frac{2}{6} = \frac{1}{3}
+\]
+\item[b)] $a$ occurring somewhere before $b$? \\
+Very similar to example 5.2.2 in that we have $C(6, 2)$ number of ways in which to choose the
+$a$ before the $b$ after which we can just permute the 4 leftover letters. Since it's the probability, it's
+all over the total possible permutations of the 6 letters. Thus, we have $(C(6, 2) \times 4!)/6!$.
+\end{enumerate}
+
+\item[5.3.5] How many ways are there to pick a collection of 8 coins from piles of pennies, nickels, dimes, and quarters?
+\begin{enumerate}
+\item[] We want to know how many ways to pick a collection (with repitition) of 8 coins from 4 types of objects 
+(dimes, nickels, pennies, and quarters) and this is just straightfowardly theorem 2 from 5.3, so we have
+$C(8 + 4 - 1, 8)$.
+\end{enumerate}
+
+\item[5.3.19] How many arrangements of letters in REPETITION are there with the first E occurring before the first T?
+\begin{enumerate}
+\item[] One way to do this problem is view it as 10 open slots, in which to choose 2 so that the first E is before
+the first T, so your left with 8 letters to place, but 2 of these letters are the same, namely the two I's, 
+and thus indistinguishable, so we can find all the placements by $(8 - 1)! = 7!$. Hence we have 
+$C(10, 2) \times 7! = 226,800$ arrangements satisfying our requirements.
+\end{enumerate}
+
+\item[5.3.24] How many ways are there first to pick a subset of $r$ people from 50 people (each of a different height), and next to pick a second subset of $s$ people such that everyone in the first subset is shorter than everyone in the second subset (explain your answer carefully).
+\begin{enumerate}
+\item[] If everyone in the group of 50 has different height, then when we choose $r + s$ people, there is going
+to be exactly 1 way in which to divide the $r + s$ people into the two groups that satisfy our condition of
+no one being in the group consisting of $r$ people being taller than anyone in the group of $s$ people. Thus we
+simply have $C(100, r + s)$.
+\end{enumerate}
+
+\item[5.3.31] When a coin is flipped $n$ times, what is the probability that:
+\begin{enumerate}
+\item[a)] The first head comes after exactly $m$ tails? \\
+Since each flip you have either a head or tails (2 possibilities) and since we have $n$ flips, then we have
+a total of $2^n$ possibilities. Now since we want to calculate the probability of there being $m$ flips, each
+of them landing on tails, with the $m + 1$ flip being a head, we have $2^{n - (m + 1)}$ possibilities. Thus, one 
+over the other and we have $2^{n - (m + 1)}/2^n$.
+\item[b)] The $i$th head comes after exactly $m$ tails? \\
+Clearly the $i$th head is going to have to have had $m + (i - 1)$ prior flips (that's $m$ for the number
+of times, the flips have landed on tails and $i - 1$ because of all the prior times it's landed on heads). Thus, 
+we can achieve this after $C(m + (i - 1), m)$ number of ways. Then $C(m + (i - 1), m) \times 2^{n - (m + i)}$ since
+we can have either head or tails for the rest of the flips to end out our $n$ number of flips. Hence we have
+$[C(m + (i - 1), m) \times 2^{n - (m + i)}]/2^n$ as our probability.
+\end{enumerate}
+
+\item[Problem 1.] Show that $\sum P(n; k_1, k_2, \ldots, k_m) = m^n$, where the sum is over all
+sequences $(k_1, k_2, \ldots, k_m)$ such that $k_i \geq 0$ for all $i$ and $k_1 + k_2 + \cdots 
+k_m = n$.
+\begin{enumerate}
+\item[] Imagine we have a string of length $n$. Then $P(n; k_1, k_2, \ldots, k_m)$ is the amount of strings with 
+$k_1$ of some letter and $k_2$ of some other letter, and so on. Hence if we sum up all the strings with all
+the possible combinations of $k_1, k_2, \ldots, k_m$ such that $k_1 + k_2 + \cdots + k_m = n$, then we would just have
+every possible string using all the possibilities of amounts of letters. But this is just us having $m$ options for every 
+letter in a string of length, $n$, which is $m^n$.
+\end{enumerate}
+
+\item[Problem 2.] (a) In how many ways can 8 identical rooks be placed on a 12 by 12 chessboard
+so that no two rooks can attack each other? (b) In how many ways can 5 non-attacking rooks be placed on
+an 8 by 8 chessboard so that neither the first row nor first column is empty?
+\begin{enumerate}
+\item[a)] First we can choose the rows, so $C(12, 8)$ and then the columns, which is also $C(12, 8)$. Hence
+there are $C(12, 8)^2 \times 8!$ possibilities.
+\item[b)] We have two cases, the case where a rook is placed in the corner of the board and when there isn't. Firstly,
+there is only 1 way to place the rook in the corner, but now we have $C(7, 4) \times C(7, 4)$ because we have 7 rows 
+and 7 columns in which to place the rest of the four rooks but when we place the first of the 4 rooks 
+in one of the selected rows and one of the selected columns, we have 3 rows and columns in which to place the next,
+and 2 rows and columns to place the next, and only 1 way to place the last. So we have $C(7, 4) \times C(7, 4) \times 4!$.
+Furthermore, in the other case we have to place 1 rook in 7 squares of the first row and another rook in the 7 squares of
+the first column, so $7^2$, then we can place the 3 leftover rooks in any of the 6 rows and columns leftover. Hence
+$7^2 \times C(6, 3) \times C(6, 3) \times 3!$, with the $3!$ coming from the same situation as the first case. Now we
+just add the two cases together to get $[C(7, 4) \times C(7, 4) \times 4!] + [7^2 \times C(6, 3) \times C(6, 3) \times 3!]$.
+\end{enumerate}
+
+\item[5.3.21] How many arrangements of the letters in MATHEMATICS are there in which TH appear together but the TH is not immediately followed by an E (not THE)?
+\begin{enumerate}
+\item[] So we have 11 letters in MATHEMATICS, yet we are going to count TH as one letter. Now imagine we have
+10 positions in which to put the TH and the E first, so for the first 9 positions, we can have 8 possibilities,
+that is 10 positions minus the the spot for TH and the one immediately following, so $9 \times 8$ with
+8 letters left consisting of 6 unique letters, 2 A's, and 2 M's, hence we have $8!/(2!2!)$. Thus, $9 \times 8
+\times 8!/(2!2!)$. Yet we have forgotten one case, that is when the TH is in the last position, in which case, there
+are 9 possibilities for the E and this yields $9 \times 8!/(2!2!)$. Adding the two cases together, we get
+$[9 \times 8 \times 8!/(2!2!)] + [9 \times 8!/(2!2!)] = 816,480$ arrangements satisfying our condition.
+\end{enumerate}
+
+\item[5.3.26] How many ways are there to place nine different rings on the four fingers of your right hand (excluding thumb) if:
+\begin{enumerate}
+\item[a)] The order of rings on a finger does not matter? \\ 
+Since order does not matter, then we have 4 possibilities for any one of the nine different rings, thus we have
+$4^9$ different ways.
+\item[b)] The order of rings on a finger is considered? (Hint: $Tricky$.) \\ 
+We still have 4 possibilities for the nine different rings, so we still have $4^9$ but we can also permute
+the 10 rings so that they get placed in a certain order. Thus $4^9 \times 10!$.
+\end{enumerate}
+
+\item[5.3.33] How many arrangements are there of seven $a$s, eight $b$s, three $c$s, and six $d$s with no occurrence of the consecutive pairs $ca$ or $cc$?
+\begin{enumerate}
+\item[] First we note that we have 24 positions and every time we treat a pair of letters as 1 letter, we have
+subtract from the amount of positions. Since we can't have a $ca$ or $cc$, then it must be that a $b$ or $d$ must come after every $c$. So, let's break
+it down by case. \\
+Case 1: We have $cb, cb, cb$ in our arrangement. Thus we have to select from 21 positions, 3 spots, $C(21, 3)$,
+then multiply it by the possible arrangements of the rest of the letters, which are $P(18; 7, 5, 6)$. Hence
+$C(21, 3) \times P(18; 7, 5, 6)$ \\
+Case 2: We have $cb, cd, cd$ in our arrangement. Thus we have to select from 21 positions, 3 spots, $C(21, 3)$,
+then multiply it by the possible arrangements of the rest of the letters, which are $P(18; 7, 7, 4)$. Hence
+$C(21, 3) \times P(18; 7, 7, 4)$ \\
+Case 3: We have $cb, cb, cd$ in our arrangement. Thus we have to select from 21 positions, 3 spots, $C(21, 3)$,
+then multiply it by the possible arrangements of the rest of the letters, which are $P(18; 7, 5, 6)$. Hence
+$C(21, 3) \times P(18; 7, 5, 6)$ \\
+Case 4: We have $cd, cd, cd$ in our arrangement. Thus we have to select from 21 positions, 3 spots, $C(21, 3)$,
+then multiply it by the possible arrangements of the rest of the letters, which are $P(18; 7, 8, 3)$. Hence
+$C(21, 3) \times P(18; 7, 8, 3)$ \\
+Case 5: We have $cb, cb$ and $c$ as our last letter in our arrangement. Thus we have to select from 
+21 positions, 2 spots, $C(21, 2)$, then multiply it by the possible arrangements of the rest of the letters, 
+which are $P(19; 7, 6, 6)$. Hence $C(21, 2) \times P(19; 7, 6, 6)$ \\
+Case 6: We have $cb, cd$ and $c$ as our last letter in our arrangement. Thus we have to select from 
+21 positions, 2 spots, $C(21, 2)$, then multiply it by the possible arrangements of the rest of the letters, 
+which are $P(19; 7, 7, 5)$. Hence $C(21, 2) \times P(19; 7, 5, 7)$ \\
+Case 7: We have $cd, cd$ and $c$ as our last letter in our arrangement. Thus we have to select from 
+21 positions, 2 spots, $C(21, 2)$, then multiply it by the possible arrangements of the rest of the letters, 
+which are $P(19; 7, 4, 8)$. Hence $C(21, 2) \times P(19; 7, 4, 8)$ \\
+To find our answer we just sum up all the cases.
+\end{enumerate}
+
+\item[5.4.8] How many ways are there to arrange 10 identical apples and 5 different oranges in a row so that no two oranges will appear side by side?
+\begin{enumerate}
+\item[] We follow example 5.4.9 to solve this one. That is we put the oranges in such a fashion that they
+create "boxes" between the oranges, then we have created 6 boxes, in which case there must have at least 1 apple 
+in the boxes between the 5 oranges. So now we get to distribute the remaining 5 apples, so $C(5 + 6 - 1, 5)$ and
+since each orange is different, we can have $5!$ ways to position the oranges. Thus we have
+$C(5 + 6 - 1, 5) \times 5!$ arrangements satisfying our conditions.
+\end{enumerate}
+
+\item[5.4.9]
+\begin{enumerate}
+\item[a)] How many arrangements of the letters in COMBINATORICS have no consecutive vowels? \\ 
+Again we'll use example 5.4.9. First off we'll notice how many arrangments of the vowels we have, 
+since there are 2 O's, 2 I's, and 1 A, we have $P(5; 2, 2, 1)$. Then that we want to fill each "middle" box with
+at least one letter, so that none of the vowels are consecutive, which we can do in $C(9, 4)$ ways and after
+count the number of arrangements of the letters any of the 6 boxes, so $P(8, 6)$. Hence 
+$P(5; 2, 2, 1) \times C(9, 4) \times P(8, 6)$.
+\item[b)] In how many of the arrangements in part (a) do the vowels appear in alphabetical order? \\
+Since there is only 1 way to write the vowels in alphabetical order, then we simply what we had
+before minus the $P(5; 2, 2, 1)$. Thus $C(9, 4) \times P(8, 6)$.
+\end{enumerate}
+
+
+\item[5.4.17] Each of 10 employees brings one (distinct) present to an office party. Each present is given to a randomly selected employee by Santa (an employee can get more than one present). What is the probability that at least two employees receive no presents?
+\begin{enumerate}
+\item[] We can easily see that the total amount of possibilities is $10^{10}$ because any of the 10 employees
+can receive up to 10 presents.
+\end{enumerate}
+
+\item[5.4.25] How many arrangements of MISSISSIPPI are there with no pair of consecutive Ss?
+\begin{enumerate}
+\item[] We can split up the S's such that they create 5 boxes and we know that the middle 3 must be filled
+by at least 1 item, so we will have $7 - 3$ to choose from and 5 boxes to put them in, so $C((7 - 3) + 5 - 1, 
+(7 - 3))$, then we can arrange this in $P(7; 4, 2, 1)$, that is 4 I's, 2 P's, and 1 M. Hence we have
+$C((7 - 3) + 5 - 1, (7 - 3)) \times P(7; 4, 2, 1)$.
+\end{enumerate}
+
+
+\item[5.4.26] How many ways are there to distribute 15 identical objects into four different boxes if the number of objects in box 4 must be a multiple of 3?
+\begin{enumerate}
+\item[] This is much like example 5.4.7, in that we have $x_1 + x_2 + x_3 + 3x_4 = 15$, where
+$x_1, x_2, x_3, x_4 \geq 0$. So we can list according to case, \\
+Case 1: $x_4 = 0$, then we have $C(15 + 3 - 1, 15)$. \\
+Case 2: $x_4 = 1$, then we have $C(12 + 3 - 1, 12)$. \\
+Case 3: $x_4 = 2$, then we have $C(9 + 3 - 1, 9)$. \\
+Case 4: $x_4 = 3$, then we have $C(6 + 3 - 1, 6)$. \\
+Case 5: $x_4 = 4$, then we have $C(3 + 3 - 1, 3)$. \\
+Case 1: $x_4 = 5$, then we have $C(0 + 3 - 1, 0)$. \\
+Sum all those up to yield the answer of 321 ways.
+\end{enumerate}
+
+\item[5.4.40] How many nonnegative integer solutions are there to the pair of equations 
+$x_1 + x_2 + \cdots + x_6 = 20$ and $x_1 + x_2 + x_3 = 7$?
+\begin{enumerate}
+\item[] Straightforwardly\footnote[3]{Of course, I might be interpretting the 
+question wrong and the first and second equation are dependent on each other, 
+in which case we can count the number of solutions to the second equation and note that
+$x_1, x_2,$ and $x_3$ in the first equation must have the same numbers as the second equation. Hence
+we have the first equation turn into $x_4 + x_5 + x_6 = 20 - 7 = 13$. But this is just $C(13 + 3 - 1, 13)$, 
+combined with the possibilities for the second equation, we have $C(13 + 3 - 1, 13) \times C(7 + 3 - 1, 7) = 
+3780$ solutions.} 
+similar to the first question of example 5.4.6, hence we have $C(20 + 6 - 1, 20)$ 
+to the first equation and $C(7 + 3 - 1, 7)$ to the second equation. 
+\end{enumerate}
+
+\item[5.4.58] How many ways are there to distribute $r$ identical balls into $n$ distinct boxes with exactly $m$ boxes empty?
+\begin{enumerate}
+\item[] Following example 5.4.8, in order to have exactly $m$ empty boxes, we have to place at least 1 ball
+in the $n - m$ boxes. After doing so, we are able to put the remaining $r - (n - m)$ balls without restriction
+into the $n - m$ boxes. Thus, we have 
+\begin{eqnarray*}
+C(r - (n - m) + (n - m) - 1, r - (n - m)) &=& \frac{[r - (n - m) + n - m - 1]!}{[r - 1 - (r - n + m)]!(r - n + m)!} \\
+&=& \frac{(r - 1)!}{(n - m - 1)!(r - n + m)!} \\
+&=& C(r - 1, n - m - 1) \mbox{ ways }
+\end{eqnarray*}
+\end{enumerate}
+
+\item[5.5.2] Verify the following identities by block walking:
+\begin{enumerate}
+\item[a)] 
+\[
+{n \choose 0} + {n \choose 1} + \cdots + {n \choose n} = 2^n
+\]
+We have ${n \choose 0}$ number of ways to get to $(n, 0)$, ${n \choose 1}$ number of ways to get
+to $(n, 1)$ and so on. Adding all the ways to get to any of the points on the $n$th row is the same as knowing
+there are $2^n$ number of ways to achieve a traversal of $n$ blocks.
+\end{enumerate}
+
+\item[5.5.11] 
+\begin{enumerate}
+\item[a)] 
+\begin{eqnarray*}
+{n \choose 1} + 6{n \choose 2} + 6{n \choose 3} &=& n + 6\frac{n(n - 1)}{2} + 6\frac{n!}{(n - 3)!3!} \\
+&=& n + 3n^2 - 3n + n(n - 1)(n - 2) \\
+&=& n + 3n^2 - 3n + n^3 - 2n^2 - n^2 + 2n \\
+&=& n^3
+\end{eqnarray*}
+\end{enumerate}
+
+\item[5.5.14] By setting $x$ equal to the appropriate values in the binomial expansion (or one of its derivatives, etc.) evaluate:
+\begin{enumerate}
+\item[a)] We set $x = -1$ in the binomial expansion so that
+\[
+(1 - 1)^n = {n \choose 0} + {n \choose 1}(-1) + {n \choose 2}(-1)^2 + \cdots + {n \choose n}(-1)^n 
+= \sum^n_{k = 0}(-1)^k{n \choose k} = 0
+\]
+\end{enumerate}
+
+\item[6.3.4] Find a generating function for the number of integer solutions of $2x + 3y + 7z = r$ with:
+\begin{enumerate}
+\item[a)] $x, y, z \geq 0$ \\
+The generating function for $2x + 3y + 7z = r$ with $x, y, z \geq 0$ is \\
+$(1 + x^2 + x^4 + \cdots )(1 + x^3 + x^6 + \cdots )(1 + x^7 + x^{14} + \cdots )$.
+\item[b)] $0 \leq z \leq 2 \leq y \leq 8 \leq x$ \\
+Now with $0 \leq z \leq 2 \leq y \leq 8 \leq x$, we have \\
+$(1 + x^7 + x^{14})(x^3 + x^6 + \cdots + x^{24})(x^{16} + x^{18} + \cdots )$.
+\end{enumerate}
+
+\item[6.3.5] Find a generating function for the number of ways to make $r$ cents' change in pennies, nickels, dimes, and quarters.
+\begin{enumerate}
+\item[] Similar to example 6.3.2, in that we can say $e_1 + 5e_2 + 10e_3 + 25e_4 = r$. Then the generating
+function would be \\ $(1 + x + x^2 + \cdots )(1 + x^5 + x^{10} + \cdots )
+(1 + x^{10} + x^{20} + \cdots )(1 + x^{25} + x^{50} + \cdots )$.
+\end{enumerate}
+
+\item[6.3.14] Show that the number of partitions of the integer $n$ into three parts equals the number of partitions of $2n$ into three parts of size $< n$.
+\begin{enumerate}
+\item[] I think the problem wants us to show that $R(2n, 3) = R(n - 1, 3) + \cdots + R(3, 3)$ (??). But
+let us show something stronger, that is $R(2n, k) \geq R(n, k) + R(n - 1, k) + \cdots R(1, k)$
+So, for any partition of $2n$, we can just put a $2n - m$ for some $R(m, k)$ on the RHS so that we produce a partition
+of $2n$. Thus it must follow that the inequality is true since at most we tacked on an $n$, which means we might
+not have gotten every partition but at least some of them. Now, we know that the aforementioned equality is
+at least possible.
+\end{enumerate}
+
+\item[6.3.20] Show that $2(1 - x)^{-3}[(1 - x)^{-3} + (1 + x)^{-3}]$ is the generating function for the number of ways to toss $r$ identical dice and obtain an even sum.
+\begin{enumerate}
+\item[] Let's manipulate the generating function a bit. So that
+\[
+2(1 - x)^{-3}[(1 - x)^{-3} + (1 + x)^{-3}] = 2[(1 - x)^{-6} + (1 - x)^{-6}] = 4(1 - x)^{-6}
+\]
+But this looks incorrect since if we had 1 die, and we wanted to know what the coefficient was it would
+be $4 \times C(6, 1)$, which is 24, which is impossible. Yet we could say $1/2$ instead of 4, to 
+yield the correct equality, that is that there are 3 ways to roll 1 dice and get an even sum. We can further note
+that we can represent the dice rolling problem with the integer solution $e_1 + e_2 + \cdots + e_r = 2k, 1 \leq 
+e_i \leq 6$. Dividing both sides by 2 and we have rearranged our problem so that we clearly have
+our desired result.
+\end{enumerate}
+
+\item[6.3.21] 
+\begin{enumerate}
+\item[a)] A partition of an integer $r$ is \emph{self-conjugate} if the Ferrers diagram of the partition is equal to its own transpose. Find a one-to-one correspondence between the self-conjugate partitions of $r$ and the partitions of $r$ into distinct odd parts. \\
+Essentially what this boils down to is taking a self-conjugate partition of $r$ and 
+and pulling it apart so that we create nothing but upside down L shapes, unbend them, and lay
+them straight on top of each other. Since, it must be that each L shape is of $2k + 1$ blocks,
+where $k$ is some positive integer, then after unfolding we clearly have each row as a
+distinct odd number. This is clearly one-to-one and invertible since the process is reversible.
+Hence we have the 1-1 correspondence desired. We can depict the above process pictorially: \\
+Here is our self-conjugate partition \yng(5,4,3,2,1) \\
+Nowe have break it down to our L's \yng(5,1,1,1,1) \yng(3,1,1) \yng(1) \\
+\\
+Flatten them out and stack \yng(9,5,1)
+\item[b)] The largest square of dots in the upper left-hand corner of a Ferrers diagram is called the \emph{Durfee square} of the Ferrers diagram. Find a generating function for the number of self-conjugate partitions of $r$ whose Durfee square is size $k$ (a $k \times k$ array of dots). (\emph{Hint}: Use a 1-1 correspondence between these and the partitions of $r - k^2$ into even parts of size at most $2k$.) \\
+Assuming that we removed the Durfee square from a self-conjugate partition, then we would
+have two partitions stemming from the bottom and right side of the Durfee square. We note that
+the leftover partitions are conjugates of each other and belong to $(r - k^2)/2$, so that it suffices
+to know that each self-conjugate partition of $r$ is just identified by the partition of $(r - k^2)/2$
+into $k$ parts and a Durfee square of some size $k$. Hence
+\[
+\frac{x^{k^2}}{(1 - x^2)(1 - x^4)\cdots (1 - x^{2k})}
+\]
+\end{enumerate}
+
+\item[9.2.1] How many different $n$-bead necklaces are there using beads of red, white, blue, and green (assume necklaces can rotate but cannot flip over)?
+\begin{enumerate}
+\item[a)] $n = 3$ \\
+We do this like example 9.2.3. So, we have $\Psi (0^{\circ}) = 4^3$ and 
+$\Psi (120^{\circ}) = 4 = \Psi(240^{\circ})$. Thus by Burnside's we have
+$N = \frac{1}{3}(4^3 + 2 \cdot 4) = 24$.
+\item[b)] $n = 4$ \\
+In exactly the same manner as part (a) and example 9.2.3, we get
+$\Psi (90^{\circ}) = 4 = \Psi(270^{\circ}), \Psi(0^{\circ}) = 4^4,$ and 
+$\Psi(180^{\circ}) = 4^2$, hence by Burnside's we have
+$N = \frac{1}{4}(4^4 + 2 \cdot 4 + 4^2) = 70$.
+\end{enumerate}
+
+\item[9.2.5] A merry-go-round can be built with three different styles of horses. How many five-horse merry-go-rounds are there?
+\begin{enumerate}
+\item[] We look at Figure 9.5 to get an idea for this problem, except instead of 3 spots, we
+have 5. Now, we get 
+$\Psi(0^{\circ}) = 3^5$,
+$\Psi(72^{\circ}) = 3 = \Psi(144^{\circ}) = \Psi(216^{\circ}) = \Psi(288^{\circ})$.
+By Burnside's we get $N = \frac{1}{5}(3^5 + 4 \cdot 3) = 51$.
+\end{enumerate}
+
+\item[9.2.8] How many different ways are there to color the five faces of an unoriented pyramid (with a square base) using red, white, blue, and yellow?
+\begin{enumerate}
+\item[] Let's imagine this pyramid from a birds eye view (sort of).
+\begin{displaymath}
+\xymatrix{
+\bullet \ar@{-}[rr]^a \ar@{-}[dd]_d &&\bullet \ar@{-}[dd]^b \\
+&e& \\
+\bullet \ar@{-}[rr]_c &&\bullet
+}
+\end{displaymath}
+So it looks like the symmetries of this are exactly like the square (since
+$a$-$d$ represent the 4 triangular faces and $e$ is the base), except each letter
+can be colored and the $e$ is always fixed during any rotation. We know that $90^{\circ}$ and
+$270^{\circ}$ rotations only work with monochromatic, yet $e$ can be four colors when
+the rest are the same, so $\Psi(90^{\circ}) = \Psi(270^{\circ}) = 4^2$. With
+$\Psi(0^{\circ}) = 4^5$ and $\Psi(180^{\circ}) = 4^3$, we get from Burnside's that
+$N = \frac{1}{4}(4^5 + 4^3 + 2 \cdot 4^2) = 280$.
+\end{enumerate}
+
+\item[9.2.9] 
+\begin{enumerate}
+\item[a)] Find a group of all possible permutations of three objects. \\
+This is the symmetric group of degree 3, in cycle notation we have \\
+$\{(1)(2)(3), (12)(3), (13)(2), (23)(1), (123), (132) \}$.
+\item[b)] Find the number of ways to distribute 12 identical balls in three indistinguishable boxes. [\emph{Hint:} First let boxes be distinct, and then use part (a).] \\
+The hint says first let the boxes be distinct, so we get $\Psi(\pi_1) = 
+C(12+3-1, 12)$. Then for the rest we use the rest of elements of the symmetric group
+of three as long as their cycle type is the same so we get $\Psi(\pi_2) = \Psi(\pi_3) = 
+\Psi(\pi_4) = 7$ and $\Psi(\pi_5) = \Psi(\pi_6) = 1$. Hence by Burnside's we get
+$\frac{1}{6}(C(14, 12) + 3 \cdot 7 + 2 \cdot 1) = 19$.
+\end{enumerate}
+
+\item[9.2.10] How many ways are there to 3-color the $n$ bands of a baton if adjacent bands must have different colors?
+\begin{enumerate}
+\item[] So this is similar to example 9.2.2. except none of the adjacent bands can be 
+the same color. So $\Psi(0^{\circ}) = 3 \times 2^{n-1}$, because one band gets to be
+any color then the rest are adjacent to a band whose color has already been chosen. Now
+when $n$ is even, $\Psi(180^{\circ}) = 0$, so it suffices to look at the case when 
+$n = 2$, then we can clearly see that rotating the baton $180^{\circ}$ is just going
+to switch the colors so that none remain fixed, yet this applies to all $n$ even since
+the middle two bands act just like $n = 2$. Thus we get $N = \frac{1}{2}(3 \times 2^{n-1})$
+when $n$ is even. For $n$ odd, we note that the middle can be 3 colors, then the two
+adjacent would need to be the same color but we only have 2 choices for those, continuing
+on in this fashion from the inside out, we get $\Psi(180^{\circ}) = 3 \times 2^{(n-1)/2}$.
+Hence $N = \frac{1}{2}(3 \times 2^{n-1} + 3 \times 2^{(n-1)/2})$ when $n$ is odd
+\end{enumerate}
+
+\item[9.3.2] How many ways are there to 4-color the corners of a pentagon that is:
+\begin{enumerate}
+\item[a)] Distinct with respect to rotations only? \\
+It's not hard to see that we would have $x_1^5$ for a rotation of 
+$0^{\circ}$ and $x_5$ for the rest (that is rotations of degrees 72, 144, 216, and 288).
+Hence $P_G = \frac{1}{5}(x_1^5 + 4x_1)$. We want 4 colorings so all $x$'s equal 4 and we get
+$\frac{1}{5}(4^5 + 4 \cdot 4) = 208$.
+\item[b)] Distinct with respect to rotations and reflections? \\
+Half the work is done by part (a), so we just need to find the reflections. 
+Now any reflection fixes one point and swaps the two vertices adjacent to the fixed point
+and swaps the other two left, so we get $x_1x_2^2$ for all reflections. Hence
+$P_G = \frac{1}{5}(x_1^5 + 4x_5 + 5x_1x_2^2)$. We want 4 colorings still, so all $x$'s 
+equal 4 and we get $\frac{1}{5}(4^5 + 4 \cdot 4 + 5 \cdot 4 \cdot 4^2) = 136$.
+\end{enumerate}
+
+\item[9.3.4] How many different $n$-bead necklaces (cyclicly distinct) can be made from three colors of beads when:
+\begin{enumerate}
+\item[a)] $n = 7$ \\
+(We will denote $\pi_i = x_j^k\cdots x_n^m$ for ease of associated
+cycle structure representation)
+So, visualizing a 7 bead necklace, we get for $\pi_1 = x_1^7$, 
+and the rest $\pi_i = x_7$ where $i = 2, \ldots, 7$. Hence
+$P_G = \frac{1}{7}(x_1^7 + 6x_7)$. Plugging in 3 for $x_i$, we have
+$\frac{1}{7}(3^7 + 6\cdot 3) = 315$.
+\item[b)] $n = 9$ \\
+Computationally doing out the cycles, we get $\pi_1 = x_1^9, 
+\pi_i = x_9$ and $\pi_j = x_3^3$ for $i = 2, 3, 5, 6, 8, 9$ and
+$j = 4, 7$. So $P_G = \frac{1}{9}(x_1^9 + 2x_3^3 + 6x_9)$ and plugging in 3, we get
+$\frac{1}{9}(3^9 + 2\cdot 3^3 + 6\cdot 3) = 2195$.
+\item[c)] $n = 10$ \\
+For $n = 10$, we have
+$\pi_1 = x_1^{10}$, $\pi_i = x^2_5$ and $\pi_j = x_{10}$ for $i = 3, 5, 7, 9$ and
+$j = 2, 4, 6, 8, 10$. Hence $P_G = \frac{1}{10}(x_1^{10} + 5x_{10} + 4x_5^2)$ and
+plugging in 3, $\frac{1}{10}(3^{10} + 5\cdot 3 + 4\cdot 3^2) = 5910$.
+\item[d)] $n = 11$ \\
+Would appear that these prime $n$'s have a pattern of 
+$\frac{1}{n}(x_1^n + (n-1)x_n)$. Hence $P_G = \frac{1}{11}(x_1^{11} + 10x_{11})$ and
+plugging in 3, $\frac{1}{11}(3^11 + 10 \cdot 3) = 16,107$.
+\end{enumerate}
+
+\item[9.3.8] Find the number of different $n$-bead 3-colored necklaces (cyclicly distinct) in which each color appears at least once when (i) $n = 3$, (ii) $n = 4$, (iii) $n = 7$.
+\begin{enumerate}
+\item[a)] These small $n$'s are not so bad that we can't just enumerate the possibilities.
+So for $n = 3$, there are 2. When $n = 4$, there are 
+\end{enumerate}
+
+\item[9.3.9] Find the number of different 2-sided dominoes (two squares of 1 to 6 dots or a blank on each side of the domino).
+\begin{enumerate}
+\item[] We can kind of think of the symmetries of this 2-sided domino so that we get
+$P_G = \frac{1}{4}(x_1^4 + 3 \times x_2^2)$ and then with $x = 7$, that is numbers
+1 through 6 and the blank, we get $\frac{1}{4}(7^4 + 3\cdot 7^2) = 637$.
+\end{enumerate}
+
+\item[9.3.10] 
+\begin{enumerate}
+\item[a)] Let $G$ be the group of all $4!$ permutations of 1, 2, 3, 4. Find $P_G$. \\
+This is the symmetric group of degree 4, so in cycle notation \\
+$\{(1)(2)(3)(4), (12)(34), (13)(24), (14)(23), (123)(4), (243)(1), (142)(3), (134)(2),$\\
+$(132)(4), (143)(2), (234)(1), (124)(3), (1243), (1324), (1342), (1423), (1432), (1234)$\\
+$(1)(23)(4), (13)(2)(4), (14)(3)(2), (24)(1)(3), (34)(1)(2), (12)(3)(4)\}$. \\
+So, $P_G$ is $x_1^4 + 3x_2^2 + 8x_3x_1 + 6x_4 + 6x_2x_1^2$.
+\item[b)] Use part (a) to find the number of ways to paint four identical marbles each one of three colors (check your answer by modeling this problem as a selection-with-repetition problem).
+We get $C(4+3-1, 4)$ if we model it as a selection with repitition problem, yet
+we can simply enumerate and get 15.
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
