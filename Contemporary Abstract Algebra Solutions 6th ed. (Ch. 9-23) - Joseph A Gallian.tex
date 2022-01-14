@@ -1,0 +1,1796 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\usepackage{wrapfig}
+\usepackage{shapepar}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{calligra}
+\usepackage{amsmath}
+%\usepackage[symbol*]{footmisc}
+%\usepackage[enableskew]{youngtab}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\begin{document}
+Contemporary Abstract Algebra (6th ed.) by Joseph Gallian
+\begin{enumerate}
+
+\item[9.7] Prove that if $H$ has index 2 in $G$, then $H$ is normal in $G$.
+\begin{enumerate}
+\item[] Suppose $|G:H| = 2$. Now, we can divide all the elements of $G$ into two sets 
+covered by the following two cases; \\
+\emph{Case 1:} $g \in G$ and $g \in H$. Then $gH = H = Hg$ by property 2 of the lemma on page 138. \\
+\emph{Case 2:} $g \in G$ and $g \not\in H$. Then $gH$ are the elements in $G$ not covered in the first
+case, but then again, so is $Hg$. Hence $gH = Hg$. \\
+Since, we have $gH = Hg$ for any $g \in G$, it follows that $H$ is normal in $G$.
+\end{enumerate}
+
+\item[9.8] Let $H = \{ (1), (12)(34) \}$ in $A_4$.
+\begin{enumerate}
+\item[a)] Show that $H$ is not normal in $A_4$. \\
+Let us consider the fact that for any $x \in A_4$ and $h \in H$ there is a $h'$ in 
+$H$ such that $xhx^{-1} = h'$. Now consider $x = (123)$ and $h = (12)(34)$. Then $x^{-1} = (132)$, 
+so that $(123)(12)(34)(132) = (123)(143)(2) = (14)(23) = h'$ and $h' \not\in H$, thus $H$ cannot
+be normal in $A_4$. \\
+Now, using Table 5.1, we see that $\alpha_6H = \{ \alpha_6, \alpha_7 \} = \alpha_7H$ and that 
+$\alpha_9H = \{ \alpha_9, \alpha_{11} \} = \alpha_{11}$, but $\alpha_6\alpha_9 = \alpha_2$ and
+$\alpha_7\alpha_{11} = \alpha_4$, so that $\alpha_2H = \{ \alpha_2, \alpha_1 \} \neq \{
+\alpha_4, \alpha_3 \} = \alpha_4H$. The left cosets of $H$ cannot be a group under coset multiplication
+because $H$ wasn't a normal subgroup to begin with.
+\end{enumerate}
+
+\item[9.22] Determine the order of $(\mathbb{Z} \oplus \mathbb{Z})/\langle (2, 2)\rangle$.
+Is the group cyclic?
+\begin{enumerate}
+\item[] To see that the order of $\mathbb{Z} \oplus \mathbb{Z}/\langle (2, 2)\rangle$ infinite, we just
+have to observe that $(0, n) + \langle (2, 2)\rangle, n \in \mathbb{Z}$ is infinite since 
+$(0, i) + \langle (2, 2)\rangle \neq (0, j) + \langle (2, 2)\rangle$ when $i, j \in \mathbb{Z}, i \neq j$.
+No, it is not cyclic because $(1, 1) + \langle (2, 2)\rangle$ has order 2.
+\end{enumerate}
+
+\item[9.24] The group $(\mathbb{Z}_4 \oplus \mathbb{Z}_{12})/\langle (2, 2)\rangle$ is isomorphic
+to one of $\mathbb{Z}_8, \mathbb{Z}_4 \oplus \mathbb{Z}_2$, or $\mathbb{Z}_2 \oplus \mathbb{Z}_2
+\oplus \mathbb{Z}_2$. Determine which one by elimination.
+\begin{enumerate}
+\item[] Let's observe the 8 cosets of $(\mathbb{Z}_4 \oplus \mathbb{Z}_{12})$/$\langle(2, 2)\rangle$. \\
+$\langle(2, 2)\rangle = \{ (2, 2), (0, 4), (2, 6), (0, 8), (2, 10), (0, 0) \}$\\
+$(0, 1) + \langle(2, 2)\rangle = \{ (2, 3), (0, 5), (2, 7), (0, 9), (2, 10), (0, 1) \}$\\
+$(0, 2) + \langle(2, 2)\rangle = \{ (2, 4), (0, 6), (0, 8), (2, 10), (2, 0), (0, 2) \}$\\
+$(1, 1) + \langle(2, 2)\rangle = \{ (3, 3), (1, 5), (3, 7), (1, 9), (3, 10), (1, 1) \}$\\
+$(1, 2) + \langle(2, 2)\rangle = \{ (3, 4), (1, 6), (3, 8), (1, 10), (3, 0), (1, 2) \}$\\
+$(2, 1) + \langle(2, 2)\rangle = \{ (0, 3), (2, 5), (0, 7), (2, 9), (0, 11), (2, 1) \}$\\
+$(3, 2) + \langle(2, 2)\rangle = \{ (1, 4), (3, 6), (1, 8), (3, 10), (1, 0), (3, 2) \}$\\
+$(3, 1) + \langle(2, 2)\rangle = \{ (1, 3), (3, 5), (1, 7), (3, 9), (1, 11), (3, 1) \}$ \\
+So, let's take $[(0, 1) + \langle(2, 2)\rangle]^2 = (0, 2) + \langle(2, 2)\rangle$, so that 
+$|(0, 1) + \langle(2, 2)\rangle| \geq 4$. Thus $(\mathbb{Z}_4 \oplus \mathbb{Z}_{12})$/$\langle(2, 2)\rangle$
+cannot be isomorphic to $\mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$. Direct computation shows
+that $(0, 2) + \langle(2, 2)\rangle$ and $(3, 1) + \langle(2, 2)\rangle$ both have order 2, so that
+$(\mathbb{Z}_4 \oplus \mathbb{Z}_{12})$/$\langle(2, 2)\rangle$ cannot be isomorphic to $\mathbb{Z}_8$ 
+either, since a cylic group of even order has exactly one element of order 2 (Theorem 4.4). This
+proves that $(\mathbb{Z}_4 \oplus \mathbb{Z}_{12})$/$\langle(2, 2)\rangle \cong \mathbb{Z}_4 
+\oplus \mathbb{Z}_2$.
+\end{enumerate}
+
+\item[9.37] Let $G$ be a finite group and let $H$ be a normal subgroup of $G$. Prove that
+the order of the element $gH$ in $G/H$ must divide the order of $g$ in $G$.
+\begin{enumerate}
+\item[] Suppose that $G$ is a finite group and $H \lhd G$. So, let $|g| = n$. Then
+\[
+(gH)^n = \overbrace{(gH)(gH)\cdots(gH)}^{\mbox{$n$ times}} = 
+\overbrace{ggg\cdots gg}^{\mbox{$n$ times}}H = g^nH = eH = H
+\]
+where the second equality comes from theorem 9.2. Hence, by theorem 4.1, corollary 2, 
+what we have shown implies that the order of $gH$ divides $n$.
+\end{enumerate}
+
+\item[9.39] If $H$ is a normal subgroup of a group $G$, prove that $C(H)$, the centralizer
+of $H$ in $G$, is a normal subgroup of $G$.
+\begin{enumerate}
+\item[] Suppose that $H$ is a normal subgroup of a group $G$. Then, we need to prove exercise 3.20, 
+so that we know $C(H) \leq G$. We will use the one-step subgroup test and make use of the fact that
+for any element, $a \in C(H), aha^{-1} = h$ for all $h \in H$, which is by definition.
+Now, we know that $eh = he$ for all $h \in H$, so $e \in C(H)$ and $C(H)$ is nonempty. 
+Now, let $a, b \in C(H)$, then this means that $aha^{-1} = h$ for all $h \in H$ and 
+$bhb^{-1} = h$ for all $h \in H$, but more importantly multiply on the left by $b^{-1}$ and on the right
+by $b$, yields $h = b^{-1}hb$. Hence,
+\[
+(ab^{-1})h(ab^{-1})^{-1} = (ab^{-1})h(ba^{-1}) = a(b^{-1}hb)a^{-1} = aha^{-1} = h
+\]
+for all $h \in H$, where we got the first equality comes from the socks-shoes property. Thus
+$ab^{-1} \in C(H)$ and $C(H) \leq H \leq G$. So, now we need to show that \\
+$gcg^{-1} \in C(H)$ for any $c \in C(H)$ and $g \in G$, to show that $C(H) \lhd G$. 
+Furthermore, because $H \lhd G$, then we know that $g^{-1}hg \in H$ for any $g \in G$, but this 
+also means that $c(g^{-1}hg) = (g^{-1}hg)c$ or better yet, $c(g^{-1}hg)c^{-1} = g^{-1}hg$ for
+any $c \in C(H)$. Hence, we show that
+\begin{eqnarray*}
+(gcg^{-1})h(gcg^{-1})^{-1} &=& (gcg^{-1})h(gc^{-1}g^{-1}) \\
+&=& g(cg^{-1}hgc^{-1})g^{-1} \\
+&=& g(g^{-1}hg)g^{-1} \\
+&=& h
+\end{eqnarray*}
+and from this we know that $gcg^{-1} \in C(H)$, thereby making $C(H)$ a normal subgroup of $G$. 
+\end{enumerate}
+
+\item[9.45] Let $N$ be a normal subgroup of $G$ and let $H$ be a subgroup of $G$. If $N$ is a
+subgroup of $H$, prove that $H/N$ is a normal subgroup of $G/N$ if and only if $H$ is a normal
+subgroup of $G$.
+\begin{enumerate}
+\item[] Let $N \lhd G$ and $N \leq H \leq G$. Now suppose that $H/N \lhd G/N$. This means that
+for any $g \in G, h \in H, gNhN(gN)^{-1} = ghg^{-1}N \in H/N$. 
+Furthermore, it means that $ghg^{-1}N = h'N$, for some
+$h' \in H$ and from this we can conclude since $N \leq H$ that $ghg^{-1} = h'n$ for some $n \in N$.
+Thus $H \lhd G$. Conversely, suppose that $H \lhd G$. Then $ghg^{-1}N \in H/N$, so $H/N \lhd G/N$.
+\end{enumerate}
+
+\item[9.50] Show that the intersection of two normal subgroups of $G$ is a normal subgroup of
+$G$.
+\begin{enumerate}
+\item[] Suppose that $H \lhd G$ and $K \lhd G$. By exercise 3.14, we know that $H \cap K \leq G$.
+Now to show that $H \cap K$ is normal in $G$, let $a \in H \cap K$. Then for all $g \in G$, 
+$gag^{-1} \in H$ and $gag^{-1} \in K$ since $H$ and $K$ are both normal in $G$. But this also
+means that $gag^{-1} \in H \cap K$ for all $g \in G$. Thus, $H \cap K \lhd G$ by theorem 9.1.
+\end{enumerate}
+
+\item[9.51] Let $N$ be a normal subgroup of $G$ and let $H$ be any subgroup of $G$. Prove
+that $NH$ is a subgroup of $G$. Give an example to show that $NH$ need not be a subgroup
+of $G$ if neither $N$ nor $H$ is normal.
+\begin{enumerate}
+\item[] We will use the two-step subgroup test. So, suppose that $N \lhd G$ and $H \leq G$. We let
+$nh \in NH$, when $n \in N$ and $h \in H$. Since $e \in N$ and $e \in H$, then $ee = e \in NH$ and
+$NH$ is nonempty. We need to show that $(nh)^{-1} \in NH$ when $nh \in NH$. Since $N$ is normal in
+$G$ then $n = g^{-1}ng$ for all $g \in G$. Thus, $(nh)^{-1} = h^{-1}n^{-1} = h^{-1}(g^{-1}ng)^{-1} =
+h^{-1}(g^{-1}n^{-1}g) = (g^{-1}n^{-1}g)h^{-1} \in NH$ due to the fact that $h^{-1} \in H$ because it's a subgroup, 
+$g^{-1}n^{-1}g \in N$ because it's a normal subgroup, and $h^{-1} \in G$ so that it commutes with any element
+of $N$, namely $n^{-1}$ in this case. Now let $(nh)(n'h') \in NH$, then $(nh)(n'h') = 
+(nh)n'eh' = nhn'(h^{-1}h)h' = n(hn'h^{-1})(hh') \in NH$ since $n(hn'h^{-1}) \in N$ because it's 
+normal in $G$ and $hh' \in H$ because it's a subgroup. Hence $NH \leq G$.
+\end{enumerate}
+
+\item[9.52] If $N$ and $M$ are normal subgroups of $G$, prove that $NM$ is also a normal 
+subgroup of $G$.
+\begin{enumerate}
+\item[] Suppose that $N \lhd G$ and $M \lhd G$. Then by exercise 9.51, $NM \leq G$. So, let
+$nm \in NM$, when $n \in N$ and $m \in M$. Now for all $g \in G$, \\
+$(gng^{-1})(gmg^{-1}) = gn(gg^{-1})mg^{-1} = gn(e)mg^{-1} = g(nm)g^{-1} \in NM$, when
+$gng^{-1} \in N$ and $gmg^{-1} \in M$. But this is clearly true since $N$ and $M$ are 
+normal in $G$. Hence $NM \lhd G$ by theorem 9.1.
+\end{enumerate}
+
+\item[9.58] Suppose that a group $G$ has a subgroup of order $n$. Prove that the intersection
+of all subgroups of $G$ of order $n$ is a normal subgroup of $G$.
+\begin{enumerate}
+\item[] If $G$ has one subgroup of order $n$, then this subgroup is characteristic and by
+9.62, normal. So assume that $G$ has more than one subgroup of order $n$. Then since automorphisms 
+(inner, as well) preserve order, it must follow that any of the subgroups of order $n$ will be mapped 
+to some subgroup of order $n$. Clearly, the intersection of these subgroups of order $n$ will map 
+consistly throughout all the automorphisms to the image of the intersection of these subgroups of 
+order $n$. Thus the intersection of all the subgroups of order $n$ is characteristic by definition 
+(found on page 174, supplementary problem 1). Hence by 9.62, the intersection of all the subgroups
+of order $n$ is normal as well.
+\end{enumerate}
+
+\item[9.62] Recall that a subgroup $N$ of a group $G$ is called characteristic if 
+$\phi(N) = N$ for all automorphisms $\phi$ of $G$. If $N$ is a characteristic subgroup of $G$,
+show that $N$ is a normal subgroup of $G$.
+\begin{enumerate}
+\item[] Suppose $N$ is a characteristic subgroup of $G$. Then we know that for any automorphism, 
+$\phi$, of $G$, $\phi(N) = N$. Yet, this also means that the inner automorphisms also map $N$ to $N$,
+which means that $\forall g \in G, gNg^{-1} = N$. Thus $N \lhd G$. 
+\end{enumerate}
+
+\item[10.6] Let $G$ be the group of all polynomials with real coefficients under addition. For
+each $f$ in $G$, let $\int f$ denote the antiderivative of $f$ that passes through the point $(0, 0)$. Show that the mapping $f \rightarrow \int f$ from $G$ to $G$ is a homomorphism. What is the kernel of this mapping? Is this mapping a homomorphism if $\int f$ denotes the antiderivative of $f$ that passes through $(0, 1)$?
+\begin{enumerate}
+\item[] Let $H \subset G$ be the set of functions in $G$ with $f \in H \implies f(0) = 0$. Clearly, 
+$H$ is a subgroup of $G$ with the zero polynomial (the identity) in $H$,
+$f^{-1} = -f \in H$ any time $f \in H$ from the fact that $f(0) = -f(0) = 0$, and with 
+$f, g \in H$ then $(f+g)(0) = 0 \implies f+g \in H$.
+To show that the mapping is homomorphic from $G \to H$, let $f, k \in G$ with $f(x) =
+f_nx^n + \cdots + f_0$ and $k(x) = k_mx^m + \cdots + k_0$ with $n \geq m$. Now
+\[
+\int (f + k) = \sum^n_{i = 1} \frac{f_i + k_i}{i + 1}x^{i+1} = 
+\sum^n_{i = 1} \frac{f_i}{i + 1}x^{i+1}  + \sum^n_{i = 1} \frac{k_i}{i + 1}x^{i+1}
+= \int f + \int k
+\]
+where $k_i = 0$ for $m < i \leq n$. Thus the mapping is homomorphic. Further, any
+non-trivial element in $G$ is mapped to a non-trivial element in $H$, thus the kernel 
+of the homomorphism is soley the zero polynomial. Finally, to see that if the mapping
+sent functions to (0,1) that it would not be a homomorphism, we can simply note that the 
+identity element in $G$ would be mapped to a non-identity element in $H$, namely
+$\int \mathbf{0} \to 1$. 
+\end{enumerate}
+
+\item[10.7] If $\phi$ is a homomorphism from $G$ to $H$ and $\sigma$ is a homomorphism from 
+$H$ to $K$, show that $\sigma \phi$ is a homomorphism from $G$ to $K$.
+\begin{enumerate}
+\item[] Suppose that $\phi$ is a homomorphism from $G$ to $H$ and $\sigma$ is a homomorphism from
+$H$ to $K$. Now let $a, b \in G$, then 
+\[
+(\sigma \phi )(ab) = \sigma [\phi (ab)] = \sigma [\phi (a) \phi (b)] =
+\sigma [\phi (a)] \sigma [\phi (b)] = (\sigma \phi )(a) (\sigma \phi )(b)
+\]
+where the second equality comes from the fact that $\phi$ is a homomorphism and 
+the third equality is because $\sigma$ is a homomorphism. Thus $\sigma \phi$ is a homomorphism
+from $G$ to $K$.
+\end{enumerate}
+
+\item[10.8] Let $G$ be a group of permutations. For each $\sigma$ in $G$, define
+\begin{enumerate}
+\item[] We know from chapter 5 that any permutation is either even or odd, but not 
+both. Thus it follows that sgn is a well-defined function when $\sigma \in S_n$, 
+since sgn$(\sigma ) = +1$ when $\sigma$ is even and sgn$(\sigma ) = -1$ when $\sigma$ is odd.
+We can now show that sgn$(\sigma \tau) = $ sgn$(\sigma)$sgn$(\tau)$
+for any $\sigma, \tau \in G$. \\
+\emph{Case: i)} $\sigma$ is even and $\tau$ is even, then $\sigma \tau$ is even, so \\
+sgn$(\sigma \tau) = +1 = (+1)(+1) = $ sgn$(\sigma)$sgn$(\tau)$. \\
+\emph{Case: ii)} $\sigma$ is even and $\tau$ is odd, then $\sigma \tau$ is odd, so \\
+sgn$(\sigma \tau) = -1 = (+1)(-1) = $ sgn$(\sigma)$sgn$(\tau)$. \\
+\emph{Case: iii)} $\sigma$ is odd and $\tau$ is even, then $\sigma \tau$ is odd, so \\
+sgn$(\sigma \tau) = -1 = (-1)(+1) = $ sgn$(\sigma)$sgn$(\tau)$. \\
+\emph{Case: iv)} $\sigma$ is odd and $\tau$ is odd, then $\sigma \tau$ is even, so \\
+sgn$(\sigma \tau) = +1 = (-1)(-1) = $ sgn$(\sigma)$sgn$(\tau)$. \\
+Having showed that sgn is a homomorphism, we can clearly see that the kernel of sgn
+is the set of all even permutations since 1 is the identity in the multiplicative 
+group $\{-1, 1 \}$.
+\end{enumerate}
+
+\item[10.14] Explain why the correspondence $x \rightarrow 3x$ from $\mathbb{Z}_{12}$
+to $\mathbb{Z}_{10}$ is not a homomorphism.
+\begin{enumerate}
+\item[] If the correspondence $x \rightarrow 3x$ from $Z_{12}$ to $Z_{10}$ was a homomorphism
+then $\phi(5 + 7) = \phi(5) + \phi(7)$...yet \\
+$\phi(5 + 7) = \phi(12 \mbox{ mod }12) = 0 \neq 6 = 15 \mbox{ mod }10 + 21 \mbox{ mod }10 = \phi(5) + \phi(7)$
+. So it cannot be a homomorphism.
+\end{enumerate}
+
+\item[10.16] Prove that there is no homomorphism from $\mathbb{Z}_8 \oplus \mathbb{Z}_2$ onto
+$\mathbb{Z}_4 \oplus \mathbb{Z}_4$.
+\begin{enumerate}
+\item[] First, we observe that $|\mathbb{Z}_8 \oplus \mathbb{Z}_2| = |\mathbb{Z}_4
+\oplus \mathbb{Z}_4|$. Then any homomorphism that is surjective must also be injective due
+to our observation. Thus any homomorphism between these two external direct products will be an
+isomorphism. But isomorphisms preserve order and since $\mathbb{Z}_8 \oplus \mathbb{Z}_2$ has
+an element of order 8, which $\mathbb{Z}_4 \oplus \mathbb{Z}_4$ cannot possibly have, there 
+cannot exist a homomorphism between $\mathbb{Z}_8 \oplus \mathbb{Z}_2$ and $\mathbb{Z}_4
+\oplus \mathbb{Z}_4$.
+\end{enumerate}
+
+\item[10.19] Suppose that there is a homomorphism $\phi$ from $\mathbb{Z}_{17}$ to some
+group and that $\phi$ is not one-to-one. Determine $\phi$.
+\begin{enumerate}
+\item[] Suppose that $\phi$ is a homomorphism from $\mathbb{Z}_{17}$ to some group, $G$, and 
+$\phi$ is not one-to-one. Then we know by theorem 10.1, property 4 that Ker $\phi$ is a 
+subgroup of $\mathbb{Z}_{17}$ and by Lagrange's theorem the order of Ker $\phi$ must divide the order 
+of $\mathbb{Z}_{17}$. Since $|\mathbb{Z}_{17}| = 17$ is prime, Ker $\phi$ can either be 
+of size 1 or 17. By theorem 10.2, property 5, $|$Ker $\phi | \neq 1$, so it must 17. Thus
+$phi$ is the trivial map, that is it takes all elements of $\mathbb{Z}_{17}$ and maps them to
+the identity of $G$.
+\end{enumerate}
+
+\item[10.22] Suppose that $\phi$ is a homomorphism from a finite group $G$ onto $\overline{G}$ and
+that $\overline{G}$ has an element of order 8. Prove that $G$ has an element of order $8$. Generalize.
+\begin{enumerate}
+\item[]
+Let $\phi: G \rightarrow \overline{G}$ be a homomorphism where $G$ is finite, 
+and $\overline{g} \in \overline{G}$ where $|\overline{g}| = 8$. 
+Let $g \in G$ where $\phi(g) = \overline{g}$, then from prop 3 theorem 10.1 $|\overline{g}|$
+divides $|g|$ and $|g| = 8 · n, n \in N$. Furthermore $g^{8·n} = e$ and
+$(g^n)^8 = e$ where $g^n \in G$ and $|g^n| = 8$.
+Note, $|g^n|$ cannot be less than 8. That would imply $(g^n)^k = e, k < 8 \Rightarrow 
+g^{k·n} = e$ where $k \cdot n < 8 \cdot n$ contradicting the fact that $|g| = 8 \cdot n$.
+Therefore $G$ has an element of order 8.
+\end{enumerate}
+
+\item[10.31] Suppose that $\phi$ is a homomorphism from $U(30)$ to $U(30)$ and that Ker $\phi =
+\{1, 11\}$. If $\phi(7) = 7$, find all elements of $U(30)$ that map to 7.
+\begin{enumerate}
+\item[] We can create the mapping $\phi : U(30) \to U(30)$ explicitly. Knowing that 
+$\phi(1) = \phi(11) = 1$ and $\phi(\langle 7\rangle) = \langle \phi(7)\rangle = \langle 7\rangle$ then we have
+$\phi(7) = 7, \phi(7^2) = \phi(19) = 19$, and $\phi(7^3) = \phi(13) = 13$. Now, using
+the homomorphic properties of $\phi$ we can find all the other elements. So:
+$\newline$
+$\phi(17) = \phi(7\cdot 11) = \phi(7)\phi(11) = 7$
+$\newline$
+$\phi(29) = \phi(7\cdot 17) = \phi(7)\phi(17) = 19$
+$\newline$
+$\phi(23) = \phi(7\cdot 29) = \phi(7)\phi(29) = 13$
+$\newline$
+Thus, the elements in $U(30)$ that map to 7 are 7, and 17 (that is $\phi(7) = \phi(17) = 7$).
+\end{enumerate}
+
+\item[10.36] Suppose that there is a homomorphism $\phi$ from $\mathbb{Z} \oplus \mathbb{Z}$
+to a group $G$ such that $\phi((3, 2)) = a$ and $\phi((2, 1)) = b$. Determine $\phi((4, 4))$
+in terms of $a$ and $b$. Assume that the operation of $G$ is addition.
+\begin{enumerate}
+\item[] The following first equality is from theorem 10.1, property 2 while the rest follows from what
+was given:
+\[
+\phi((4, 4)) = 4\phi((1, 1)) = 4\phi((3, 2) - (2, 1)) = 4[\phi(3, 2) - \phi(2, 1)]
+\]
+\[ = 4(a - b) = 4a - 4b
+\]
+\end{enumerate}
+
+\item[10.37] Prove that the mapping $x \rightarrow x^6$ from $\mathbb{C}^*$ to 
+$\mathbb{C}^*$ is a homomorphism. What is the kernel?
+\begin{enumerate}
+\item[] Following example 10.8, we consider the mapping $\phi$ from $\mathbb{C}^*$ to 
+$\mathbb{C}^*$ given by $\phi(x) = x^6$. Since $(xy)^6 = x^6y^6$, $\phi$ is a homomorphism.
+Clearly, Ker$\phi = \{ x |\,\, x^6 = 1 \}$. But this is just the group of unity of order 6,
+hence Ker $\phi = \{ e^{(i\pi k)/3} |\,\, 0 \leq k < 6, k \in \mathbb{Z}\}$.
+\end{enumerate}
+
+\item[10.44] Let $N$ be a normal subgroup of a finite group $G$. use the theorems of
+this chapter to prove that the order of the group element $gN$ in $G/N$ divides the order
+of $g$.
+\begin{enumerate}
+\item[] Suppose that $G$ is a finite group and $N \lhd G$. Then by theorem 10.4, $N$ is 
+the kernel of a homomorphism, let's say $\phi: G \rightarrow G/N$, of $G$, where the mapping 
+is defined as $g \rightarrow gN$. Thus, by theorem 10.1, property 3, the order of any
+$\phi(g) = gN$ must divide $|g|$.
+\end{enumerate}
+
+\item[11.6] Show that there are two Abelian groups of order 108 that have exactly one
+subgroup of order 3.
+\begin{enumerate}
+\item[] Possible Abelian groups of order 108: \\
+\begin{tabular}{|r|r|}
+\hline
+Abelian groups of order 108 & number of subgroups of order 3 \\
+\hline
+$\mathbb{Z}_6 \oplus \mathbb{Z}_6 \oplus \mathbb{Z}_3$ & 13 \\
+$\mathbb{Z}_3 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_4$ & 13 \\
+$\mathbb{Z}_9 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_4$ & 4 \\
+$\mathbb{Z}_9 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ & 4 \\
+$\mathbb{Z}_{27} \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ & 1 \\
+$\mathbb{Z}_{27} \oplus \mathbb{Z}_4$ & 1 \\
+\hline
+\end{tabular} \\
+We did the first two Abelian groups in class and for the rest we can quickly find the elements which are of order 3. 
+Yet we'll only concern ourselves with $\mathbb{Z}_{27} \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ in which 
+we have $\langle (9, 0, 0)\rangle$ and $\langle (9, 0)\rangle$ for $\mathbb{Z}_{27} \oplus \mathbb{Z}_4$ and we're done.
+\end{enumerate}
+
+\item[11.10] Find all Abelian groups (up to isomorphism) of order 360.
+\begin{enumerate}
+\item[] Prime factorization of $360: 5 \cdot 3^2 \cdot 2^3$ from which we get all the Abelian groups.\\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_9 \oplus \mathbb{Z}_8$ \\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_9 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_2$ \\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_9 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ \\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_8$ \\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_2$ \\
+$\mathbb{Z}_5 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$
+\end{enumerate}
+
+\item[11.11] Prove that every finite Abelian group can be expressed as the (external) directo product of
+cyclic groups of orders $n_1, n_2, \ldots, n_t$, where $n_{i + 1}$ divides $n_i$ for $i = 1, 2, \ldots, t - 1$.
+\begin{enumerate}
+\item[] First off, by the fundamental theorem of finite abelian groups, any finite abelian group, $G$,
+is isomorphic to a group of the form 
+$\mathbb{Z}/p_1^{m_1}\mathbb{Z} \oplus \mathbb{Z}/p_2^{m_2}\mathbb{Z} \oplus \cdots \oplus 
+\mathbb{Z}/p_k^{m_k}\mathbb{Z}$. Then by theorem 8.2, corollary 2 we know that we can 
+represent all those $\mathbb{Z}/p_i^{m_i}\mathbb{Z}$'s and $\mathbb{Z}/p_j^{m_j}\mathbb{Z}$'s as
+$\mathbb{Z}/n\mathbb{Z}$, where $n$ is the product of all the $p_i^{m_i}$'s and $p_j^{m_j}$'s as 
+long as the gcd$(p_i^{m_i}, p_j^{m_j}) = 1$ for all $p_i^{n^i}$ and $p_j^{n^j}$. So if any $G$ is indeed
+in fact isomorphic to some group, $\mathbb{Z}/p_1^{m_1}\mathbb{Z} \oplus \mathbb{Z}/p_2^{m_2}\mathbb{Z} 
+\oplus \cdots \oplus \mathbb{Z}/p_k^{m_k}\mathbb{Z}$ then we can select the maximal $p_i^{n_i}$ and 
+using theorem 8.2, corollary 2 combine all the other $p_j^{n_j}$'s with it, labeling it as 
+$\mathbb{Z}/n_1\mathbb{Z}$. Now we know for a fact that every other $p_i^{n_i}$ left over divides $n_1$
+because otherwise it would have been a part of the product that comprises $n_1$. Thus, by repeating the
+process and labeling the newly created products $n_2, n_3, \ldots, n_l$, then due to the fact 
+that everything left over after "creating" $n_i$ divides $n_i$ and since $n_{i + 1}$ is made up of 
+some or all of those leftovers then $n_{i + 1}$ will clearly divide $n_i$, which is exactly
+what we want.
+\end{enumerate}
+
+\item[11.15] How many Abelian groups (up to isomorphism) are there
+\begin{enumerate}
+\item[a)] of order 6? \\ 
+1 Abelian group of order 6: $\mathbb{Z}_2 \oplus \mathbb{Z}_3$.
+\item[b)] of order 15? \\
+1 Abelian group of order 15: $\mathbb{Z}_5 \oplus \mathbb{Z}_3$.
+\item[c)] of order 42? \\
+1 Abelian group of order 42: $\mathbb{Z}_2 \oplus \mathbb{Z}_3 \oplus \mathbb{Z}_7$.
+\item[d)] of order $pq$, where $p$ and $q$ are distinct primes? \\
+1 Abelian group of order $pq$: $\mathbb{Z}_p \oplus \mathbb{Z}_q$.
+\item[e)] of order $pqr$, where $p, q$, and $r$ are distinct primes? \\
+1 Abelian group of order $pqr$: $\mathbb{Z}_p \oplus \mathbb{Z}_q \oplus \mathbb{Z}_r$.
+\item[f)] Generalize parts d and e. \\
+There will be only 1 Abelian group of order $n$ as long as $n = p_1^{n_1}p_2^{n_1} \cdots
+p_k^{n_k}$, where any $p_i \neq p_j$, and $1 = n_1 = n_2 = \ldots = n_k$.
+\end{enumerate}
+
+\item[11.16] How does the number (up to isomorphism) of Abelian groups of order $n$ compare with
+the number (up to isomorphism) of Abelian groups of order $m$ where
+\begin{enumerate}
+\item[a)] $n = 3^2$ and $m = 5^2$? \\
+The Abelian groups of order $n$ are $\mathbb{Z}_3 \oplus \mathbb{Z}_3$ and $\mathbb{Z}_9$. The
+Abelian groups of order $m$ are $\mathbb{Z}_5 \oplus \mathbb{Z}_5$ and $\mathbb{Z}_{25}$. Hence $n$ and $m$
+have the same number of Abelian groups.
+\item[b)] $n = 2^4$ and $m = 5^4$? \\
+Instead of showing all the Abelian groups, we can refer to the claim below. [part (c) of this question], 
+from which we can conclude that the amount of Abelian groups of order $n$ and $m$ are the same.
+\item[c)] $n = p^r$ and $m = q^r$, where $p$ and $q$ are prime? \\
+Referring to page 218, we can see that $p$ is any prime, thus replacing it by some other prime, $q$, 
+results in the same amount of possible Abelian groups.
+\item[d)] $n = p^r$ and $m = p^rq$, where $p$ and $q$ are distinct prime? \\
+The amount of Abelian groups of order $n$ and order $m$ are the same due to the fact that any Abelian group
+of order $n$ can have a $\mathbb{Z}_q$ tacked onto the external direct product to yield a "corresponding" Abelian group
+of order $m$.
+\item[e)] $n = p^r$ and $m = p^rq^2$, where $p$ and $q$ are distinct prime? \\
+We have two possibilites for $q^2$, namely $\mathbb{Z}_q \oplus \mathbb{Z}_q$ and $\mathbb{Z}_{q^2}$. Appending the
+first possible Abelian group of $q^2$ to the Abelian groups of order $n$ yields the amount of order $n$ that are of order $m$, 
+but since you can also append the second possible Abelian group of $q^2$ to those of order $n$, we have an amount of 
+Abelian groups of order $m$ twice that than the number of groups of order $n$.
+\end{enumerate}
+
+
+\item[11.22] Characterize those integers $n$ such that any Abelian group of order $n$ belongs
+to one of exactly four isomorphism classes.
+\begin{enumerate}
+\item[] We can characterize $n$ as any integer such that it's prime factorization is $p^2 \cdot q^2$, where
+$p$ and $q$ are distinct primes. Furthermore, we can tack on any $\mathbb{Z}_r$ where $r$ is some prime
+not equal to $p$ and $q$. Thus we will always have four Abelian groups of order $n$, namely \\
+$\mathbb{Z}_{p^2} \oplus \mathbb{Z}_{q^2} \oplus \mathbb{Z}_{r_1} \oplus \cdots \oplus \mathbb{Z}_{r_n}$ \\
+$\mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_{q^2} \oplus \mathbb{Z}_{r_1} \oplus \cdots \oplus \mathbb{Z}_{r_n}$ \\
+$\mathbb{Z}_q \oplus \mathbb{Z}_q \oplus \mathbb{Z}_{p^2} \oplus \mathbb{Z}_{r_1} \oplus \cdots \oplus \mathbb{Z}_{r_n}$ \\
+$\mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_q \oplus \mathbb{Z}_q \oplus \mathbb{Z}_{r_1} \oplus \cdots \oplus \mathbb{Z}_{r_n}$ \\
+and any $\mathbb{Z}_{r_i} \neq \mathbb{Z}_{r_j}$.
+\end{enumerate}
+
+\item[11.29] Let $G$ be an Abelian group of order 16. Suppose that there are elements $a$ and $b$ in $G$ such that
+$|a| = |b| = 4$ and $a^2 \neq b^2$. Determine the isomorphism class of $G$.
+\begin{enumerate}
+\item[] Since $16 = 2^4$, we have up to 5 possible direct products for $G$, namely \\
+$\mathbb{Z}/16\mathbb{Z}$ \\
+$\mathbb{Z}/8\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$ \\
+$\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/4\mathbb{Z}$ \\
+$\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$ \\
+$\mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z} \oplus 
+\mathbb{Z}/2\mathbb{Z}$ \\
+We can quickly eliminate the all but the third possibility because $\mathbb{Z}/16\mathbb{Z}$, \\
+$\mathbb{Z}/8\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$, and $\mathbb{Z}/4\mathbb{Z} 
+\oplus \mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$ 
+have only 1 element of order 4 while 
+$\mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z} \oplus 
+\mathbb{Z}/2\mathbb{Z}$ has no elements of order 4 at all. So the answer must be 
+$\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/4\mathbb{Z}$.
+\end{enumerate}
+
+\item[11.30] Prove that an Abelian group of order $2^n (n \geq 1)$ must have an odd number of elements of order 2.
+\begin{enumerate}
+\item[] First thing to remark is that any finite Abelian group, $G$, of order $2^n$, where $n \geq 1$, will
+have an even amount of elements. We can now refer to exercise 3.35 as proof of existence of an element of 
+order 2. Knowing this, we can now match each element with it's inverse, noting the fact that
+any element with order 1 or 2 will have no matching. Then we separate all the elements into two separate sets, 
+$A$ and $B$, where we throw the matching elements in set $A$, while all others (the elements of order 1 or 2) 
+go into set $B$. Since each matching contibutes exactly 2 elements to set $A$, it must be that $A$ has an even
+amount of elements. But we have an even amount of elements in $G$, which indicates that it must be that 
+there are an even amount of elements that are in set $B$. Yet, we forgot about the identity, which also happens 
+to be in set $B$ and is the only element of order 1. So taking that from $B$, we must conclude that
+the elements left are those of order 2 and, in fact, $B$ must contain an odd number of them.
+\end{enumerate}
+
+\item[12.8] Show that a ring is commutative if it has the property that $ab = ca$ implies $b = c$ when $a \neq 0$.
+\begin{enumerate}
+\item[] Suppose that a ring, $R$, has the property such that $ab = ca$ implies that $b = c$ when $a \neq 0$.
+Now we let $a, b \in R$, then we know by definition that $a(ba) = (ab)a$, but this implies $ba = ab$.
+Hence the ring is commutative.
+\end{enumerate}
+
+\item[12.14] Let $a$ and $b$ belong to a ring $R$ and let $m$ be an integer. Prove that 
+$m \cdot (ab) = (m \cdot a)b = a(m \cdot b)$.
+\begin{enumerate}
+\item[] Let $a$ and $b$ belong to a ring $R$ and let $m$ be an integer. Then
+\[
+m \cdot (ab) = \overbrace{ab + ab + \cdots + ab}^{\mbox{$m$ times}} = 
+\overbrace{a + a + \cdots + a}^{\mbox{$m$ times}}b
+= (m \cdot a)b
+\]
+and
+\[
+m \cdot (ab) = \overbrace{ab + ab + \cdots + ab}^{\mbox{$m$ times}} = 
+a\overbrace{b + b + \cdots + b}^{\mbox{$m$ times}}
+= a(m \cdot b)
+\]
+Hence $m \cdot (ab) = (m \cdot a)b = a(m \cdot b)$.
+\end{enumerate}
+
+\item[12.17] Show that a ring that is cyclic under addition is commutative.
+\begin{enumerate}
+\item[] Suppose that a ring, $R$, is cyclic under addition. Then that means that any element $a \in R$, can
+be expressed as $n \cdot x$, where $x \in R$ and $n \in \mathbb{N}$. Now let $a, b \in R$. Clearly, 
+$a = n \cdot x$ and $b = m \cdot x$ for some $n, m \in \mathbb{N}$. Hence, we have
+\[
+ab = (n \cdot x)b = (\overbrace{x + x + \cdots + x}^{\mbox{$n$ times}})b = \overbrace{xb + xb + \cdots + xb}^{\mbox{$n$ times}}
+= n \cdot xb
+\]
+yet we also have
+\[
+ba = (m \cdot x)a = (\overbrace{x + x + \cdots + x}^{\mbox{$m$ times}})b = \overbrace{xa + xa + \cdots + xa}^{\mbox{$m$ times}}
+= m \cdot xa
+\]
+Furthermore, 
+\[
+n \cdot xb = n \cdot x(m \cdot x) = n \cdot x(\overbrace{x + x + \cdots + x}^{\mbox{$m$ times}}) = 
+n \cdot (\overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$m$ times}})
+\]
+\[
+= \overbrace{\overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$m$ times}} + \overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$m$ times}}
++ \cdots \overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$m$ times}}}^{\mbox{$n$ times}} = nm \cdot x^2
+\]
+and
+\[
+m \cdot xa = m \cdot x(n \cdot x) = m \cdot x(\overbrace{x + x + \cdots + x}^{\mbox{$n$ times}}) = 
+m \cdot (\overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$n$ times}})
+\]
+\[
+= \overbrace{\overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$n$ times}} + \overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$n$ times}}
++ \cdots \overbrace{x^2 + x^2 + \cdots + x^2}^{\mbox{$n$ times}}}^{\mbox{$m$ times}} = mn \cdot x^2
+\]
+Thus we can conclude that $ab = n \cdot xb = nm \cdot x^2 = mn \cdot x^2 = m \cdot xa = ba$, where the
+third equality comes from the fact that $m$ and $n$ were chosen to be natural numbers, which commute.
+\end{enumerate}
+
+\item[12.18] Let $a$ belong to a ring $R$. Let $S = \{ x \in R \mid ax = 0 \}$. Show that $S$ is a subring of
+$R$.
+\begin{enumerate}
+\item[] Suppose that $S = \{ x \in R \mid ax = 0 \}$ where $a \in R$ and $R$ is some ring. Let us assume
+that $S$ is nonempty. So take $s, s' \in S$, then $a(s - s') = as - as' = 0 - 0 = 0$, where the second
+equality comes from theorem 12.1, rule 4, so $(s - s') \in S$. Furthermore, $a(ss') = (as)s' = 0s = 0$, 
+so $(ss') \in S$. Thus $S$ is a subring of $R$ by theorem 12.3.
+\end{enumerate}
+
+\item[12.22] Let $R$ be a commutative ring with unity and let $U(R)$ denote the set of units of $R$. Prove that 
+$U(R)$ is a group under the multiplication of $R$. (This group is called the group of units of $R$.)
+\begin{enumerate}
+\item[] Firstly, we note that the unity, let's say $e$, is it's own inverse and must be in $U(R)$, so $U(R)$ has an identity. 
+Furthermore, every element in $U(R)$ by definition has an inverse. We know $U(R)$ is associative by definition number
+5 on pg 235. Lastly, let's check that $U(R)$ is closed under multiplication of $R$. So, take two elements $a, b \in U(R)$.
+Then this means that there exists $c, d \in R$ such that $ac = e = ca$ and $bd = e = db$. Hence 
+$(ab)(dc) = a(bd)c = aec = ac = e$ and since $dc \in R$, then $ab \in U(R)$. So, $U(R)$ satisfies all properties that
+would make it a group.
+\end{enumerate}
+
+\item[12.26] Determine $U(\mathbb{R}[x])$.
+\begin{enumerate}
+\item[] We already know that $0$ is the only real number that has no multiplicative inverse, thus
+$U(\mathbb{R}[x]) = \{ f(x) = a \mid a \in \mathbb{R}^* \}$.
+\end{enumerate}
+
+\item[12.28] In $\mathbb{Z}_6$, show that $4 \mid 2$; in $\mathbb{Z}_8$, show that $3 \mid 7$;
+in $\mathbb{Z}_{15}$, show that $9 \mid 12$.
+\begin{enumerate}
+\item[] To show that $4 \mid 2$ in $\mathbb{Z}/6\mathbb{Z}$, we need to find an element, $c \in 
+\mathbb{Z}/6\mathbb{Z}$ such that $4c = 2$. So, consider $c = 5$, then $(4 \cdot 5) $ mod $6 = 20$ mod $6 = 2$.
+Now $3 \mid 7$ in $\mathbb{Z}/8\mathbb{Z}$ due to the fact that $3 \cdot 5 = 7$ and $5 \in \mathbb{Z}/8\mathbb{Z}$.
+Lastly, $9 \mid 12$ in $\mathbb{Z}/15\mathbb{Z}$ because $9 \cdot 8 = 12$ and $8 \in 
+\mathbb{Z}/15\mathbb{Z}$.
+\end{enumerate}
+
+\item[12.29] Suppose that $a$ and $b$ belong to a commutative ring $R$. If $a$ is a unit of $R$ and $b^2 = 0$,
+show that $a + b$ is a unit of $R$.
+\begin{enumerate}
+\item[] Let $a$ and $b$ belong to a commutative ring $R$ with $a$ being a unit of $R$ and 
+$b^2 = 0$. We want to show that $a + b$ is a unit, so let's take an element of $R$, namely
+$a^{-1} - a^{-2}b$, that will give us the unity, $e$, when we multiply $a + b$ by it. Hence,
+\begin{eqnarray*}
+(a + b)(a^{-1} - a^{-2}b) &=& aa^{-1} - aa^{-2}b + ba^{-1} - ba^{-2}b \\
+&=& e - e(a^{-1}b) + ba^{-1} - a^{-2}b^2 \\
+&=& e - a^{-1}b + a^{-1}b - (a^{-2})(0) \\
+&=& e + 0 - 0 \\
+&=& e
+\end{eqnarray*}
+\end{enumerate}
+
+\item[12.40] Let $M_2(\mathbb{Z})$ be the ring of all $2 \times 2$ matrices over the integers and let \\ 
+$R = \left\{ \left[ 
+\begin{array}{cc}
+a & a + b \\
+a + b & b
+\end{array} \right] \mid a, b \in \mathbb{Z} \right\}$. Prove or disprove that $R$ is a subring of $M_2(\mathbb{Z})$.
+\begin{enumerate}
+\item[] Since it is clear that $R$ is nonempty, let us take two elements in $R$, namely 
+$\left[ \begin{array}{cc}
+a & a + b \\
+a + b & b
+\end{array} \right]$ and $\left[ \begin{array}{cc}
+c & c + d \\
+c + d & d
+\end{array} \right]$. Then
+\[
+\left[ \begin{array}{cc}
+a & a + b \\
+a + b & b
+\end{array} \right] - \left[ \begin{array}{cc}
+c & c + d \\
+c + d & d
+\end{array} \right] =
+\left[ \begin{array}{cc}
+a - c & a + b - (c + d) \\
+a + b - (c + d) & b - d
+\end{array} \right]
+\]
+and
+\[
+\left[ \begin{array}{cc}
+a & a + b \\
+a + b & b
+\end{array} \right] \left[ \begin{array}{cc}
+c & c + d \\
+c + d & d
+\end{array} \right] =
+\left[ \begin{array}{cc}
+ac + (a+b)(c+d) & ac + 2ad + bd \\
+ac + 2bc + bd & bd + (a+b)(c+d)
+\end{array} \right].
+\] 
+Hence it is not closed under multiplication and thus not a subring of $M_2(\mathbb{Z})$.
+\end{enumerate}
+
+\item[12.42] Let $M_2(\mathbb{Z})$ be the ring of all $2 \times 2$ matrices over the integers and let \\ 
+$R = \left\{ \left[ 
+\begin{array}{cc}
+a & a - b \\
+a - b & b
+\end{array} \right] \mid a, b \in \mathbb{Z} \right\}$. Prove or disprove that $R$ is a subring of $M_2(\mathbb{Z})$.
+\begin{enumerate}
+\item[] Again $R$ is clearly nonempty. So, let us take two elements in $R$, namely 
+$\left[ \begin{array}{cc}
+a & a \\
+b & b
+\end{array} \right]$ and $\left[ \begin{array}{cc}
+c & c \\
+d & d
+\end{array} \right]$. Then
+\[
+\left[ \begin{array}{cc}
+a & a \\
+b & b
+\end{array} \right] - \left[ \begin{array}{cc}
+c & c \\
+d & d
+\end{array} \right] =
+\left[ \begin{array}{cc}
+a - c & a - c \\
+b - d & b - d
+\end{array} \right]
+\]
+and
+\[
+\left[ \begin{array}{cc}
+a & a \\
+b & b
+\end{array} \right] \left[ \begin{array}{cc}
+c & c \\
+d & d
+\end{array} \right] =
+\left[ \begin{array}{cc}
+ac + ad & ac + ad \\
+bc + bd & bc + bd
+\end{array} \right].
+\] 
+Both matrices on the right side of the equality are elements of $R$ due to the fact that
+they satisfy the form and $a - c, b - d, ac + ad,$
+and $bc + bd$ are all elements of $\mathbb{Z}$ whenever $a, b, c, d \in \mathbb{Z}$.
+Thus by theorem 12.3, $R$ is a subring of $M_2(\mathbb{Z})$.
+\end{enumerate}
+
+\item[12.44] Suppose that there is a positive even integer $n$ such that $a^n = a$ for all elements $a$ of
+some ring. Show that $-a = a$ for all $a$ in the ring.
+\begin{enumerate}
+\item[] Since $n$ is an even integer, we can express it as $2k$ for some $k \in \mathbb{Z}$. Now
+suppose $a$ is an element in some ring, $R$, and that $a^n = a$ for all elements in $R$. We want to 
+show that $-a = a$ for all $a \in R$. Hence we observe that 
+\[ (-a)^{2k} = \overbrace{\overbrace{(-a)(-a)}^{\mbox{$2$ times}}\cdots 
+\overbrace{(-a)(-a)}^{\mbox{$2$ times}}}^{\mbox{$k$ times}} = \overbrace{\overbrace{(a)(a)}^{\mbox{$2$ times}}\cdots
+\overbrace{(a)(a)}^{\mbox{$2$ times}}}^{\mbox{$k$ times}} = a^{2k}
+\]
+where the second equality comes from theorem 12.1, rule 3. Yet, $a^n = (-a)^n$ and $a^n = a, \forall a \in R$ 
+implies that $-a = a$ and we are done.
+\end{enumerate}
+
+\item[12.49] Let $R$ be a ring. Prove that $a^2 - b^2 = (a + b)(a - b)$ for all $a, b$ in $R$
+if and only if $R$ is commutative.
+\begin{enumerate}
+\item[] Let $R$ be a ring and suppose that $a^2 - b^2 = (a + b)(a - b)$ for all $a, b$ in $R$. Then
+$(a + b)(a - b) = a^2 - ab + ba - b^2$, but since $(a + b)(a - b)$ is equal to $a^2 - b^2$, it must
+be that $-ab + ba = 0$. Hence $ba = ab$ for all $a, b$ in $R$, thus $R$ is commutative. Conversely,
+suppose that $R$ is commutative. Then $(a + b)(a - b) = a^2 - ab + ba - b^2$ for any $a, b$ in $R$.
+Since $R$ is commutative, $ab = ba$, so $a^2 - ab + ba - b^2 = a^2 - ba + ba - b^2$. With 
+$-ba + ba = 0$, we can conclude that $(a + b)(a - b) = a^2 - b^2$.
+\end{enumerate}
+
+\item[13.13] Let $a$ belong to a ring $R$ with unity and suppose that $a^n = 0$ for some positive integer $n$.
+(Such an element is called \emph{nilpotent}.) Prove that $1 - a$ has a multiplicative inverse in $R$.
+\begin{enumerate}
+\item[] We have a ring $R$ with unity, $1$. Let $a \in R$ and $a^n = 0$. We want to show that $1 - a$ is a unit of $R$.
+The hint suggests considering $(1 - a)(1 + a + a^2 + \cdots + a^{n-1})$ so:
+\begin{eqnarray*}
+(1 - a)(1 + a + a^2 + \cdots + a^{n-1})&=& 1 + a + a^2 + \cdots + a^{n-1} - a - a^2 - \cdots - a^n \\
+&=& 1 + [(a - a) + (a^2 - a^2) + \cdots + (a^{n-1} - a^{n-1})] - a^n \\
+&=& 1 + 0 - a^n \\
+&=& 1 - a^n \\
+&=& 1 - 0 \\
+&=& 1
+\end{eqnarray*}
+with $1 + a + a^2 + \cdots a^{n-1} \in R$, then $1 - a$ does have a multiplicative inverse.
+\end{enumerate}
+
+\item[13.22] Let $R$ be the set of all real-valued functions defined for all real numbers under function
+addition and multiplication.
+\begin{enumerate}
+\item[a)] Determine all zero-divisors of $R$.\\
+Any real-valued function, $f$, is a zero-divisor as long as there exists an $x \in \mathbb{R}$ such
+that $f(x) = 0$.
+\item[b)] Determine all nilpotent elements of $R$.\\
+The only possible nilpotent element of $R$ must be 0, otherwise we would have a function, where
+$f(x) = a$ and $a^n = 0$.
+\item[c)] Show that every nonzero element is a zero-divisor or a unit.\\
+Clearly any invertible function is going to be a unit. But this just means that for any function, 
+$f$, that there does not exist an $x \in \mathbb{R}$ such that $f(x) = 0$. Any other function, therefore,
+must have at least one real root, which makes it a zero divisor.
+\end{enumerate}
+
+\item[13.26] Let $R = \{ 0, 2, 4, 6, 8 \}$ under addition and multiplication modulo 10. Prove that $R$ is a field.
+\begin{enumerate}
+\item[] Let's take all the nonzero elements of $R$, that is $2, 4, 6,$ and $8$. Then show that
+no two numbers equals $0$ under multiplication modulo $10$. \\
+\begin{tabular}{|c|c|}
+\hline
+$(2)(4) \equiv 8$ (mod 10) & $(2)(6) \equiv 2$ (mod 10) \\
+\hline 
+$(2)(8) \equiv 6$ (mod 10) & $(4)(6) \equiv 4$ (mod 10) \\
+\hline
+$(4)(8) \equiv 2$ (mod 10) & $(8)(6) \equiv 8$ (mod 10) \\
+\hline
+\end{tabular} \\
+With $R$ being clearly commutative, $6$ being the unity, and no zero divisors, then $R$ is an integral domain.
+Furthermore, since $R$ is obviously finite ($|R| = 5$), then by theorem 13.2, $R$ is also a field.
+\end{enumerate}
+
+\item[13.39] Suppose that $R$ is a commutative ring without zero-divisors. Show that all the nonzero elements of
+$R$ have the same additive order.
+\begin{enumerate}
+\item[] Let $x$ and $y$ be any nonzero elements of $R$, with the additive order of $x$ being $n$ and the
+additive order of $y$ being $m$. Then $\overbrace{xy + xy + \cdots + xy}^{\mbox{$n$ times}} = n \cdot (xy) = (n \cdot x)y 
+= x(n \cdot y)$, where we've obtained some of the equalities from exercise 12.14, and since $n \cdot x = 0, (n \cdot x)y = 0 = x(n \cdot y)$. With no zero divisors, $n \cdot y = 0$ which
+implies that $m \leq n$. Furthermore, $\overbrace{xy + xy + \cdots + xy}^{\mbox{$m$ times}} = m \cdot (xy) = (m \cdot x)y 
+= x(m \cdot y)$,where we've obtained some of the equalities from exercise 12.14, 
+and since $m \cdot y = 0, (m \cdot x)y = 0 = x(m \cdot y)$. With no zero divisors, $m \cdot x = 0$ which
+implies that $n \leq m$. Hence with $n \leq m$ and $m \leq n$, we can only conclude that $n = m$.
+\end{enumerate}
+
+\item[13.41] Let $x$ and $y$ belong to a commutative ring $R$ with char $R = p \neq 0$.
+\begin{enumerate}
+\item[a)] Show that $(x + y)^p = x^p + y^p$.\\
+Let $x$ and $y$ belong to a commutative ring $R$ with char $R = p \neq 0$.
+We know by the binomial theorem that 
+\[ (x + y)^p = \sum_{i = 0}^p {p \choose i} x^iy^{p - i}.
+\]
+First thing we note is that ${p \choose 0} = 1$ and ${p \choose p} = 1$. So, now we have
+\[ 
+(x + y)^p = x^0y^p + \sum_{i = 1}^{p-1} {p \choose i} x^iy^{p - i} + x^py^0.
+\] The next thing to note is that for any ${p \choose i}$, where $1 \leq i \leq p-1$, we have
+\[
+{p \choose i} = \frac{p!}{(p-i)!i!} = p \cdot \frac{(p-1)!}{(p-i)!i!}
+\]
+which we know we can do since nothing will divide $p$ being that $p$ is a prime and that anything
+in the denominator will divide it. Now, we can see that for any $1 \leq i \leq p-1$, 
+\[
+{p \choose i}x^iy^{p-i} = \frac{p!}{(p-i)!i!}x^iy^{p-i} = \frac{(p-1)!}{(p-i)!i!}px^iy^{p-i} = 0
+\]
+because of the $px^iy^{p-i} = 0$ because $p$ is the character of $R$. Thus,
+\[
+(x + y)^p = x^0y^p + \sum_{i = 1}^{p-1} {p \choose i} x^iy^{p - i} + x^py^0 = x^0y^p + 0 + x^py^0
+= x^p + y^p. 
+\]
+\item[b)] Show that, for all positive integers $n, (x + y)^{p^n} = x^{p^n} + y^{p^n}$.\\
+Using part a as our base case, when $n = 1$, then we can see that it holds true. So, let us
+assume that $(x + y)^{p^n} = x^{p^n} + y^{p^n}$.  Then
+\[
+(x + y)^{p^{n+1}} = [(x + y)^{p^{n}}]^p = (x^{p^n} + y^{p^n})^p = (x^{p^n})^p + (y^{p^n})^p =
+x^{p^{n+1}} + y^{p^{n+1}}
+\]
+where we get the second equality by the inductive hypothesis, the third equality by the base case when
+$x^{p^n}, y^{p^n} \in R$. Thus $(x + y)^{p^n} = x^{p^n} + y^{p^n}$ for all $n \in \mathbb{N}$.
+\end{enumerate}
+
+\item[13.42] Let $R$ be a commutative ring with unity 1 and prime characteristic. If $a \in R$ is nilpotent,
+prove that there is a positive integer $k$ such that $(1 + a)^k = 1$.
+\begin{enumerate}
+\item[] Let $R$ be a commutative ring with unit 1 and prime characteristic. If $a \in R$ is nilpotent, then
+this means that for some positive integer $n$, $a^n = 0$. The next thing to note is that 
+$a^m = 0, \forall m \in \mathbb{Z}, m > n$ since $a^m = a^{n + (m - n)} = a^na^{m - n} = 0a^{m - n} = 0$. 
+Now all we need to do is pick a $p^t$, where $p$ is a prime and $t$ is a positive integer, such that
+$p^t > n$, in order to apply exercise 13.41(b). Hence, $(1 + a)^{p^t} = 1^{p^t} + a^{p^t} = 1 + 0 = 1$.
+\end{enumerate}
+
+\item[13.43] Show that any finite field has order $p^n$, where $p$ is a prime. 
+\begin{enumerate}
+\item[] Suppose we have a finite field, $\mathbb{F}$. Then by theorem 13.3 we know that our characteristic is some $n$, 
+but more importantly from theorem 13.4, our $n = p$, where $p$ is some prime. Since $p$ is the least positive integer 
+such that $p \cdot 1 = 0$ then we know that $p$ is the additive order of all nonzero elements in $\mathbb{F}$
+by exercise 13.39. Thus with $\mathbb{F}$ being a finite Abelian group under addition, 
+the fact that all the orders of the nonzero elements are $p$, and theorem 7.1, corollary 2 implies that 
+the order of $\mathbb{F}$ is $p^n$.
+\end{enumerate}
+
+\item[13.49] Consider the equation $x^2 - 5x + 6 = 0$.
+\begin{enumerate}
+\item[a)] How many solutions does this equation have in $\mathbb{Z}_7$?\\
+We can factor the equation down to $(x - 3)(x - 2) = 0$. Now we want to find how many solutions
+this has in $\mathbb{Z}/7\mathbb{Z}$. Well, clearly $3$ and $2$ are solutions, but are there any more.
+So we plug $1$ in for $x$ and get $(-2)(-1) \equiv 2$ (mod 7) but $2 \neq 0$ so 1 is not a solution. If we
+do this to the rest of the elements of $\mathbb{Z}/7\mathbb{Z}$, then we come to find that only 3 and 2 are.
+Hence there are only 2 solutions.
+\item[b)] Find all solutions of this equation in $\mathbb{Z}_7$.\\
+Again, 2 and 3 are clearly solutions in $\mathbb{Z}/8\mathbb{Z}$. To show some work, let's try 5:
+$(2)(3) \equiv 6$ (mod 8) and clearly $6 \neq 0$, so 5 is not a solution. In fact, only 2 and 3 are.
+\item[c)] Find all solutions of this equation in $\mathbb{Z}_{12}$.\\
+\begin{tabular}{|c|c|}
+\hline
+x & $(x - 3)(x - 2)$ \\
+\hline
+0 & $(-3)(-2) \equiv 6$ (mod 12) \\ 
+\hline
+1 & $(-2)(-1) \equiv 2$ (mod 12) \\
+\hline
+2 & $(-1)(0) \equiv 0$ (mod 12) \\
+\hline
+3 & $(0)(1) \equiv 0$ (mod 12) \\
+\hline
+4 & $(1)(2) \equiv 2$ (mod 12) \\ 
+\hline
+5 & $(2)(3) \equiv 6$ (mod 12) \\
+\hline
+6 & $(3)(4) \equiv 0$ (mod 12) \\
+\hline
+7 & $(4)(5) \equiv 8$ (mod 12) \\
+\hline
+8 & $(5)(6) \equiv 6$ (mod 12) \\ 
+\hline
+9 & $(6)(7) \equiv 6$ (mod 12) \\
+\hline
+10 & $(7)(8) \equiv 8$ (mod 12) \\
+\hline
+11 & $(8)(9) \equiv 0$ (mod 12) \\
+\hline 
+\end{tabular}
+\item[d)] Find all solutions of this equation in $\mathbb{Z}_{14}$.\\
+Without enumerating all elements of $\mathbb{Z}/14\mathbb{Z}$ and by direct computation, we find
+2, 3, 9 and 10 as the solutions to the equation $(x - 3)(x - 2) = 0$.
+\end{enumerate}
+
+\item[13.54] Let $F$ be a finite field with $n$ elements. Prove that $x^{n-1} = 1$ for all nonzero $x$ in $F$.
+\begin{enumerate}
+\item[] Let $\mathbb{F}$ be a finite field with $n$ elements. Then there are $n - 1$ elements that are nonzero and
+they form a group under multiplication. Thus with the group (all nonzero elements of $\mathbb{F}$) 
+under multiplication being of order $n - 1$ and theorem 7.1, corollary 4 we know that $x^{n - 1} = 1$ for all
+nonzero elements of the group, but more importantly, for all the nonzero elements of the finite field $\mathbb{F}$.
+\end{enumerate}
+
+\item[14.14] Let $A$ and $B$ be ideals of a ring. Prove that $AB \subseteq A \cap B$.
+\begin{enumerate}
+\item[] We define $AB = \{ a_1b_1 + a_2b_2 + \cdots + a_nb_n \mid a \in A, b \in B, n \in \mathbb{N} \}$. 
+So, let $c \in AB$. Then $c = a_1b_1 + a_2b_2 + \cdots + a_nb_n$ but for all $a_ib_i$ that comprise $c$,
+$a_ib_i \in A$ and $a_ib_i \in B$ because $A$ and $B$ are both ideal. 
+Thus since both $B$ and $A$ are closed under addition, then $c \in A$ and $c \in B$. Hence $AB \subseteq A \cap B$.
+\end{enumerate}
+
+\item[14.15] If $A$ is an ideal of a ring $R$ and 1 belongs to $A$, prove that $A = R$.
+\begin{enumerate}
+\item[] Since $A$ is an ideal of $R$, then we know that $A$ is a subring of $R$ and by definition, $A \subseteq R$.
+Hence, we only have $R \subseteq A$ to show equality. So, let us take any element $r \in R$, then $r \in A$ because
+$r = 1r$ and $1r \in A$ since $A$ is an ideal. Hence $R \subseteq A$ but more importantly $R = A$.
+\end{enumerate}
+
+\item[14.20] Let $I = \langle 2\rangle$. Prove that $I[x]$ is not a maximal ideal of 
+$\mathbb{Z}[x]$ even though $I$ is a maximal ideal of $\mathbb{Z}$.
+\begin{enumerate}
+\item[] Let $I[x] = \{ f(x) \in \mathbb{Z}[x] \mid $ all the coefficients of $f(x)$ are even $ \}$ and 
+$\langle x, 2\rangle = \{ f(x) \in \mathbb{Z}[x] \mid f(0)$ is an even integer $\}$. With $I[x]$
+clearly a proper subset of $\langle x, 2\rangle$ and $\langle x, 2\rangle \subset \mathbb{Z}[x]$ by
+example 17, we can conclude that $I[x]$ is not maximal.
+\end{enumerate}
+
+\item[14.28] Show that $A = \{ (3x, y) \mid x, y \in \mathbb{Z} \}$ is a maximal ideal of 
+$\mathbb{Z} \oplus \mathbb{Z}$.
+\begin{enumerate}
+\item[] We let $B = \{ (x, y) \mid x, y \in \mathbb{Z} \}$ and it is quite clear that $A \subset B$ (and it
+can only be $B$ since $\langle 3\rangle$ is a maximal ideal of $\mathbb{Z}$). But
+$B = \mathbb{Z} \oplus \mathbb{Z}$ by definition, hence $A$ is maximal by definition.
+\end{enumerate}
+
+\item[14.38] Let $R$ be a ring and let $p$ be a fixed prime. Show that $I_p = \{ r \in R \mid
+$ additive order of $r$ is a power of $p \}$ is an ideal of $R$.
+\begin{enumerate}
+\item[] To show $I_p$ is an ideal of $R$, we can use theorem 14.1. So, let $a, b \in I_p$, $|a| = p^n$ and
+$|b| = p^m$, where $n, m \in \mathbb{N}, n < m$. Then 
+$p^{m} \cdot (a - b) = \overbrace{(a - b) + \cdots + (a - b)}^{\mbox{$p^{m}$ times}} = 
+(p^{m} \cdot a) - (p^{m} \cdot b) = p^{m - n} \cdot (p^n \cdot a) - 0 = p^{m - n} \cdot 0 = 0$, so 
+$a - b \in I_p$. Now, we let $a \in R, |a| = p^n, n \in \mathbb{N}$ and $r \in R$, then because 
+$p^n \cdot ra = r(p^n \cdot a) = r0 = 0$ and $p^n \cdot ar = (p^n \cdot a)r = 0r = 0$, both by exercise 12.14, 
+we can conclude the additive order of $ra$ and $ar$ must divide
+$p^n$, but, of course, the only possibilities for the order of $ra$ and $ar$ are those that are some power
+of $p$, thus $ar, ra \in I_p$.
+\end{enumerate}
+
+
+\item[14.49] Show that $\mathbb{Z}_3[x]/\langle x^2 + x + 1\rangle$ is not a field.
+\begin{enumerate}
+\item[] It suffices to show that if $\mathbb{Z}_3[x]/\langle x^2 + x + 1\rangle$ contains an element is a zero divisor, 
+then $\mathbb{Z}_3[x]/\langle x^2 + x + 1\rangle$ cannot be field since it cannot be a finite integral domain. 
+Thus, consider $x + 2 + \langle x^2 + x + 1\rangle$. $(x + 2 + \langle x^2 + x + 1\rangle)^2 = 
+(x + 2)^2 +  \langle x^2 + x + 1\rangle = x^2 + 4x + 4 + \langle x^2 + x + 1\rangle$ which is
+equal to $x^2 + x + 1 + \langle x^2 + x + 1\rangle$ and since $\langle x^2 + x + 1\rangle$ "absorbs" 
+$x^2 + x + 1$, then we are left with the zero element of $\mathbb{Z}_3[x]/\langle x^2 + x + 1\rangle$.
+\end{enumerate}
+
+\item[14.56] Let $R$ be a commutative ring with unity and let $I$ be a proper ideal with the
+property that every element of $R$ that is not in $I$ is a unit of $R$. Prove that $I$ is the
+unique maximal ideal of $R$.
+\begin{enumerate}
+\item[] First off, $I$ must be a maximal ideal since if there was an ideal, $B$, that properly contained
+$I$ then any element of $B\setminus I$ is a unit from which we can conclude that $B = R$. Now we can assume
+that $B$ is a proper ideal of $R$. Then, $B \subseteq I$ since $B$ has no units (otherwise $B = R$). Thus
+$B$ can only maximal if it equal to $I$ whereby proving that $I$ is unique. 
+\end{enumerate}
+
+\item[15.13] Consider the mapping from $M_2(\mathbb{Z})$ into $\mathbb{Z}$ given by
+$\left[ \begin{array}{cc} a & b \\ c & d \end{array} \right] \rightarrow a$. Prove
+or disprove that this is a ring homomorphism.
+\begin{enumerate}
+\item[] Let $\phi$ be the mapping from $M_2(\mathbb{Z})$ into $\mathbb{Z}$ by
+$\left[ \begin{array}{cc} a & b \\ c & d \end{array} \right] \rightarrow a$ and let 
+$\left[ \begin{array}{cc} a & b \\ c & d \end{array} \right] \in M_2(\mathbb{Z})$. Then 
+$\phi(\left[ \begin{array}{cc} a & b \\ c & d \end{array} \right]^2) = a^2 + bc \neq a^2 = 
+(\phi(\left[ \begin{array}{cc} a & b \\ c & d \end{array} \right]))^2$. This violates
+theorem 15.1, property 1, hence the mapping is not a ring homomorphism.
+\end{enumerate}
+
+\item[15.26] Show that $(\mathbb{Z} \oplus \mathbb{Z})/(\langle a\rangle \oplus \langle b
+\rangle )$ is ring-isomorphic to $\mathbb{Z}_a \oplus \mathbb{Z}_b$.
+\begin{enumerate}
+\item[] Fist it is quite clear $\forall r \in \mathbb{Z} \oplus \mathbb{Z}$, where $r$ is an element
+in the form of $(x, y)$ with $x, y \in \mathbb{Z}$, that $r(a, b), 
+(a, b)r \in \langle a\rangle \oplus \langle b\rangle$, so we note
+that when $ra, rb, r'a, r'b \in \langle a\rangle \oplus \langle b\rangle$ then 
+$(ra, rb) - (r'a, r'b) = (ra - r'a, rb - r'b) = ((r - r')a, (r - r')b) \in \langle a\rangle \oplus \langle b\rangle$ and
+hence we have $\langle a\rangle \oplus \langle b\rangle$ is an ideal. Now 
+let $\phi: \mathbb{Z} \oplus \mathbb{Z}/\langle a\rangle \oplus \langle b\rangle \rightarrow \mathbb{Z}/a\mathbb{Z} 
+\oplus \mathbb{Z}/b\mathbb{Z}$ by the mapping $s + \langle a\rangle \oplus \langle b\rangle = s$. Then both 
+operation preservations follow from theorem 14.2, that is $\phi((s + \langle a\rangle \oplus \langle b\rangle) + 
+(t + \langle a\rangle \oplus \langle b\rangle)) = \phi(s + t + \langle a\rangle \oplus \langle b\rangle) =
+s + t = \phi(s + \langle a\rangle \oplus \langle b\rangle) + \phi(t + \langle a\rangle \oplus \langle b\rangle)$ and
+$\phi((s + \langle a\rangle \oplus \langle b\rangle)(t + \langle a\rangle \oplus \langle b\rangle)) = 
+\phi(st + \langle a\rangle \oplus \langle b\rangle) = st = \phi(s + \langle a\rangle \oplus \langle b\rangle)
+\phi(t + \langle a\rangle \oplus \langle b\rangle)$. Let $s + \langle a\rangle \oplus \langle b\rangle, t +
+\langle a\rangle \oplus \langle b\rangle \in \mathbb{Z} \oplus \mathbb{Z}/\langle a\rangle \oplus \langle b\rangle$, then
+$\phi(s + \langle a\rangle \oplus \langle b\rangle) = \phi(t + \langle a\rangle \oplus \langle b\rangle)$
+implies that $s = t$, so $\phi$ is clearly one-to-one and with it being obviously onto, $\phi$ is a ring isomorphism.
+\end{enumerate}
+
+\item[15.38] Let $R$ be a commutative ring of prime characteristic $p$. Show that the
+\emph{Frobenius} map $x \rightarrow x^p$ is a ring homomorphism from $R$ to $R$.
+\begin{enumerate}
+\item[] We let $a, b \in R$ and $\phi$ be the Frobenius map $x \rightarrow x^p$. Then 
+\[ 
+\phi(a + b) = (a + b)^p = a^p + b^p = \phi(a) + \phi(b)
+\]
+where the second equality comes from exercise 13.41(a) and
+\[
+\phi(ab) = (ab)^p = a^pb^p = \phi(a)\phi(b)
+\]
+since $R$ is commutative. Thus the Frobenius map is a ring homomorphism from $R$ to $R$.
+\end{enumerate}
+
+
+\item[15.42] A \emph{principle ideal ring} is a ring with the property that every ideal has the
+form $\langle a\rangle$. Show that the homomorphic image of a principal ideal ring is a principal
+ideal ring.
+\begin{enumerate}
+\item[] Let $\phi: R \rightarrow \phi(R)$. Then we know that $\phi^{-1}(B)$ is an 
+ideal in $R$ when $B$ is an ideal in $\phi(R)$ by theorem 15.1, property 4. Furthermore, 
+for some $b \in R, \phi^{-1}(B) = \langle b\rangle$. Thus $\langle \phi(b)\rangle$ must
+be a principal ideal ring as well.
+\end{enumerate}
+
+\item[15.46] Show that the only ring automorphism of the real numbers is the identity mapping.
+\begin{enumerate}
+\item[] Let $\phi$ be an automorphism from $\mathbb{R}$ to $\mathbb{R}$. With the unity of $\mathbb{R}$ being 1,
+then it must be that $\phi(1) = 1$. Then for any element $n/m \in \mathbb{Q}, \phi(n/m) = n/m$ by 
+$m \cdot \phi(n/m) = \phi(m \cdot n/m) = \phi(n) = n$, which we know we can do since 
+$\phi(n) = n \cdot \phi(1) = n \cdot 1 = n$. Furthermore, $\phi(n) \leq \phi(m)$ whenever $n, m \in \mathbb{R}, n \leq m$,
+since for any $r \in \mathbb{R}^+, \phi(r) = \phi(\sqrt{r}^2) = \phi(\sqrt{r})^2$ which is greater than 0. Hence,
+if $\phi(x) > x$ then we know that there is some $q \in \mathbb{Q}$ such that $\phi(x) > q > x$. But $\phi(q) = q$, which
+means that $\phi(x) < \phi(q)$, a contradiction. It's just as well that if $\phi(x) < x$ then we know that 
+there is some $q \in \mathbb{Q}$ such that $\phi(x) < q < x$ and with $\phi(q) = q$, we have $\phi(x) > \phi(q)$. Thus the
+only automorphism from $\mathbb{R}$ to itself is the identity mapping.
+\end{enumerate}
+
+\item[15.51] Let $\mathbb{Z}[i] = \{ a + bi \mid a, b \in \mathbb{Z} \}$. Show that field of
+quotients of $\mathbb{Z}[i]$ is ring-isomorphic to $\mathbb{Q}[i] = \{ r + si \mid r, s
+\in \mathbb{Q} \}$.
+\begin{enumerate}
+\item[] The field of quotients of $\mathbb{Z}[i]$ is $\mathbb{Z}(i) = \{ (a + bi)/(c + di) \mid (a + bi), (c + di) \in \mathbb{Z}[i], 
+c + di \neq 0 \}$, $(a + bi)/(c + di) \in \mathbb{Q}[i]$. So let $\phi: \mathbb{Q}[i] \rightarrow \mathbb{Z}(i)$ by the 
+mapping that $(a/b) + (c/d)i \rightarrow (ad + bci)/(bd)$. Now
+\[
+\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} =
+\frac{ac + db + (bc - ad)i}{c^2 + d^2} = \frac{ac + db}{c^2 + d^2} + \frac{bc - da}{c^2 + d^2}i
+\]
+
+So if $(a + bi)/(c + di) \in \mathbb{Z}(i)$, then 
+$\phi(\frac{ac + db}{c^2 + d^2} + \frac{bc - da}{c^2 + d^2}i) = (a + bi)/(c + di)$, so $\phi$ is onto. Also, 
+let
+\[
+\phi(\frac{a}{b} + \frac{c}{d}i) = \phi(\frac{a'}{b'} + \frac{c'}{d'}i)
+\]
+\[
+\frac{ad + bci}{bd} = \frac{a'd' + b'c'i}{b'd'}
+\]
+\[
+b'd'ad + b'd'bci = bda'd' + bdb'c'i
+\]
+Then
+\[
+\frac{a}{b} = \frac{a'}{b'} \mbox{ and } \frac{c}{d} = \frac{c'}{d'}
+\]
+by splitting up the parts and dividing out. Hence we have
+\[
+\frac{a}{b} + \frac{c}{d}i = \frac{a'}{b'} + \frac{c'}{d'}i
+\]
+which shows one-to-one. Furthermore,
+\[
+\phi(\frac{a}{b}+ \frac{c}{d}i + \frac{e}{f} + \frac{g}{h}i) = \phi(\frac{af + eb}{bf} + \frac{ch + dg}{dh}i)
+\]
+\[
+= \frac{afdh + ebdhi + bfch + bfdgi}{dhbf} = \frac{a}{b} + \frac{c}{d}i + \frac{e}{f} + \frac{g}{h}i = 
+\phi(\frac{a}{b}+ \frac{c}{d}i) + \phi(\frac{e}{f}+ \frac{g}{h}i)
+\]
+and with the second operation preservation (not shown) being just as tedious, then we have $\phi$ is a ring isomorphism.
+\end{enumerate}
+
+\item[15.60] Let $R = 
+\left\{ \left[
+\begin{array}{cc} a & b \\ b & a \end{array}
+\right] \mid a, b \in \mathbb{Z}
+\right\}$, and let $\phi$ be the mapping that takes 
+$\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right]$ to $a - b$.
+\begin{enumerate}
+\item[a)] Show that $\phi$ is a homomorphism.\\
+So let $\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right], 
+\left[ \begin{array}{cc} c & d \\ d & c \end{array} \right] \in R$. Then
+\[
+\phi(\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right] + 
+\left[ \begin{array}{cc} c & d \\ d & c \end{array} \right]) = 
+\phi(\left[ \begin{array}{cc} a + c & b + d\\ b + d & a + c \end{array} \right]) = (a + c) - (b + d) 
+\]
+\[ 
+= (a - b) + (c - d) = \phi(\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right]) + 
+\phi(\left[ \begin{array}{cc} c & d \\ d & c \end{array} \right])
+\]
+and 
+\[
+\phi(\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right]\left[ \begin{array}{cc} c & d \\ d & c \end{array} \right])
+= \phi(\left[ \begin{array}{cc} ac + bd & ad + bc \\ ad + bc & ac + bd \end{array} \right]) = (ac + bd) - (ad + bc)
+\]
+\[
+= (ac - ad) + (bd - bc) = a(c - d) - b(c - d) = (a - b)(c - d) = 
+\phi(\left[ \begin{array}{cc} a & b \\ b & a \end{array} \right])\phi(\left[ \begin{array}{cc} c & d \\ d & c \end{array} \right])
+\]
+and we're done.
+\item[b)] Determine the kernel of $\phi$.\\
+Since we can only get $a - b = 0$ when $a = b$. Thus, the kernel can be represented as 
+$\langle \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \end{array} \right] \rangle = 
+\{ r\left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \end{array} \right] \mid r \in R\} = 
+\{ \left[ \begin{array}{cc} a + b & a + b \\ a + b & a + b \end{array} \right] \mid a, b \in \mathbb{Z} \}$.
+\item[c)] Show that $R/\ker \phi$ is isomorphic to $\mathbb{Z}$.\\
+By the first isomorphism theorem for rings, we have $R/\ker \phi \cong \phi(R)$.But $\phi(R) \cong \mathbb{Z}$,
+since $a - b \in \phi(R)$ and $a - b \in \mathbb{Z}$ whenever $a, b \in \mathbb{Z}$.
+\item[d)] Is $\ker \phi$ a prime ideal?\\
+$\ker \phi$ must be a prime ideal by theorem 14.3 since $R/\ker \phi$ is an integral domain since 
+it's isomorphic to $\mathbb{Z}$.
+\item[e)] Is $\ker \phi$ a maximal ideal?\\
+By theorem 14.4, $\ker \phi$ is not maximal because $R/\ker \phi$ is not a field, since $\mathbb{Z}$ is
+not a field and $R/\ker \phi$ is isomorphic to $\mathbb{Z}$.
+\end{enumerate}
+
+\item[16.42] Let $F$ be a field and let $I = \{ f(x) \in F[x] \mid f(a) = 0$ for all $a$ in
+$F \}$. Prove that $I$ is an ideal in $F[x]$. Prove that $I$ is infinite when $F$ is finite and 
+$I = \{ 0 \}$ when $F$ is infinite.
+\begin{enumerate}
+\item[] To show that $I$ is an ideal of $F[x]$, we apply the ideal test, so let
+$f(x), g(x) \in I$, then for any $a \in F$, we have $f(a) = 0$ and $g(a) = 0$.
+So $f(a) - g(a) = 0 - 0 = 0$, thus $f(x) - g(x) \in I$. Now let $f(x) \in F[x]$ and 
+$g(x) \in I$ so that for any $a \in F$, $f(a)g(a) = f(a)0 = 0 = 0f(a) = g(a)f(a)$ and $f(x)g(x), g(x)f(x) \in I$.
+Hence $I$ is an ideal.
+\end{enumerate}
+
+\item[17.8] Construct a field of order 25.
+\begin{enumerate}
+\item[] By theorem 17.1 and corollary 1 of theorem 27.5, it suffices to find a cubic polynomial over $\mathbb{Z}_3$ that has
+no zero in $\mathbb{Z}_3$. By inspection, $x^3 - x^2 + 1$ is what we had hoped to find. Thus 
+$\mathbb{Z}_3/\langle x^3 - x^2 + 1\rangle = \{ ax^2 + bx + c + \langle x^3 - x^2 + 1\rangle \mid a, b, c \in \mathbb{Z}_3 \}$
+is a field of order 27 (that is 3 possibilities for $a, b$ and $c$, hence $3^3$).
+\end{enumerate}
+
+\item[17.10] Determine which of the polynomials below is (are) irreducible over $\mathbb{Q}$.
+\begin{enumerate}
+\item[a)] $x^5 + 9x^4 + 12x^2 + 6$\\
+We will use theorem 17.4, thus we want a $p$ such that it divides all coefficients except the
+one in front of $x^5$, which in this case is 1. Letting $p = 3$, we have what we want plus $3^2 = 9$
+clearly does not divide $6$. Thus $x^5 + 9x^4 + 12x^2 + 6$ is irreducible in $\mathbb{Q}$.
+\item[b)] $x^4 + x + 1$\\
+We already know by example 7 that $x^4 + x + 1$ is irreducible over $\mathbb{Z}_2[x]$ and
+thus irreducible over $\mathbb{Q}$ by theorem 17.3.
+\item[c)] $x^4 + 3x^2 + 3$\\
+Again using $p = 3$ for theorem 17.4, we have that $x^4 + 3x^2 + 3$ is irreducible over $\mathbb{Q}$.
+\item[d)] $x^5 + 5x^2 + 1$\\
+If we take $x^5 + 5x^2 + 1$ through mod 3 of theorem 17.3, we have $x^5 + 2x^2 + 1$ and by plugging
+in 0, 1, and 2 come to find that it has no linear factors. So, we check for quadratic factors, which
+has the form $x^2 + ax + b$ and just like example 8 can rule out the ones which have a zero over 
+$\mathbb{Z}_3$. This leaves only $x^2 + 1, x^2 + x + 2$, and $x^2 + 2x + 2$ to which we do long division 
+(on the back of the paper) to see that $x^5 + 2x^2 + 1$ is irreducible over $\mathbb{Z}_3$, hence $x^5 + 5x^2 + 1$ is irreducible over $\mathbb{Q}$.
+\item[e)] $(5/2)x^5 + (9/2)x^4 + 15x^3 + (3/7)x^2 + 6x + 3/14$\\
+We can do what we did in class and that is multiply the polynomial by the lcm of the denominators, which
+for $(5/2)x^5 + (9/2)x^4 + 15x^3 + (3/7)x^2 + x + 3/14$ is 14. So we have $35x^5 + 63x^4 + 210x^3 + 6x^2 + 84x + 3$, 
+which once again, applying theorem 17.4 with $p = 3$, we have that $14[(5/2)x^5 + (9/2)x^4 + 15x^3 + (3/7)x^2 + x + 3/14]$
+is irreducible and thus, $(5/2)x^5 + (9/2)x^4 + 15x^3 + (3/7)x^2 + x + 3/14$ is irreducible.
+\end{enumerate}
+
+
+\item[17.12] Show that $x^2 + x + 4$ is irreducible over $\mathbb{Z}_{11}$.
+\begin{enumerate}
+\item[] It suffices to show that there are no linear factors, so \\
+\begin{tabular}{|c|c|c|}
+\hline
+$x$ & $x^2 + x + 4$ & $=$ in mod 11\\
+\hline 
+$0$ & $0^2 + 0 + 4$ & 4\\
+\hline 
+$1$ & $1^2 + 1 + 4$ & 6\\
+\hline
+$2$ & $2^2 + 2 + 4$ & 10\\
+\hline
+$3$ & $3^2 + 3 + 4$ & 5\\
+\hline 
+$4$ & $4^2 + 4 + 4$ & 2\\
+\hline
+$5$ & $5^2 + 5 + 4$ & 1\\
+\hline
+$6$ & $6^2 + 6 + 4$ & 2\\
+\hline 
+$7$ & $7^2 + 7 + 4$ & 5\\
+\hline
+$8$ & $8^2 + 8 + 4$ & 10\\
+\hline
+$9$ & $9^2 + 9 + 4$ & 6\\
+\hline 
+$10$ & $10^2 + 10 + 4$ & 4\\
+\hline
+\end{tabular} \\
+Since none of the values on the most right column are 0, then we have shown that $x^2 + x + 4$ is 
+irreducible over $\mathbb{Z}_{11}$.
+\end{enumerate}
+
+\item[18.1] For the ring $\mathbb{Z}[\sqrt{d}] = \{ a + b\sqrt{d} \mid a, b \in \mathbb{Z} \}$,
+where $d \neq 1$ and $d$ is not divisible by the square of a prime, prove that the norm
+$N(a + b\sqrt{d}) = |a^2 - db^2 |$ satisfies the four assertions made preceding Example 1.
+\begin{enumerate}
+\item[]
+\item[Prop. 1] $N(x) = 0$ if and only if $x = 0$. \\
+Suppose that $N(x) = 0$, then this means that $|a^2 - db^2| = 0$, which implies that 
+$a^2 = db^2$. Since the LHS is a square, the RHS must also be a square. It must follow then
+that $a = b = 0$, since $d$ cannot be 1 and cannot be divisible by the square of a prime.
+
+\item[Prop. 2] $N(xy) = N(x)N(y)$ for all $x$ and $y$.
+\[ 
+N((a + b\sqrt{d})(c + e\sqrt{d})) = N((ac + bed) + (ae + bc)\sqrt{d}) =
+\]
+\[ 
+|(ac + bed)^2 - d(ae + bc)^2| = |a^2 - db^2||c^2 - de^2| = N(a + b\sqrt{d})N(c + e\sqrt{d})
+\]
+
+\item[Prop. 3] $x$ is a unit if and only if $N(x) = 1$. \\
+Suppose that $x$ is a unit, which means that $xy = 1$ for some $y$, 
+then $N(xy) = N(1) = N(1) = N(x)N(y)$, and so $N(x) = N(y) = 1$. 
+Now suppose that $N(x) = N(a + b\sqrt{d}) = 1$, then $a^2 - db^2 = \pm 1$, but $ a^2 - db^2 = (a + b\sqrt{d})(a - b\sqrt{d})$.
+Thus $a + b\sqrt{d} = x$ is a unit.
+
+\item[Prop. 4] If $N(x)$ is prime, then $x$ is irreducible in $\mathbb{Z}[\sqrt{d}]$. \\
+Suppose that $N(x)$ is prime. For the sake of contradiction, assume that $x$ is reducible to $ab$.
+Then $N(x) = N(ab) = N(a)N(b)$ by Prop. 2. That means that either $N(a)$ or $N(b)$ is a unit (equal to 1 by 
+prop. 3) since $N(x)$ is prime. Contradiction. Hence $x$ must be irreducible.
+\end{enumerate}
+
+\item[18.10] Let $D$ be a principal ideal domain and let $p \in D$. Prove that $\langle p
+\rangle$ is a maximal ideal in $D$ if and only if $p$ is irreducible.
+\begin{enumerate}
+\item[] Firstly, suppose that $\langle p\rangle$ is a maximal ideal. Now, let's assume
+that $p$ is reducible or that $p = ab$ for some $a, b \in D$. Furthermore, $p \in \langle a\rangle$ and
+$\langle p\rangle \subseteq \langle a\rangle \subseteq D$. Since, $\langle p\rangle$ is maximal, then
+either $\langle p\rangle = \langle a\rangle$ or $\langle a\rangle = D$.
+If $\langle p\rangle = \langle a\rangle$, then $a \in \langle p\rangle$, which means that so $a = pc$ for some
+$c \in D$. Clearly, $p = p \cdot 1 = ab$ and $ab = pcb$, so $p = pcb$ which is $1 = cb$ by cancellation. Thus $b$ must be 
+a unit. Now, if $\langle a\rangle = D$, then $an = 1$ for some $n \in D$. Thus $a$ is a unit. We can now conclude that
+when $p$ reduces that one of the factors is a unit, hence $p$ is irreducible.\\
+Conversely, suppose that $p$ is irreducible in $D$. Then $\langle p\rangle \subseteq \langle d\rangle \subseteq D$, 
+where $\langle d\rangle$ is some ideal (since $D$ is a PID) in $D$ for some $d \in D$. 
+Clearly $p = cd$ for  some $c \in D$. But $p$ is irreducible, which means that either $c$ is a unit or $d$ is a unit.
+If $d$ is a unit, then $\langle d\rangle = D$ by exercise 14.17 (used on an earlier homework assignment). If $c$ is a unit,
+then $c^{-1}p = d$ which means that $d \in \langle p\rangle$ and $\langle d\rangle \subseteq \langle p\rangle$. Hence
+$\langle d\rangle = \langle p\rangle$. Thus $\langle p\rangle$ must be maximal.
+\end{enumerate}
+
+\item[18.22] In $\mathbb{Z}[\sqrt{5}]$, prove that both 2 and $1 + \sqrt{5}$ are irreducible
+but not prime.
+\begin{enumerate}
+\item[] We first note that both $N(2)$ and $N(1 + \sqrt{5})$ are both equal to 4. Now if we can show that 
+$\forall x \in \mathbb{Z}[\sqrt{5}], N(x) = N(a + b\sqrt{5}) \neq 2$, then we'll be done. So, we assume that
+$|a^2 + 5b^2| = 2$, then we have $a^2 + 5b^2 = 2$ or $a^2 + 5b^2 = -2$. We can reduce modulo 5 so that
+we have $a^2 = 2$ or $a^2 = 3$. But there is no element in $\mathbb{Z}_5$ such that this is true, a contradiction.
+So if $y \in \mathbb{Z}[\sqrt{5}]$ and $N(y) = 4$, then $y$ is irreducible. Thus, 2 and $1 + \sqrt{5}$ are both
+irreducible. We know that $2 \mid (1 + \sqrt{5})(1 - \sqrt{5}) = -4$, yet $2$ does not divide 
+$1 + \sqrt{5}$ and $1 - \sqrt{5}$ (because if they did, then $2(a + b\sqrt{5}) = 1 + \sqrt{5}$ and $2(a + b\sqrt{5}) = 
+1 - \sqrt{5}$, which means that $2a = 1$ and $2b = 1$ for both equality, but this can't be). Hence $2$ is not prime.
+Furthermore, $1 + \sqrt{5} \mid 4 = 2^2$, so that $(1 + \sqrt{5})(a + b\sqrt{5}) = [(a + 5b) + (a + b)\sqrt{5}] = 2$.
+Clearly $a + b = 0$, which means that $a = -b$, so that $a + 5b = -b + 5b = 4b = 2$, but this can't be. Thus
+$1 + \sqrt{5}$ is not prime also.
+\end{enumerate}
+
+\item[19.2] (Subspace Test) Prove that a nonempty subset $U$ of a vector space $V$ over a field $F$ is a subspace of $V$ if, for every $u$ and $u'$ in $U$ and every $a$ in $F, u + u' \in U$ and $au \in U$.
+\begin{enumerate}
+\item[] 
+\end{enumerate}
+
+\item[19.3] Verify that the set in Example 6 is a subspace. Find a basis for this subspace. Is $\{x^2 + x + 1, x+5, 3\}$ a basis?
+\begin{enumerate}
+\item[] A simple basis should follow from the definition of the elements within the set, that is $\{1, x, x^2\}$. To see that $\{x^2 + x + 1, x+5, 3\}$ is in fact a basis, let $n, m, k \in \mathbb{R}$ and note that $n(x^2+x+1) + m(x+5) + k(3) = nx^2 + (n+m)x+[n+5m+3k]$. We get three equations from this; $n=0, n+m=0$ and $n+5m+3k=0$. Well $n=0$ and from the second equation we get $m=0$ and finally the last equation tells us that $k=0$, so $\{x^2 + x + 1, x+5, 3\}$ is linearly independent. We note further that $|\{x^2 + x + 1, x+5, 3\}| = 3$ which is the same size as the dimension and thus a basis.
+\end{enumerate}
+
+\item[19.5] Determine whether or not the set $\{(2, 1,0), (1,2,5), (7,-1,5)\}$ is linearly independent over $\mathbb{R}$.
+\begin{enumerate}
+\item[] $\left[ \begin{array}{ccc} 2 & -1 & 0 \\ 1 & 2 & 5 \\ 7 & -1 & 5 \end{array} \right]$
+$\sim$ $\left[ \begin{array}{ccc} 1 & 2 & 5 \\ 0 & -5 & -10 \\ 0 & -15 & -30 \end{array} \right]$
+$\sim$ $\left[ \begin{array}{ccc} 1 & 2 & 5 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{array} \right]$
+So not linearly independent.
+\end{enumerate}
+
+\item[19.6] Determine whether or not the set \[
+\{ \left[ \begin{array}{cc} 2 & 1 \\ 1 & 0 \end{array} \right], 
+\left[ \begin{array}{cc} 0 & 1 \\ 1 & 2 \end{array} \right], \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \end{array} \right] \}
+\]
+is linearly independent over $\mathbb{Z}_5$.
+\begin{enumerate}
+\item[] $a \cdot \left[ \begin{array}{cc} 2 & 1 \\ 1 & 0 \end{array} \right] + 
+b \cdot \left[ \begin{array}{cc} 0 & 1 \\ 1 & 2 \end{array} \right] + c \cdot \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \end{array} \right] = \left[ \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right]$ when $a = b = 2$ and $c = 1$, all of which are not zero. Thus not linearly independent over $\mathbb{Z}_5$.
+\end{enumerate}
+
+\item[19.7] If $\{u, v, w\}$ is a linearly independent subset of a vector space, show that $\{u, u+v, u+v+w\}$ is also linearly independent.
+\begin{enumerate}
+\item[] $au + b(u+v) + c(u+v+w) = (a+b+c)u + (b+c)v + cw$. Yet $u, v, w$ are linearly independent so it must be that $a+b+c=0, b+c=0$ and $c=0$. Well this implies that $b=0$ from the second equation and $a=0$ from the first equation so $\{u, u+v, u+v+w\}$ is linearly independent set of vectors.
+\end{enumerate}
+
+\item[19.8] If $\{v_1, \ldots, v_n\}$ is a linearly dependent set of vectors, prove that one of these vectors is a linear combination of the others.
+\begin{enumerate}
+\item[] Let's first note that if $a_1v_1 + \cdots + a_nv_n = 0$ and $\{ v_1, \ldots, v_n \}$ are linearly dependent then at least two coefficients, $a_i$ and $a_j$, must be nonzero since all but one coefficient having zero entries implies that the last coefficient is in fact zero. So then let $a_i \neq 0$, so that $
+a_1v_1 + \cdots + a_nv_n = 0$ becomes $a_1v_1 + \cdots + a_nv_n = -a_iv_i$ but then $-a_i^{-1}$ exists since $a_i \neq 0$. Multiply by sides by $-a_i^{-1}$ to yield $(-a_i^{-1}a_1)v_1 + \cdots + (-a_i^{-1}a_n)v_n = v_i$. With at least one $a_j \neq 0$ on the LHS, we conclude that one of the vectors was a linear combination of the others.
+\end{enumerate}
+
+\item[19.13] Let $V$ be the set of all polynomials over $\mathbb{Q}$ of degree 2 together with the zero polynomial. Is $V$ a vector space over $\mathbb{Q}$?
+\begin{enumerate}
+\item[] Take $x^2 + 2, x^2 - 1 \in V$, then $(x^2 + 2) + (x^2 - 1) = 1 \not\in V$.
+\end{enumerate}
+
+\item[19.14] Let $V = \mathbb{R}^3$ and $W = \{(a,b,c) \in V \mid a^2+b^2=c^2\}$. Is $W$ a subspace of $V$? If so, what is its dimension?
+\begin{enumerate}
+\item[] We take two elements $(1,1,1),(3,4,5) \in W$ and note that $(1,1,1)+(3,4,5) = (4, 5, 6) \not\in W$ since $4^2 + 5^2 \neq 6^2$.
+\end{enumerate}
+
+\item[19.15] Let $V = \mathbb{R}^3$ and $W = \{(a,b,c) \in V \mid a+b=c\}$. Is $W$ a subspace of $V$? If so, what is its dimension?
+\begin{enumerate}
+\item[] Since $0 = 0 + 0$, then $(0,0,0) \in W$ and $W$ is nonempty. Now take \\
+$(a,b,c), (a',b',c') \in W$ then $(a+a')+(b+b') = (a+b)+(a'+b') = c + c'$ so $(a,b,c)+(a',b',c') \in W$. Now take $x \in F$ and $(a,b,c) \in W$, then $xa + xb = x(a+b) = xc$ so $x(a,b,c) = (xa, xb, xc) \in W$.
+\end{enumerate}
+
+\item[19.18] Let $P = \{ (a,b,c) \mid a, b, c \in \mathbb{R}, a = 2b + 3c \}$. Prove that $P$ is a subspace of $\mathbb{R}^3$. Find a basis for $P$. Give a geometric description of $P$.
+\begin{enumerate}
+\item[] Since $0 = 2(0) + 3(0)$, then $(0,0,0) \in P$ and $P$ is not empty. Now let \\
+$(a,b,c), (a',b',c') \in P$, then $2(b + b') + 3(c + c') = 2b + 3c + 2b' + 3c' = a + a'$ thus $(a,b,c)+(a',b',c') \in P$. Let $x \in \mathbb{R}$ and $(a,b,c) \in P$, then $2(xb) + 3(xc) = x(2b) + x(3c) = x(2b + 3c) = xa$ hence $x(a,b,c) = (xa, xb, xc) \in P$. We note that elements in $P$ are of the form $(2b + 3c, b, c)$, so we let $b = 0$ and we get $(3c, 0, c)$, now we let $c = 0$ to get $(2b, b, 0)$. This is a linearly independet set since $(0, 0, 0) = x(2b, b, 0) + y(3c, 0, c)$ implies that $x = y = 0$. A geometric description of this is a line passing through the origin in $\mathbb{R}^3$.
+\end{enumerate}
+
+\item[19.20] If $U$ is a proper subspace of a finite-dimensional vector space $V$, show that the dimension of $U$ is less than the dimension of $V$.
+\begin{enumerate}
+\item[] Let $\{v_1, \ldots, v_n \}$ be a basis for $V$ such that a subset is also a basis for $W$. Then since $W$ is a proper subspace there must be at least one element $v_i \in \{v_1, \ldots, v_n \}$ such that $v_i \not\in W$ otherwise $V = W$. Thus $|\{v_1, \ldots, v_n \}\setminus \{v_i\}| < |\{v_1, \ldots, v_n \}|$ so that the dimension of $W$ must be strictly less than that of dim $V$.
+\end{enumerate}
+
+\item[19.22] If $V$ is a vector space of dimension $n$ over the field $\mathbb{Z}_p$, how many elements are in $V$?
+\begin{enumerate}
+\item[] $n$ slots, $p$ choices. Hence we have $p^n$ elements.
+\end{enumerate}
+
+\item[19.24] Let $U$ and $W$ be subspaces of a vector space $V$. Show that $U \cap W$ is a subspace of $V$ and that $U + W = \{ u + w \mid u \in U, w \in W \}$ is a subspace of $V$.
+\begin{enumerate}
+\item[] Since $U$ and $W$ are both subspaces then both have the zero vector of $V$ and thus $U \cap W$ is nonempty. Let $a, b \in U \cap W$ and $x \in F$. This means that $a, b \in U$ and $a, b \in W$ but since $U$ and $W$ are both subspaces, it must follow that $a+b, xa \in U$ and $a+b, xa \in W$, hence $a+b, xa \in U \cap W$ Now since $0 \in W$ and $0 \in V$, then $0 + 0 = 0 \in W+V$ and $W+V$ is nonempty. We let $u + w, u' + w' \in U + W$, then $(u + w) + (u' + w') = (u + u') + (w + w')$ and we know that since $u, u' \in U$, then $u + u' \in U$ and $w, w' \in W$, then $w+ w' \in W$, so $(u + w) + (u' + w') \in U + W$. Let $x \in F$ and $u + w \in U + W$, then $a(u + w) = au + aw \in U + W$ since $au \in U$ whenever $u \in U$ and $aw \in W$ whenever $w \in W$.
+\end{enumerate}
+
+\item[19.25] If a vector space has one basis that contains infinitely many elements, prove that every basis contains infinitely many elements.
+\begin{enumerate}
+\item[] Suppose a vector space has a basis of infinitely many elements. Then we assume that it also has a basis of finitely many elements. Then by theorem 19.1, all bases have finitely many elements. But this contradicts that it has a basis with infinite elements. Thus, there does not exist a finite basis in this vector space.
+\end{enumerate}
+
+\item[19.26] Let $u = (2,3,1), v = (1,3,0)$, and $w = (2, -3, 3)$. Since $\frac{1}{2}u - \frac{2}{3}v - \frac{1}{6}w = (0,0,0)$, can we conclude that the set $\{ u, v, w\}$ is linearly dependent over $\mathbb{Z}_7$?
+\begin{enumerate}
+\item[] No since $\frac{1}{2}, -\frac{2}{3}, -\frac{1}{6} \not\in \mathbb{Z}_7$.
+\end{enumerate}
+
+\item[19.28] Let $T$ be a linear transformation from $V$ to $W$. Prove that the image of $V$ under $T$ is a subspace of $W$.
+\begin{enumerate}
+\item[] Since $V \neq \emptyset$, then $T(V) \neq \emptyset$. Now take $T(x), T(y) \in T(V)$, then $T(x) +T(y) = T(x+y)$ but since $x, y \in V$ it must also be that $x+y \in V$ and thus $T(x)+T(y) \in T(V)$. Now take $a \in F$, so that $aT(x) = T(ax)$, which we know since $x \in V$ that $ax \in V$, hence $aT(x) \in T(V)$.
+\end{enumerate}
+
+\item[19.29] Let $T$ be a linear transformation of a vector space $V$. Prove that $\{ v \in V \mid T(v) = 0\}$, the kernel of $T$, is a subspace of $V$.
+\begin{enumerate}
+\item[] Let $K = \{ v \in V \mid T(v) = 0\}$. We note that $T(0) = 0$, thus $K$ is nonempty. Now take $v, v' \in K$, then $v + v' \in K$ since $T(v + v') = T(v) +T(v') = 0 + 0 = 0$. Now take $a \in F$ and $v \in K$, so that $av \in K$ since $T(av) = aT(v) = a(0) = 0$.
+\end{enumerate}
+
+\item[20.28] For any prime $p$, find a field of characteristic $p$ that is not perfect.
+\begin{enumerate}
+\item[] Let us refer to example 15.12 where we see that $F = \mathbb{Z}_p(t)$ is an infinite
+field of characteristic $p$. We claim that this is our field for any prime characteristic,
+$p$, such that it is not a perfect field. We take note that $f(x) = x^p - t \in F[x]$ is irreducible,
+which we know is irreducible by same argument as example 20.9 except we replace the 2 by a $p$ and
+note that when we have $f(t^p) = tg(t^p)$ that $p$ divides the degree of one but not the other, in 
+$\mathbb{Z}_p(t)$ and make use of theorem 20.8 to say that if $\mathbb{Z}_p(t)$ was indeed perfect
+then $f(x)$ would not have multiple zeros. Yet, $f(x)$ does have multiple zeros 
+since $f'(x) = 0$.
+\end{enumerate}
+
+\item[20.30] Show that $x^4 + x + 1$ over $\mathbb{Z}_2$ does not have any multiple zeros in
+any field extensions of $\mathbb{Z}_2$.
+\begin{enumerate}
+\item[] Notice that the derivative of $x^4 + x + 1$ is just $1$, thus $x^4 + x + 1$ and it's
+derivative will always be relatively prime. Hence $x^4 + x + 1$ over $\mathbb{Z}_2$ will never
+have any multiple zeros in any field extension of $\mathbb{Z}_2$ by theorem 20.5.
+\end{enumerate}
+
+\item[20.31] Show that $x^{21} + 2x^8 + 1$ does not have multiple zeros in any extension
+of $\mathbb{Z}_3$.
+\begin{enumerate}
+\item[] To show the fact that $x^{21} + 2x^8 + 1$ has no multiple zeros, it suffices to look 
+at the derivative which is $21x^{20} + 16x^7 = x^7$. By theorem 20.5, if there is a factor
+in common between $x^{21} + 2x^8 + 1$ and $x^7$, then we have multiple zeros, yet
+$x^i$ does not divide $x^{21} + 2x^8 + 1$ for $i = 1, \ldots, 7$, hence there
+can be no multiple zeros for $x^{21} + 2x^8 + 1$ in any extension field of $\mathbb{Z}_3$.
+\end{enumerate}
+
+\item[20.32] Show that $x^{21} + 2x^9 + 1$ has multiple zeros in some extension of 
+$\mathbb{Z}_3$.
+\begin{enumerate}
+\item[] We take the derivative of $x^{21} + 2x^9 + 1$ and see that it is $21x^{20} + 18x^8 = 0$.
+Thus any factor of $x^{21} + 2x^9 + 1$ will clearly divide 0, so $x^{21} + 2x^8 + 1$ has
+multiple roots in some extension field of $\mathbb{Z}_3$.
+\end{enumerate}
+
+\item[20.33] Let $F$ be a field of characteristic $p \neq 0$. Show that the polynomial
+$f(x) = x^{p^n} - x$ over $F$ has distinct zeros.
+\begin{enumerate}
+\item[] Since the characteristic of $F$ is $p$, then $f'(x) = p^nx^{p^n - 1} - 1 = -1$ and
+thus $f(x)$ and $f'(x)$ are relatively prime, which means that there are no multiple zeros
+by theorem 20.5.
+\end{enumerate}
+
+\item[21.8] Find teh degree and a basis for $\mathbb{Q}(\sqrt{3} + \sqrt{5})$ over $\mathbb{Q}(\sqrt{15})$. 
+Find the degree and a basis for $\mathbb{Q}(\sqrt{2}, \sqrt[3]{2}, \sqrt[4]{2})$ over $\mathbb{Q}$.
+\begin{enumerate}
+\item[] We know by example 21.7 that $[\mathbb{Q}(\sqrt{3} + \sqrt{5}): \mathbb{Q}] = 4$.
+With $[\mathbb{Q}(\sqrt{15}): \mathbb{Q}]$ clearly being 2, noting that
+$\mathbb{Q}(\sqrt{15})$ is a subfield of $\mathbb{Q}(\sqrt{3} + \sqrt{5})$ then 
+it follows by theorem 21.5 that $[\mathbb{Q}(\sqrt{3} + \sqrt{5}): \mathbb{Q}(\sqrt{15})] = 2$.
+The basis is then $\{1, \sqrt{3} + \sqrt{5}\}$.\\
+Firstly, we note that $\mathbb{Q}(\sqrt{2}, \sqrt[3]{2}, \sqrt[4]{2}) = 
+\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2})$ since $(\sqrt[4]{2})^2 = \sqrt{2}$. Now by theorem 21.5,
+we have both 
+\[
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] = 
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}(\sqrt[3]{2})]
+[\mathbb{Q}(\sqrt[3]{2}: \mathbb{Q}]
+\] and
+\[
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] =
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}(\sqrt[4]{2})]
+[\mathbb{Q}(\sqrt[4]{2}): \mathbb{Q}]
+\]
+with $[\mathbb{Q}(\sqrt[4]{2}): \mathbb{Q}] = 4$
+and $[\mathbb{Q}(\sqrt[3]{2}): \mathbb{Q}] = 3$. Since 4 and 3 are relatively prime and both
+must divide $[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}]$, then 
+$[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] \geq 12$. On the other hand, 
+$[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}(\sqrt[3]{2})]$ is at most 4 since
+$\sqrt[4]{2}$ is a zero of $x^4 - 2 \in \mathbb{Q}(\sqrt[3]{2})[x]$. Therefore
+\[
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] =
+[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}(\sqrt[3]{2})]
+[\mathbb{Q}(\sqrt[3]{2}: \mathbb{Q}] \leq 4 \cdot 3 = 12
+\]
+So $[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] = 
+[\mathbb{Q}(\sqrt{2}, \sqrt[3]{2}, \sqrt[4]{2}): \mathbb{Q}] = 12$. \\
+To help get the basis we can show that $\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}) = 
+\mathbb{Q}(\sqrt[12]{2})$. So we note that $(\sqrt[12]{2})^4 = \sqrt[3]{2}$ and 
+$(\sqrt[12]{2})^3 = \sqrt[4]{2}$ so $\mathbb{Q}(\sqrt[12]{2}) \subseteq 
+\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2})$, then with $[\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}): 
+\mathbb{Q}] = 12$ and $[\mathbb{Q}(\sqrt[12]{2}): \mathbb{Q}] = 12$ we have 
+$\mathbb{Q}(\sqrt[3]{2}, \sqrt[4]{2}) = \mathbb{Q}(\sqrt[12]{2})$. 
+So the basis we want is 
+$\{1, \sqrt[12]{2}, (\sqrt[12]{2})^2, (\sqrt[12]{2})^3, \ldots, (\sqrt[12]{2})^{11}\}$.
+\end{enumerate}
+
+\item[21.10] Let $a$ be a complex number that is algebraic over $\mathbb{Q}$ and let $p(x)$ denote
+the minimal polynomial for $a$ over $\mathbb{Q}$. Show that $\sqrt{a}$ is algebraic over $\mathbb{Q}$.
+\begin{enumerate}
+\item[] Since $a$ is a complex number that is algebraic over $\mathbb{Q}$ and 
+$p(x)$ the minimal polynomial for $a$ over $\mathbb{Q}$, then it suffices to consider
+the polynomial $p(x^2)$ which we know is nonzero since $p(x)$ is nonzero, then we can
+see that $p((\sqrt{a})^2) = p(a) = 0$ and thus $\sqrt{a}$ is algebraic over $\mathbb{Q}$.
+\end{enumerate}
+
+\item[21.14] Find the minimal polynomial for $\sqrt{-3} + \sqrt{2}$ over $\mathbb{Q}$.
+\begin{enumerate}
+\item[] Let $x = \sqrt{-3} + \sqrt{2}$, then 
+\begin{eqnarray*}
+x^2 &=& -3 + 2\sqrt{-6} + 2 \\
+x^2 + 1 &=& 2\sqrt{-6} \\
+(x^2 + 1)^2 &=& (2\sqrt{-6})^2 \\
+x^4 + 2x^2 + 1 &=& 4(-6)
+\end{eqnarray*}
+So our minimal polynomial for $\sqrt{-3} + \sqrt{2}$ over $\mathbb{Q}$ is $x^4 + 2x^2 + 25$.
+\end{enumerate}
+
+\item[21.18] Suppose that $[E:\mathbb{Q}] = 2$. Show that there is an integer $d$ such that
+$E = \mathbb{Q}(\sqrt{d})$ and $d$ is not divisible by the square of any prime.
+\begin{enumerate}
+\item[] Suppose that $[E : \mathbb{Q}] = 2$. Then to find exactly what $E$ is, we can
+adjoin to $\mathbb{Q}$ the zeros of the minimal polynomial, $f(x)$, over $\mathbb{Q}$. 
+The deg $f(x) = 2$, hence we can express $f(x)$ as $x^2 + bx + c$ 
+where $b,c \in \mathbb{Q}$. To find the zeros we can use the quadratic formula, so we have
+$(-b \pm \sqrt{b^2 - 4c})/2$. Since the only thing in the roots of $f(x)$ that isn't
+in $\mathbb{Q}$, it suffices to adjoin $\sqrt{b^2 - 4c}$. We can further simplify this
+by noting that $b^2 - 4c \in \mathbb{Q}$ since $b, c \in \mathbb{Q}$ so we can express
+$\sqrt{b^2 - 4c} = \sqrt{(p/q)}$ where $p, q \in \mathbb{Z}, q \neq 0$ and the
+gcd$(p, q) = 1$. But $\sqrt{p/q} = (\sqrt{p})/(\sqrt{q})$, in which we can rationalize the
+denominator to get $1/q \cdot \sqrt{pq}$, since $1/q \in \mathbb{Q}$ with $\mathbb{Q}$
+absorbing it by a previous homework problem and $pq = d \in \mathbb{Z}$, then $E = 
+\mathbb{Q}(\sqrt{d})$ for some $d \in \mathbb{Z}$. Clearly, we note that $d$ cannot be
+divisible by the square of a prime since otherwise $\mathbb{Q}(\sqrt{d}) = \mathbb{Q} = E$ and thus
+contradicts that $[E : \mathbb{Q}] = 2$.
+\end{enumerate}
+
+\item[21.20] Let $E$ be a field extension of $F$. Show that $[E:F]$ is finite if and only if
+$E = F(a_1, a_2, \ldots, a_n)$, where $a_1, a_2, \ldots, a_n$ are algebraic over $F$.
+\begin{enumerate}
+\item[] Suppose that $[E: F]$ is finite and thus by theorem 21.4 an algebraic extension over $F$.
+Since $E$ is an extension field of $F$, then we know
+$\exists a_1 \in E\setminus F$ (note $a_1$ must be algebraic) 
+so that by theorem 21.5, we have $[E:F] = [E:F(a_1)][F(a_1):F]
+\Rightarrow [F(a_1):F] \leq [E:F]$. If $[F(a_1):F] = [E:F]$ then $E = F(a_1)$ and
+we're done. Otherwise we note that $[F(a_1): F] < [E:F]$  and use induction. So assume
+true for $n - 1$, $[F(a_1, a_2, \ldots, a_{n-1}): F] < [E:F]$. Then 
+$\exists a_n \in E\setminus F(a_1, a_2, \ldots, a_{n-1})$, so that theorem 21.5 implies that
+$[F(a_1, a_2, \ldots, a_{n-1}, a_n): F] \leq [E:F]$. Since $[E:F]$ is finite, we know that
+the induction must end and hence we have the result that $E = F(a_1, a_2, \ldots, a_n)$.
+Conversely, suppose that $E = F(a_1, a_2, \ldots, a_n)$, where $a_1, a_2, \ldots, a_n$ are
+algebraic over $F$. Let $E = F(a_1)$, then $[E:F] =$ deg $p_1(x)$, where
+$p_1(x)$ is the minimal polynomial for $a_1$ over $F$, and is thus finite. 
+Now assume true for $n-1$. Then we have by theorem 21.5, we have
+$[F(a_1, a_2, \ldots, a_n): F] = [F(a_1, a_2, \ldots, a_n):F(a_1, a_2, \ldots, a_{n-1})]
+[F(a_1, a_2, \ldots, a_{n-1}):F]$. But by the induction hypothesis 
+$[F(a_1, a_2, \ldots, a_{n-1}):F]$ is finite and with 
+$[F(a_1, a_2, \ldots, a_n):F(a_1, a_2, \ldots, a_{n-1})] =$ deg $p_n(x)$, where
+$p_n(x)$ is the minimal polynomial for $a_n$ over $F(a_1, a_2, \ldots, a_{n-1})$, 
+then $[F(a_1, a_2, \ldots, a_n): F]$ is finite.
+\end{enumerate}
+
+\item[21.21] If $\alpha$ and $\beta$ are real numbers and $\alpha$ and $\beta$ are transcendental
+over $\mathbb{Q}$, show that either $\alpha \beta$ or $\alpha + \beta$ is also transcendental
+over $\mathbb{Q}$.
+\begin{enumerate}
+\item[] Let $\alpha$ and $\beta$ be real numbers that are transcendental over $\mathbb{Q}$.
+Now let us assume that $\alpha + \beta$ and $\alpha \beta$ are algebraic over $\mathbb{Q}$. 
+Then we consider the polynomail $f(x) = x^2 - (\alpha + \beta)x + \alpha \beta$ which is 
+algebraic since it has algebraic coefficients. Yet the litte part after the corollary of
+theorem 21.7 tells us that the algebraic numbers over $\mathbb{Q}$ 
+form an algebraically closed field and this would mean that $\alpha$ and 
+$\beta$ are algebraic since they are roots of $f(x)$,
+which we can see by $f(x) = (x - \alpha)(x - \beta)$. Hence a contradiction.
+\end{enumerate}
+
+\item[21.32] Let $f(x)$ and $g(x)$ be irreducible polynomials over a field $F$ and let $a$ and
+$b$ belong to some extension $E$ of $F$. If $a$ is a zero of $f(x)$ and $b$ is a zero of
+$g(x)$, show that $f(x)$ is irreducible over $F(b)$ if and only if $g(x)$ is irreducible over
+$F(a)$.
+\begin{enumerate}
+\item[] Let deg $f(x) = n$ and deg $g(x) = m$ and 
+suppose that $f(x)$ is irreducible over $F(b)$. Then $[F(a, b):F(b)] = n$ and 
+by theorem 21.5, we have $[F(a, b):F] = [F(a, b):F(b)][F(b):F]$, yet
+$[F(b):F] = m$. So $[F(a, b):F] = nm$ (in this case, not in general). Furthermore, 
+$[F(a, b):F] = [F(a, b):F(a)][F(a):F]$, so we have $nm = [F(a, b):F(a)] \cdot n$ 
+or namely that $[F(a, b):F(a)]$ must be $m$, which implies that $g(x)$ is 
+irreducible over $F(a)$. The converse is done using exactly the same argument.
+\end{enumerate}
+
+\item[21.33] Let $\beta$ be a zero of $f(x) = x^5 + 2x + 4$ (see Example 8 in Chapter 17).
+Show that none of $\sqrt{2}, \sqrt[3]{2}, \sqrt[4]{2}$ belongs to $\mathbb{Q}(\beta)$.
+\begin{enumerate}
+\item[] We know that by example 8 in chapter 17 that $f(x) = x^5 + 2x + 4$ is irreducible
+over $\mathbb{Q}$. Let $\beta$ be a zero of $f(x)$ in some extension of $\mathbb{Q}$. For,
+if so, then $\mathbb{Q} \subset \mathbb{Q}(\sqrt[3]{2}) \subseteq \mathbb{Q}(\beta)$ and
+$5 = [\mathbb{Q}(\beta) : \mathbb{Q}] = 
+[\mathbb{Q}(\beta) : \mathbb{Q}(\sqrt[3]{2})][\mathbb{Q}(\sqrt[3]{2}) : \mathbb{Q}]$ implies
+that 3 divides 5. Thus $\sqrt[3]{2}$ is not an element of $\mathbb{Q}(\beta)$. By the exact
+same reasoning, $\sqrt{2}$ and $\sqrt[4]{2}$ are also not in $\mathbb{Q}(\beta)$ since
+5 is prime and cannot be divided by 2 and 4, respectively.
+\end{enumerate}
+
+\item[22.8] Determine the possible finite fields whose largest proper subfield is $GF(2^5)$.
+\begin{enumerate}
+\item[] Since we want the possible finite fields such that GF$(2^5)$ is the largest
+possible proper subfield, we look at GF$(2^{5k})$ where $k \in \mathbb{N}$ and 
+5 is the largest divisor of $k$. Hence, we get 
+GF$(2^{10})$, GF$(2^{15})$, and GF$(2^{25})$ as the only possible finite
+fields that satisfy our requirements.
+\end{enumerate}
+
+\item[22.15] Prove the uniqueness portoin of Theorem 22.3 using a group-theoretic argument.
+\begin{enumerate}
+\item[] We prove the uniquenss portion of theorem 22.3 by noticing, by theorem
+22.2, that as a group under multiplication, the set of nonzero elements of GF$(p^n)$ is
+isomorphic to $\mathbb{Z}_{p^n-1}$ and is thus cylic. Yet by the fundamental theorem of cyclic
+groups, we know that any subgroup is unique. 
+\end{enumerate}
+
+\item[22.17] Construct a field of order 9 and carry out the analysis as in Example 1, including
+the conversion table.
+\begin{enumerate}
+\item[] To construct the field of 9 elements that we want, we use the irreducible $x^2 + 1$
+over $\mathbb{Z}_3$ just like example 17.11 to get $\mathbb{Z}_3[x]/\langle x^2 + 1\rangle$.
+So, we can think of GF(9) as the set 
+$F = \{ ax + b + \langle x^2 + 1\rangle \mid a, b \in \mathbb{Z}_3\}$, 
+where addition is done as in $\mathbb{Z}_2[x]$, but
+multiplication is done module $x^2 + 1$. For example, $x^4 + 2x^2 + x + 1 = x$ since the
+remainder upon dividing $x^4 + 2x^2 + x + 1$ by $x^2 + 1$ in $\mathbb{Z}_3[x]$ is $x$. An easier
+way to perform the same calculation is to observe that in this context $x^2 + 1$ is 0, so 
+$x^2 = 2$. Thus $x^4 + 2x^2 + x + 1 = 4 + 4 + x + 1 = 9 + x = x$. Another way to simplify the
+multiplication process is to make use of the fact that the nonzero elements of GF(9) form
+a cyclic group of order 8. To take advantage of this, we must first find a generator of this group.
+After some computation, we find that $x + 1$ is our generator. So we may think of GF(9) as
+the set $\{0, 1, x + 1, (x + 1)^2, \ldots, (x + 1)^7 \}$, where $x^8 = 1$. This makes multiplication
+in $F$ trivial, but, unfortunately, it makes addition more difficult. Yet, if we write the elements
+of $F^*$ in the additive form $ax^3 + bx^2 + cx + d$, then addition is easy and multiplication
+is hard. So let's do like the book and get the best of both worlds by using the relation $x^2 = 2$ 
+and make a two-way conversion table. \\
+\begin{tabular}{cc|cc}
+\hline
+Multiplicative Form&Additive Form&Additive Form&Multiplicative Form\\
+$1$ & $1$ & $1$ & $1$ \\
+$x + 1$ & $x + 1$ & $2$ & $(x + 1)^4$ \\
+$(x + 1)^2$ & $2x$ & $x$ & $(x + 1)^6$ \\
+$(x + 1)^3$ & $2x + 1$ & $x + 1$ & $x + 1$ \\
+$(x + 1)^4$ & $2$ & $x + 2$ & $(x + 1)^7$ \\
+$(x + 1)^5$ & $2x + 2$ & $2x$ & $(x + 1)^2$ \\
+$(x + 1)^6$ & $x$ & $2x + 1$ & $(x + 1)^3$ \\
+$(x + 1)^7$ & $x + 2$ & $2x + 2$ & $(x + 1)^5$
+\end{tabular}
+\end{enumerate}
+
+\item[22.22] Draw the subfield lattices of GF$(3^{18})$ and of GF$(2^{30})$.
+\begin{enumerate}
+\item[] 
+\begin{displaymath}
+\xymatrix{
+&&&&\\
+&&& GF(3^{18}) & \\
+&&
+GF(3^6) \ar@{-}[d] \ar@{-}[ur] &
+GF(3^9) \ar@{-}[u] & \\
+&
+GF(3^2) \ar@{-}[ur] &
+GF(3^3) \ar@{-}[ur] \ar@{-}[u] &
+& 
+\\
+&GF(3) \ar@{-}[u] \ar@{-}[ur]&& &\\
+}
+\end{displaymath}
+
+\begin{displaymath}
+\xymatrix{
+&&&&\\
+&&GF(2^{30})&& \\
+&
+GF(2^{10}) \ar@{-}[ur]
+&
+GF(2^6) \ar@{-}[u] \ar@{-}[dl] \ar@{-}[dr]
+&
+GF(2^{15}) \ar@{-}[ul] & \\
+&
+GF(2^2) \ar@{-}[u] &
+GF(2^5) \ar@{-}[ul] \ar@{-}[ur]
+& GF(2^3) \ar@{-}[u]  & \\
+&&GF(2) \ar@{-}[u] \ar@{-}[ul] \ar@{-}[ur]& &\\
+}
+\end{displaymath}
+\end{enumerate}
+
+\item[22.25] Suppose that $p$ is a prime and $p \neq 2$. Let $a$ be a nonsquare in GF$(p)$ 
+(that is, $a$ does not have the form $b^2$ for any $b$ in GF$(p)$. Show that $a$ is a 
+non-square in GF$(p^n)$ if $n$ is odd and that $a$ is a square in GF$(p^n)$ if $n$ is even.
+\begin{enumerate}
+\item[] Suppose that $p$ is prime and $p \neq 2$. Let $a$ be a nonsquare in GF($p$). Then
+we consider the irreducible polynomial $f(x) = x^2 - a$. Yet, we know that
+GF$(p)[x]/\langle f(x)\rangle$ has order $p^2$ and $f(x)$ has a zero in it. 
+So, we note that $a$ must be a square in GF$(p^2)$ and apply theorem 22.3 to get the result
+that since $2$ divides any even power of $p$, then $a$ will be square when it is in 
+GF($p^n$) and $n$ is even. It consequently follows that $a$ cannot be square in 
+GF($p^n$) when $n$ is odd, since $2$ does not divide $n$ in this case.
+\end{enumerate}
+
+\item[22.26] Let $f(x)$ be a cubic irreducible over $\mathbb{Z}_p$, where $p$ is a prime. Prove
+that the splitting field of $f(x)$ over $\mathbb{Z}_p$ has order $p^3$ or $p^6$.
+\begin{enumerate}
+\item[] So since we want $f(x)$ to split in some extension field of $\mathbb{Z}_p = F$, we can then
+express $f(x)$ as $(x - a_1)(x - a_2)(x - a_3)$ in the splitting field. Well, it's clear that
+$a_1, a_2, a_3$ must be algebraic over $F$ since they are zeros to $f(x)$. Now by
+theorem 21.1, we know that $F(a_1) \cong F[x]/\langle f(x)\rangle$. Yet, we know that $F[x]/\langle
+f(x)\rangle$ has order $p^3$, so $F(a_1)$ must also have order $p^3$. If, $f(x)$ splits in this field,
+then we're done. Otherwise, we need to adjoin one of the other roots, so without loss of generality,
+let us choose $a_2$. Now we note what we actually want to split in the extension field of 
+$F(a_1)$ is $g(x)$ such that $g(x) = f(x)/(x - a_1)$ which is clearly a polynomial
+of degree 2. Thus, again by theorem 21.1, we get $F(a_1, a_2) = F(a_1)(a_2) \cong
+F(a_1)[x]/\langle g(x)\rangle$, which is of order $(p^3)^2 = p^6$. It is quite clear that if the
+latter case is needed to find a splitting field for $f(x)$, then the third root is automatically 
+in that field since we broke down a quadratic polynomial into two linear factors.
+\end{enumerate}
+
+\item[22.30] Show that no finite field is algebraically closed.
+\begin{enumerate}
+\item[] Suppose that $F$ is a finite field. Now for the sake of contradiction, assume
+that $F$ is algebraically closed. Now we consider where $0, 1 \in F$ (which we know must be there
+since they are the additive and multiplicative identity) get mapped to when we look at the
+function $f: F \rightarrow F$ given by $f(x) = x^2 - x$. Obviously, $f(0) = f(1) = 0$ so that
+$f$ is not onto and not one-to-one. Thus, it must be that for any $x \in F, x^2 - x \neq y$ where
+$y \in F$. Hence $x^2 - x - y$ has no root in $F$ which gives us our contradiction.
+\end{enumerate}
+
+\item[23.4] If $a$ and $b (b \neq 0)$ are constructible numbers, give a geometric proof that
+$a/b$ is constructible.
+\begin{enumerate}
+\item[] 
+Suppose that $a$ and $b$ are constructible numbers with $b \neq 0$, then we use the
+figure below
+
+\begin{displaymath}
+\xymatrix{
+&&&&\bullet \ar@/_2pc/[ddddllll]&\\
+&a&&& &\\
+&&\bullet \ar@{-}[uurr]&& &\\
+&&&& &\\
+\bullet \ar@/^2pc/[uuuurrrr] \ar@{-}[uurr]^d \ar@{-}[rr]^1 \ar@/_2pc/[rrrr] &&
+\bullet \ar@{-}[rr] \ar@{-}[uu] &&\ar@{-}[uuuu]\bullet \ar@/^2pc/[llll] &\\
+&&b&& &\\
+}
+\end{displaymath}
+\[ \]
+\[ \]
+So, we have two similar right triangles; 
+the smaller one with a hypotenuse of length $d$ and a 
+bottom side length of 1 and the bigger one with a
+hypotenuse of length $a$ and a bottom side length of $b$. Then by proportionality,
+$1/b = d/a$. Hence $db = 1a = a$, so $d = a/b$ and thus $a/b$ is contructible. 
+\end{enumerate}
+
+
+\item[Extra 1] Let $p$ be prime, let $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$, and let $G$ be the following subgroup of $GL(2, \mathbb{F}_p)$:
+\[
+G = \left\{
+\left(
+\begin{array}{cc}
+1 & a \\ 0 & 1
+\end{array}
+\right) \mid a \in \mathbb{F}_p
+\right\} .
+\]
+Let $X = \mathbb{F}^2_p$ be the set of $2 \times 1$ vectors with entries from $\mathbb{F}_p$, that is,
+\[
+\mathbb{F}^2_p = \left\{
+\left(
+\begin{array}{c}
+x \\ y
+\end{array}
+\right) \mid x, y \in \mathbb{F}_p
+\right\} .
+\]
+\begin{enumerate}
+\item[a)] For $g \in G$ and $v \in X$, define $g \cdot v = gv$, where $gv$ is matrix-vector multiplication. Show that this satisfies definition 2 of a group action. \\
+It suffices to show (i) and (ii) of definition 2. So let for any 
+$\left( \begin{array}{cc} 1 & a \\ 0 & 1\end{array}\right), \left( \begin{array}{cc} 1 & b \\ 0 & 1\end{array}
+\right) \in G$ and $\left( \begin{array}{c} x \\ y\end{array}\right) \in X$, we have
+\[
+\left[ \left( \begin{array}{cc} 1 & a \\ 0 & 1\end{array}\right) \left( \begin{array}{cc} 1 & b \\ 0 & 1\end{array} \right)
+\right] \left( \begin{array}{c} x \\ y\end{array}\right) = 
+\left( \begin{array}{cc} 1 & a + b \\ 0 & 1\end{array}\right) \left( \begin{array}{c} x \\ y\end{array}\right)
+= \left( \begin{array}{c} x + (a + b)y \\ y\end{array}\right)
+\]
+and 
+\[
+\left( \begin{array}{cc} 1 & a \\ 0 & 1\end{array}\right) \left[ \left( \begin{array}{cc} 1 & b \\ 0 & 1\end{array} \right)
+\left( \begin{array}{c} x \\ y\end{array}\right) \right] = 
+\left( \begin{array}{cc} 1 & a \\ 0 & 1\end{array}\right) \left( \begin{array}{c} x + by \\ y\end{array}\right)
+= \left( \begin{array}{c} x + (a + b)y \\ y\end{array}\right)
+\]
+so (i) is satisfied. Now, we note that the identity of $G$ is $\left( \begin{array}{cc} 1 & 0 \\ 0 & 1\end{array} \right)$.
+Then
+\[
+\left( \begin{array}{cc} 1 & 0 \\ 0 & 1\end{array} \right) \left( \begin{array}{c} x \\ y\end{array}\right) = 
+\left( \begin{array}{c} x \\ y\end{array}\right)
+\] and we're done.
+\item[b)] Show that for every $v \in X$, we have $|\mbox{orb}_G(v)| = 1$ or $p$. \\
+By the orbit-stabilizer lemma, we know that $|G| = |\mbox{stab}_G(v)||\mbox{orb}_G(v)|$ for any $v \in X$.
+Once we show that $G \cong \mathbb{F}_p$, then we know that $|G| = p$ and our required result following. 
+That is that $|\mbox{stab}_G(v)| = 1$ or $p$ and $|\mbox{orb}_G(v)| = 1$ or $p$. So
+let $\phi: G \rightarrow \mathbb{F}_p$ by $\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right) \rightarrow 
+a$. $\phi$ is clearly a bijection and with $\phi(\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right)
+\left( \begin{array}{cc} 1 & b \\ 0 & 1 \end{array} \right)) = \phi(
+\left( \begin{array}{cc} 1 & a + b \\ 0 & 1 \end{array} \right) ) = a + b = 
+\phi(\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right) ) + \phi(\left( \begin{array}{cc} 1 & b \\ 0 & 1 \end{array} \right)
+)$, we are done.
+\item[c)] If $v = \left( \begin{array}{c} x \\ y \end{array} \right)$, show that stab$_G(v) = G$
+if and only if $y = 0$. \\
+Suppose that stab$_G(v) = G$, then $\forall g \in G, g \cdot v = v$. So,
+$\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right) \cdot \left( \begin{array}{c} x \\ y \end{array} \right) = 
+\left( \begin{array}{c} x + ya \\ y \end{array} \right)$ and this must equal 
+$\left( \begin{array}{c} x \\ y \end{array} \right)$, where it becomes quite clear that this is only possible when $y = 0$.
+Conversely, suppose that $y = 0$. Then for any element, $\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right) \in 
+G$, $\left( \begin{array}{cc} 1 & a \\ 0 & 1 \end{array} \right) \cdot \left( \begin{array}{c} x \\ 0 \end{array} \right) = 
+\left( \begin{array}{c} x \\ 0 \end{array} \right)$, but this is just the definition of the stabilizer and thus
+stab$_G(v) = G$. 
+\end{enumerate}
+
+\item[Extra 2] Let $G$ be a group which acts on a set $X$, and for every $x, y \in X$, define
+$x \sim y$ if there is a $g \in G$ such that $g \cdot x = y$. Prove that $\sim$ is an equivalence relation on $X$ and the equivalence class of $x \in X$ is orb$_G(x)$.
+\begin{enumerate}
+\item[] Reflexive: $x \sim x$ is true since $e \cdot x = x$ and $e \in G$ because it is a group. \\
+Symmetric: If $x \sim y$, then $g \cdot x = y$ for some $g \in G$, yet multiplying on the left to both
+sides by $g^{-1}$ yields $x = g^{-1} \cdot y$. So $y \sim x$ since $g^{-1} \in G$ because $G$ is a group. \\
+Transitive: If $x \sim y$ and $y \sim z$, then $g \cdot x = y$ and $h \cdot y = z$ for some $g, h \in G$. 
+But $y = h^{-1} \cdot z$, which means $g \cdot x = h^{-1} \cdot z$. Thus $hg \cdot x = z$, with $hg \in G$ because
+it is a group, and $x \sim z$. 
+
+Hence $\sim$ is an equivalence relation.
+We know that orb$_G(x) = \{ g \cdot x \mid g \in G \}$. Yet, we defined the equivalence relation in exactly
+the same manner. Thus orb$_G(x) = [x]$.
+\end{enumerate}
+
+\item[Extra 3] Let $G$ be a finite group such that $|G| = p^k$ , for some prime $p$ and integer
+$k \geq 1$. Use Theorem 4 to show that the center of $G$ is nontrivial, that is,
+that $Z(G)$ contains more than just the identity element $e$.
+\begin{enumerate}
+\item[] Since $|G| = p^k$, then $p \mid |G|$. Thus by the class formula, $p$ must divide 
+$|Z(G)| + \sum_{a \in A}[G : C_G(a)]$. With the terms in the summation all being proper divisors of $|G|$, then
+it must follow that $p \mid Z(G)$.Thus $|Z(G)| \neq 1$.
+\end{enumerate}
+
+\item[Extra 4] Use Problem 3 above and Theorem 9.3 in Gallian to show that any
+group of order $p^2$, where $p$ is prime, is abelian
+\begin{enumerate}
+\item[] Let $G$ be of order $p^2$ where $p$ is prime. Then we know by Problem 3 and the fact that $Z(G)$ is a subgroup
+and by Lagrange's, $|Z(G)|$ must divide $|G|$. So the order of $Z(G)$ is either $p$ or $p^2$. If $|Z(G)| = p^2$, then
+$|G/Z(G)| = 1$, in which case $G/Z(G)$ must be Abelian. Otherwise, $|G/Z(G)| = p$, in which we know that $G/Z(G)$ must be
+cyclic and, by theorem 9.3, Abelian.
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

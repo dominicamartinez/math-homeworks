@@ -1,0 +1,1798 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\usepackage{wrapfig}
+\usepackage{shapepar}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{calligra}
+\usepackage{amsmath}
+%\usepackage[symbol*]{footmisc}
+%\usepackage[enableskew]{youngtab}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\begin{document}
+Contemporary Abstract Algebra (6th ed.) by Joseph Gallian
+\begin{enumerate}
+
+\item[0.4] Find integers $s$ and $t$ such that $1 = 7 \cdot s + 11 \cdot t$. Show that $s$ and
+$t$ are not unique.
+\begin{enumerate}
+\item[] We can choose $s$ and $t$ to be $-3$ and $2$, respectively. By the Euclidean algorithm:
+\begin{eqnarray*}
+11 &=& 7 \cdot 1 + 4 \\
+7 &=& 4 \cdot 1 + 3 \\
+4 &=& 3 \cdot 1 + 1 \\
+3 &=& 1 \cdot 3
+\end{eqnarray*}
+Since $1$ is the last nonzero remainder, $\gcd(11, 7) = 1$. Thus, we can show that $s = -3$ and
+$t = 2$ are two integers that we can find. Hence,
+\begin{align*}
+1 &= 4 + 3(-1) = 4 + [7 + 4(-1)](-1) \\
+&= 7(-1) + 4(2) = 7(-1) + [11 + 7(-1)](2) \\
+&= 11(2) + 7(-1) + 7(-2) \\
+&= 11(2) + 7(-3)
+\end{align*}
+$s$ and $t$ cannot be unique because of the fact that $s = -3 + 11k$ and 
+$t = 2 - 7k$, for some $k \in \mathbb{Z}$, will also satisfy our requirements. 
+\end{enumerate}
+
+\item[0.10] Let $d = $gcd$(a, b)$. If $a = da'$ and $b = db'$, show that gcd$(a', b') = 1$.
+\begin{enumerate}
+\item[] By theorem 0.2, $\gcd(a, b) = as + bt$ where $s$ and $t$ are integers, 
+but $\gcd(a, b) = d$ as well, thus
+$d = as + bt$. Since $a = da'$ and $b = db'$, $d = (da')s + (db')t$ which we can divide
+by $d$ and end up with $1 = a's + b't$. Since we know that $\gcd(a, b) = d$ and $d \neq 0$,
+it follows that $1 = a's + b't = \gcd(a', b')$.
+\end{enumerate}
+
+\item[0.11] Let $n$ be a fixed positive integer greater than $1$. If $a$ mod $n = a'$ and 
+$b$ mod $n = b'$, prove that $(a + b)$ mod $n = (a' + b')$ mod $n$ and $(ab)$ mod $n = 
+(a'b')$ mod $n$.
+\begin{enumerate}
+\item[] If $a\mod n = a'$ and $b \mod n = b'$, then by definition, $a = a' + rn$ and 
+$b = b' + sn$ for some $r, s \in \mathbb{Z}$. Now,
+\[ 
+a + b = a' + rn + b' + sn = (a' + b') + n(r + s)
+\]
+Since $n$ divides $n(r + s)$ evenly, we have $(a + b)\mod n = (a' + b')\mod n $.
+Also, 
+\[
+ab = (a' + rn)(b' + sn) = a'b' + sna' + rnb' + rsn^2 = \]
+\[
+a'b' + n(sa' + rb' + rsn)
+\]
+Since $n$ divides $n(sa' + rb' + rsn)$ evenly, we have $(ab)\mod n = (a'b')\mod n$.
+\end{enumerate}
+
+
+\item[0.13] Let $n$ and $a$ be positive integers and let $d = $gcd$(a, n)$. Show that the equation
+$ax$ mod $n = 1$ has a solution if and only if $d = 1$.
+\begin{enumerate}
+\item[] Firstly suppose that $ax\mod n = 1$ has a solution. Then $kn + 1 = ax$ by definition.
+Also, $ax - kn = 1$, which also happens to be the form of $\gcd(a, n)$ by theorem 0.2. Thus
+$\gcd(a, n) = d$ and $\gcd(a, n) = 1$, then $d = 1$ as required.
+Conversely, if $d = gcd(a, n) = 1$, then by Theorem 0.2, there exists $x, t$ such that 
+$1 = ax + nt$. Now, $[1]_n = [ax]_n + [nt]_n$ and since $n$ divides $nt$ evenly, 
+it is clear that $ax \mod n = 1$ and a solution exists.
+\end{enumerate}
+
+
+\item[0.14] Show that $5n + 3$ and $7n + 4$ are relatively prime for all $n$.
+\begin{enumerate}
+\item[] We can show using the Euclidean algorithm:
+\begin{eqnarray*}
+7n + 4 &=& (5n + 3) \cdot 1 + (2n + 1) \\
+5n + 3 &=& (2n + 1) \cdot 2 + (n + 1) \\
+2n + 1 &=& (n + 1) \cdot 1 + n \\
+n + 1 &=& n \cdot 1 + 1 \\
+n &=& 1 \cdot n
+\end{eqnarray*}
+Since $1$ is the last nonzero remainder, $\gcd(7n + 4, 5n + 3) = 1$, which shows that
+they are relatively prime.
+\end{enumerate}
+
+
+\item[0.16] Use the Euclidean algorithm to find gcd$(34, 126)$ and write it as a linear combination
+of $34$ and $126$.
+\begin{enumerate}
+\item[] Use Euclidean algorithm to find $\gcd(34, 126)$:
+\begin{eqnarray*}
+126 &=& 34 \cdot 3 + 24 \\
+34 &=& 24 \cdot 1 + 10 \\
+24 &=& 10 \cdot 2 + 4 \\
+10 &=& 4 \cdot 2 + 2 \\
+4 &=& 2 \cdot 2
+\end{eqnarray*}
+Since $2$ is the last nonzero remainder, $\gcd(34, 126) = 2$. \\
+Now to express it as a linear combination:
+\begin{align*}
+2 &= 10 + 4(-2) = 10 + [24 + 10(-2)](-2) = 24(-2) + 10(5) \\
+&= 24(-2) + [34 + 24(-1)](5) = 24(-7) + 34(5) \\
+&= [126 + 34(-3)](-7) + 34(5) = 126(-7) + 34(26)
+\end{align*}
+Hence, we can express $2$ as $126(-7) + 34(26)$.
+\end{enumerate}
+
+\item[0.26] What is the largest bet that cannot be made with chips worth 7 dollars and 9 dollars?
+Verify that your answer is correct with both forms of induction.
+\begin{enumerate}
+\item[] To gain insight into this problem, we try various combinations of 7 and 9 dollar bets and obtain
+7, 9, 14, 16, 18, 21, 23, 25, 27, 28, 30, 32, 34, 35, 36, 37, 39, 41, 42, 43, 44, 45, 46, 48, 49, 50, 
+51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76,
+77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90. It appears that the answer is 47. Well, we need
+to prove that every integer greater than 47 can be written in the form $a \cdot 7 + b \cdot 9$, where
+$a$ and $b$ are nonnegative integers. This will solve the problem, since $a$ represents the number of 
+7 dollar bets and $b$ the number of 9 dollar bets needed to make a bet of $a \cdot 7 + b \cdot 9$. \\
+First, we use the First Principle of Mathematical Induction. Let $S$ be the set of all integers of
+the form $a \cdot 7 + b \cdot 9$, where $a$ and $b$ are nonnegative. Then $48 = 3 \cdot 7 + 3 \cdot 9$ 
+and $48 \in S$. Now assume that some integer $n \in S$, say, $n = a \cdot 7 + b \cdot 9$. We must show
+that $n + 1 \in S$. First note that since $n \geq 48$, we cannot have both $a$ and $b$ less than 3.
+If $a \geq 3$, then $n + 1 = (a \cdot 7 + b \cdot 9) + (-5 \cdot 7 + 4 \cdot 9) = (a - 5) \cdot 7 + 
+(b + 4) \cdot 9$. If $b \geq 3$, then $n + 1 = (a \cdot 7 + b \cdot 9) + (4 \cdot 7 - 3 \cdot 9) =
+(a + 4) \cdot 7 + (b - 3) \cdot 9$. This completes the proof. \\
+To prove the same statement by the Second Principle, we note that each of the integers 
+48, 49, 50, 51, 52, 53, and 54 is in $S$. Now assume that for some integer $n > 54$, 
+$S$ contains all integers $k$ with $48 \leq k < n$. We must show that $n \in S$. Since
+$n - 7 \in S$, there are nonnegative integers $a$ and $b$ such that $n - 7 = a \cdot 7 + 
+b \cdot 9$. But then $n = (a + 1) \cdot 7 + b \cdot 9$. Thus $n$ is in $S$.
+\end{enumerate}
+
+\item[0.30] Prove that for every integer $n$, $n^3$ mod $6 = n$ mod $6$.
+\begin{enumerate}
+\item[] To show that $n^3\mbox{ mod } 6 = n\mbox{ mod } 6$, for all integers $n$, 
+we take into account the 6 different equivalence classes on $\mathbb{Z}$.
+That is [0], [1], [2], [3], [4], and [5]. \\
+$[0] = \{\ldots, -12, -6, 0, 6, 12, \ldots\}$ and are in the form $6k, k \in \mathbb{Z}$.
+Now, we show $(6k)^3\mbox{ mod } 6 = 6k\mbox{ mod } 6$. 
+\[ (6k)^3\mbox{ mod } 6 = 216k^3\mbox{ mod } 6 = 6(36k^3)\mbox{ mod } 6 = 0 = 6k\mbox{ mod } 6 \]
+
+$[1] = \{\ldots, -11, -5, 1, 7, 13, \ldots\}$ and are in the form $6k + 1, k \in \mathbb{Z}$.
+Now, we show $(6k + 1)^3\mbox{ mod } 6 = (6k + 1)\mbox{ mod } 6$. 
+\begin{align*}
+(6k + 1)^3\mbox{ mod } 6 &= (216k^3 + 108k^2 + 18k + 1)\mbox{ mod } 6 \\
+&= 6(36k^3 + 18k^2 + 3k)\mbox{ mod } 6 + 1\mbox{ mod } 6 \\
+&= 1 = (6k + 1)\mbox{ mod } 6
+\end{align*}
+
+$[2] = \{\ldots, -10, -4, 2, 8, 14, \ldots\}$ and are in the form $6k + 2, k \in \mathbb{Z}$.
+Now, we show $(6k + 2)^3\mbox{ mod } 6 = (6k + 2)\mbox{ mod } 6$. 
+\begin{align*}
+(6k + 2)^3\mbox{ mod } 6 &= (216k^3 + 216k^2 + 72k + 8)\mbox{ mod } 6 \\
+&= 6(36k^3 + 18k^2 + 3k)\mbox{ mod } 6 + 8\mbox{ mod } 6 = 0 + 2 \\
+&= 2 = (6k + 2)\mbox{ mod } 6
+\end{align*}
+
+$[3] = \{\ldots, -9, -3, 3, 9, 15, \ldots\}$ and are in the form $6k + 3, k \in \mathbb{Z}$.
+Now, we show $(6k + 3)^3\mbox{ mod } 6 = (6k + 3)\mbox{ mod } 6$. 
+\begin{align*}
+(6k + 3)^3\mbox{ mod } 6 &= (216k^3 + 324k^2 + 162k + 27)\mbox{ mod } 6 \\
+&= 6(36k^3 + 54k^2 + 27k)\mbox{ mod } 6 + 27\mbox{ mod } 6 = 0 + 3 \\
+&= 3 = (6k + 3)\mbox{ mod } 6
+\end{align*}
+
+$[4] = \{\ldots, -8, -2, 4, 10, 16, \ldots\}$ and are in the form $6k + 4, k \in \mathbb{Z}$.
+Now, we show $(6k + 4)^3\mbox{ mod } 6 = (6k + 4)\mbox{ mod } 6$. 
+\begin{align*}
+(6k + 4)^3\mbox{ mod } 6 &= (216k^3 + 432k^2 + 288k + 64)\mbox{ mod } 6 \\
+&= 6(36k^3 + 72k^2 + 48k)\mbox{ mod } 6 + 64\mbox{ mod } 6 = 0 + 4 \\
+&= 4 = (6k + 4)\mbox{ mod } 6
+\end{align*}
+
+$[5] = \{\ldots, -7, -1, 5, 11, 17, \ldots\}$ and are in the form $6k + 5, k \in \mathbb{Z}$.
+Now, we show $(6k + 5)^3\mbox{ mod } 6 = (6k + 5)\mbox{ mod } 6$. 
+\begin{align*}
+(6k + 5)^3\mbox{ mod } 6 &= (216k^3 + 540k^2 + 450k + 125)\mbox{ mod } 6 \\
+&= 6(36k^3 + 90k^2 + 75k)\mbox{ mod } 6 + 125\mbox{ mod } 6 = 0 + 5 \\
+&= 5 = (6k + 5)\mbox{ mod } 6
+\end{align*}
+
+\end{enumerate}
+
+\item[0.33] Suppose that in one of the noncheck positions of a money order number, the
+digit 0 is substituted for the digit 9 or vice versa. Prove that this error will not be detected
+by the check digit. Prove that all other errors involving a single position are detected.
+\begin{enumerate}
+\item[] Let $a_9a_8\cdots a_0$ be the nine digit money order number. Since we get the check number 
+by $(a_9a_8\cdots a_0)\mbox{ mod }9$, the nine digit number can be represented as 
+$a_9\cdot 10^9 + a_8\cdot 10^8 + \cdots a_0\cdot 10^0$, that is 
+$\sum^9_{i = 0}a_i\cdot 10^i$, where $a_i \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$. 
+For every nonnegative integer, $10^n\mbox{ mod } 9 = 1$ and the above reduces to just 
+$a_i \cdot 1 = a_i$ and each $a_i$ is going to belong to it's own distinct equivalence class, 
+except for 0 and 9 because $0\mbox{ mod } 9 = 9\mbox{ mod }9$.
+Thus it is clear that switching a 0 for a 9 or vice versa for any $a_i$, will yield the 
+same check number and go undetected. Now following from above, we can get the check number, \\
+$c = (a_9 + a_8 + \cdots + a_i + \cdots + a_0)\mbox{ mod } 9$. Hence, if we swap one $a_i$, 
+$0 \leq i \leq 9$, with some $a_j$, where $a_i, a_j \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$ 
+and $a_i \neq a_j$ and it is not a 0 for 9 or 9 for 0 swap then $a_j = a_i + (a_j - a_i)$ 
+and $c' = c + (a_j - a_i) = (a_9 + a_8 + \cdots + a_i + (a_j - a_i) \cdots + a_0)\mbox{ mod } 9$ 
+is the new check number. Since $a_j - a_i \neq 0$, $c' \neq c$ and thus a single position 
+digit swap will be detected.
+\end{enumerate}
+
+\item[0.48] Let $S$ be the set of real numbers. If $a, b \in S$, define $a \sim b$ if $a-b$
+is an integer. Show that $\sim$ is an equivalence relation on $S$. Describe the equivalence
+classes of $S$.
+\begin{enumerate}
+\item[] Reflexive: $a - a = 0$ and $0 \in \mathbb{Z}$ \\
+Symmetric: $a - b = k$ where $k \in \mathbb{Z}$, implies $b - a = -k$, where $-k \in \mathbb{Z}$ \\
+Transitive: $a - b = k$ and $b - c = n$ where $k, n \in \mathbb{Z}$ implies that 
+$a - c = a + b - b - c = (a - b) + (b - c) = k + n$, where $(k + n) \in \mathbb{Z}$ \\
+Thus $\sim$ is an equivalence relation. Also, for any real number, $a$, \\
+$[a] = \{a + n, $ where $n \in \mathbb{Z}\}$. We might also add that the set of all 
+equivalence classes for this relation is $\{ [a]\, :\, a \in [0, 1) \}$.
+\end{enumerate}
+
+\item[1.5] For $n \geq 3$, describe the elements of $D_n$ (\emph{Hint:} You will need to
+consider two cases - $n$ even and $n$ odd.) How many elements does $D_n$ have?
+\begin{enumerate}
+\item[] For $n \geq 3$ and $n$ is even: The reflections can be obtained by drawing a line through
+opposing vertices and by drawing a line through the middle of two opposing edges (see figure 1.1
+for example). Each rotation will be $k \cdot (360^\circ /n)$, where $k \in \{0, 1, \ldots, n-1\}$
+and we obtain the rotations by 
+fixing a center of rotation and rotating. \\
+For $n \geq 3$ and $n$ is odd: The reflections can be obtained by drawing a line through a
+vertex and it's opposing edge. Rotations act in the same manner as above. \\
+$D_n$ has exactly $2n$ elements, that is $n$ rotations and $n$ reflections.
+\end{enumerate}
+
+\item[1.6] In $D_n$, explain geometrically why a reflection followed by a reflection must be a rotation.
+\begin{enumerate}
+\item[] The simplest case is when the same reflection twice. The second reflection just
+undoes what the first reflection did and is ultimately considered a rotation, $R_0$, because
+after both reflections it appears that $D_n$ did not move. A reflection fixes a line and 
+then rotates about it. Thus after two different reflections, consisting of two different
+reflection lines the only thing that remained fixed throughout was the intersection of
+those two lines, which is as we said in 1.5, is a rotation.
+\end{enumerate}
+
+\item[1.7] In $D_n$, explain geometrically why a rotation followed by a rotation must be a rotation.
+\begin{enumerate}
+\item[] As was said about the rotational elements in 1.5, rotating fixes a point to be the 
+center of rotation. When we rotate upon that point and then rotate again, then the only thing
+that remained fixed both times was that point, which is clearly a rotation.
+\end{enumerate}
+
+
+\item[1.8] In $D_n$, explain geometrically why a rotation and a reflection taken together in either order
+must be a reflection.
+\begin{enumerate}
+\item[] Geometrically, we'll describe $D_n$ as a plane in 3-space. 
+If we allowed the plane to lie on xy-plane while the z-axis runs directly through the center 
+of $D_n$ then a reflection would be a 3 dimensional flip about the 2-D line mentioned in 1.5 and 
+a rotation would be a 2 dimensional action (spinning) about a center of rotation (in this case,
+would be at the origin). Now, since the plane has a top and bottom, we can label the initial
+orientation of the plane as looking down from the positive z-axis as 1 and the bottom as 2.
+If we do a reflection, then looking down from the positive z-axis, we would be looking at
+the bottom of the plane or side 2. After the reflection, doing a rotation, since it is a
+2 dimensional action would not change the fact that we would still be looking down on 
+side 2 of the plane. The same can be said for a rotation and then a reflection, because
+after rotating it, from the positive z-axis, it would still be side 1 but then a reflection
+would cause it to be side 2. Thus a reflection and a rotation, taken in either order, 
+is a reflection.
+\end{enumerate}
+
+
+\item[2.2] Referring to Example 13, verify the assertion that subtraction is not associative.
+\begin{enumerate}
+\item[] Proof by counterexample: Consider $a = 1, b = 2$ and $c = 3$, then
+\[ (1 - 2) - 3 = -1 - 3 = -1 \neq 2 = 1 - (-1) = 1 - (2 - 3) \]
+Thus, subtraction on the set of integers is not associative.
+\end{enumerate}
+
+
+\item[2.4] Show that the group $GL(2, \mathbb{R})$ of Example 9 is non-Abelian by exhibiting
+a pair of matrices $A$ and $B$ in $GL(2, \mathbb{R})$ such that $AB \neq BA$.
+\begin{enumerate}
+\item[] Consider $A = \left[ \begin{array}{cc} 1 & 2 \\ 0 & 1 \end{array} \right]$ and 
+$B = \left[ \begin{array}{cc} 1 & 0 \\ 2 & 1 \end{array} \right]$. 
+\[ 
+AB = \left[ \begin{array}{cc} 5 & 2 \\ 2 & 1 \end{array} \right] \neq 
+\left[ \begin{array}{cc} 1 & 2 \\ 2 & 5 \end{array} \right] = BA 
+\]
+\end{enumerate}
+
+\item[2.5] Find the inverse of the element 
+$\left[ \begin{array}{cc} 2 & 6 \\ 3 & 5 \end{array} \right]$ in $GL(2, \mathbb{Z}_{11})$.
+\begin{enumerate}
+\item[] First, let us find the determinant; $[(2)(5) - (6)(3)]\mbox{ mod } 11 = -8\mbox{ mod } 11 = 3$.
+Now the inverse of the determinant is 4 since $(4 \cdot 3) \mbox{ mod } 11 = 1$. Then 
+using what was said in class, example 2.9, and example 2.18, we know that the inverse of
+$\left[ \begin{array}{cc} 2 & 6 \\ 3 & 5 \end{array} \right]$ is going to be
+$\left[ \begin{array}{cc} 5 \cdot 4 & -6 \cdot 4 \\ -3 \cdot 4 & 2 \cdot 4 \end{array} \right] \mbox{ mod } 11 
+= \left[ \begin{array}{cc} 20 & -24 \\ -12 & 8 \end{array} \right] \mbox{ mod } 11 = 
+\left[ \begin{array}{cc} 9 & 9 \\ 10 & 8 \end{array} \right]$
+\end{enumerate}
+
+
+\item[2.6] Give an example of group elements $a$ and $b$ with the property that $a^{-1}ba \neq b$.
+\begin{enumerate}
+\item[] We will use $D_4$ and the Cayley table from pg. 33 to give an example of group elements, $a$
+and $b$, with the property that $a^{-1}ba \neq b$. Let $a = R_{90}$ and $b = H$, then that means
+that $a^{-1} = R_{270}$. Now, $a^{-1}b = R_{270}H = D$ from the Cayley table, then 
+$a^{-1}ba = Da = DR_{90} = V$. Thus $a^{-1}ba = V \neq H = b$.
+\end{enumerate}
+
+
+\item[2.15] (Law of Exponents for Abelian Groups) Let $a$ and $b$ be elements of an Abelian
+group and let $n$ be any integer. Show that $(ab)^n = a^nb^n$. Is this also true for 
+non-Abelian groups?
+\begin{enumerate}
+\item[] To show that $(ab)^n = a^nb^n$, first let us show the case when $n = 0$; \\
+$(ab)^0 = e = ee = a^0b^0$. Now, we can use induction to show all integers $n \geq 1$.
+Our base case is $n = 1$, then $(ab)^1 = ab = a^1b^1$. Now, we assume $(ab)^n = a^nb^n$
+holds true for $n$. Then we show that 
+\[ (ab)^{n + 1} = (ab)^n(ab) = a^nb^nab = a^nab^nb = a^{n + 1}b^{n + 1} \]
+Now, we can show for when $n$ is negative by using the definition that 
+$g^n = (g^{-1})^{|n|}$, but clearly we don't need the absolute value exponent
+since we're only going to be using positive integers for $n$. Hence, we use induction again,
+so that our base case is when $n = 1$, $[(ab)^{-1}]^1 = (ab)^{-1} = a^{-1}b^{-1} = (a^{-1}b^{-1})^1$, 
+which is true by Exercise 2.16 and the fact that this group is Abelian.
+Now, we assume $[(ab)^{-1}]^n = [a^{-1}b^{-1}]^n$ holds true for $n$. Then we show that 
+\[ [(ab)^{-1}]^{n + 1} = [(ab)^{-1}]^n(ab)^{-1} = [a^{-1}b^{-1}]^n(ab)^{-1} 
+\]
+\[
+= [a^{-1}b^{-1}]^n[b^{-1}a^{-1}] = [a^{-1}b^{-1}]^{n + 1}
+\]
+No, $(ab)^n = a^nb^n$ is not true for non-Abelian groups. One might notice that some of the 
+equalities in the above induction proofs might not have been possible if the group hadn't
+been Abelian. Furthermore, we can show that this doesn't hold true for non-Abelian groups by
+counterexample. Take the GL$(2, \mathbb{R})$ group, which is not Abelian and consider $A$ 
+and $B$ to be the same 2x2 matrices from Exercise 2.4, then 
+$(AB)^2 = \left[ \begin{array}{cc} 29 & 12 \\ 12 & 5 \end{array} \right] \neq 
+\left[ \begin{array}{cc} 17 & 4 \\ 4 & 1 \end{array} \right] = A^2B^2$.
+\end{enumerate}
+
+\item[2.16] (Socks-Shoes Property) In a group, prove that $(ab)^{-1} = b^{-1}a^{-1}$. Find
+an example that shows that it is possible to have $(ab)^{-2} \neq b^{-2}a^{-2}$. Find
+distinct nonidentity elements $a$ and $b$ from a non-Abelian group with the property that
+$(ab)^{-1} = a^{-1}b^{-1}$. Draw an analogy between the statement $(ab)^{-1} = b^{-1}a^{-1}$
+and the act of putting on and taking off your socks and shoes.
+\begin{enumerate}
+\item[] Let $e$ be the identity of a group $G$ and $a, b \in G$ be distinct. We want to show
+that $(ab)^{-1} = b^{-1}a^{-1}$. First, we show by multiplication on the right:
+\begin{eqnarray*}
+(ab)^{-1}(ab) &=& b^{-1}a^{-1}(ab) \\
+e &=& b^{-1}(a^{-1}a)b \hskip .9cm \mbox{by associativity} \\
+&=& b^{-1}eb \hskip 1.1cm \mbox{by inverse property} \\
+&=& b^{-1}b \hskip 1.1cm \mbox{by identity property} \\
+&=& e \hskip 1.7cm \mbox{by inverse property}
+\end{eqnarray*}
+
+Now, on the left:
+
+\begin{eqnarray*}
+(ab)^{-1}(ab) &=& (ab)b^{-1}a^{-1} \\
+e &=& a(bb^{-1})a^{-1} \hskip .9cm \mbox{by associativity} \\
+&=& aea^{-1} \hskip 1.1cm \mbox{by inverse property} \\
+&=& a^{-1}a \hskip 1.1cm \mbox{by identity property} \\
+&=& e \hskip 1.8cm \mbox{by inverse property}
+\end{eqnarray*}
+
+To give an example that shows $(ab)^{-2} \neq b^{-2}a^{-2}$, we will use the Cayley table
+from $D_4$ on pg. 33 as a guide. If we let $a = R_{270}$ and $b = H$, then $a^{-1} = R_{90}$
+and $b^{-1} = H$. Hence $ab = D$ from the table and since $D$ is it's own inverse, then
+$(D)^{-2} = D^2 = R_0 = (ab)^{-2}$. It's just as well, that $a^{-2} = (R_{90})^2 = R_{180}$ and
+$b^{-2} = $H$^{2} = R_0$. Thus $R_0R_{180} = R_{180} = b^{-2}a^{-2} \neq (ab)^{-2}$. \\
+We can use the same example, $D_4$, from which we can pick distinct nonidentity elements
+$a$ and $b$ from the non-Abelian group such that property $(ab)^{-1} = a^{-1}b^{-1}$ is satisfied.
+If we let $a = D$ and $b = D'$, then since $D$ and $D'$ are their own inverses, $a^{-1} = D$ and
+$b^{-1} = D'$. From the Cayley table, we get that $ab = R_{180}$ and the inverse of $R_{180}$ is
+itself, so $(ab)^{-1} = R_{180}$. Now, $a^{-1}b^{-1} = DD'$, which by the Cayley table is $R_{180}$.
+Hence, $(ab)^{-1} = R_{180} = a^{-1}b^{-1}$. \\
+The process of taking on and off your socks and shoes is supposed to follow in a particular order, 
+that is to say, you put on your socks and then shoes, whereby you then take off your shoes and then
+socks. Therefore, we can let $a$ be putting on your socks and $b$ be putting on your shoes, which means
+that the inverse, $a^{-1}$ is taking off your socks while $b^{-1}$ is taking off your shoes. 
+We can see that $ab$ is the whole process of putting on your socks and shoes which means that 
+$(ab)^{-1}$ is the entire process of taking off your socks and shoes. From the first thing we proved in 
+this exercise, $(ab)^{-1} = b^{-1}a^{-1}$, which tells us that the entire process of taking off
+your socks and shoes can be broken down into two actions, that is taking off your shoes, $b^{-1}$ and
+then taking off your socks, $a^{-1}$.
+\end{enumerate}
+
+
+\item[2.18] In a group, prove that $(a^{-1})^{-1} = a$ for all $a$.
+\begin{enumerate}
+\item[] By theorem 2.3, for each element $a$ in a group $G$, there is a unique element 
+$a^{-1}$ in $G$ such that $aa^{-1} = a^{-1}a = e$. By this theorem, it also means that
+for any $a^{-1}$ in $G$, there is a unique element $(a^{-1})^{-1}$ in $G$ such that 
+$a^{-1}[(a^{-1})^{-1}] = [(a^{-1})^{-1}]a^{-1} = e$. Thus by the uniqueness of 
+$a^{-1}$ in $G$, $(a^{-1})^{-1}$ must be $a$ for all $a$.
+\end{enumerate}
+
+\item[2.19] For any elements $a$ and $b$ from a group and any integer $n$, prove
+that $(a^{-1}ba)^n = a^{-1}b^na$.
+\begin{enumerate}
+\item[] To show that $(a^{-1}ba)^n = a^{-1}b^na$, first let us show the case when $n = 0$; \\
+$(a^{-1}ba)^0 = e = a^{-1}a = a^{-1}ea = a^{-1}b^0a$. 
+Now, we can use induction to show all integers $n \geq 1$. Our base case is when
+$n = 1$, then $(a^{-1}ba)^1 = a^{-1}ba = a^{-1}b^1a$. Now, we assume that 
+$(a^{-1}ba)^n = a^{-1}b^na$ holds true for $n$. Then we show 
+\[ (a^{-1}ba)^{n + 1} = (a^{-1}ba)^n(a^{-1}ba) = (a^{-1}b^na)(a^{-1}ba) = \] 
+\[ a^{-1}b^n(aa^{-1})ba = a^{-1}b^neba = a^{-1}b^nba = a^{-1}b^{n + 1}a \]
+Now, we can show for when $n$ is negative by using the definition that 
+$g^n = (g^{-1})^{|n|}$, but clearly we don't need the absolute value exponent
+since we're only going to be using positive integers for $n$. Hence, we use induction again,
+so that our base case is when $n = 1$, then $[(a^{-1}ba)^{-1}]^1 = (a^{-1}ba)^{-1} = a^{-1}b^{-1}a$.
+Now, we assume $[(a^{-1}ba)^{-1}]^n = a^{-1}b^na$ holds true for $n$. Then, we show
+\[ 
+[(a^{-1}ba)^{-1}]^{n + 1} = [(a^{-1}ba)^{-1}]^n \cdot (a^{-1}ba)^{-1} = 
+\]
+\[
+a^{-1}(b^{-1})^na \cdot (a^{-1}ba)^{-1} = a^{-1}(b^{-1})^na \cdot a^{-1}b^{-1}a 
+\]
+\[
+= a^{-1}(b^{-1})^n(aa^{-1})b^{-1}a = a^{-1}(b^{-1})^neb^{-1}a = 
+\]
+\[ 
+a^{-1}[(b^{-1})^nb^{-1}]a = a^{-1}(b^{-1})^{n + 1}a 
+\]
+
+\end{enumerate}
+
+
+\item[3.1] For each group in the following list, find the order of the group and
+the order of each element in the group. What relation do you see between the orders
+of the elements of a group and the order of a  group? 
+$\mathbb{Z}_{12}, U(10), U(12), U(20), D_4$.
+\begin{enumerate}
+\item[]
+\vskip .9cm
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+$\mathbb{Z}_{12}$ & $U(10)$ & $U(12)$ & $U(20)$ & $D_4$\\
+\hline
+$|0|$ = 1   & $|1|$ = 1 & $|1|$ = 1  & $|1|$ = 1  & $|R_0|$ = 1 \\
+$|1|$ = 12  & $|3|$ = 4 & $|5|$ = 2  & $|3|$ = 4  & $|R_{90}|$ = 4 \\
+$|2|$ = 6   & $|7|$ = 4 & $|7|$ = 2  & $|7|$ = 4  & $|R_{180}|$ = 2 \\
+$|3|$ = 4   & $|9|$ = 2 & $|11|$ = 2 & $|9|$ = 2  & $|R_{270}|$ = 4 \\
+$|4|$ = 3   &           &            & $|11|$ = 2 & $|H|$ = 2 \\
+$|5|$ = 12  &           &            & $|13|$ = 4 & $|V|$ = 2 \\
+$|6|$ = 2   &           &            & $|17|$ = 4 & $|D|$ = 2 \\
+$|7|$ = 12  &           &            & $|19|$ = 2 & $|D'|$ = 2 \\
+$|8|$ = 3   &           &  &  &  \\
+$|9|$ = 4   &           &  &  &  \\
+$|10|$ = 6  & &  & &  \\
+$|11|$ = 12 & &  & &  \\
+\hline
+\end{tabular} \\
+Now the order of the groups: $|\mathbb{Z}_{12}| = 12$, $|U(10)| = 4$, $|U(12)| = 4$,
+$|U(20)| = 8$, and $|D_4| = 8$. The order of each element in the group is a divisor of
+the order of the group. 
+\end{enumerate}
+
+
+\item[3.4] Prove that in any group, an element and its inverse have the same order.
+\begin{enumerate}
+\item[] Suppose that the order of an element $a$ in $G$ is $n$ and $n$ is finite. Then we know
+that $a^n = e$, where $e$ is the identity element in $G$. Multiply both sides (left or right)
+by the inverse of $a^n$ which is $(a^{-1})^n$. Thus 
+\[ a^n = e \Leftrightarrow (a^{-1})^n \cdot a^n = (a^{-1})^n \cdot e \Leftrightarrow e 
+= (a^{-1})^n \]
+Clearly, $a^{-1}$ has the same order as element $a$ and is also the inverse of $a$. Now, 
+if the order of $a$ happens to be infinite, then $a^{-1}$ must also be of infinite order
+otherwise it would contradict what was just proven above.
+\end{enumerate}
+
+\item[3.14] If $H$ and $K$ are subgroups of $G$, show that $H \cap K$ is a subgroup of $G$.
+\begin{enumerate}
+\item[] Suppose that $H$ and $K$ are both subgroups of $G$. Then by definition, both
+are non-empty and both contain the identity, $e$. Since, $e \in H$ and $e \in K$, then
+$e \in H \cap K$, which makes $H \cap K$ non-empty. Now, to prove that $H \cap K$ is a 
+subgroup, by theorem 3.1, we show that when $a, b \in H \cap K$ then $ab^{-1} \in H \cap K$.
+So, let $a, b \in H \cap K$, which means $a, b \in H$ and $a, b \in K$. But we already know
+that $H$ and $K$ are subgroups, so we know that $ab^{-1} \in H$ and $ab^{-1} \in K$. Hence
+we have $ab^{-1} \in H \cap K$.
+\end{enumerate}
+
+\item[3.19] Prove theorem 3.6.
+\begin{enumerate}
+\item[] If $C(a) = G$, then we are done. So let us assume that $C(a) \neq G$. Showing
+that $e \in C(a)$ is trivial, since $e \cdot a = a \cdot e = a$. Next, suppose that
+$b, c \in C(a)$. Then, $(bc)a = b(ca) = b(ac) = (ba)c = (ab)c = a(bc)$, which shows
+that $bc \in C(a)$.
+Now, we take some 
+$b \in C(a)$ and show that $b^{-1}$ is also in $C(a)$. So, 
+\begin{eqnarray*}
+b \cdot a &=& a \cdot b \\
+a &=& b^{-1} \cdot a \cdot b \hskip 1.1cm \mbox{multiply on left by inverse of b}\\
+a \cdot b^{-1} &=& b^{-1} \cdot a \hskip 1.6cm \mbox{multiply on right by inverse of b}
+\end{eqnarray*}
+Thus $b^{-1} \in C(a)$ whenever $b$ is.
+\end{enumerate}
+
+\item[3.27] Suppose a group contains elements $a$ and $b$ such that $|a| = 4, |b| = 2,$ and
+$a^3b = ba$. Find $|ab|$.
+\begin{enumerate}
+\item[] 
+\[
+e = ee = a^4b^2 = aa^3bb = a(a^3b)b = a(ba)b = (ab)(ab) = (ab)^2
+\]
+First thing to note is that $|a| \neq |b|$, which means by Exercise 3.4
+that one is not an inverse to the other. We get the second inequality from the order of $a$
+and $b$, then we use associativity, followed by the given equality, followed by more 
+associativity, to conclude that $|ab| = 2$.
+\end{enumerate}
+
+\item[3.28] Consider the elements $A = \left[ \begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}
+\right]$ and $B = \left[ \begin{array}{cc} 0 & 1 \\ -1 & -1 \end{array} \right]$ from
+$SL(2, \mathbb{R})$. Find $|A|, |B|,$ and $|AB|$. Does your answer surprise you?
+\begin{enumerate}
+\item[] So, $A = \left[ \begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array} \right]$, then
+$A^2 = \left[ \begin{array}{cc} -1 & 0 \\ 0 & -1 \end{array} \right]$, 
+$A^3 = \left[ \begin{array}{cc} 0 & 1 \\ -1 & 0 \end{array} \right]$, and
+$A^4 = \left[ \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right]$. So $|A| = 4$. 
+Now, $B = \left[ \begin{array}{cc} 0 & 1 \\ -1 & -1 \end{array} \right]$, then
+$B^2 = \left[ \begin{array}{cc} -1 & -1 \\ 1 & 0 \end{array} \right]$, and
+$B^3$ is the identity matrix. Hence, $|B| = 3$. To try to find the order of $AB$, see that 
+$AB = \left[ \begin{array}{cc} 1 & 1 \\ 0 & 1 \end{array} \right]$, then 
+$(AB)^2 = \left[ \begin{array}{cc} 1 & 2 \\ 0 & 1 \end{array} \right]$, and
+$(AB)^3 = \left[ \begin{array}{cc} 1 & 3 \\ 0 & 1 \end{array} \right]$. In fact,
+we can find $(AB)^n$ by $\left[ \begin{array}{cc} 1 & n \\ 0 & 1 \end{array} \right]$,
+thus we can conclude that the order of $AB$ is infinite. The answer does not surprise me.
+\end{enumerate}
+
+\item[3.30] For any positive integer $n$ and any angle $\theta$, show that in the group
+$SL(2, \mathbb{R})$,
+\[
+\left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{array} \right]^n =
+\left[ \begin{array}{cc} \cos n\theta & -\sin n\theta \\ \sin n\theta & \cos n\theta \end{array} \right].
+\]
+Use this formula to find the order of 
+$\left[ \begin{array}{cc} \cos 60^\circ & -\sin 60^\circ \\
+\sin 60^\circ & \cos 60^\circ \end{array} \right]$ and
+
+$\left[ \begin{array}{cc} \cos (\sqrt{2})^\circ & -\sin (\sqrt{2})^\circ \\
+\sin (\sqrt{2})^\circ & \cos (\sqrt{2})^\circ \end{array} \right]$.
+\begin{enumerate}
+\item[] Firstly, the trigonometric identities to be used. \\
+Sum-difference formulas
+\begin{eqnarray}
+\cos (u + v) &=& \cos u \cos v - \sin u \sin v \\
+\sin (u + v) &=& \sin u \cos v + \cos u \sin v
+\end{eqnarray}
+
+We will use induction. Our base case is when $n = 1$; \\
+$\left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{array} \right]^1 =
+\left[ \begin{array}{cc} \cos (1\cdot\theta) & -\sin (1\cdot\theta) \\
+\sin (1\cdot\theta) & \cos (1\cdot\theta) \end{array} \right]$ is clearly true. \\
+Now assume that
+$\left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{array} \right]^n =
+\left[ \begin{array}{cc} \cos n\theta & -\sin n\theta \\ \sin n\theta & \cos n\theta \end{array} \right]$ 
+is true for $n$. Then, \\
+$ \left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta 
+\end{array} \right]^{n + 1} = \left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta 
+\end{array} \right]^n 
+\left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{array} \right] = $
+\[ \left[ \begin{array}{cc} \cos n\theta & -\sin n\theta \\ \sin n\theta & \cos n\theta \end{array} \right]
+\left[ \begin{array}{cc} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{array} \right] = \]
+\[
+\left[ \begin{array}{cc} (\cos n\theta)(\cos \theta) - (\sin n\theta)(\sin \theta)
+& (\cos n\theta)(-\sin \theta) - (\sin n\theta)(\cos \theta) \\
+(\sin n\theta)(\cos \theta) + (\cos n\theta)(\sin \theta)
+& (-\sin \theta)(\sin n\theta) + (\cos n\theta)(\cos \theta)
+\end{array} \right]
+\]
+\[ 
+= \left[ \begin{array}{cc} \cos (n + 1)\theta & -\sin (n + 1)\theta \\
+\sin (n + 1)\theta & \cos (n + 1)\theta \end{array} \right]
+\]
+The last equality comes from row 1:column 1 and row 2:column 2 both using (1), while
+row 1:column 2 and row 2:column 1 use (2). \\
+Using the just proven formula, we can see that the order of \\
+$\left[ \begin{array}{cc} \cos 60^\circ & -\sin 60^\circ \\
+\sin 60^\circ & \cos 60^\circ \end{array} \right]$ is going to be 6, since 
+$\cos 360^\circ = 1$ and $\pm \sin 360^\circ = 0$. The order of \\
+$\left[ \begin{array}{cc} \cos (\sqrt{2})^\circ & -\sin (\sqrt{2})^\circ \\
+\sin (\sqrt{2})^\circ & \cos (\sqrt{2})^\circ \end{array} \right]$ is infinite
+because in order to get the identity matrix, $\theta$ must equal $0, 360^\circ, 720^\circ, \ldots$, 
+this is only possible if $n$ were an irrational number, but since $n$ is a positive integer
+then the identity can never be reached.
+\end{enumerate}
+
+
+\item[3.34] $U(15)$ has six cyclic subgroups. List them.
+\begin{enumerate}
+\item[] The six cyclic subgroups of $U(15)$ are as follows: \\
+$\langle 2 \rangle = \{ 1, 2, 4, 8 \}$ \\
+$\langle 4\rangle = \{ 1, 4 \}$ \\
+$\langle 8\rangle = \{ 1, 8 \}$ \\
+$\langle 7\rangle = \langle 13\rangle = \{ 1, 7, 4, 13 \}$ \\
+$\langle 11\rangle = \{ 1, 11 \}$ \\
+$\langle 14\rangle = \{ 1, 14 \}$
+\end{enumerate}
+
+
+\item[3.44] Let $H = \{ A \in GL(2, \mathbb{R}) \mid $ det $A$ is a power of $2 \}$.
+Show that $H$ is a subgroup of $GL(2, \mathbb{R})$.
+\begin{enumerate}
+\item[] First, we check if the identity is in $H$. Well, the determinant of the identity
+matrix is 1 which is equal to $2^0$, so $e \in H$ and $H$ is nonempty. Next, we let
+$A, B \in H$ and show that $AB \in H$ as well. Well, the determinant of $A$ is $2^k$ and
+the determinant of $B$ is $2^n$ for some $k, n \in \mathbb{Z}$, so by Example 2.9 on page
+45, $\det(AB) = \det(A) \cdot \det(B) = 2^k \cdot 2^n = 2^{k + n}$. Since $k + n$ must be
+an integer, then the determinant of $AB$ must be a power of 2 and we get that $AB \in H$.
+Lastly, we need to show that $A^{-1} \in H$ whenever $A \in H$ to satisfy Theorem 3.2.
+Clearly, for any $A \in GL(2, \mathbb{R})$ there exists an inverse, 
+$A^{-1} \in GL(2, \mathbb{R})$ otherwise this would contradict $GL(2, \mathbb{R})$ 
+being a group. So let $A \in H$ as well, then we know that $\det(AA^{-1}) = 
+\det(A) \cdot \det(A^{-1}) = 2^k \cdot \det(A^{-1}) = e$, for some $k \in \mathbb{Z}$.
+Since this is true in $GL(2, \mathbb{R})$, then $\det(A^{-1})$ must be $2^{-k}$, which is a 
+power of 2 and hence $A^{-1} \in H$ as well.
+\end{enumerate}
+
+\item[3.45] Let $H$ be a subgroup of $\mathbb{R}$ under addition. Let $K = \{ 2^a \mid a \in H
+\}$. Prove that $K$ is a subgroup of $\mathbb{R}^*$ under multiplication.
+\begin{enumerate}
+\item[] Firstly $0 \in H$ because $H$ is a subgroup of $\mathbb{R}$ with addition. Here
+we know that $2^0 = 1 \in K$. So $K$ is nonempty. Now if $a, b \in K$, then $a = 2^k$ and
+$b = 2^n$ for some $k, n \in H$. Furthermore $ab = 2^k2^n = 2^{k + n}$ and with $
+k, n \in H$ we know that $k + n \in H$ so $ab \in K$. Now if $c \in K$, then $\exists z
+\in H$ such that $c = 2^z$. With $z \in H$, then $-z \in H$ because $H$ is a group under
+addition. Thus $2^{-z} \in K$. Thus $2^{-z} \cdot c = 2^{-z} \cdot 2^z = 1$ and
+$2^{-z} = -c$, so $c$ has an inverse in $K$. By the two-step subgroup test, we are done.
+\end{enumerate}
+
+\item[3.52] Let $G$ be a finite group with more than one element. Show that $G$ has an element of prime order.
+\begin{enumerate}
+\item[] Let $g \in G, g \neq e$. We have shown that with $G$ finite, then $g$ must also be finite.
+Hence let $|g| = n$. Since $g \neq e$, then $n > 1$ and can be expressed as a product of prime
+numbers by theorem 0.3. This means that $\exists p \in \mathbb{Z}$ where $p$ is prime such that
+$n = p \cdot m$, where $m \in \mathbb{Z}$. Now we have
+\[
+a^n = a^{mp} = (a^m)^p = e
+\]
+\end{enumerate}
+
+
+\item[4.6] What do Exercises 3, 4, and 5 have in common? Try to make a generalization
+that includes these three cases.
+\begin{enumerate}
+\item[] Exercises 4.3 - 4.5 have in common the fact that the two cyclic subgroups given, while
+generated by a different element of the set, are in the fact the same cyclic subgroup, as 
+satisfying theorem 4.2, corollary 1. A generalization we can make about the two 
+generators of the cyclic subgroup given in each exercise is that they are in fact inverses 
+to each other in their own respective group, e.g., 10 is the inverse of 20 in $\mathbb{Z}_{30}$.
+To show this, we let $a$ be an element from these groups, then $\langle a\rangle = 
+\{e, a, a^2, \ldots, a^{n-1}\}$, for $|a| = n$. We know that the $\gcd(n, n-1) = 1$, so
+that $\langle a\rangle = \langle a^{n-1}\rangle$ and $a^{n-1} = a^{-1}$, thus
+$\langle a\rangle = \langle a^{-1}\rangle$.
+\end{enumerate}
+
+\item[4.7] Find an example of a noncyclic group, all of whose proper subgroups are cyclic.
+\begin{enumerate}
+\item[] $U(8)$ satisfies our requirements. Page 74 shows all the cyclic subgroups of $U(8)$, 
+yet none of them produce $U(8)$.
+\end{enumerate}
+
+\item[4.10] Let $G = \langle a \rangle$ and let $|a| = 24$. List all generators for the subgroup
+of order 8.
+\begin{enumerate}
+\item[] Let's find the $a^k$ in $G$ such that $| \langle a^k\rangle| = 8$. Since we know that 
+$|a^k| = | \langle a^k\rangle|$ from Theorem 4.1, Corollary 1, then 
+$| \langle a^k\rangle| = 8 = n/\gcd(n, k) = |a^k|$ from Theorem 4.2.
+Now, solving for $\gcd(n, k)$ and letting $n = | \langle a\rangle| = |G| = 24$, 
+we get $\gcd(n, k) = 3$. Again utilizing theorem 4.2, $\langle a^k \rangle = 
+\langle a^{\gcd(n, k)}\rangle$, thus $a^3$ is a generator for the subgroup of
+order 8 in $G$. Now we let $n = |a^3| = 8$ in order find all the generators 
+to $\langle a^3\rangle$. From theorem 4.2, Corollary 2, $\langle (a^3)^k\rangle = 
+\langle a^3\rangle$ if and only if $\gcd(n, k) = 1$. Finding all such $k$'s reduces
+to using all the elements from $U(8)$, in which case $(a^3)^1 = a^3$, the 
+generator we already found, $(a^3)^3, (a^3)^5,$ and $(a^3)^7$ are all generators.
+\end{enumerate}
+
+\item[4.13] Suppose that $|a| = 24$. Find a generator for $\langle a^{21}\rangle \cap
+\langle a^{10}\rangle$. In general, what is a generator for the subgroup 
+$\langle a^m \rangle \cap \langle a^n \rangle$?
+\begin{enumerate}
+\item[] We can say that $\langle a^3\rangle \cap \langle a^2\rangle = \langle a^{21}\rangle 
+\cap \langle a^{10}\rangle$, by Theorem 4.2, since $\langle a^{21}\rangle = \langle 
+a^{\gcd(24, 21)}\rangle = \langle a^3\rangle$ and $\langle a^{21}\rangle = 
+\langle a^{\gcd(24, 10)}\rangle = \langle a^2\rangle$. So looking at some of the elements
+of $\langle a^3\rangle = \{\ldots, a^3, a^6, a^9, \ldots \}$ and looking at some 
+of the elements of $\langle a^2\rangle = \{\ldots, a^2, a^4, a^6,\ldots \}$, we can 
+see that $a^6 \in \langle a^3\rangle \cap \langle a^2\rangle$. Now, we can deduce that
+$a^6$ is actually a generator of $\langle a^3\rangle \cap \langle a^2\rangle$ 
+since all elements of $\langle a^3\rangle$ are some multiple of 3 while all elements of 
+$\langle a^2\rangle$ are multiples of 2 thereby making the all the elements in common multiples of 6 
+and $\langle a^6\rangle = \langle a^{21}\rangle \cap \langle a^{10}\rangle$. 
+Furthermore, 6 happens to be the lowest common multiple of 2 and 3, which leads
+us to a more general form, by the same argument as above,
+of finding the generator of some subgroup when $|a| = d$, 
+$\langle a^m\rangle \cap \langle a^n\rangle = \langle a^{\gcd(m, d)}\rangle 
+\cap \langle a^{\gcd(n, d)}\rangle$, by theorem 4.2, then $\langle a^s\rangle 
+\cap \langle a^r\rangle = \langle a^t\rangle$, where $s = \gcd(m, d)$, $r = \gcd(n, d)$, 
+and $t = $ lcm$(s, r)$.
+\end{enumerate}
+
+\item[T1]
+\begin{enumerate}
+\item[] Any common multiple of 2 integers is divisible by the lcm of those 2 numbers. \\
+{\bf Proof:} Let $m, n \in \mathbb{Z}$. Given any $c \in \mathbb{Z}$, $c$ is a common 
+multiple of $m$ and $n$, we need to show lcm$(m, n) | \, c$. So, let $d = \gcd(m, n)$. 
+Then $m = dm'$ and $n = dn'$. Given $c$, a common multiple of $m$ and $n$, then 
+$c = m \cdot k = dm' \cdot k$ and $c = n \cdot l = dn' \cdot l$. Immediately we see
+that $d | \, c$. We want to show that $n' |\, k$. If $n' = 1$ then the result follows.
+If not, then we know that the $\gcd(m', n') = 1$ (from our first hw. assignment), thus
+$n'$ is the product of primes, none of which divide $m'$. But $n' | \, (c/d) = m'k$ and 
+$n'$ does not divide $m'$, which implies that $n' |\, k$. Thus $d \cdot m' \cdot n' | \, c$.
+With that fact, we see that $d \cdot m' \cdot n' \leq $ all common multiples of $m$ and
+$n$. Moreover, $dm'n' = m \cdot n' = n \cdot m'$, so $dm'n'$ is a common multiple, so it 
+is the lcm$(m, n)$.
+\end{enumerate}
+
+\item[4.15] Let $G$ be an Abelian group and let $H = \{ g \in G \mid |g| $ divides $12 \}$.
+Prove that $H$ is a subgroup of $G$. Is there anything special about 12 here? Would your
+proof be valid if 12 were replaced by some other positive integer? State the general result.
+\begin{enumerate}
+\item[] Let's prove the general result first. Let $H = \{ g \in G : |g| \mbox{ divides } m \}$ where
+$m \in \mathbb{N}$. First we note that $e \in G$ and $|e| = 1$ and 1 divides any $m$, so that
+$e \in H$ and $H$ is nonempty. Next, to show that $a \in H$ has an inverse in $H$, we know that 
+$|a| = |a^{-1}|$ by Exercise 3.4, which means that $|a^{-1}|$ divides $m$ as well. Now if we show 
+$ab \in H$ then we can conclude that $H$ is a subgroup of $G$ by theorem 3.2 so let $a, b \in H$ 
+and $n = |a|$ and $k = |b|$. Then we know that the lcm$(n, k) |\, m$ by T1. It follows then that 
+since $G$ is Abelian that $(ab)^t = a^tb^t = e$, where $t = $ lcm$(n, k)$. Furthermore, 
+$|ab| = r \leq t$ but $r$ must divide $t$ and $t | m$ then $r | t$ by transitivity, concluding 
+that $ab$ must be in $H$. Now going back and answering the first questions. $H$ must subgroup 
+of $G$ when $m = 12$ since we proved it for all positive integers. There is nothing special 
+about 12 since 12 is only one integer from the entire set of natural numbers. Yes the proof 
+would be valid if we replaced any positive integer.
+\end{enumerate}
+
+\item[4.18] If a cyclic group has an element of infinite order, how many elements of finite order does it have?
+\begin{enumerate}
+\item[] Let $G$ be the cyclic group with $b \in G$ and $b$ is infinite. Furthermore
+because $G$ is cyclic we also know that there exists an $a \in G$ such that $\langle a
+\rangle = G$. Suppose that $\exists c \in G, c \neq e$ and $|c|$ is finite. Then
+$\exists k \in \mathbb{Z}$ such that $c^k = e$. Here we see that $c^{2k} = (c^k)^2 = e^2 = e$ as well. Because $G$ is cyclic with a generator, $a$, $\exists n \in \mathbb{N}$ with $a^n = c$.
+We see that $c^k = (a^n)^k = e$ and $c^2k = (a^n)^{2k}$. With $nk < 2nk$, we have contradicted
+theorem 4.1. Thus there does not exist a finite element in $G$ other than the identity. We conclude
+that there is only 1.
+\end{enumerate}
+
+\item[T2]
+\begin{enumerate}
+\item[] Given a group $G$ and $a, b \in G$, $|a| = |b| = p$, $p$ is a prime number,
+then if any $c \in \langle a\rangle, c \neq e$ and $c \in \langle b\rangle$, then
+$\langle a\rangle = \langle b\rangle$, otherwise 
+$\langle a\rangle \cap \langle b\rangle = \{ e \}$. \\
+{\bf Proof:} Let $a, b \in G$ and $|a| = |b| = p$, where $p$ is prime.
+Further let $c \in \langle a\rangle, c \neq e$ and $c \in \langle b\rangle$. Thus
+$c = a^k$ for some $k$, $1 \leq k \leq n-1$, where $|a| = n$. With $n$ prime, 
+$\gcd(n, k) = 1$, thus $\langle c\rangle = \langle a\rangle$ by theorem 4.2. 
+By the same reasoning (by symmetry) $\langle b\rangle = \langle c\rangle$.
+Thus $\langle b\rangle = \langle a\rangle$. If there doesn't exist a $c \in \langle a
+\rangle$ with $c \in \langle b\rangle$, $c \neq e$, then with 
+$\langle a\rangle$ and $\langle b\rangle$ groups, it follows that 
+$\langle a\rangle \cap \langle b\rangle = \{ e \}$.
+\end{enumerate}
+
+\item[4.20] Suppose that $G$ is an Abelian group of order 35 and every element of $G$ satisfies
+the equation $x^{35} = e$. Prove that $G$ is cyclic. Does your argument work if 35 is replaced
+by 33?
+\begin{enumerate}
+\item[] First, since $G$ is an Abelian group, we know that $(ab)^n = a^nb^n$ from
+Exercise 2.15. Since every element of $G$ satisfies $x^{35} = e$, we also know
+by theorem 4.1, corollary 2 that every element $a \in G, a \neq e$ must have an
+order of 5, 7, or 35. If we know there is some element in $G$ that is order 35, then we
+are done and know that $G$ is cyclic. Now, we can show that there must exist an element in $G$ in which
+the order is 35 if there are two elements $a, b \in G, a \neq e \neq b$ such that $|a| = 5$ and $|b| = 7$.
+We know that $|ab|$ must be a divisor of 35 and $(ab)^5 = a^5b^5 = eb^5 = b^5 \neq e$ 
+and that $(ab)^7 = a^7b^7 = a^7e = a^7 \neq e$. Clearly, $|ab| \neq 5$ and $|ab| \neq 7$, thus
+it must be that $|ab| = 35$. Now, to show that all the 
+elements of $G$ cannot have either order 5 or order 7, let's assume for the sake of contradiction that 
+$\forall a \in G, a \neq e$, the order of $a$ is 5. Then since $G$ is finite and the order is 
+exactly 35, we can break $G$ down into its subgroups each of order 5, each one containing
+exactly 4 elements (not the identity) plus the identity. Then we have 8 groups containing 4 
+nonidentity elements with the identity and 2 nonidentity elements leftover from $G$ which 
+have no group to belong to of order 5, hence a contradiction by T2. Likewise, if we have 
+$\forall a \in G, a \neq e$, the order of $a$ is 7, then we will have 5 groups of 
+6 nonidentity elements with the identity and 2 nonidentity elemenst of $G$ leftover,
+contradicting that all the elements of $G$ have order 7. \\
+No, the argument above would not work if 35 was replaced with 33. Since, we would
+break down $G$ into its subgroups, each with order 3 (2 nonidentity elements and
+the identity) and since we have 32 nonidentity elements in $G$, then these subgroups 
+would break down evenly since 32 is a multiple of 2.
+\end{enumerate}
+
+\item[4.22] Prove that a group of order 3 must be cyclic.
+\begin{enumerate}
+\item[] Theorem 3.4 tells us that if $G = \{e, a, b \}$ is a group with all elements distinct,
+then $\langle a\rangle \subseteq G$. Moreover, theorem 4.1 shows that $|a| = |\langle a\rangle |$.
+If we let $e$ be the identity of $G$, it suffices to show that $|a| = |\langle a\rangle | = |G|$
+to show that $\langle a\rangle = G$. So, suppose that $\langle a\rangle \neq G$, then $|a| < 3$.
+Also since $a \neq e$, then $|a| \neq 1 \neq |\langle a\rangle|$, so $|a| = 2 = |\langle a\rangle|$. Because $G$ is a group we have that $ab \in G$ and with $a \neq e$ then $ab \neq b$ and 
+with $b \neq e$ then $ab \neq a$ either. Thus $ab = e$, hence $a(ab) = ae$ which implies that
+$a^2b = a$, yet $a^2 = e$ so $b = a$. Contradiction since $a$ and $b$ were distinct. Thus
+$|\langle a\rangle| = 3 \Rightarrow \langle a\rangle = G$.
+\end{enumerate}
+
+\item[4.28] Let $a$ be a group element that has infinite order. Prove that $\langle a^i\rangle
+= \langle a^j\rangle$ if and only if $i = \pm j$.
+\begin{enumerate}
+\item[] Suppose that $i = \pm j$. Well, then we can break it down to two cases. When 
+$i = j$ and when $i = -j$. Firstly, when $i = j$, then it is quite obvious that
+$a^i = a^j$, which means by definition that $\langle a^i\rangle = \langle a^j\rangle$.
+Now, when $i = -j$, we know that $i = -i$, which we know by definition that
+$a^{-i} = (a^{-1})^{|i|}$, which then shows us that $(a^{-1})^{|i|} \in \langle a^i\rangle$.
+There is no need to show that $a^i \in \langle a^i\rangle$ for all nonnegative integers $i$, thus
+$\langle a^i\rangle = \langle a^{-j}\rangle$. 
+\end{enumerate}
+
+\item[4.33] Determine the subgroup lattice for $\mathbb{Z}_{p^2q}$, where $p$ and $q$ are
+distinct primes.
+\begin{enumerate}
+\item[]
+\begin{displaymath}
+\xymatrix{
+& \langle 1 \rangle \ar@{-}[dl] \ar@{-}[dr] &    \\
+\langle p\rangle \ar@{-}[d] \ar@{-}[drr] &  & \langle q\rangle \ar@{-}[d] \\
+\langle p^2 \rangle \ar@{-}[dr] &  & \langle pq \rangle \ar@{-}[dl] \\
+& \langle p^2q\rangle &  \\
+}
+\end{displaymath}
+\end{enumerate}
+
+\item[4.36] Prove that a finite group is the union of proper subgroups if and only if
+the group is not cyclic.
+\begin{enumerate}
+\item[] Suppose that a finite group, $G$, is the union of proper subgroups, \\
+that is $G = G_1 \cup G_2 \cup \cdots \cup G_k$. Now let's assume for the sake of contradiction 
+that $G$ is cyclic. This means that there is some $a \in G$ such that $\langle a\rangle = G$. 
+But then since $G$ is comprised of a finite number of $G_i$, then $a \in G_i$. Clearly, whatever 
+$G_i$ that contains $a$, must also contain $G$, which contradicts $G_i$ being a proper
+subset. Conversely, suppose that a finite group $G$ is not cyclic. This means that there is no
+$a \in G$ such that $\langle a\rangle = G$, thus for every $a \in G$, $\langle a\rangle 
+< G$, by theorem 3.4. Then it must follow that $G = \bigcup_{a \in G}\langle a\rangle$
+and we're done.
+\end{enumerate}
+
+\item[4.42] Prove that an infinite group must have an infinite number of subgroups.
+\begin{enumerate}
+\item[] Suppose that $G$ is an infinite group. For the sake of contradiction, let's assume 
+that $G$ has a finite number of subgroups. Let $C$ be a finite subset of $G$ such that
+for every $a, b \in C$, then $\langle a\rangle \cap \langle b\rangle
+= \emptyset$ and $\bigcup_{a \in C}\langle a\rangle = G$. Clearly, there has to be
+one infinite $\langle a\rangle$ otherwise our finite union of subgroups would
+fall short of being equal to $G$. Now, since $\langle a\rangle$ is infinite, then we know
+by theorem 4.1 that all distinct powers of $a$ are distinct group elements. Furthermore,
+$\langle a^i\rangle$ is a subgroup of $\langle a\rangle$ for all $a^i \in \langle a\rangle$. 
+Thus a contradiction that $G$ has a finite amount of subgroups.
+\end{enumerate}
+
+\item[4.60] Suppose that $|x| = n$. Find a necessary and sufficient condition on $r$ and
+$s$ such that $\langle x^r\rangle \subseteq \langle x^s \rangle$.
+\begin{enumerate}
+\item[] Just by inspecting some of the examples on page 79 and 80, we can build a conjecture
+that our necessary and sufficient condition is going to be $\langle x^r\rangle \subseteq 
+\langle x^s\rangle$ if and only if $s|r$, where $s$ and $r$ have to be divisors of $n$. 
+Now, let us see if this holds true. Suppose that $s|r$, then for some nonzero integer $k$ and since
+$r|n$, $x^n = x^{kr}$ by theorem 0.2, but this is the identity and clearly the identity
+is in $\langle x^s\rangle$. So, if we let $0 < k < n/r$, then
+$x^{kr} = (x^k)^r = (x^{st})^r = (x^s)^{tr} \in \langle x^s\rangle$, for some nonzero integer $t$ and 
+by theorem 0.2 again. Thus, we can conclude that $\langle x^r\rangle \subseteq 
+\langle x^s\rangle$. Conversely, suppose that $\langle x^r\rangle \subseteq 
+\langle x^s\rangle$, then working backwards from the proof of Theorem 4.2 on page 76, we know that
+$a^r = (a^s)^t$ for some integer $t$. By what was said on page 75 about Theorem 4.1 in the
+finite case, this is essentially, addition modulo $n$, so $r = st$, which by theorem 0.2 is a 
+linear combination of $r$ with remainder 0, thus $s$ must divide $r$.
+\end{enumerate}
+
+\item[4.64] Suppose that $G$ is a finite group with the property that every nonidentity
+element has prime order (for example, $D_3$ and $D_5$). If $Z(G)$ is not trivial, prove
+that every nonidentity element of $G$ has the same order.
+\begin{enumerate}
+\item[] Since $Z(G)$ is not trivial, then that means there exists an element, $a \in Z(G), a \neq e$.
+Since, $a \in Z(G)$, then we know that for all $b \in G$, $ab = ba$ and $(ab)^n = a^nb^n$. Now, let's
+assume for the sake of contradiction that $m = |a| \neq |b| = n$, yet both orders are prime. Then 
+it must be that the lcm$(m, n) = mn$ and $(ab)^{mn} = e$. So let $k = |ab|$ and by theorem 4.1, 
+corollary 2, $k$ must divide $mn$. In order for $k$ to divide $mn$ because $m$ and $n$ are distinct
+primes, $k$ must be $n$ or $m$ or $mn$. But then, 
+\[
+(ab)^m = a^mb^m = eb^m = b^m \neq e \] \[
+(ab)^n = a^nb^n = a^ne = a^n \neq e
+\]
+which means that $k$ must be $mn$, since neither $m |\, n$ nor $n |\, m$. Clearly $mn$ is not prime
+since $m | \, mn$ and $n | \, mn$ which means that $ab \not\in G$, which is a contradiction. Therefore,
+$|a| = |b|$.
+\end{enumerate}
+
+\item[5.1] Find the order of each of the following permutations.
+\begin{enumerate}
+\item[a.] $(12)$ \\
+Since there is only one cycle of length 2, then the order must be
+2 as any other cycle must be a one cycle (or fixed) and the lcm of all the cycles is 
+going to be 2.
+\item[b.] $(147)$ \\
+For the same reasoning as part (a); the order is 3.
+\item[c.] $(14762)$ \\
+For the same reasoning as part (a) and (b); the order is 5. 
+\end{enumerate}
+
+\item[5.2] What is the order of a $k$-cycle $(a_1a_2\cdots a_k)$?
+\begin{enumerate}
+\item[] We let 
+$(a_1a_2 \cdots a_k)$ be our $k$-cycle and we'll denote the mapping
+of all $a_i$ in the $k$-cycle to $a_{i+1}$ , with the exception of $a_k$ which
+maps to $a_1$, by $\sigma$. Since we have $a_k$ going to $a_1$, we have actually
+have $\sigma(a_i) = a_{i + 1 \mod k}$. 
+Then we know inductively that if $\sigma(a_i) = a_{i + 1 \mod k}$, then
+$\sigma^2(a_i) = \sigma(\sigma(a_i)) = \sigma(a_{i+1 \mod k}) = a_{i + 1 + 1 \mod k} = 
+a_{i + 2 \mod k}$ and so on and so forth until we get $\sigma^k(a_i) = a_{i + k \mod k} = a_i$.
+Thus if $1 \leq m < k$, then $\sigma^m(a_i) = a_{i + m \mod k} \neq a_{i + k \mod k} = a_i$ which
+let's us know that $\sigma^k$ is the mapping which sends an element back to itself, concluding
+that the order of a $k$-cycle must be $k$.
+\end{enumerate}
+
+\item[5.3] What is the order of each of the following permutations?
+\begin{enumerate}
+\item[a)] $(124)(357)$ \\
+By theorem 5.3, the lcm of these disjoint cycles is 3. Thus the order is 3.
+\item[b)] $(124)(3567)$ \\
+Following part (a), lcm(3, 4) = 12
+\item[c)] $(124)(35)$ \\
+" ", lcm(2, 3) = 6
+\item[d)] $(124)(357869)$ \\
+" ", lcm(3, 6) = 6
+\item[e)] $(1235)(24567)$ \\
+Need to write in disjoint cycle form, so we have (241)(5673) and
+the order is the lcm(3, 4) which is 12.
+\item[f)] $(345)(245)$ \\
+Need to write in disjoint cycle form, so we have (25)(43) and
+the order is the lcm(2, 2) which is 2.
+\end{enumerate}
+
+\item[5.4] What is the order of each of the following permutations. 
+\begin{enumerate}
+\item[a.] When we write 
+\[
+\left[ 
+\begin{array}{cccccc} 
+1 & 2 & 3 & 4 & 5 & 6 \\
+2 & 1 & 5 & 4 & 6 & 3 
+\end{array} 
+\right]
+\]
+in cycle notation, we have $(12)(356)$, which by Theorem 5.3, 
+the lcm$(2, 3) = 6$, which means that 6 is the order.
+\item[b.] 
+\[
+\left[ 
+\begin{array}{ccccccc} 
+1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+7 & 6 & 1 & 2 & 3 & 4 & 5
+\end{array} 
+\right]
+\]
+in cycle notation, we have $(1753)(264)$, which by Theorem 5.3, 
+the lcm$(4, 3) = 12$, which means that 12 is the order.
+\end{enumerate}
+
+\item[5.8] What is the maximum order of any element in $A_{10}$?
+\begin{enumerate}
+\item[] Without enumerating all the possibilities, we can see that any odd $k$-cycle, $k < 10$, 
+with fixed points is going to be in $A_{10}$, so we know that we have elements of order 1, 3, 
+5, 7, 9. But then so are the combinations of two disjoint cycles of 8 and 2, 7 and 3, 6 and 4, 5 
+and 5. It turns out that 7 and 3, in this case is going to yield the highest order since 
+lcm$(7, 3) = 21$. Listing the rest is negligible since the only one that comes close to 21 is
+two cycles of length 5 and 3 with 2 fixed points, which has an lcm of 15.
+\end{enumerate}
+
+\item[5.13] Prove Theorem 5.6.
+\begin{enumerate}
+\item[] Let's use the two-step subgroup test. The set of even permutations in $S_n$ is nonempty
+since the identity can always be expressed as an even number of transpositions. Also for any even
+permutation, $\sigma$, in $S_n$, then the inverse is just the reversed transpositions which made up the 
+even permutation in the first place. So the number of transpositions doesn't change, thus
+the $\sigma^{-1}$ is an even permutation. Now, we let $\sigma$ and $\tau$ both be even
+permutations in $S_n$, then we know that $\sigma$ can be expressed as $n$ transpositions
+and $\tau$ can be expressed as $m$ transpositions, where $n$ and $m$ are even. It follows 
+that $\sigma\tau$ can be expressed as $n + m$ transpositions, which is even.
+\end{enumerate}
+
+\item[5.17] Let 
+\[
+\alpha = 
+\left[
+\begin{array}{cccccc} 
+1 & 2 & 3 & 4 & 5 & 6 \\
+2 & 1 & 3 & 5 & 4 & 6
+\end{array}
+\right]
+\mbox{ and } 
+\beta = 
+\left[
+\begin{array}{cccccc} 
+1 & 2 & 3 & 4 & 5 & 6 \\
+6 & 1 & 2 & 4 & 3 & 5
+\end{array}
+\right].
+\]
+Compute each of the following.
+\begin{enumerate}
+\item[a.] $\alpha^{-1}$ \\
+Mentioned in class and turns out that $\alpha = \alpha^{-1}$.
+\item[b.] $\beta\alpha$ \\
+Trace out a few, so as to show \emph{some} underlying work; 
+$\beta(\alpha(1)) = \beta(2) = 1$ and $\beta(\alpha(4)) = \beta(5) = 3$. 
+\[ 
+\left[ 
+\begin{array}{cccccc} 
+1 & 2 & 3 & 4 & 5 & 6 \\
+1 & 6 & 2 & 3 & 4 & 5 
+\end{array} 
+\right]
+\]
+\item[c.] $\alpha\beta$ \\
+In the same fashion as part (b);
+$\alpha(\beta(1)) = \alpha(6) = 6$ and $\alpha(\beta(4)) = \alpha(4) = 5$.
+\[ 
+\left[ 
+\begin{array}{cccccc} 
+1 & 2 & 3 & 4 & 5 & 6 \\
+6 & 2 & 1 & 5 & 3 & 4 
+\end{array} 
+\right]
+\]
+\end{enumerate}
+
+\item[5.18] Let 
+\[
+\alpha = 
+\left[
+\begin{array}{cccccccc} 
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+2 & 3 & 4 & 5 & 1 & 7 & 8 & 6
+\end{array}
+\right]
+\mbox{ and } 
+\beta = 
+\left[
+\begin{array}{cccccccc} 
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+1 & 3 & 8 & 7 & 6 & 5 & 2 & 4
+\end{array}
+\right].
+\]
+Write $\alpha, \beta,$ and $\alpha \beta$ as
+\begin{enumerate}
+\item[a)] products of disjoint cycles,\\
+$\alpha = (12345)(678)$, $\beta = (23847)(56)$ but we
+have to find $\alpha \beta$. So, 
+\[
+\alpha \beta = 
+\left[
+\begin{array}{ccccccc}
+1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+2 & 4 & 6 & 8 & 7 & 1 & 3
+\end{array}
+\right]
+\]
+which is $\alpha \beta = (12485736)$.
+\item[b)] products of 2-cycles.
+so using Example 5.4, we see that 
+(12345) = (15)(14)(13)(12), then (678) = (68)(67), so
+$\alpha = (15)(14)(13)(12)(68)(67)$, \\
+$\beta = (27)(24)(28)(23)(56)$ and 
+$\alpha \beta = (16)(13)(17)(15)(18)(14)(12)$.
+\end{enumerate}
+
+\item[5.19] Show that if $H$ is a subgroup of $S_n$, then either every member of $H$
+is an even permutation or exactly half of the members are even.
+\begin{enumerate}
+\item[] Following what was said in class: If every member of $H$ is an even permutation, then
+we are done. So let us suppose that not every member of $H$ is even. Then there is some 
+$\tau$ which is an odd permutation and we let $f$ be the function which maps an 
+even permutation, $\sigma$, to an odd by composing with $\tau$. So, 
+$f(\sigma) = \tau\sigma$ and this function is one-to-one, which we can show by 
+$f(\sigma) = f(\sigma') \Leftrightarrow \tau\sigma = \tau\sigma'$ which implies 
+$\sigma = \sigma'$ because of cancellation. Now by the same argument, $f^{-1}$, which maps an odd 
+permutation to an even one by composing it with $\tau$, is also one-to-one. Thus, $f$ is
+one-to-one correspondence, since we have shown that it is one-to-one and invertible, so that for every even 
+permutation there is exactly one corresponding odd permutation from which we can conclude that 
+exactly half of the members of $H$ are even and other half are odd.
+\end{enumerate}
+
+\item[5.23] Use Table 5.1 to compute the following.
+\begin{enumerate}
+\item[a)] The centralizer of $\alpha_3 = (13)(24)$. \\
+Using table 5.1, to find the centralizer of $\alpha_3$, we compare the entry 
+in row $\alpha_3$ and column $\alpha_i$ to row $\alpha_i$ and column $\alpha_3$ for all $\alpha_i$ 
+in $A_4$ and when the two are equal $\alpha_i \in C(\alpha_3)$. Thus we get 
+$C(\alpha_3) = \{ \alpha_1, \alpha_2, \alpha_3, \alpha_4 \}$.
+\item[b)] The centralizer of $\alpha_{12} = (124)$.
+Following the same procedure as part (a), except it being a little more easier and 
+thus quicker to compare the entries as they are on the very tip of the table, we get
+$C(\alpha_{12}) = \{ \alpha_1, \alpha_7, \alpha_{12} \}$.
+\end{enumerate}
+
+\item[5.27] Let $\beta \in S_7$ and suppose $\beta^4 = (2143567)$. Find $\beta$.
+\begin{enumerate}
+\item[] Since we can clearly see that $|\beta^4| = 7$, then we know that
+$|\beta^{28}| = \varepsilon$ and that $|\beta|$ must divide 28. We know
+the divisors of 28 are 1, 2, 4, 7, 14, and 28. So, since
+$|\beta^4| \neq \varepsilon$, then we can eliminate 1, 2, and 4 as being the
+order of $\beta$ right away. Now to show that the order of $\beta$ cannot be 14,
+we can use theorem 5.3, which means that the lcm of the disjoint cycles that
+make up $\beta$ must be 14. Thus there must be at least one 14-cycle or at least
+one 7-cycle and 2-cycle, but both are impossible since we are in $S_7$ and the
+former requires 14 symbols while the latter needs 9. By the same argument (different
+numbers, same result), 28 cannot be the order of $\beta$ either, thus it must be 7. 
+Now we can use the same solution to finding $\beta$: \\
+First, let's observe that \\
+$(a_1, a_2, a_3, a_4, a_5, a_6, a_7)^2 = (a_1, a_3, a_5, a_7, a_2, a_4, a_6)$.
+Now, we can work backwards, since $\beta^4 = (1435672) = (\beta^2)^2 = 
+(1647325)^2 = [(\beta)^2]^2 = [(1362457)^2]^2$. Thus, $\beta =
+(1362457)$.
+\end{enumerate}
+
+
+\item[5.28] Let $\beta = (123)(145)$. Write $\beta^{99}$ in disjoint cycle form.
+\begin{enumerate}
+\item[] Firstly, $\beta = (123)(145) = (14523)$. Then $\beta^{99} = \beta^{-1} = (32541)$.
+[Damian, I know you'll probably have questions as to why that is...well, we know the $\beta$
+is a 5-cycle, thus the order of it is 5, since any multiple of 5 is going to give us 
+$\varepsilon$, we know that this reduces to $\varepsilon \cdot \beta^4$, but $\beta^4 =
+\beta^{-1}$ \ldots probably wonder why that is as well? well $\beta^4 \cdot \beta^1 = 
+\beta^5 = \varepsilon$ and $\beta^{-1} \cdot \beta = \beta^0 = \varepsilon$ and we're done, 
+woohoo!]
+\end{enumerate}
+
+\item[5.32] Let $\beta = (1, 3, 5, 7, 9, 8, 6)(2, 4, 10)$. What is the smallest positive
+integer $n$ for which $\beta^n = \beta^{-5}$?
+\begin{enumerate}
+\item[] By theorem 5.3, we know that the order of $\beta$ is 21. Thus, $\beta^{20} = \beta^{-1}$,
+which helps us to get $\beta^{100} = \beta^{-5}$. But, we want the smallest, so we can use the 
+order of $\beta$, then $\beta^{100} = (\beta^{21})^4\beta^{16} = (\varepsilon)^4\beta^{16} = \beta^{16}$.
+So our smallest $n$ is going to be 16.
+\end{enumerate}
+
+\item[5.36] In $S_4$, find a cyclic subgroup of order 4 and a noncyclic subgroup of order 4.
+\begin{enumerate}
+\item[] The cyclic subgroup can be achieved by $\langle (1234)\rangle$.
+So, \\ $\{ (1), (1234), (1234)^2 = (13)(24), (1234)^3 = (1432)\}$ is our
+cyclic subgroup of $S_4$. Now for our noncyclic subgroup; \\
+$\{ (1), (14), (23), (14)(23) \}$.
+\end{enumerate}
+
+\item[5.37] Suppose that $\beta$ is a 10-cycle. For which integers $i$ between 2 and
+10 is $\beta^i$ also a 10-cycle?
+\begin{enumerate}
+\item[] We can enumerate the powers of $\beta$ to see exactly which $i$'s we want: \\
+\begin{tabular}{cc}
+$\beta = (a_0a_1a_2a_3a_4a_5a_6a_7a_8a_9)$ & 
+$\beta^2 = (a_0a_2a_4a_6a_8)(a_1a_3a_5a_7a_9)$ \\
+$\beta^3 = (a_0a_3a_6a_9a_2a_5a_8a_1a_4a_7)$ & 
+$\beta^4 = (a_0a_4a_8a_2a_6)(a_1a_5a_9a_3a_7)$ \\
+$\beta^5 = (a_0a_5)(a_1a_6)(a_2a_7)(a_3a_8)(a_4a_9)$ & 
+$\beta^6 = (a_0a_6a_2a_8a_4)(a_1a_7a_3a_9a_5)$ \\
+$\beta^7 = (a_0a_7a_4a_1a_8a_5a_2a_9a_6a_3)$ &
+$\beta^8 = (a_0a_8a_6a_4a_2)(a_1a_9a_7a_5a_3)$ \\
+$\beta^9 = (a_0a_9a_8a_7a_6a_5a_4a_3a_2a_1)$ &
+$\beta^{10} = (a_0)$
+\end{tabular}
+\\
+Clearly, we can see that $\beta^i$ is a 10-cycle when $i = 3, 7, 9$.
+\end{enumerate}
+
+\item[5.38] In $S_3$, find elements of $\alpha$ and $\beta$ such that $|\alpha | = 2,
+|\beta | = 2,$ and $|\alpha \beta | = 3$.
+\begin{enumerate}
+\item[] Let $\alpha = (12)$ and $\beta = (13)$. Then $\alpha \beta = (132)$.
+So, $|\alpha| = 2 = |\beta|$ and $|\alpha \beta| = 3$.
+\end{enumerate}
+
+\item[5.41] Prove that $S_n$ is non-Abelian for all $n \geq 3$.
+\begin{enumerate}
+\item[] Example 5.1 shows that $S_3$ is non-Abelian because there exists two
+permutations which do not commute, namely $\alpha = (123)$ and $\beta = (23)$.
+It follows that these permutations are also in $S_n, n > 3$ just that the
+other elements are fixed. Thus $S_n, n \geq 3$ is non-Abelian.
+\end{enumerate}
+
+\item[5.42] Let $\alpha$ and $\beta$ belong to $S_n$. Prove that $\beta \alpha \beta^{-1}$ and
+$\alpha$ are both even or both odd.
+\begin{enumerate}
+\item[] From lemma 2 of the conjugacy class handout, we know that if $\alpha$ is a $k$-cycle, then 
+$\beta\alpha\beta^{-1}$ is also a $k$-cycle and equivalently even or odd, depending on whether
+$\alpha$ was even or odd to begin with because both $k$-cyles will have the same number of 
+transpositions. Otherwise, $\alpha$ is comprised of multiple disjoint cycles and
+must have a cycle type. Hence by theorem 3 of the conjugacy class handout, $\beta\alpha\beta^{-1}$ must
+also have the same cycle type and is equivalently odd or even depending on what $\alpha$ was to begin
+with. This is true because there is corresponding cycle of $\beta\alpha\beta^{-1}$ such that a cycle 
+of $\alpha$ has the same length and since this holds true for all cycles of both $\alpha$ and 
+$\beta\alpha\beta^{-1}$ then both $\beta\alpha\beta^{-1}$ and $\alpha$ must be comprised of
+the same amount of transpositions.
+\end{enumerate}
+
+\item[5.44] If $\beta \in S_7$ and $|\beta^3| = 7$, prove that $|\beta | = 7$.
+\begin{enumerate}
+\item[] Since $|\beta^3| = 7$, then we know that
+$\beta^{21} = \varepsilon$ and that $|\beta|$ must divide 21. We know
+the divisors of 21 are 1, 3, 7, and 21. So, since
+$\beta^3 \neq \varepsilon$, then we can eliminate 1 and 3 as being the
+order of $\beta$ right away. Now to show that the order of $\beta$ cannot be 21,
+we can use theorem 5.3, which means that the lcm of the disjoint cycles that
+make up $\beta$ must be 21. Thus there must be at least one 21-cycle or at least
+one 7-cycle and 3-cycle, but both are impossible since we are in $S_7$ and the
+former requires 21 symbols while the latter needs 10. Thus $|\beta|$ must be 7. 
+\end{enumerate}
+
+\item[5.45] Show that every element in $A_n$ for $n \geq 3$ can be expressed as a 3-cycle
+or a product of three cycles.
+\begin{enumerate}
+\item[] Since every permutation in $A_n, n \geq 3$ is even and can be expressed as a product of 2-cycles
+then it suffices to show that any 2-cycle can be rewritten as the product of 3-cycles.
+Now, $(ac)(ab) = (abc)$ and $(ab)(cd) = (cbd)(acb)$, for any $a, b, c, d$ in $A$, where
+$A$ is the finite set in which the permutations act upon.
+\end{enumerate}
+
+\item[5.46] Show that for $n \geq 3, Z(S_n) = \{ \epsilon \}$.
+\begin{enumerate}
+\item[] With $Z(S_n)$ a group from chapter 3, we know that $\varepsilon \in Z(S_n)$. Now let 
+$\alpha \in S_n, \alpha \neq \varepsilon$. Then we can write $\alpha$ as disjoint cycles from 
+theorem 5.1. Now, we consider the cases for $\alpha$ with $S_n : A \rightarrow A$, and 
+$A = \{ 1, \ldots, n \}$. \\
+\emph{Case: i)} $\alpha$ is a $k$-cycle for $2 \leq k < n$. Then $\alpha = 
+(a_1a_2\ldots a_k)$ and there exists $b \in A$ with $b \not\in \{ a_1, \ldots a_k \}$.
+Notice that $\alpha(a_1b) = (a_1ba_2 \ldots a_k)$ and $(a_1b)\alpha = (a_1a_2\ldots a_kb)$
+so $\alpha \not\in Z(S_n)$. \\
+\emph{Case: ii)} $\alpha$ is an $n$-cycle. Then $\alpha = (a_1a_2\ldots a_n)$ with $n \geq 3$, 
+we have $(a_1a_2) \in S_n$. Now consider $\alpha (a_1a_2) = (a_1a_3\ldots a_n)$ and
+$(a_1a_2)\alpha = (a_2a_3\ldots a_n)$ so $\alpha \not\in Z(S_n)$. \\
+\emph{Case: iii)} $\alpha$ is the composition of at least 2 disjoint cycles of lengths $k$
+and $l \geq 2$. Then $\alpha = \beta_1 \beta_2 \ldots \beta_r$, where each $\beta_i$ is a
+disjoint cycle. Now, $\beta_1 = (a_1a_2\ldots a_k)$ and $\beta_2 = (b_1b_2\ldots b_l)$ and
+$\alpha = (a_1a_2\ldots a_k)(b_1b_2\ldots b_l)\ldots \beta_r$. Then $(a_1b_1) \in S_n$ and
+is disjoint from all $\beta_i$ for $2 < i \leq r$. So, consider
+\begin{eqnarray*}
+\alpha (a_1b_1) &=& \beta_1\beta_2(a_1b_1)\ldots \beta_r \\
+&=& (a_1b_2\ldots b_lb_1a_2\ldots a_k)\ldots \beta_r
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+(a_1b_1)\alpha &=& (a_1b_1)\beta_1\beta_2\ldots \beta_r \\
+&=& (b_1b_2\ldots b_la_1a_2\ldots a_k)\ldots \beta_r
+\end{eqnarray*}
+so $\alpha \not\in Z(S_n)$ with $(a_1b_1)\alpha \neq \alpha (a_1b_1)$. Thus there does
+not exist $\alpha \neq \varepsilon$ with $\alpha \in Z(S_n)$.
+\end{enumerate}
+
+\item[6.2] Find Aut$(\mathbb{Z})$.
+\begin{enumerate}
+\item[] Since the only generators of $\mathbb{Z}$ under addition are 1 and -1, 
+any possible element of Aut$(\mathbb{Z})$ must map $1 \rightarrow -1$, $1 \rightarrow 1$,
+$-1 \rightarrow 1$, or $-1 \rightarrow -1$, by theorem 6.2, property 4. 
+We can achieve all these mapping by $x \rightarrow x$ (the identity map) and $x \rightarrow -x$, 
+thus finding the only two elements of Aut$(\mathbb{Z})$. 
+\end{enumerate}
+
+\item[6.4] Show that $U(8)$ is not isomorphic to $U(10)$.
+\begin{enumerate}
+\item[] For one, we know that $U(8)$ is not cyclic while $U(10)$ is.
+\end{enumerate}
+
+\item[6.6] Prove that the notion of group isomorphism is transitive. That is, if $G, H,$ and
+$K$ are groups and $G \cong H$ and $H \cong K$, then $G \cong K$.
+\begin{enumerate}
+\item[ ] Suppose that $G \cong H$ and $H \cong K$. Since 
+$\phi: G \rightarrow H$ is bijective and $\psi: H \rightarrow K$ is bijective, 
+then the composition $\psi\phi: G \rightarrow K$ is bijective. Furthermore,  for any $a, b \in G$, 
+\[
+\psi\phi(ab) = \psi(\phi(ab)) = \psi[\phi(a)\phi(b)] = \psi[\phi(a)]\psi[\phi(b)]
+= \psi\phi(a)\psi\phi(b)
+\]
+with the second equality from the operation preservation of $\phi$ and the third equality
+from the operation preservation of $\psi$. Hence $G \cong K$.
+\end{enumerate}
+
+\item[6.12] Find two groups $G$ and $H$ such that $G \not\cong H$, but Aut$(G) \cong $ Aut$(H)$.
+\begin{enumerate}
+\item[] Consider $G = \mathbb{Z}_8$ and $H = \mathbb{Z}_{12}$. Clearly 
+$G \not\cong H$ since $|G| \neq |H|$, yet Aut$(G) \cong U(8)$ and Aut$(H) \cong U(12)$. Now define
+$\phi: U(8) \rightarrow U(12)$ with $\phi(1) = 1, \phi(3) = 5, \phi(5) = 7,$ and $\phi(7) = 11$, check
+for isomorphism and we have our result.
+\end{enumerate}
+
+\item[6.18] Suppose that $\phi: \mathbb{Z}_{50} \rightarrow \mathbb{Z}_{50}$ is a group
+isomorphism with $\phi(7) = 13$. Determine $\phi(x)$.
+\begin{enumerate}
+\item[] Given $\phi : \mathbb{Z}_{50} \to \mathbb{Z}_{50}$ an isomorphism, then $\phi(1^{k}) = \phi(1)^{k}$
+from theorem 6.2.
+Hence, with $\phi(7) = \phi(1^7) = \phi(1)^{7} = 13$ we find that $\phi(1)$ is congruent to 9mod(50). 
+Moreover, we see simply then, that the mapping $\phi(x) = \phi(1)^{x} = 9^{x}$. Of course,
+in $\mathbb{Z}_{50}$, $9^{x} = 9x$.
+\end{enumerate}
+
+\item[6.20] Prove Property 4 of Theorem 6.3.
+\begin{enumerate}
+\item[] By theorem 6.2, property 1 and since $e \in K$, then $\bar{e} \in \phi(K)$, so
+$\phi(K)$ is nonempty. Now since $K$ is a subgroup of $G$, then we know that $ab^{-1} \in K$
+whenever $a, b \in K$ and since $\phi$ is an isomorphism then $\phi(ab^{-1}) \in \phi(K)$. 
+So let $\bar{a}, \bar{b} \in \phi(K)$ such that $\phi(a) = \bar{a}$ and
+$\phi(b) = \bar{b}$. Then 
+\[ 
+\phi(ab^{-1}) = \phi(a)\phi(b^{-1}) = \phi(a)[\phi(b)]^{-1} = \bar{a}\bar{b}^{-1}
+\]
+where the second equality comes from theorem 6.2, property 2. 
+Hence $\bar{a}\bar{b}^{-1} \in \phi(K)$ and we are done by the one-step subgroup test.
+\end{enumerate}
+
+\item[6.22] Prove or disprove that $U(20)$ and $U(24)$ are isomorphic.
+\begin{enumerate}
+\item[] Consider 3, an element from $U(20)$ which has order 4. Since, every nonidentity
+element in $U(24)$ has order 2, $U(20)$ and $U(24)$ cannot possibly be isomorphic to each
+other as they would violate theorem 6.2, property 5.
+\end{enumerate}
+
+\item[6.24] Let 
+\[
+G = \{ a + b\sqrt{2} \mid a, b \mbox{ rational } \}
+\]
+and
+\[
+H = \{ \left[ \begin{array}{cc} a & 2b \\ b & a \end{array} \right] \mid a, b \mbox{ rational } \}.
+\]
+Show that $G$ and $H$ are isomorphic under addition. Prove that $G$ and $H$ are closed under
+multiplication. Does your isomorphism preserve multiplication as well as addition?
+\begin{enumerate}
+\item[] Let $\phi : G \to H$ be defined as 
+$\phi(a+\sqrt{2}b) = 
+\left[ \begin{array}{ccc}
+a & 2b \\
+b & a \end{array} \right] $.
+\newline
+To show that $\phi$ is bijective, let $\phi(x) = \phi(y)$. Then there are rational numbers 
+$a, b, c, d$ for which $x = a + \sqrt{2}b$ and $y = c + \sqrt{2}d$. Now, from the mapping
+we find that 
+$\left[ \begin{array}{ccc}
+a & 2b \\
+b & a \end{array} \right]
+=
+\left[ \begin{array}{ccc}
+c & 2d \\
+d & c \end{array} \right] $ from which it is clear that $a = c$ and $b = d$, thus $x = y$. 
+Further, take $h \in H$ then $h = 
+\left[ \begin{array}{ccc}
+\alpha & 2\beta \\
+\beta & \alpha \end{array}\right]$
+for some $\alpha, \beta \in \mathbb{Q}$. Then we can find $g \in G$ with 
+$g = \alpha + \sqrt{2}\beta$ where $\phi(g) = h$. 
+\newline
+Finally, to show that $\phi$ is homomorphic, take $i, j \in G$. Then there are
+rational numbers $k, l, m, n$ with $i = k + \sqrt{2}l$ and $j = m + \sqrt{2}n$. So, 
+$\phi(i+j) = \phi(k+m + \sqrt{2}(l+n)) = 
+\left[\begin{array}{ccc}
+k+m & 2(l+n)\\
+l+n & k+m \end{array} \right]
+=
+\left[ \begin{array}{ccc}
+k & 2l\\
+l & k \end{array} \right] 
++
+\left[ \begin{array}{ccc}
+m & 2n\\
+n & m \end{array} \right] 
+=
+\phi(i) + \phi(j)$.
+\newline
+To find if $G$ and $H$ to be closed under multiplication, take rational
+numbers $a,b,c,d$ and look at $(a + \sqrt{2}b)(c + \sqrt{2}d) = ac + 2bd + \sqrt{2}(bc + ad) 
+\in G$, and
+$\left[ \begin{array}{ccc}
+a & 2b \\
+b & a \end{array} \right]
+\left[ \begin{array}{ccc}
+c & 2d \\
+d & c \end{array} \right]
+=
+\left[ \begin{array}{ccc}
+ac+2bd & 2(bc+ad)\\
+bc+ad & ac+2bd \end{array}\right]
+\in H$. 
+Thus, $G$ and $H$ are closed under multiplication.
+It is easy to see then that $\phi$ is also an isomorphism under multiplication
+as the bijective property holds from before, and the homomorphism follows trivially
+from the proof that $G$ and $H$ are closed under multiplication.
+\end{enumerate}
+
+\item[6.25] Prove that $\mathbb{Z}$ under addition is not isomorphic to $\mathbb{Q}$ under
+addition.
+\begin{enumerate}
+\item[] To prove that $\mathbb{Z}$ under addition is not isomorphic to $\mathbb{Q}$ under 
+addition, let us suppose for the sake of contradiction that they are isomorphic and $\phi : 
+\mathbb{Z} \rightarrow \mathbb{Q}$. Now, we know by theorem 6.2, property 4, that the mapping 
+of a generator of $\mathbb{Z}$ under addition, let's say 1, will generate $\mathbb{Q}$ under addition. 
+Hence $\phi(1)$ will generate $\mathbb{Q}$ under addition. Furthemore, $\phi(1)$ must be a rational 
+number and can be expressed as $p/q$. Hence $\langle p/q\rangle = \mathbb{Q}$ under addition, yet we
+know that any element in $\langle p/q\rangle$ is of the form $k(p/q)$ for some $k \in \mathbb{Z}$.
+Thus there is no $k$ such that $k(p/q) = p/2q$, yet $p/2q \in \mathbb{Q}$ under addition. Contradiction.
+\end{enumerate}
+
+\item[6.26] Prove that the quaternion group is not isomorphic to the dihedral group $D_4$.
+\begin{enumerate}
+\item[] We know there are four elements in $D_4$ with order 2 and since the quaternions 
+do not have four elements of order 2, theorem 6.2, property 5 cannot be satisfied. Thus
+the two groups are not isomorphic.
+\end{enumerate}
+
+\item[6.32] Show that the mapping $a \rightarrow \log_{10} a$ is an isomorphism from 
+$\mathbb{R}^+$ under multiplication to $\mathbb{R}$ under addition.
+\begin{enumerate}
+\item[] First, we must note an algebraic property of logs, namely that $\log_{10}(xy) = \log_{10}(x) + \log_{10}(y)$ and
+the fact that $\mbox{exp}_{10}(\log_{10}(x)) = x$, where exp is defined as the exponential function from 
+which logarithms (which are the inverse of the exponential functions) are derived from. Now
+we let $\phi : \mathbb{R}^+ \rightarrow \mathbb{R}$ such that $\phi(a) = \log_{10}(a)$.
+Showing that $\phi$ is one-to-one, suppose that $\phi (a) = \phi (b)$, then $\log_{10}(a) = \log_{10}(b)$.
+Using exp on both sides yields $a = b$. To show $\phi$ is onto, we take $a \in \mathbb{R}$ and since
+$10^a \in \mathbb{R}^+$, then it happens that $\phi (10^a) = \log_{10}(10^a) = a$. Operation preservation
+can be shown by  \[ \phi (ab) = \log_{10}(ab) = \log_{10}(a) + \log_{10}(b) = \phi (a) + \phi (b) \] 
+for any $a, b \in \mathbb{R}^+$, where the second equality comes from the aforementioned property of logs.
+Thus $\phi$ is an isomorphism.
+\end{enumerate}
+
+\item[6.33] Suppose that $g$ and $h$ induce the same inner automorphism of a group $G$.
+Prove that $h^{-1}g \in Z(G)$.
+\begin{enumerate}
+\item[] Suppose that $g$ and $h$ induce the same inner automorphism of $G$, then $\phi_g = \phi_h$.
+By definition, for all $x \in G$, $gxg^{-1} = hxh^{-1}$. Now multiply on the right by $g$ and
+multiply on the left by $h^{-1}$, so that we obtain $h^{-1}gx = xh^{-1}g$. Since $x$ is any
+element in $G$, it must follow that $h^{-1}g \in Z(G)$.
+\end{enumerate}
+
+\item[6.36] Let $G = \{ 0, \pm 2, \pm 4, \pm 6, \ldots \}$ and $H = \{ 0, \pm 3, \pm 6, \pm 9, \ldots \}$. Show that $G$ and $H$ are isomorphic groups under addition. Does your isomorphism preserve multiplication?
+\begin{enumerate}
+\item[] First, it is important to note that $\langle 2\rangle = G$ and $\langle 3\rangle = H$. Now, define $\phi : G \to H$
+by $\phi(x) = \frac{3}{2}x$. Clearly, with $\phi$ strictly monotone, it is 1-1. Further, if
+we can show that $\phi$ is a homomorphism, then with $2 \to 3$ we have that $\phi(\langle 2\rangle) = \langle \phi(2) \rangle = \langle 3\rangle = H$, and thus onto. To show that $\phi$ is a homomorphism, take $a,b \in G$.Then $a = 2k$ and $b = 2l$ for some $k,l \in \mathbb{Z}$. 
+Hence, $\phi(a+b) = \phi(2k+2l) = \phi(2(k+l)) = \frac{3}{2}(2(k+l)) = 3(k+l) = 3k + 3l = \phi(2k)+\phi(2l)=\phi(a)+\phi(b)$. And we're done. Under multiplication, $G$ and $H$ aren't even groups, being that there are no inverses.
+\end{enumerate}
+
+\item[6.37] Prove that $\mathbb{Q}$ under addition is not isomorphic to $\mathbb{R}^+$ under
+multiplication.
+\begin{enumerate}
+\item[] Suppose that $\phi: \mathbb{Q} \rightarrow \mathbb{R}^+$ is any isomorphism. Then from
+theorem 6.2, notice if $\phi(1) = z$, we have $\phi(1) = \phi((1/n)^n) = \phi(1/n)^n = z 
+\implies \phi(1/n) = z^{1/n}$ for any $n \in \mathbb{Z}$. Furthermore, if $m, p \in \mathbb{Z}$
+then $\phi(m/p) = \phi(1/p)^m = (z^{1/p})^m = z^{m/p}$. Hence for all $q \in \mathbb{Q}, 
+\phi(q) = z^q$ so with $i \in \mathbb{R}\setminus \mathbb{Q}$ and $z^i \in \mathbb{R}^+$, we
+see the mapping is not onto, contradicting that it is a isomorphism. Thus no isomorphism exists.
+\end{enumerate}
+
+\item[6.40] Show that every automorphism $\phi$ of the rational numbers $\mathbb{Q}$ under addition
+to itself has the form $\phi(x) = x\phi(1)$.
+\begin{enumerate}
+\item[] Consider $\mathbb{Q}$ under addition and let $\phi: \mathbb{Q} \rightarrow \mathbb{Q}$
+be an automorphism. Then $\exists a \in \mathbb{Q}$ where $\phi(1) = a$, which is
+$\phi(n/n) = a$ for some $n \in \mathbb{Z}$. Since $\phi$ is an automorphism $\phi(n/n) = 
+\phi(1/n)^n = a$ which implies that $\phi(1/n) = a^{1/n} = (1/n)a = (1/n)\phi(1)$. Now,
+let $m/n \in \mathbb{Q}$, then
+\[
+\phi(m/n) = \phi((1/n)^m) = \phi(1/n)^m = [(1/n)\phi(1)]^m = (m/n)\phi(1)
+\]
+\end{enumerate}
+
+\item[6.42] Prove that $\mathbb{Q}$, the group of rational numbers under addition, is not isomorphic to a proper subgroup of itself.
+\begin{enumerate}
+\item[] Suppose that $H$ is a proper subgroup of $\mathbb{Q}$. Then we know that
+$\exists z \in \mathbb{Q}\setminus H$. Also let $\phi: \mathbb{Q} \rightarrow H$ be any
+isomorphism, then there does not exist any $x \in \mathbb{Q}$ such that $\phi(x) = z$.
+Now let $\phi(1) = a \in H$ and $x = z/a \in \mathbb{Q}$. So $\phi(x) = x\phi(1)$ by 
+problem 6.40. Finally $x\phi(1) = (z/a)\phi(1) = (z/a)a = z$ is a contradiction. Thus
+no isomorphisms exist between $\mathbb{Q}$ and any of it's proper subgroups.
+\end{enumerate}
+
+\item[7.2] Let $H$ be as in Exercise 1. How many left cosets of $H$ in $S_4$ are there?
+(Determine this without listing them.)
+\begin{enumerate}
+\item[] $|S_4| = 24$ and $|H| = 4$, then by Lagrange's theorem, there are 24/4 = 6 left cosets of
+$H$ in $S_4$.
+\end{enumerate}
+
+\item[7.8] Suppose that $a$ has order 15. Find all of the left cosets of $\langle a^5\rangle$
+in $\langle a \rangle$.
+\begin{enumerate}
+\item[] $\langle a\rangle = \{ e, a, a^2, \ldots, a^{14} \}$ and $\langle a^5\rangle = 
+\{ e, a^5, a^{10} \}$. So the left cosets of $\langle a^5\rangle$ in $\langle a\rangle$ are \\
+$e\langle a^5\rangle =   \{e, a^5, a^{10} \} = \langle a^5\rangle = a^5\langle a^5\rangle = a^{10}\langle a^5\rangle$ \\
+$a\langle a^5\rangle =   \{a, a^6, a^{11} \} = a^6\langle a^5\rangle = a^{11}\langle a^5\rangle$ \\
+$a^2\langle a^5\rangle = \{ a^2, a^7, a^{12} \} = a^7\langle a^5\rangle = a^{12}\langle a^5\rangle$\\
+$a^3\langle a^5\rangle = \{ a^3, a^8, a^{13} \} = a^8\langle a^5\rangle = a^{13}\langle a^5\rangle$\\
+$a^4\langle a^5\rangle = \{ a^4, a^9, a^{14} \} = a^9 \langle a^5\rangle = a^{14}\langle a^5\rangle$
+\end{enumerate}
+
+\item[7.14] Suppose that $K$ is a proper subgroup of $H$ and $H$ is a proper subgroup of $G$.
+If $|K| = 42$ and $|G| = 420$, what are the possible orders of $H$?
+\begin{enumerate}
+\item[] Firstly, since $K$ is a proper subgroup of $H$ and $H$ is a proper subgroup of $G$, then 
+$|K| < |H| < |G|$. Now by Lagrange's theorem, $|K| = 42\, |\,\, |H|$, which means that $|H| = 42k$, for some
+$k \in \mathbb{N}$, and again by Lagrange's theorem $42k\, |\,\,420 = |G|$. This implies that $1 < k < 10$, to 
+which we can conclude that $k$ must be $2$ or $5$. Hence the two possible orders of $H$ are $42 \cdot 2 = 84$
+or $42 \cdot 5 = 210$.
+\end{enumerate}
+
+\item[7.16] Recall that, for any integer $n$ greater than 1, $\phi(n)$ denotes the number of
+integers less than $n$ and relatively prime to $n$. Prove that if $a$ is any integer relatively
+prime to $n$, then $a^{\phi(n)}$ mod $n = 1$.
+\begin{enumerate}
+\item[] Firstly, $a$ is relatively prime to $n$, so $a \in U(n)$. Furthermore, 
+$|U(n)| = \phi(n)$ and by corollary 4, $a^{|U(n)|}\mbox{ mod } n = a^{\phi(n)}
+\mbox{ mod } n = e$. Since $e = 1$ in $U(n)$, then $a^{\phi(n)} \mbox{ mod } n = 1$ as required.
+\end{enumerate}
+
+\item[7.17] Compute $5^{15}$ mod $7$ and $7^{13}$ mod $11$.
+\begin{enumerate}
+\item[]
+\begin{eqnarray*}
+5^{15} \mbox{ mod } 7 &=& (5^7 \mbox{ mod } 7) \cdot (5^7 \mbox{ mod } 7) \cdot (5 \mbox{ mod } 7) \\
+&=& (5 \mbox{ mod } 7) \cdot (5 \mbox{ mod } 7) \cdot (5 \mbox{ mod } 7) \\
+&=& (5^3 \mbox{ mod } 7) \\
+&=& 126 \mbox{ mod } 7 \\
+&=& 6
+\end{eqnarray*}
+where the second equality (above and below) is from Fermat's Little Theorem.
+\begin{eqnarray*}
+7^{13} \mbox{ mod } 11 &=& (7^{11} \mbox{ mod } 11) \cdot (7^2 \mbox{ mod } 11) \\
+&=& (7 \mbox{ mod } 11) \cdot (49 \mbox{ mod } 11) \\
+&=& (7 \cdot 5 \mbox{ mod } 11) \\
+&=& 35 \mbox{ mod } 11 \\
+&=& 2
+\end{eqnarray*}
+\end{enumerate}
+
+\item[7.22] Suppose that $G$ is a group with more than one element and $G$ has no
+proper, nontrivial subgroups. Prove that $|G|$ is prime. (Do not assume at the outset that
+$G$ is finite.)
+\begin{enumerate}
+\item[] Suppose that $G$ is a group with more than one element and $G$ has no proper, nontrivial subgroups.
+Now, let $g$ be any nonidentity element in $G$. Then $\langle g\rangle$ is a subgroup of 
+$G$. But since $G$ has no proper subgroups, it must be that $\langle g\rangle = G$, which means
+that $G$ is cyclic. Hence, it must follow that $G$ can only be finite, 
+otherwise $\langle g^2\rangle$ is a proper subgroup and a contradiction. So by theorem 4.3, 
+we know if $k \mid n = |G|$, then there is a subgroup of order $k$, yet this means that $k$ cannot 
+be anything other than 1 or $n$ (otherwise we would have a proper subgroup), 
+so it must be that the order of $G$ is prime.
+\end{enumerate}
+
+\item[7.26] Let $|G| = 8$. Show that $G$ must have an element of order 2.
+\begin{enumerate}
+\item[] Let $g$ be any nonidentity element in $G$. Then by Corollary 2, $|g|$ divides $|G|$.
+Since $|G| = 8$, $|g|$ must be 2, 4, or 8. The case where $|g| = 2$ is clear and we're done.
+Otherwise, $|g| = 4$ or $|g| = 8$, then $|g^2| = 2$ or $|g^4| = 2$, respectively and again
+we're done.
+\end{enumerate}
+
+\item[7.28] Show that $\mathbb{Q}$, the group of rational numbers under addition, has no
+proper subgroup of finite index.
+\begin{enumerate}
+\item[] For the sake of contradiction, let us suppose that $H$ is a proper subgroup of 
+$\mathbb{Q}$ under addition with a finite index. Then there exist an 
+element, $z \in \mathbb{Q}\backslash H$, which also means that $\frac{z}{2} \not\in H$. Notice now
+for every $n \in \mathbb{N}$, either $(\frac{z}{2} + \frac{z}{n}) \not\in H$ or $(\frac{z}{2} - 
+\frac{z}{n}) \not\in H$, otherwise $[(\frac{z}{2} + \frac{z}{n}) + (\frac{z}{2} - \frac{z}{n})] \in H$
+and that implies that $z \in H$. Thus there exists a $k \in \mathbb{N}$ with
+$(\frac{z}{2} \pm \frac{z}{n}) \not\in H$ such that $\frac{z}{2} + H = \frac{z}{2} \pm \frac{z}{k} + H$, which
+we know must be true since $H$ has a finite index. 
+Now for the positive case, 
+\[ 
+\left(\frac{z}{2} + \frac{z}{k}\right) - \frac{z}{2} = \frac{z}{k} \in H 
+\Rightarrow \left\langle \frac{z}{k} \right\rangle \subseteq H \Rightarrow z \in H
+\]
+or for the negative case,
+\[ 
+\frac{z}{2} - \left(\frac{z}{2} - \frac{z}{k}\right) = \frac{z}{k} \in H 
+\Rightarrow \left\langle \frac{z}{k} \right\rangle \subseteq H \Rightarrow z \in H
+\]
+Contradiction since there does not exist a $k \in \mathbb{N}$ such that \\
+$\frac{z}{2} + H = \frac{z}{2} \pm \frac{z}{k} + H$. Thus there is no proper subgroups of 
+$\mathbb{Q}$ under addition with finite index.
+\end{enumerate}
+
+\item[7.33] Let $G$ be a group of order $p^n$ where $p$ is prime. Prove that the center
+of $G$ cannot have order $p^{n-1}$.
+\begin{enumerate}
+\item[] For the sake of contradiction, let $|Z(G)| = p^{n-1}$. Then, there are $p$ elements
+in $G$ that are not in $Z(G)$. So, take one of those elements, let's say $g \in G\setminus Z(G)$,
+and look at the centralizer of $g$. Since $g$ always commutes with itself, it follows that 
+$g \in C(g)$. Furthermore, $g$ commutes with all the elements from the center, so
+$Z(G) \subseteq C(g)$. Now, we know by theorem 3.6 that $C(g) \leq G$ and from Lagrange's 
+theorem that $|C(g)|$ must divide $G$. But from what we've said, $|C(g)|$ must be strictly larger
+than $|Z(G)|$, thus it can only be that $|C(g)|$ is $p^n$. This means that $G = C(g)$, which
+implies that $g$ commutes with every element of $G$ and must be in the center. Contradiction since
+$g$ was chosen such that $g \not\in Z(G)$.
+\end{enumerate}
+
+\item[7.47] Determine all finite subgroups of $\mathbb{C}^*$, the group of nonzero complex
+numbers under multiplication.
+\begin{enumerate}
+\item[] The $n^{\mbox{th}}$ roots of unity are those complex numbers, $x$, such that $x^n = 1$. In fact,
+by the fundamental theorem of algebra, there are $n$ such roots for any $n \in \mathbb{N}$.
+Furthermore, these roots form a cyclic subgroup in $\mathbb{C}^*$ under multiplication and 
+we can find them by $e^{(2\pi ik)/n}$ for any $n \in \mathbb{N}$, $k = 0, 1, \ldots, n - 1$. Thus,
+$\{ e^{(2\pi ik)/n} \mid k = 0, 1, \ldots, n - 1 \}$ is a cyclic subgroup of order $n$ in 
+$\mathbb{C}^*$ under multiplication for any $n \in \mathbb{N}$ and, moreover, 
+this finds all the finite subgroups of $\mathbb{C}^*$. 
+\end{enumerate}
+
+\item[8.2] Show that $\mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ has
+seven subgroups of order 2.
+\begin{enumerate}
+\item[] $\mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 = \{ (0, 0, 0), (0, 1, 0),
+(0, 0, 1), (0, 1, 1), (1, 0, 0), (1, 0, 1),$\\$ (1, 1, 0), (1, 1, 1) \}$. So, 
+(0, 0, 0) is the identity and with any nonidentity element, there being 7 in total, 
+forms a subgroup. Note that this is possible since any nonidentity element has an order of
+2 and thus must be its own inverse.
+\end{enumerate}
+
+\item[8.10] How many elements of order 9 does $\mathbb{Z}_3 \oplus \mathbb{Z}_9$ have?
+\begin{enumerate}
+\item[] By theorem 8.1, an element in $\mathbb{Z}_3 \oplus \mathbb{Z}_9$ will have an order
+of 9, when lcm$(|g|, |h|) = 9$, where $g \in \mathbb{Z}_3$ and $h \in \mathbb{Z}_9$. This
+is only possible in two ways, that is, $|g| = 9$ and $|h| = 1$ or $|g| = 1$ and $|h| = 9$.
+Since there is no element in $\mathbb{Z}_3$ that has order 9, we can discard the former
+case. Now, we know that any element in $\mathbb{Z}_9$ that is going to have order 9 will
+be relatively prime to 9, thus the number of elements in $\mathbb{Z}_9$ of order 9 is 
+just $\phi(9)$. Since the only element in $\mathbb{Z}$ with order 1 is the identity, 
+we are going to have exactly $\phi(9) = 6$ elements of order 9 in $\mathbb{Z}_3 \oplus \mathbb{Z}_9$.
+\end{enumerate}
+
+\item[8.12] The dihedral group $D_n$ of order $2n$ $(n \geq 3)$ has a subgroup of $n$ rotations
+and a subgroup of order 2. Explain why $D_n$ cannot be isomorphic to the external direct
+product of two such groups.
+\begin{enumerate}
+\item[] If $n$ is odd and $D_n \cong G_n \oplus G_2$, then there exists an $r \in D_n$ such that
+$|r| = n$. From theorem 8.1, it follows that with $n$ odd, there exists $t \in G_n$ with 
+$|t| = n$ and the element $|(t, e_2)| = |t| = n$. But then $h \in G_2, h \neq e_2$ and
+$|(t, h)| = $ lcm$(|t|, |h|) = 2|t| = 2n$. With no element of order $2n$ in $D_n$ we arrive
+at a contradiction. \\
+If $n$ is even, then notice that there exists an odd number of generators of the rotation 
+subgroup. But with $n > 3$, we know $\exists g \in G_n$ with $|g| = n$ so that $|(g, h)| = n$.
+But $|(g, h)| = |(g, e_2)|$, so they always come in pairs. Thus, if $D_n \cong G_n \oplus G_2$, 
+then there exists an even number of rotations with order $n$, which contradicts that there
+are an odd number of generators, so $D_n \not\cong G_n \oplus G_2$.
+\end{enumerate}
+
+\item[8.15] If $G \oplus H$ is cyclic, prove that $G$ and $H$ are cyclic.
+\begin{enumerate}
+\item[] \emph{Proof 1:} Suppose that $G \oplus H$ is cyclic. Then, there is an element, 
+$(g, h) \in G\, \oplus H$, where $g \in G$ and $h \in H$, such that $\langle (g, h)\rangle = G 
+\oplus H$ and $|\langle(g, h)\rangle| = |G \oplus H| = |G||H| = |(g, h)|$ by theorem 4.1, corollary 1
+and since we know that $|G\, \oplus H| = |G||H|$. But by theorem 8.1, $|(g, h)| = $ lcm$(|g|, |h|) = 
+|G||H|$, so it must follow that $|g| = |G|$ and $|h| = |H|$ by theorem 8.2. Thus $G$ and $H$ must be cyclic.
+\[ \] 
+\emph{Proof 2:} Suppose that $G \oplus H$ is cyclic. Now for the sake of contradiction, assume that 
+$G$ is not cyclic or $H$ is not cyclic. Since, $G \oplus H$ is cyclic, there exists an element, 
+$(g, h) \in G\, \oplus H$, where $g \in G$ and $h \in H$, such that $\langle (g, h)\rangle = G 
+\oplus H$. Then $|\langle(g, h)\rangle| = |G \oplus H| = |G||H| = |(g, h)|$ by theorem 4.1, corollary 1
+and since we know that $|G\, \oplus H| = |G||H|$. Now, by theorem 8.1, $|(g, h)| = $ lcm$(|g|, |h|) = 
+|G||H|$. But this impossible since either $|g| \neq |G|$ or $|h| \neq |H|$. Contradiction.
+\end{enumerate}
+
+\item[8.30] Let
+\[
+H = 
+\left\{
+\left[
+\begin{array}{ccc}
+1 & a & b \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right]
+\mid a, b \in \mathbb{Z}_3 
+\right\}.
+\]
+(See Exercise 34 in Chapter 2 for the definition of multiplication.) Show that $H$ is an 
+Abelian group of order 9. Is $H$ isomorphic to $\mathbb{Z}_9$ or to $\mathbb{Z}_3 \oplus 
+\mathbb{Z}_3$?
+\begin{enumerate}
+\item[] If we take a look at exercise 2.34, we see that $c = 0$ in this case, so that the defined
+multiplication is really just standard matrix multiplication. With this in mind, we show that
+$H$ is Abelian, by taking any $a', a, b, b' \in \mathbb{Z}_3$ and concluding that
+\[
+\left[
+\begin{array}{ccc}
+1 & a & b \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right]
+\left[
+\begin{array}{ccc}
+1 & a' & b' \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right] =
+\left[
+\begin{array}{ccc}
+1 & (a' + a) & (b' + b) \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right] =
+\]
+\[
+\left[
+\begin{array}{ccc}
+1 & (a + a') & (b + b') \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right] =
+\left[
+\begin{array}{ccc}
+1 & a' & b' \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right]
+\left[
+\begin{array}{ccc}
+1 & a & b \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right]
+\] 
+since $\mathbb{Z}_3$ is Abelian. Furthermore, because we have 3 possiblities for $a$
+and 3 possibilities for $b$, which is $3 \cdot 3 = 9$ possibilities in total. Hence,
+$|H| = 9$. \\
+Now, let us note that $\mathbb{Z}_9 \not\cong \mathbb{Z}_3 \oplus \mathbb{Z}_3$ since 
+$\mathbb{Z}_3 \oplus \mathbb{Z}_3$ does not contain an element of order 9. So, for this same
+reason, $H \not\cong \mathbb{Z}_9$. Thus $H$ must be isomorphic to $\mathbb{Z}_3 \oplus 
+\mathbb{Z}_3$. We can further prove this by letting $\phi : H \rightarrow \mathbb{Z}_3 \oplus 
+\mathbb{Z}_3$ such that $\phi \left( \left[
+\begin{array}{ccc}
+1 & a & b \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right] \right) = (a, b)$. It is not hard to see that $\phi$ is bijective, so all that is left is 
+operation preservation, which easily follows from the argument above where we showed that 
+$H$ is Abelian.
+\end{enumerate}
+
+\item[8.38] Determine Aut$(\mathbb{Z}_2 \oplus \mathbb{Z}_2)$.
+\begin{enumerate}
+\item[] There are 6 of them, just enumerate the mappings.
+\end{enumerate}
+
+\item[extra]
+\begin{enumerate}
+\item[] Because rotations commute we know that given any 2 rotations, $R_1$ and $R_2$, then
+$R_1R_2R_1^{-1} = R_2$. Also with any reflection, $F$, and rotation, $R$, then 
+$FRF = FRF^{-1} = R^{-1}$, so that we find $[R] = \{ R, R^{-1} \}$. Notice that if $n$ is even, 
+$R_\pi \in D_n$, so $[R_\pi ] = \{ R_\pi , R^{-1}_\pi \} = \{ R_\pi \}$. Now for the reflections. We need 
+only consider $f$ and $rf$. If we take any rotation, $r^p$ for $0 \leq p \leq n - 1$, we find 
+that 
+\[ r^pfr^{-p} = r^pr^pf = r^{2p}f \]
+and 
+\[
+r^p(rf)r^{-p} = r^{p+1}fr^{-p} = r^{p+1}r^pf = r^{2p + 1}f
+\]
+Also given any reflection, $r^mf$ for $0 \leq l \leq n - 1$, we find that
+\[
+r^mff(r^mf)^{-1} = r^mfff^{-1}r^{-m} = r^mfr^{-m} = r^{2m}f
+\]
+and
+\[
+r^mf(rf)(r^mf)^{-1} = r^mfrff^{-1}r^{-m} = r^mfr^{1 - m} = r^{2m - 1}f
+\]
+Thus, $[f] = \{ r^xf |\,\,\, x $ is even $\}$ and $[rf] = \{ r^yf |\,\,\, y$ is odd $\}$. \\
+So, if $n$ is even, we find that $[f] = \{ r^xf |\,\,\, x \in \{0, 2, 4, \ldots, n-2\}\}$ and
+$[rf] = \{ r^yf |\,\,\, y \in \{1, 3, 5, \ldots, n - 1\}\}$. If $n$ is odd, then 
+$[f] = \{ r^xf |\,\,\, x \in \{0, 1, \ldots, n - 1\}\}$. \\
+With any reflection $F \in [f]$ for odd $n$ or $F \in [f] \cup [rf]$ and knowing that \\
+$F \in [f] \Rightarrow [F] = [f]$ and $[f] \in [f] \cup [rf] \Rightarrow [F] = [f]$ or 
+$[F] = [rf]$, then we have described the conjugacy classes of $D_n$.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}

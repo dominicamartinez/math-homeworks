@@ -1,0 +1,1626 @@
+\documentclass{letter}
+\usepackage{geometry,amsmath,amssymb,bbm}
+\usepackage{fullpage}
+\usepackage{calrsfs}
+\geometry{letterpaper}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\nin}{\not\in}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+Algebra by Larry C. Grove
+
+I.12.1 If $G$ is a group and $f : G \rightarrow G$ is defined by $f (x) = x^{-
+1}$, all $x \in G$, show that $f$ is a homomorphism if and only if $G$ is
+abelian.
+
+{\tmem{Solution:}} Suppose $f$ is a homomorphism. Then $f (x y) = f (x) f
+(y)$, for all $x, y \in G$. Furthermore, $x^{- 1} y^{- 1} = f (x) f (y) = f (x
+y) = (x y)^{- 1}$. Multiplying on the left by $(y x)$ and then on the right by
+$(x y)$ yields $y x = x y$. Thus $G$ is abelian. Conversely, suppose that $G$
+is abelian. Then $f (x y) = (x y)^{- 1} = x^{- 1} y^{- 1} = f (x) f (y)$ for
+all $x, y \in G$ and $f$ is a homomorphism.
+
+I.12.2: If a group $G$ has a unique element $x$ of order 2 show that $x \in Z
+(G)$.
+
+{\tmem{Solution:}} First, let $e$ be the identity in $G$ and $y$ any element
+in $G$. We note that if $y^{- 1} x y = e$, then by multiplying on the left by
+$y$ and on the right by $y^{- 1}$, $x = e$ which is a contradiction since $x$
+has order 2. So $|y^{- 1} x y| > 1$. Now we show that $|y^{- 1} x y| = 2$:
+
+$(y^{- 1} x y)^2 = (y^{- 1} x y) (y^{- 1} x y) = y^{- 1} x (y y^{- 1}) x y =
+y^{- 1} x (e) x y = y^{- 1} x^2 y = y^{- 1} e y = y^{- 1} y = e$.
+
+Since $x$ is the only element of order 2, it must be that $x = y^{- 1} x y$
+and multiplying on the left by $y$, we see that $y x = x y$ for all $y \in G$
+and hence $x \in Z (G)$.
+
+I.12.6: Suppose $G$ is a group, $H \leq G$ and $K \leq G$. Show that $H \cup
+K$ is not a group unless $H \leq K$ or $K \leq H$.
+
+{\tmem{Solution:}} If $H \leq K$, then $H \cup K = K$, a subgroup. Also if $K
+\leq H$, then $H \cup K = H$, a subgroup. So assume now that $H \nleq K$ and
+$K \nleq H$. Then we know there exists an $h \in H \setminus K$, $k \in K
+\setminus H$ and thus $h k \nin H$ and $h k \nin K$. Now $h, k \in H \cup K$
+but $h k \nin H \cup K$, so we can conclude that $H \cup K$ is not a subgroup
+since it's not closed under the binary operation of $G$.
+
+I.12.9: If $A, B \leq G$ and both $[G : A]$ and $[G : B]$ are finite show that
+$[G : A \cap B] \leq [G : A] [G : B]$, with equality if and only if $G = A B$.
+
+{\tmem{Solution:}} We let $f$ be the mapping from $G / (A \cap B) \rightarrow
+G / A \times G / B$, where $\times$ is the Cartesian product, and $f (g (A
+\cap B)) = (g A, g B)$. To show that $f$ is well defined, let $g (A \cap B) =
+h (A \cap B)$, then $h^{- 1} g (A \cap B) = A \cap B$ or more importantly
+$h^{- 1} g \in A \cap B$, but this also means $h^{- 1} g \in A$ and $h^{- 1} g
+\in B$, hence $g A = h A$ and $g B = h B$. So $(g A, g B) = (h A, h B)$ and $f
+(g (A \cap B) = f (h (A \cap B))$. Injectivity of $f$ can be shown by simply
+reversing the process of showing that $f$ is well defined. So $f$ is a
+bijection to $f (G / (A \cap B)) \subseteq G / A \times G / B$ and thus the
+$[G : A \cap B] = |G / (A \cap B) | \leq |G / A \times G / B| = |G / A| |G /
+B| = [G : A] [G : B]$. We note now that $[G : A \cap B]$ is finite when $[G :
+A]$ and $[G : B]$ are both finite, so that $[G : A \cap B] = [G : A] [A : A
+\cap B]$. Now the equality holds if and only if $[A : A \cap B] = [G : B]$
+which means we have $g \in A B$ for all $g \in G$ and with $A B \subseteq G$,
+we have $G = A B$.
+
+I.12.12: If $A, B \leq G$ and $y \in G$ define the $(A, B)$-double coset $A y
+B =\{a y b : a \in A, b \in B\}$. Show that $G$ is the disjoint union of its
+$(A, B)$-double cosets. Show that $|A y B| = [A^y : A^y \cap B] |B|$ if $A$
+and $B$ are finite.
+
+{\tmem{Solution:}} We let $a y b = c x d \in A y B$. Then $x^{- 1} c^{- 1} a y
+= d b^{- 1}$, where $c^{- 1} a \in A$ since $A$ is a subgroup and $d b^{- 1}
+\in B$ since $B$ is a subgroup. Thus we can say $x \sim y$, $x$ is congruent
+to $y$, if and only if $x^{- 1} a y \in B, a \in A.$ We show that this is an
+equivalence relation on $G$.
+
+Reflexive: We know $e \in A \leq G$, then $x^{- 1} e x = x^{- 1} x = e \in B
+\leq G$. So $x \sim x$.
+
+Symmetric: If $x \sim y$, then $x^{- 1} a y = b$ for some $b \in B$. We have
+$y^{- 1} a^{- 1} x = (x^{- 1} a y)^{- 1} = b^{- 1} \in B$ since $B$ is a
+subgroup. Moreover $a^{- 1} \in A$ since $A$ is a subgroup and thus $y \sim
+x$.
+
+Transitive: If $x \sim y$ and $y \sim z$, then $x^{- 1} a y = b$ and $y^{- 1}
+a' z = b'$ for some $b, b' \in B$. Now $b b' = x^{- 1} a y y^{- 1} a' z = x^{-
+1} a a' z \in B$. Since $a a' \in A$ whenever $a, a' \in A$ since $A$ is a
+subgroup and $b b' \in B$ whenever $b, b' \in B$ since $B$ is a subgroup, we
+have $x \sim z$.
+
+With this equivalence relation partitioning $G$ and the equivalence classes
+$(A, B)$-double cosets, then $G$ is a disjoint union of its $(A, B)$-double
+cosets.
+
+Moreover an $(A, B)$-double coset can easily be seen as a union of left $B$
+cosets with the form $a y B$, for all $a \in A$. Suppose that $A$ and $B$ are
+finite. This implies that $| A y B| = [A y B : B] |B |$. It's simple to show
+that $a^{- 1} H a \leq G$ when $H \leq G$ and $a \in G$, so let $a^{- 1} h a,
+a^{- 1} h' a \in a^{- 1} H a$, then $(a^{- 1} h a)^{- 1} = a^{- 1} h^{- 1} a$
+and thus $(a^{- 1} h' a) (a^{- 1} h a)^{- 1} = a^{- 1} h' a a^{- 1} h^{- 1} a
+= a^{- 1} h' h^{- 1} a \in a^{- 1} H a$ since $h' h^{- 1} \in H$ whenever $h,
+h' \in H.$
+
+We now create the mapping $f : A y B \rightarrow y^{- 1} A y B$ by $f (a y b)
+= y^{- 1} a y b$. If $f (a y b) = f (a' y b)$, then $y^{- 1} a y b = y^{- 1}
+a' y b$ and multiplication by $y$ on the left, we get $a y b = a' y b'$ and
+$f$ is one-to-one with well defined going in the other direction. Let $y^{- 1}
+a y b \in y^{- 1} A y B$, then $f (a y b) = y^{- 1} a y b$, $a y b \in A y B$,
+so $f$ is onto. Thus $f$ is a bijection between $A y B \tmop{and} y^{- 1} A y
+B$, so $|A y B| = | y^{- 1} A y B|$. It follows that since $y^{- 1} A y, B
+\leq G$, by exercise 2.2, we have $|y^{- 1} A y B| = \frac{|y^{- 1} A y| |
+B|}{|y^{- 1} A y \cap B|}$. Hence
+
+$[A y B : B] = \frac{|A y B|}{|B|} = \frac{|y^{- 1} A y B|}{|B|} = \frac{|y^{-
+1} A y| |B|}{|y^{- 1} A y \cap B||B|} = \frac{|y^{- 1} A y|}{|y^{- 1} A y \cap
+B|} = [A^y : A^y \cap B]$. Using the equalities, we see that $[A^y : A^y \cap
+B] = \frac{|A y B|}{|B|}$, our desired result.
+
+I.12.13: Suppose $G$ is a permutation group on a set $S$, with $|S| > 1$. Say
+that $G$ is doubly transitive on $S$ if given any $(a, b), (c, d) \in S \times
+S$, with $a = b$ if and only if $c = d$, then $x a = c$ and $x b = d$ for some
+$x \in G$.
+
+(1) If $G$ is transitive on $S$ show that $G$ is doubly transitive if and only
+if $H = \tmop{Stab}_G (s)$ is transitive on $S \setminus \{s\}$ for each $s
+\in S$.
+
+{\tmem{Solution:}} We have that $G$ is transitive on $S$. Now suppose that $G$
+is doubly transitive on $S$. First off, we know that for all $s \in S$ that
+there exists a $g \in G$ such that $s = g t$ for some $t \in S$. Now let $h
+\in \tmop{Stab}_G (s)$ so that we have $h s = g t$. But this means that $t =
+g^{- 1} h s = g^{- 1} h g t$, so that $g^{- 1} h g \in \tmop{Stab}_G (t)
+\Rightarrow h \in g \tmop{Stab}_G (t) g^{- 1}$. Going in the reverse
+direction, we conclude that $\tmop{Stab}_G (s) = g \tmop{Stab}_G (t) g^{- 1}$.
+Letting $x, y \in S$ and $x \neq s \neq y$ we see that $g^{- 1} x \neq g^{- 1}
+s \neq g^{- 1} y$ or better seen as $g^{- 1} x \neq t$ and $g^{- 1} y \neq t$.
+Thus there must exist an $h \in \tmop{Stab}_G (t)$ such that $h g^{- 1} x =
+g^{- 1} y \Rightarrow g h g^{- 1} x = y$ by our supposition. But $g h g^{- 1}
+\in \tmop{Stab}_G (s)$ by above and hence $\tmop{Stab}_G (s)$ acts
+transitively on $S \setminus \{s\}$.
+
+Conversely, suppose that $\tmop{Stab}_G (s)$ is transitive on $S \setminus
+\{s\}$ for all $s \in S$. Now let $(a, b), (c, d) \in S \times S$. We use $g
+\in \tmop{Stab}_G (a)$ for $g (a, b) = (a, d)$ and then $h \in \tmop{Stab}_G
+(d)$ so that $h (a, d) = (c, d)$ and $G$ is doubly transitive on $S$ for $h g
+\in G$ except when $a = d$ because then method just described won't work. So
+we do something different in this case. Let $e \in S$ so that $a \neq e \neq
+b$. Then we use $g \in \tmop{Stab}_G (a)$ so that $g (a, b) = (a, e)$,
+followed by $h \in \tmop{Stab}_G (e)$ for $h (a, e) = (c, e)$ and lastly $f
+\in \tmop{Stab}_G (c)$ to yield $f (c, e) = (c, d)$, hence $f g h \in G$ and
+we filled our hole.
+
+(2) If $G$ is doubly transitive on $S$ and $|S| = n$ show that $n (n - 1) |
+|G|$.
+
+{\tmem{Solution:}} We first note by letting $s \in S$ that by the
+orbit-stabilizer theorem $|S| = [G : \tmop{Stab}_G (s)]$. Let $s \in S$ and $t
+\in S \setminus \{s\}$. We know that $\tmop{Stab}_G (s)$ acts transitively on
+$S \setminus \{s\}$ by above, so $|S \setminus \{s\}| = [\tmop{Stab}_G (s) :
+\tmop{Stab}_G (t) \cap \tmop{Stab}_G (s)] = n - 1$. Hence $[G : \tmop{Stab}_G
+(s)] [\tmop{Stab}_G (s) : \tmop{Stab}_G (t) \cap \tmop{Stab}_G (s)] |
+\tmop{Stab}_G (t) \cap \tmop{Stab}_G (s) | = n (n - 1) | \tmop{Stab}_G (t)
+\cap \tmop{Stab}_G (s) | = |G|$ by Lagrange's theorem and we have $n (n - 1)$
+divides $|G|$.
+
+I.12.20: Let $T$ be the set of $n - 1$ successive transpositions $(12), (23),
+(34), \ldots, (n - 1 n)$ in $S_n$. Show that $\langle T \rangle = S_n$.
+
+{\tmem{Solution:}} We use Proposition 3.1, to note that any permutation$,
+\sigma \in S_n$, can be expressed as a product of disjoint cycles. Let $(a_1
+a_2 \cdots a_n)$ be one of those cycles. Then we note that $(a_1 a_2 \cdots
+a_n) = (1 a_1) (1 a_n) (1 a_{n - 1}) \cdots (1 a_1)$ by direction computation.
+So any transposition expressing a cycle is of the form $(1 k)$, $1 \leq k \leq
+n$. Since the transpositions in $T$ are of the form $(k - 1 k)$, then in
+general $(k - 2 k - 1) (k - 1 k) (k - 2 k - 1) = (k - 2 k)$, we can express
+$(1 k) = (12) \cdots (k - 2 k - 1) (k - 1 k) (k - 2 k - 1) \cdots (12)$ or
+more clearly a product of transpositions contained in $T$. Starting with
+$\sigma$ and decomposing to a product of transpositions in $T$ shows us that
+$S_n \subseteq \langle T \rangle$ and starting with a product of
+transpositions in $T$ and building up to a permutation in $S_n$ verifies that
+$\langle T \rangle \subseteq S_n$. Hence $\langle T \rangle = S_n$.
+
+I.12.22: Suppose $H \leq S_n$ but $H \nleq A_n$. Show that $[H : A_n \cap H] =
+2$.
+
+{\tmem{Solution:}} Since $H \nleq A_n$, then $H$ must contain an odd
+permutation $\sigma$. Moreover, $H$ must contain the identity so that $H A_n$
+contains both $A_n$ and $\sigma A_n$. But $S_n = A_n \cup \sigma A_n$, so $H
+A_n = S_n$. Now we can apply exercise 2.2, since $A_n \tmop{and} H$ are
+finite, $|H A_n | = \frac{|H| |A_n |}{|H \cap A_n |} = |S_n | \Leftrightarrow
+\frac{|H|}{|H \cap A_n]} = \frac{|S_n |}{|A_n |} = 2 = [H : H \cap A_n]$.
+
+I.12.31 Suppose $G$ is a finite group, $H \vartriangleleft G$, and $P$ is a
+$p$-Sylow subgroup of $H$. Show that $G = N_G (P) H$.
+
+{\tmem{Solution:}} With $N_G (P)$ and $N$ both subgroups of $G$, it is clear
+that $G \supseteq N_G (P) N =\{x n | x \in N_G (P), n \in N\}$ by closure. Now
+let $g \in G$, by the normalcy of $N$ in $G$, we have $g P g^{- 1} \subseteq g
+N g^{- 1} = N$. This means that $g P g^{- 1}$ is also a Sylow $p$-subgroup in
+$N$. Furthermore by Sylow's second theorem $g P g^{- 1}$ and $P$ are
+conjugates and we have for some $n \in N, n g P g^{- 1} n^{- 1} = P$. Hence $n
+g \in N_G (P)$ from which we get $g \in N_G (P) n^{- 1}$. Yet $N_G (P) n^{- 1}
+\subseteq N_G (P) N$, so $G \subseteq N_G (P) N$. Both inclusions are true,
+thus $G = N_G (P) N$.
+
+I.12.35: Show that there are no simple groups of order 104, 176, 182, 312.
+
+{\tmem{Solution:}} Let $|G| = 104 = 2^3 \cdot 13$ then by the third Sylow
+theorem, $G$ has a unique Sylow 13-subgroup and by the corollary (pg 21) to
+the second Sylow theorem, that Sylow 13-subgroup is normal. Since $G$ has a
+nontrivial proper normal subgroup, $G$ cannot be simple. The exact same
+argument is used to show that groups of order 176, 182, 312 cannot be simple
+once we note that they have a unique Sylow 11-subgroup, 7-subgroup, and
+13-subgroup, respectively.
+
+I.12.44: If $G$ is a group and $x \in G$ define the inner automorphisms $f_x$
+by setting $f_x (y) = x y x^{- 1}$, all $y \in G$. Write $I (G)$ for the set
+of all inner automorphisms of $G$.
+
+(1) Show that $I (G) \leq \tmop{Aut} (G)$.
+
+{\tmem{Solution:}} We first show that $f_x$, $x \in G$, is actually an
+automorphism. Clearly, $f_x : G \rightarrow G$ is a well-defined map by
+closure of $G$. Let $x, g, h \in G$ so that $f_x (g h) = x g h x^{- 1} = (x g
+x^{- 1}) (x h x^{- 1}) = f_x (g) f_x (h)$. Now suppose that $f_x (g) = f_x
+(h)$, then $x g x^{- 1} = x h x^{- 1} \Rightarrow g = h$ by cancellation. If
+$h \in G$, then $h = f_x (x^{- 1} h x)$ for some $x \in G$. So $f_x$ is indeed
+a bijective endomorphism. Thus the set $I (G)$ contains automorphisms and must
+be a subset of $\tmop{Aut} (G)$. Now if $f_x, f_y \in I (G)$, then for all $g
+\in G$, $f_x \circ f_y (g) = x (y g y^{- 1}) x^{- 1} = x y g (x y)^{- 1} =
+f_{x y} (g)$. Furthermore, if $x \in G$, then $x^{- 1} \in G$ and $f_{x^{- 1}}
+\in I (G)$, so that $f_x (g) \circ f_{x^{- 1}} (g) = f_{x x^{- 1}} (g) = f_e
+(g) = f_{x^{- 1} x} (g) = f_{x^{- 1}} (g) f_x (g)$ and we have shown inverses.
+Hence $I (G) \leq \tmop{Aut} (G)$.
+
+(2) Show that $I (G) \cong G / Z (G)$.
+
+{\tmem{Solution:}} We define a map $\phi : G \rightarrow \tmop{Aut} (G)$ by
+$\phi (g) = f_g$. If $g, h \in G$, then $\phi (g h) = f_{g h} = f_g \circ f_h
+= \phi (g) \phi (h)$, so $\phi$ is a homomorphism. Clearly, $\tmop{Im} (\phi)
+= I (G)$ and we have by the fundamental homomorphism theorem that $G / \ker
+\phi \cong I (G)$. Yet $f_x (g) = x g x^{- 1} = g x x^{- 1} = g$, for all $g$
+when $x \in Z (G)$, hence $\ker \phi = Z (G)$ and we have our desired result.
+\
+
+(3) If $I (G)$ is abelian show that $G' \leq Z (G)$. Conclude that $G$ is
+nilpotent.
+
+{\tmem{Solution:}} First we show that if $G / N$ is abelian, then $G' \leq N$,
+where $N \vartriangleleft G$. Suppose that $G / N$ is abelian, then $(g N) (h
+N) = (h N) (g N) \Rightarrow g^{- 1} h^{- 1} g h N = N$, so $[g, h] \in N$ and
+$G' \leq N$. Since $I (G)$ is abelian and isomorphic to $G / Z (G)$ and $Z (G)
+\vartriangleleft G$, then it follows that $G' \leq Z (G)$. From the ascending
+central series, we have $\{1\}= Z_0 \leq Z_1 = Z (G) \leq Z_2$, where $Z_2 /
+Z_1 = Z (G / Z_1)$, but $Z (G / Z_1) = G / Z (G)$ which is abelian, so $Z_2 =
+G$ and thus $G$ is nilpotent.
+
+I.12.48: If $A \vartriangleleft G$ and $B \vartriangleleft G$ show that $G /
+(A \cap B)$ is isomorphic with a subgroup of $G / A \times G / B$.
+
+{\tmem{Solution:}} Let $\phi : G \rightarrow G / A \times G / B$ by $\phi (g)
+= (g A, g B)$. We can see that $\phi$ acts like the combination of two
+canonical quotient maps and thus $\phi$ must be well defined. Then $\phi (g h)
+= (g h A, g h B) = (g A h A, g B h B) = (g A, g B) (h A, h B) = \phi (g) \phi
+(h)$, for all $g, h \in G$, hence $\phi$ is a homomorphism. Now by the
+fundamental homomorphism theorem, $\phi$ is from $G$ onto $\tmop{Im} (\phi$)
+so that $G / \ker \phi \cong \tmop{Im} (\phi) \leq G / A \times G / B$. But
+the ker $\phi$ is the set of all $g \in G$ such that $\phi (g) = (g A, g B) =
+(A, B)$, so $g \in A$ and $g \in B$, yet this is just $A \cap B$.
+
+I.12.61: If $H$ and $K$ are subgroups of $G$, with $K \vartriangleleft G, K
+\cap H = 1, \tmop{and} K H = G$, then $G$ is called a semidirect product of
+$K$ by $H$.
+
+(1) If $\sigma = (12) \in S_n, n \geq 2$, show that $S_n$ is a semidirect
+product of $A_n$ by $\langle \sigma \rangle$.
+
+{\tmem{Solution:}} This was done on problem 22 from homework 4 but will repeat
+for completeness. We note that $\sigma$ is an odd permutation and that
+$\langle \sigma \rangle =\{\varepsilon, \sigma\} \leq S_n$. Clearly $A_n \cap
+\langle \sigma \rangle =\{\varepsilon\}$. We know that $A_n \vartriangleleft
+S_n$ since it's of index 2. Then $\langle \sigma \rangle A_n = A_n \cup \sigma
+A_n = S_n$.
+
+(2) Show that the dihedral group $D_n = \langle a, b | a^n = b^2 = 1, b^{- 1}
+a b = a^{- 1} \rangle$ is a semidirect product of $A = \langle a \rangle$ by
+$B = \langle b \rangle$.
+
+{\tmem{Solution:}} We know that $|D_n | = 2 n$, so with $| \langle a \rangle |
+= n$, we have $\langle a \rangle \vartriangleleft D_n$ by the fact that the
+index is 2. Clearly $\langle a \rangle \cap \langle b \rangle =\{1\}$ since $b
+\neq a$. Once again $\langle b \rangle \langle a \rangle = \langle a \rangle
+\cup b \langle a \rangle = D_n$. We can also view this $a$ representing all
+the rotational symmetrics of an $n$-gon and $b$ being the reflection: $\langle
+a \rangle$ being all the rotational symmetries on one side of the $n$-gon
+while $b \langle a \rangle$ being the ``flip'' and then rotate through all the
+symmetries on the other side. This gives us all symmetries of the $n$-gon.
+
+(3) Show that the quaternion group $Q_2$ can not be expressed as a semidirect
+product (except with one of the subgroups trivial).
+
+{\tmem{Solution:}} Using problem 3 from homework 4, we listed all the
+nontrivial normal subgroups, namely $G = Q_2$, $\langle A \rangle =\{I, A,
+A^2, A^3 \}, \langle B \rangle =\{I, B, A^2, A^2 B\}, \langle A B \rangle
+=\{I, A B, A^2, A^3 B\}$ and $\langle A^2 \rangle =\{I, A^2 \}$. It's clear
+now that the intersection of any of these groups is nontrivial since they all
+contain $A^2$. So $Q_2$ cannot be a semidirect product of two nontrivial
+subgroups.
+
+I.12.62 Suppose $K$ and $H$ are groups and $\phi : H \rightarrow \tmop{Aut}
+(K)$ is a homomorphism. Let $G$ be the Cartesian product $K \times H$ as a
+set, but with the binary operation $(x, y) (u, v) = (x \cdot \phi (y) u, y
+v)$. Show that $G$ is a group; denote it by $G = K \rtimes_{\phi} H$, and call
+it the external semidirect product of $K$ by $H$ relative to $\phi$. Show that
+$K_1 =\{(x, 1) : x \in K\} \vartriangleleft G, H_1 =\{(1, y) : y \in H\} \leq
+G$, and that $G$ is the semidirect product of $K_1$ by $H_1$ as in exercise
+61.
+
+{\tmem{Solution:}} Let $(x, y), (u, v) \in G$, this means that $x, u \in K$
+and $y, v \in H$. Then $(x, y) (u, v) = (x \cdot \phi (y) u, y v)$, clearly $y
+v \in H \tmop{whenever} y, v \in H$ and $f = \phi (y) \in \tmop{Aut} (K)$, so
+that $f (u) = x' \in K$, thus $x x' \in K$ whenever $x, x' \in K$, hence $(x,
+y) (u, v) \in G$. Associativity comes from
+
+$[(x, y) (u, v)] (w, z) = (x \cdot \phi (y) u, y v) (w, z) = ([x \cdot \phi
+(y) u] \cdot \phi (y v) w, y v z) = (x \cdot \phi (y) u \cdot \phi (y) \phi
+(v) w, y v z)$
+
+$(x, y) [(u, v) (w, z)] = (x, y) (u \cdot \phi (v) w, v z) = (x \cdot \phi (y)
+[u \cdot \phi (v) w], y v z) = (x \cdot \phi (y) u \cdot \phi (y) \phi (v) w,
+y v z)$.
+
+$(x, y) (1_K, 1_H) = (x \cdot \phi (y) 1_K, y 1_H) = (x 1_K, y) = (x, y) =
+(1_K x, y) = (1_K \cdot \phi (1_H) x, 1_H y) = (1_K, 1_H) (x, y)$ where we get
+the first equality by the fact that any $\phi (y) \in \tmop{Aut} (K)$ sends
+the identity, $1_K$ to $1_K$, and the fifth equality since $\phi (1_H) \in
+\tmop{Aut} (K)$ is the trivial map, so $(1_K, 1_H)$ is the identity. Lastly,
+$(\phi (y^{- 1}) x^{- 1}, y^{- 1}) \in G$ is the inverse of $(x, y) \in G$:
+$(x, y) (\phi (y^{- 1}) x^{- 1}, y^{- 1}) = (x \cdot \phi (y) \phi (y^{- 1})
+x^{- 1}, y y^{- 1}) = (1_K, 1_H) = (\phi (y^{- 1}) x^{- 1} \cdot \phi (y^{-
+1}) x, y^{- 1} y) = (\phi (y^{- 1}) x^{- 1}, y^{- 1}) (x, y)$. Thus $G$ is a
+group.
+
+Let $(1_K, y), (1_K, h) \in H_1$, then $(1_K, y) (1_K, h) = (1_K \cdot \phi
+(y) 1_K, y h) = (1_K, y h) \in H_1$ since $y h \in H$ whenever $y, h \in H$.
+Now if $(1_K, y) \in H_1$, then $(\phi (y^{- 1}) 1_K, y^{- 1}) = (1_K, y^{-
+1}) \in H_1$ since $y^{- 1} \in H$ whenever $y \in H$. Hence $H_1 \leq G$.
+
+Let $(x, 1_H), (k, 1_H) \in K_1$, then $(x, 1_H) (k, 1_H) = (x \cdot \phi
+(1_H) k, 1_H) = (x k, 1_H) \in K_1$ since $x k \in K$ whenever $x, k \in K$.
+Now if $(x, 1_H) \in K_1$, then $(\phi (1_H) x^{- 1}, 1_H) = (x^{- 1}, 1_H)
+\in K_1$ since $x^{- 1} \in K$ whenever $x \in K$. Hence $K_1 \leq G$. To show
+that $K_1 \vartriangleleft G$, let $(x, 1_H) \in K_1$ and $(k, h) \in G$, then
+$(k, h) (x, 1_H) (\phi (h^{- 1}) k^{- 1}, h^{- 1}) = (k \cdot \phi (h) x \cdot
+\phi (h) \phi (h^{- 1}) k^{- 1}, h h^{- 1}) = (k \phi (h) x k^{- 1}, 1_H) \in
+K_1$.
+
+Since $K_1 \vartriangleleft G$ and $H_1 \leq G$ and $K_1 \cap H_1 =\{(1_K,
+1_H)\}$, then $K_1 H_1 \leq G$. Likewise, $G \leq K_1 H_1$ since if we let
+$(k, h) \in G$, then $(k, h) = (k \phi (1_H) 1_K, h) = (k, 1_H) (1_K, h)$. So
+$G = K_1 H_1$ like in the previous exercise.
+
+II.5.1: Let $R =\{a + b \sqrt{- 5} : a, b \in \mathbbm{Z}\} \subseteq
+\mathbbm{C}$.
+
+(1) Show that $R$ is an integral domain with 1 (it is a subring of
+$\mathbbm{C})$.
+
+{\tmem{Solution:}} We note that $a = 1, b = 0 \in \mathbbm{Z}$ and thus $1 \in
+R \neq \emptyset$. Now let $a + b \sqrt{- 5}, c + d \sqrt{- 5} \in R$. Then
+$\text{($a + b \sqrt{- 5}) - (c + d \sqrt{- 5})$} = (a - c) + (b - d) \sqrt{-
+5} \in R$ since $a - c, b - d \in \mathbbm{Z}$ whenever $a, b, c, d \in
+\mathbbm{Z}$. Furthermore, $(a + b \sqrt{- 5}) (c + d \sqrt{- 5}) = (a c - 5 b
+d) + (b c + a d) \sqrt{- 5} \in R$ since $a c - 5 b d, b c + a d \in
+\mathbbm{Z}$ whenever $a, b, c, d \in \mathbbm{Z}$ and $R$ is a subring of
+$\mathbbm{C}$. With $\mathbbm{C}$ having no zero divisors and $R$ a subset of
+$\mathbbm{C}$, it must be that $R$ has no zero divisors and conclusively is an
+integral domain.
+
+(2) Show that $U (R) =\{\pm 1\}$.
+
+{\tmem{Solution:}} We first say that $U(R) = \{ a + b\sqrt{-5} \in R \mid b = 0\}$ since 
+$U(\mathbb{Z}[x])$ are the constants. Thus if $a \in U (R)$, 
+then $a (c + d\sqrt{- 5}) = a c + a d \sqrt{- 5} = 1$ 
+but with $a \neq 0$ and no zero divisors it must be that $d = 0$. 
+Thus $a c = 1$ with $a, c \in \mathbbm{Z}$. So $a \in U (\mathbbm{Z}_{})$, 
+hence $a = 1$ or $a = - 1$. \
+
+(3) Show that 3 is irreducible in $R$.
+
+{\tmem{Solution:}} Suppose that $3 = (a + b \sqrt{- 5}) (c + d \sqrt{- 5})$
+for $a + b \sqrt{- 5}, c + d \sqrt{- 5} \in R$. By complex conjugates, it's
+also true that $3 = (a - b \sqrt{- 5}) (c - d \sqrt{- 5})$. Thus $9 = (a^2 + 5
+b^2) (c^2 + 5 d^2)$. With the fact that $x^2 + 5 y^2 = 3$ has no solutions in
+$\mathbbm{Z}$, it must be that $a^2 + 5 b^2 = 1$ or $c^2 + 5 d^2 = 1$. Clearly
+this forces $a = \pm 1 \tmop{and} b = 0$ or $c = \pm 1 \tmop{and} d = 0$.
+
+(4) Show that $a = 2 + \sqrt{- 5}$ and $b = 2 - \sqrt{- 5}$ are both
+irreducible in $R$.
+
+{\tmem{Solution:}} Suppose that $2 + \sqrt{- 5} = (a + b \sqrt{- 5}) (c + d
+\sqrt{- 5})$ for $a + b \sqrt{- 5}, c + d \sqrt{- 5} \in R$. By complex
+conjugates, it's also true that $2 - \sqrt{- 5} = (a - b \sqrt{- 5}) (c - d
+\sqrt{- 5})$. Thus $9 = (a^2 + 5 b^2) (c^2 + 5 d^2)$. With the fact that $x^2
++ 5 y^2 = 2 \pm \sqrt{- 5}$ has no solutions in $\mathbbm{Z}$, it must be that
+$a^2 + 5 b^2 = 1$ or $c^2 + 5 d^2 = 1$. Clearly this forces $a = \pm 1
+\tmop{and} b = 0$ or $c = \pm 1 \tmop{and} d = 0$.
+
+(5) Conclude that $3 \nmid 2 + \sqrt{- 5}$ and $3 \nmid 2 - \sqrt{- 5}$ in
+$R$.
+
+{\tmem{Solution:}} Suppose that $3 | 2 + \sqrt{- 5}$, then $3 (a + b \sqrt{-
+5}) = 2 + \sqrt{- 5} \tmop{for} \tmop{some} a + b \sqrt{- 5} \in R \Rightarrow
+3 a = 2$ and $3 b = 1$. Thus $a = 2 / 3$ and $b = 1 / 3$, both of which are
+not in $\mathbbm{Z}$, hence a contradiction. Similarly, suppose that $3 | 2 -
+\sqrt{- 5}$, then $3 (a + b \sqrt{- 5}) = 2 - \sqrt{- 5} \tmop{for}
+\tmop{some} a + b \sqrt{- 5} \in R \Rightarrow 3 a = 2$ and $3 b = - 1$. Thus
+$a = 2 / 3$ and $b = - 1 / 3$, both of which are not in $\mathbbm{Z}$, hence a
+contradiction.
+
+(6) Conclude that $3$ is irreducible but not prime in $R$.
+
+{\tmem{Solution:}} We know that 3 is irreducible by (3) above. To show that 3
+is not prime it suffices to remark that $3$ divides $9 = (2 + \sqrt{- 5}) (2 -
+\sqrt{- 5})$ but by (5) we see that 3 cannot be prime in $R$.
+
+II.5.2: Show that $\mathbbm{Q}[ \sqrt{m}] =\{r + s \sqrt{m} : r, s \in
+\mathbbm{Q}\}$, and that $\mathbbm{Q}[ \sqrt{m}]$ is a field.
+
+{\tmem{Solution:}} We note that $a = 1, b = 0 \in \mathbbm{Q}$ and thus $1
+\in \mathbbm{Q}[ \sqrt{m}] \neq \emptyset$. Now let $a + b \sqrt{m}, c + d
+\sqrt{m} \in \mathbbm{Q}[ \sqrt{m}]$. Then $\text{($a + b \sqrt{m}) - (c + d
+\sqrt{m})$} = (a - c) + (b - d) \sqrt{m} \in \mathbbm{Q}[ \sqrt{m}]$ since $a
+- c, b - d \in \mathbbm{Q}$ whenever $a, b, c, d \in \mathbbm{Q}$.
+Furthermore, $(a + b \sqrt{m}) (c + d \sqrt{m}) = (a c + m b d) + (b c + a d)
+\sqrt{m} \in \mathbbm{Q}[ \sqrt{m}]$ since $a c + m b d, b c + a d \in
+\mathbbm{Q}$ whenever $a, b, c, d \in \mathbbm{Q}$ and $\mathbbm{Q}[
+\sqrt{m}]$ is a subring of $\mathbbm{C}$. With $\mathbbm{C}$ commutative, it
+must be that $\mathbbm{Q}[ \sqrt{m}]$ is commutative as well. Since
+$\mathbbm{Q}[ \sqrt{m}] \subseteq \mathbbm{C}$, then for any $a + b \sqrt{m}
+\in \mathbbm{Q}[ \sqrt{m}] \setminus \{0\}$, there exists $1 / (a + b
+\sqrt{m}) \in \mathbbm{C}$ such that $(a + b \sqrt{m}) (1 / (a + b \sqrt{m}))
+= 1$. By rationalizing the denominator of $1 / (a + b \sqrt{m})$, we yield
+$\frac{a}{a^2 + m b^2} - \frac{b}{a^2 + m b^2} \sqrt{m}$ and we can clearly
+see that $1 / (a + b \sqrt{m}) \in \mathbbm{Q}[ \sqrt{m}] \setminus \{0\}$,
+thus $U (\mathbbm{Q}[ \sqrt{m}]) =\mathbbm{Q}[ \sqrt{m}] \setminus \{0\}$ and
+$\mathbbm{Q}[ \sqrt{m}]$ is a division ring. With $\mathbbm{Q}[ \sqrt{m}]$ a
+commutative division ring, by definition, $\mathbbm{Q}[ \sqrt{m}]$ is a field.
+
+II.5.4: (1) Show that $N (x) \in \mathbbm{Z} \tmop{if} x \in R_m$.
+
+{\tmem{Solution:}} When $m \equiv 2 (\tmop{mod} 4)$ or $m \equiv 3 (\tmop{mod}
+4)$, then $x = a + b \sqrt{m} \in R_m$ and $N (x) = a^2 - m b^2 \in
+\mathbbm{Z}$ since $a, b, m \in \mathbbm{Z}$. Now when $m \equiv 1 (\tmop{mod}
+4)$, then $x = \frac{a + b \sqrt{m}}{2} \in R_m$ and $N (x) = \frac{a^2}{4} -
+\frac{m b^2}{4}$. Since $a \equiv b (\tmop{mod} 2)$, then we take the case
+where $a \equiv 0 (\tmop{mod} 2)$ and $a = 2 k, b = 2 n$ for some $n, k \in
+\mathbbm{Z}$. Hence $N (x) = \frac{(2 k)^2}{4} - \frac{m (2 n)^2}{4} = k^2 - m
+n^2 \in \mathbbm{Z}$ since $k, n, m \in \mathbbm{Z}$. Now we take the case
+where $a \equiv 1 (\tmop{mod} 2)$, and $a = 2 k + 1, b = 2 n + 1$ for some $n,
+k \in \mathbbm{Z}$. Hence $N (x) = \frac{(2 k + 1)^2}{4} - \frac{m (2 n +
+1)^2}{4} = \frac{4 (k^2 + k - m n^2 - n m) - m + 1}{4} = k^2 + k - m n^2 - m n
+- \frac{m - 1}{4}$ and since $m \equiv 1 (\tmop{mod} 4)$ it must be that $m -
+1 \equiv 0 (\tmop{mod} 4)$ and $m = 4 s$, where $s \in \mathbbm{Z}$. Thus $N
+(x) = k^2 = k - m n^2 - m n - s \in \mathbbm{Z}$, since $k, m, n, s \in
+\mathbbm{Z}$.
+
+(2) Show that $u \in U (R_m)$ if and only if $N (u) = \pm 1$.
+
+{\tmem{Solution:}} Suppose that $u \in U (R_m)$. Then $u r = 1$ and thus $N
+(u) N (r) = N (u r) = N (1) = 1$. By (1), $N (u), N (r) \in \mathbbm{Z}
+\Rightarrow N (u) = 1 = N (r)$. Conversely, suppose that $N (u) = \pm 1$. Then
+when $m \equiv 2 (\tmop{mod} 4)$ or $m \equiv 3 (\tmop{mod} 4)$, $(a + b
+\sqrt{m}) (a - b \sqrt{m}) = a^2 - m b^2 = \pm 1$ and $a + b \sqrt{m} \in U
+(R_m)$. When $m \equiv 1 (\tmop{mod} 4)$, $( \frac{a + b \sqrt{m}}{2}) (
+\frac{a - b \sqrt{m}}{2}) = \frac{a^2}{4} - \frac{m b^2}{4} = \pm 1$ and
+$\frac{a + b \sqrt{m}}{2} \in U (R_m)$.
+
+(3) Use (2) to show that $U (R_{- 1}) =\{\pm 1, \pm i\}$, $U (R_{- 3}) =\{\pm
+1, \pm (1 \pm \sqrt{- 3}) / 2\}$ and $U (R_m) =\{\pm 1\}$ for all other
+negative square-free in $\mathbbm{Z}$.
+
+{\tmem{Solution:}} If $x = a + b \sqrt{- 1} \in U (R_{- 1})$, then by (2), we
+have $N (x) = a^2 + b^2 = \pm 1$, where $a, b \in \mathbbm{Z}$. Immediately we
+can throw out $- 1$, since $a^2 \geq 0$ and $b^2 \geq 0$. So $a^2 + b^2 = 1$
+and we have $a = \pm 1$ while $b = 0$ and $a = 0$ while $b = \pm 1$. So $x =
+\pm 1$ or $\pm \sqrt{- 1}$. If $x = (a + b \sqrt{- 1}) / 2 \in U (R_{- 3})$,
+then by (2), we have $N (x) = \frac{a^2}{4} + \frac{3 b^2}{4} = \pm 1$, where
+$a, b \in \mathbbm{Z}$. Immediately we can throw out $- 1$, since $a^2 \geq 0$
+and $b^2 \geq 0$. So $\frac{a^2}{4} + \frac{3 b^2}{4} = 1$ and we have $a =
+\pm 1$ while $b = \pm 1$. We also have $a = \pm 1$ while $b = \mp 1$ and $b =
+0$ while $b = \pm 2$. So $x = \pm \frac{2}{2} = \pm 1$ or $\pm (1 \pm \sqrt{-
+3}) / 2$. Now for all $m \in \mathbbm{Z}$, $m < 0$ and $m$ square-free, we
+break into two cases. The first case is when $m \equiv 2 (\tmop{mod} 4)$ or $m
+\equiv 3 (\tmop{mod} 4)$ which we notice that $|m| > 1$, If $x = a + b \sqrt{-
+m} \in U (R_{- m})$, then by (2), we have $N (x) = a^2 + m b^2 = \pm 1$, where
+$a, b \in \mathbbm{Z}$. Immediately we can throw out $- 1$, since $a^2 \geq 0$
+and $b^2 \geq 0$. So $a^2 + m b^2 = 1$ and we have $a = \pm 1$ while $b = 0$
+as the only possibilities since $|m| > 1 \Rightarrow m b^2 > 1$. So $x = \pm
+1$. The other case is when $m \equiv 1 (\tmop{mod} 4)$, which we observe that
+$|m| > 4$ since already know $R_{- 3}$. If $x = a + b \sqrt{- m} \in U (R_{-
+m})$, then by (2), we have $N (x) = a^2 / 4 + (m b^2) / 4 = \pm 1$, where $a,
+b \in \mathbbm{Z}$. Immediately we can throw out $- 1$, since $a^2 \geq 0$ and
+$b^2 \geq 0$. So $a^2 / 4 + (m b^2) / 4 = 1$ and we have $a = \pm 1$ while $b
+= 0$ as the only possibilities since $|m| > 4$ and $\frac{m b^2}{4} > 1$. So
+$x = \pm 1$.
+
+II.8.3 If $R$ is any ring denote by $R_1$ the additive group $R \oplus
+\mathbbm{Z}$, with multiplication defined by setting $(r, n) (s, m) = (r s + m
+r + n s, n m)$. Show that $R_1$ is a ring with $1$. If $r \in R$ is identified
+with $(r, 0) \in R$, show that $R$ is a subring of $R_1$. Conclude that every
+ring is a subring of a ring with $1$.
+
+{\tmem{Solution:}} To show that $R_1$ is a ring is simple verification of
+definitions. To show that $R_1$ has a 1, we consider $(0, 1)$, then $(r, s)
+(0, 1) = (r \cdot 0 + 1 \cdot r + 0 \cdot s, s \cdot 1) = (r, s)$ for all $(r,
+s) \in R_1$. Now, let's call $R$ identified in $R_1$ as $R' =\{(r, 0) | r \in
+R\}$. If $x, y \in R$, then $x - y, x y \in R$ by definition. So let $(x, 0),
+(y, 0) \in R'$, then $(x, 0) + (y, 0) = (x + y, 0) \in R'$ and $(x, 0) (y, 0)
+= (x y, 0) \in R'$ so $R'$ is a subring by proposition II.1.2. It's clear that
+the construction of $R \oplus \mathbbm{Z}$ for any ring $R$ is itself a ring
+with 1 that contains a subring identified as $R$.
+
+II.8.6: If $F$ is a field show that the ring $M_n (F)$ of $n \times n$
+matrices over $F$ is a simple ring.
+
+{\tmem{Solution:}} We make a few observations first. Let $E_{i j}$ be the
+matrix in $M_n (F)$ such that $e_{i j} = 1$ and everywhere else is 0.
+Furthermore, any $A \in M_n (F)$ is $\sum^n_{i = 1} \sum^n_{j = 1} a_{i j}
+E_{i j}$, where $a_{i j}$ is the entry corresponding to the $i$th row and
+$j$th column in $A$. We also see that it's straightforward from the binary
+operations definition on $M_n (F)$, that if $I$ is an ideal of $F$, then $M_n
+(I)$ is an ideal of $M_n (F)$. Now, we let $I$ be an ideal of $M_n (F)$. We
+define $J =\{a \in F | \exists A \in I \ni a_{1 1} = a\}$. To see that $J$ is
+an ideal of $F$, let $x, y \in J$ and $z \in F$, then $x - y \in J$ since $X -
+Y \in I$ whenever $X, Y \in I$ and $z x, x z \in J$ since $z E_{1 1} X, X (z
+E_{1 1}) \in I$, whenever $X \in I$ and $z E_{11}, E_{11} z \in M_n (F)$. Now
+we note that $E_{1 k} A E_{m 1} = E_{1 k} ( \text{$\sum^n_{i = 1} \sum^n_{j =
+1} a_{i j} E_{i j})$} E_{m 1} = a_{k m} E_{1 1} \in I$. Hence $a_{i j} \in J$
+for all entries in $A$ whenever $A \in J$ and thus $I \subseteq M_n (J)$. To
+show the other inclusion, we note that $M_n (J) = (a E_{i j})$ where $a \in
+J$. Since $a E_{i j} = E_{i 1} A E_{1 j} \in I$, it must be that $a E_{i j}
+\in I$ and $M_n (J) \subseteq I$. Thus $M_n (J) = I$ and it follows by
+proposition 1.9, $F$ is simple and has only two ideals: $\{0\}$ and $F$. Thus
+$M_n (\{0\})$ and $M_n (F)$ are the only ideals and $M_n (F)$ is simple.
+
+II.8.14: Show that the ideal $I = (2, x)$ is not principle in
+$\mathbbm{Z}[x]$.
+
+{\tmem{Solution:}} First off, $2 h + x q \neq \pm 1 \tmop{for} \tmop{any} h,
+q \in \mathbbm{Z}[x]$ and thus $\pm 1 \nin I$. Now suppose that $I = (f)$.
+Then we know that $2 \in (f)$ which means that $f g = 2$ for some $g \in
+\mathbbm{Z}[x]$. This means $f | 2$ and thus must be either $\pm 1$ or $\pm
+2$. If $f = \pm 1$, then $\pm 1 \in (2, x)$, a contradiction. If $f = \pm 2$,
+then $f g \neq x \in I$ for any $g \in I$, another contradiction.
+
+II.8.26: Suppose $R$ is a Euclidean domain, $a, b \in R$ and $a b \neq 0$.
+Write $a = b q_1 + r_1, d (r_1) < d (b)$, $b = r_1 q_2 + r_2, d (r_2) < d
+(r_1)$, $r_1 = r_2 q_3 + r_3, d (r_3) < d (r_2), \ldots, r_{k - 2} = r_{k - 1}
+q_k + r_k, d (r_k) < d (r_{k - 1})$, $r_{k - 1} = r_k q_k$ with all $r_i, q_j
+\in R$. Show that $r_k = (a, b)$, and ``solve'' for $r_k$ in terms of $a$ and
+$b$, thereby expressing $(a, b)$ in the form $u a + v b$ with $u, v \in R$.
+
+{\tmem{Solution:}} Note that the explicit use of functional gcd notation,
+$\gcd (a, b)$, is needed to avoid confusion with the principal ideal generated
+by $a$ and $b$. We first want to show that $g = \gcd (a, b)$ if and only if
+$(g) = (a, b)$ in PID. Since $R$ being a Euclidean domain, then it must be
+that $R$ is also a PID by proposition 5.6. So, suppose that $g = \gcd (a, b)$.
+Now let $(a, b) = (d)$, then $g | a$ and $g| b$ so $g \in (d)$ and thus $(d)
+\subseteq (g)$. To show the other inclusion, we note that $d | a$ and $d | b$
+since $a, b \in (d)$ and with $g = \gcd (a, b)$, $d | g$ and hence $(g)
+\subseteq (d)$. So $(g) = (d) = (a, b)$. Conversely, suppose that $(g) = (a,
+b)$. Then $g = r_1 a + r_2 b$ for some $r_1, r_2 \in R$. Thus if $c$ is any
+divisor of $a$ and $b$, then it must be that $c | g$, so $g$ must be the $\gcd
+(a, b)$.
+
+Now we get to the claim that $r_k = \gcd (a, b)$. For convienence, we let
+$r_{- 1} = a$ and $r_0 = b$ and we also see that $r_{k + 2} = 0$. We show that
+the $\gcd (r_i, r_{i + 1}) = \gcd (r_{i + 1}, r_{i + 2})$, $- 1 \leq i \leq k
+- 1$; we have $s r_i + t r_{i + 1} = (s q_{i + 2} + t) r_{i + 1} + s r_{i +
+2}$ since $r_i = r_{i + 1} q_{i + 2} + r_{i + 2}$ and hence $(r_i, r_{i + 1})
+\subseteq (r_{i + 1}, r_{i + 2})$. We also have $s r_{i + 1} + t r_{i + 2} = s
+r_i + (t - q_{i + 2}) r_{i + 1}$ since $r_i = r_{i + 1} q_{i + 2} + r_{i + 2}$
+and hence $(r_{i + 1}, r_{i + 2}) \subseteq (r_i, r_{i + 1})$. Conclusively,
+we have $(r_{i + 1}, r_{i + 2}) = (r_i, r_{i + 1})$ and thus $\gcd (r_i, r_{i
++ 1}) = \gcd (r_{i + 1}, r_{i + 2})$ by above . It follows that $\gcd (r_{-
+1}, r_0) = \gcd (r_0, r_1) = \cdots = \gcd (r_{k - 1}, r_k)$. With $r_k | r_{k
+- 1}$ since $r_{k - 1} = r_k q_k$, we have $\gcd (r_{k - 1}, r_k) = r_k = \gcd
+(r_{- 1}, r_0) = \gcd (a, b)$.
+
+II.8.28: Suppose $f (x) = 1 + x + x^2 + \cdots + x^{p - 1}$, where $p$ is
+prime in $\mathbbm{Z}$.
+
+(1) Show that $f (x)$ is irreducible in $\mathbbm{Q}[x]$.
+
+{\tmem{Solution:}} First we prove that if $f (x + c)$ is irreducible in $F
+[x]$, then $f (x)$ is irreducible in $F [x]$, where $F$ is a field and $c \in
+F$. We note that $\deg (g (x + c)) = \deg (g (x))$ and $\deg (h (x + c)) =
+\deg (h (x))$. Suppose that $f (x + c)$ is irreducible. Then for the sake of
+contradiction suppose that $f (x)$ is reducible. Hence $f (x) = g (x) h (x)$,
+where $g (x), h (x) \in F [x]$ and $\deg (g (x)), \deg (h (x)) > 0$. It
+follows that $f (x + c) = g (x + c) h (x + c)$, where $\deg (g (x + c)), \deg
+(h (x + c)) > 0$ and $g (x + c), h (x + c) \in F [x]$ and consequently $f (x +
+c)$ is reducible, a contradiction.
+
+We notice that $f (x) = 1 + x + x^2 + \cdots + x^{p - 1} = \frac{x^p - 1}{x -
+1}$. Then we look at $f (x + 1) = \frac{(x + 1)^p - 1}{(x + 1) - 1} = x^{p -
+1} + \binom{p}{1} x^{p - 2} + \cdots + \binom{p}{p}$. We see that $p$ divides
+all coefficients except for the leading one and $p^2 \nmid 1$ so $f (x + 1)$
+is irreducible in $\mathbbm{Z}[x]$ by Eisensteins criterion. Yet we know that
+$\mathbbm{Q}$ is the field of fractions for $\mathbbm{Z}$ and by proposition
+5.15, $f (x + 1)$ is irreducible in $\mathbbm{Q}[x]$ as well. Conclusively by
+above, we have $f (x)$ is irreducible in $\mathbbm{Q}[x]$.
+
+(2) Show that $\binom{p}{k} = \sum^{k + 1}_{i = 1} \binom{p - i}{p - k - 1}$
+for all $k < p$.
+
+{\tmem{Solution:}} First, let $n, r \in \mathbbm{Z}$ and $0 \leq r \leq n$,
+then we note a well known binomial identity, $\binom{r}{r} + \binom{r + 1}{r}
++ \cdots + \binom{n}{r} = \binom{n + 1}{r + 1}$ and the fact that
+$\binom{n}{r} = \binom{n}{n - r}$. Looking at $\sum^{k + 1}_{i = 1} \binom{p -
+i}{p - k - 1}$, when $k = 1$, $2, \ldots, p - 1$ , we see $\binom{p - 1}{p -
+2} + \binom{p - 2}{p - 2}$, $\binom{p - 1}{p - 3} + \binom{p - 2}{p - 3} +
+\binom{p - 3}{p - 3}, \ldots, \binom{p - 1}{0} + \cdots + \binom{1}{0}$. So,
+we can actually rewrite $\sum^{k + 1}_{i = 1} \binom{p - i}{p - k - 1} =
+\sum^k_{i = 0} \binom{p - k - 1 + i}{p - k - 1}$, yet by the binomial identity
+$\sum^k_{i = 0} \binom{p - k - 1 + i}{p - k - 1} = \binom{p}{p - k}$. But this
+is just $\binom{p}{p - k} = \binom{p}{k}$. Thus $\binom{p}{k} = \sum^{k +
+1}_{i = 1} \binom{p - i}{p - k - 1}$.
+
+II.8.29: If $p \in \mathbbm{Z}$ is prime and $1 < m \in \mathbbm{Z}$ show that
+$f (x) = x^m - p$ is irreducible in $\mathbbm{Q}[x]$. Conclude that $p^{1 /
+m}$ is irrational.
+
+{\tmem{Solution:}} $f (x)$ is irreducible in $\mathbbm{Z}[x]$by Eisenstein's
+criteria when we consider $p$ as our prime. Thus it must be irreducible in
+$\mathbbm{Q}[x]$ by proposition 5.15. Suppose that $p^{1 / m} \in
+\mathbbm{Q}$, then $f (p^{1 / m}) = (p^{1 / m})^m - p = 0$ and by the
+corollary to proposition 3.5, $f (x)$ has a root in $\mathbbm{Q}$. Hence $f
+(x)$ is reducible, which is a contradiction, so $p^{1 / m} \nin \mathbbm{Q}$.
+
+II.8.30: Establish the Eisenstein Criterion for a polynomial $f (x)$ over a
+UFD.
+
+{\tmem{Solution:}} Let $R$ be a UFD. First let's prove the converse of Gauss's
+lemma: If $g (x) h (x) \in R [x]$ is primitive, where $g (x), h (x) \in R
+[x]$, then $g (x)$ and $h (x)$ is primitive. We do this by showing the
+contrapositive; If $g (x)$ or $h (x)$ is not primitive, where $g (x), h (x)
+\in R [x]$, then $g (x) h (x)$ is not primitive.
+
+{\tmem{Proof:}} Without loss of generality, suppose that $g (x)$is not
+primitive. Then $g (x) = a b_0 + a b_1 x + \cdots + a b_n x^n$ and $h (x) =
+d_0 + d_1 x + \cdots + d_m x^m$, where $0 \neq a \in R$. Hence $g (x) h (x) =
+a b_0 d_0 + \cdots + a b_n d_m x^{m + n}$ and $g (x) h (x)$ is not primitive
+since we can factor out $a$.
+
+Suppose $R$ is an UFD and $f (x) = a_0 + a_1 x + \cdots + a_n x^n$ is
+primitive in $R [x]$. If there is a prime $p \in R$ such that $p$ divides
+every coefficient $a_i$, $0 \leq i \leq n - 1$, $p \nmid a_n$, and $p^2 \nmid
+a_0$, then $f (x)$ is irreducible in $R [x]$.
+
+{\tmem{Proof:}} Suppose there is a prime $p \in R$ such that $p$ divides
+every coefficient $a_i$, $0 \leq i \leq n - 1$, $p \nmid a_n$, and $p^2 \nmid
+a_0$ of $f (x)$. Now suppose that $f (x)$ is reducible in $R [x]$, that is, $f
+(x) = g (x) h (x)$, where $g (x) = b_0 + b_1 x + \cdots + b_m x^m, h (x) = c_0
++ c_1 x + \cdots + c_k x^k \in R [x]$. But since $f (x)$ is primitive, it
+follows from above that $g (x)$ and $h (x)$ are primitive. Furthermore it must
+be $p \nmid b_0$ and $p \nmid c_0$ is not true otherwise $p^2 | a_0$, which
+would be a contradiction. So $p|b_0$ or $p|c_0$ and, without loss of
+generality, let's say $p | b_0$, which means $p \nmid c_0$. It follows that
+since $g (x)$ is primitive that $p \nmid b_i$ for some $0 < i \leq m$ and
+$p|b_j, 0 \leq j < i$. Yet $p | a_i = b_i c_0 + b_{i - 1} c_1 + \cdots + b_0
+c_i$ and since $p \nmid b_i$ and $p \nmid c_0$ with $R$ a UFD, $p \nmid b_i
+c_0$. Ultimately we have $p$ dividing all but one summand on the right hand
+side except for one, showing that $p$ does not divide $a_i$, a contradiction.
+
+II.8.34: Let $R$ be the set of rational numbers $a / b$ with $b$ odd. Then $R$
+is an integral domain.
+
+(1) Find $U (R)$.
+
+{\tmem{Solution:}} Since $R \subseteq \mathbbm{Q}$, it must be that for any $a
+/ b \in R$, $(a / b) (b / a) = 1$. Since $b / a$ can only be in $R$ when $a$
+is odd as well, hence it follows that $U (R) =\{a / b \in R | a \equiv 1
+(\tmop{mod} 2)\}$.
+
+(2) Show that $P = R \setminus U (R)$ is a maximal ideal in $R$.
+
+{\tmem{Solution:}} First, we claim that if an ideal $I$ of $R$ contains a
+unit, then $I = R$. To show this let $u \in U (R)$ such that $u \in I$ and $r
+\in R$, then $r = r u^{- 1} (u) = r (u^{- 1} u) \in I$ and $R \subseteq I$ but
+$I \subseteq R$ thus $R = I$. Now let $M$ be an ideal in $R$ such that $P
+\subseteq M$. If $P$ is to be proven maximal, then either $M = P$ or $M = R$.
+Well, if $M = P$, then we are done. Otherwise $P \subset M$, which means that
+$M \setminus P$ is nonempty and furthermore, since $P$ contains all $a / b$,
+where $a \equiv 0 (\tmop{mod} 2)$, then there exists an $c / d \in M$ such
+that $c \equiv 1 (\tmop{mod} 2)$. Yet this implies that $c / d \in U (R)$ and
+hence $M = R$ concluding that $P$ is maximal.
+
+II.8.37: Solve the congruences $x \equiv i (\tmop{mod} 1 + i), x \equiv 1
+(\tmop{mod} 2 - i), x \equiv 1 + i (\tmop{mod} 3 + 4 i)$ simultaneously for
+$x$ in the ring $R_{- 1}$ of Gaussian integers.
+
+{\tmem{Solution:}} First we need to check that the ideals generated by $(1 +
+i, 2 - i), (2 - i, 3 + 4 i), \tmop{and} (1 + i, 3 + 4 i)$ are $R_{- 1}$. After
+quick computation, we see that $(2 - i) + i (i + 1) = (3 + 4 i) - 2 i (2 - i)
+= (- i) (3 + 4 i) + 3 i (1 + i) = 1$, with 1 a unit, then the ideals are in
+fact $R_{- 1}$. Now taking the product of each choice of two of the three
+above equalities, we get $5 - 10 i + (3 + 7 i) (1 + i) = (- 7 - i) + (3 + 2 i)
+(2 - i) = (18 + 6 i) + (- 3 + 2 i) (3 + 4 i) = 1$. Thus the solution is $i (5
+- 10 i) + 1 (- 7 - i) + (1 + i) (18 + 6 i) = 15 + 28 i$.
+
+III.1.2 Find a splitting field $K \subseteq \mathbbm{C}$ for $f (x) \in
+\mathbbm{Q}[x]$ if $f (x) = x^3 - 1$.
+
+{\tmem{Solution:}} We quickly note that $1 \in \mathbbm{Q}$ is a root, so that
+$f (x) = (x - 1) (x^2 + x + 1)$. Using the quadratic equation to the
+polynomial $x^2 + x + 1$, which is irreducible by a homework problem from last
+semester, yields the other two roots, $\frac{- 1 \pm \sqrt{- 3}}{2}$, neither
+of which are contained in $\mathbbm{Q}$. Since $\pm \frac{1}{2} \in
+\mathbbm{Q}$, $K =\mathbbm{Q}( \sqrt{- 3})$.
+
+III.1.3 Show that $K$ is an algebraic closure of $F$ if and only if $K$ is a
+splitting field over $F$ for $\mathcal{F} = F [x]$.
+
+{\tmem{Solution:}} Suppose that $K$ is an algebraic closure of $F$. By
+definition, $K$ is an algebraic extension of $F$ and is algebraically closed,
+which means that every nonconstant $f (x) \in F [x]$ splits over $K$. With the
+constants being identified as $F$ contained in $F [x]$, they certainly split
+in $K$ by virtue of being an extension field. Hence $K$ is a splitting field
+for $F [x] = \mathcal{F}$ over $F$. Conversely, suppose that $K$ is a
+splitting field over $F$ for $\mathcal{F} = F [x]$. By definition, $K = F
+(S)$, where $S$ is the set of all roots in $K$ of all $f (x) \in \mathcal{F}$,
+and thus $K$ is an algebraic extension. It's clear that $K$ is algebraically
+closed since every $f (x) \in \mathcal{F}$ has a root in $K$. Since $K$ is an
+algebraic extension of $F$ and is algebraically closed, $K$ is an algebraic
+closure of $F$.
+
+III.2.1 If $m \in \mathbbm{Z}$ is square-free and $m \neq 0, 1$ show that $K
+=\mathbbm{Q}( \sqrt{m})$ is Galois over $F =\mathbbm{Q}$.
+
+{\tmem{Solution:}} We already know that $\mathbbm{Q}( \sqrt{m}) =\{a + b
+\sqrt{m} | a, b \in \mathbbm{Q}\}$. We can further see that $\mathbbm{Q}(
+\sqrt{m}) \setminus \mathbbm{Q}=\{a + b \sqrt{m} | a, b \in \mathbbm{Q}, b
+\neq 0\}$. Now any $\phi \in G (\mathbbm{Q}( \sqrt{m}) : \mathbbm{Q})$ must
+take $\sqrt{m}$ to a root of the minimal polynomial $p (x) = x^2 - m$. Hence
+there exists a $\phi \in G (\mathbbm{Q}( \sqrt{m}) : \mathbbm{Q})$ such that
+$\phi ( \sqrt{m}) = - \sqrt{m}$, the only other root of $p (x)$. Furthermore,
+let $a + b \sqrt{m} \in \mathbbm{Q}( \sqrt{m}) \setminus \mathbbm{Q}$, then
+$\phi (a + b \sqrt{m}) = \phi (a) + \phi (b) \phi ( \sqrt{m}) = a + b (-
+\sqrt{m}) = a - b \sqrt{m} \in \mathbbm{Q}( \sqrt{m}) \setminus \mathbbm{Q}$.
+This means that for each $a + b \sqrt{m} \in \mathbbm{Q}( \sqrt{m}) \setminus
+\mathbbm{Q}$, we have a $\phi \in G (\mathbbm{Q}( \sqrt{m}) : \mathbbm{Q})$
+such that $\phi (a + b \sqrt{m}) \neq a + b \sqrt{m}$ and thus $\mathbbm{Q}(
+\sqrt{m})$ is Galois over $\mathbbm{Q}$.
+
+II.2.2 Prove Proposition 2.6
+
+(1) If $F \subseteq E \subseteq K$, and $E$ is stable, then $\mathcal{G} E
+\vartriangleleft G$.
+
+{\tmem{Solution:}} Since $E$ is stable, $\phi (e) = e'$, where $e, e' \in E$,
+for all $\phi \in G$. With $E$ an intermediate field, we know that
+$\mathcal{G} E \leq G$. Now let $\phi \in G$, $\theta \in \mathcal{G} E$, and
+$e \in E$. Then $\phi \theta \phi^{- 1} (e) = \phi \theta (e') = \phi (e') =
+e$, where $e' \in E$ and thus $\phi \theta \phi^{- 1} \in \mathcal{G} E$ since
+it fixes any $e \in E$. As $\phi$ and $\theta$ were chosen to be arbitrary, we
+can conclude that $\mathcal{G} E$ is normal in $G$.
+
+(2) If $H \vartriangleleft G$, then $\mathcal{F} H$ is stable.
+
+{\tmem{Solution:}} Suppose that $H \vartriangleleft G$. Now assume
+$\mathcal{F} H$ is not stable. This means that for some $a \in K$, there
+exists a $\phi \in G$ such that $\phi (a) = b \in K \setminus \mathcal{F} H$.
+Since $H$ is normal in $G$, we can express any $\theta' \in H$ as $\phi \theta
+\phi^{- 1}$ for some other $\theta \in H$. Now we consider $\theta' (b) = \phi
+\theta \phi^{- 1} (b) = \phi \theta (a) = \phi (a) = b$. Hence all $\theta'
+\in H$ fix $b$ and thus $b \in \mathcal{F} H$, a contradiction to how $b$ was
+chosen. Thus $\mathcal{F} H$ must be stable.
+
+III.3.3: Find a primitive element over $\mathbbm{Q}$ for a splitting field $K
+\subseteq \mathbbm{C}$ for the polynomial $f (x) = x^4 - 5 x^2 + 6$.
+
+{\tmem{Solution:}} $f (x) = (x^2 - 3) (x^2 - 2)$ for which the roots are $\pm
+\sqrt{3}$ and $\pm \sqrt{2}$. Hence the splitting field for $f (x)$ is
+$\mathbbm{Q}( \sqrt{2}, \sqrt{3})$. We now claim that $\sqrt{2} + \sqrt{3}$ is
+the primitive element, which means, we want to show that $\mathbbm{Q}(
+\sqrt{2} + \sqrt{3}) =\mathbbm{Q}( \sqrt{2}, \sqrt{3})$. Clearly $\sqrt{2} +
+\sqrt{3} \in \mathbbm{Q}( \sqrt{2}, \sqrt{3})$ and thus $\mathbbm{Q}( \sqrt{2}
++ \sqrt{3}) \subseteq \mathbbm{Q}( \sqrt{2}, \sqrt{3})$. Let $\sqrt{2} +
+\sqrt{3} \in \mathbbm{Q}( \sqrt{2} + \sqrt{3})$ and since $\mathbbm{Q}(
+\sqrt{2} + \sqrt{3})$ is a field, we have $( \sqrt{2} + \sqrt{3})^{- 1} = - (
+\sqrt{2} - \sqrt{3}) \Rightarrow \sqrt{2} - \sqrt{3} \in \mathbbm{Q}( \sqrt{2}
++ \sqrt{3})$. Now $\frac{\sqrt{2} + \sqrt{3}}{2} + \frac{\sqrt{2} -
+\sqrt{3}}{2} = \sqrt{2} \in \mathbbm{Q}( \sqrt{2} + \sqrt{3})$ and
+$\frac{\sqrt{2} + \sqrt{3}}{2} - \frac{\sqrt{2} - \sqrt{3}}{2} = \sqrt{3} \in
+\mathbbm{Q}( \sqrt{2} + \sqrt{3})$, so that $\mathbbm{Q}( \sqrt{2} + \sqrt{3})
+\supseteq \mathbbm{Q}( \sqrt{2}, \sqrt{3})$. Both inclusions hold and we have
+our desired result.
+
+III.4.1: If $f (x) \in F [x]$ and $K$ is a splitting field for $f (x)$ over
+$F$, denote by $S$ the set of distinct roots of $f (x)$ in $K$ and let $G = G
+(K : F)$. If $f (x)$ is irreducible over $F$ show that $G$ is transitive on
+$S$. If $f (x)$ has no repeated roots and $G$ is transitive on $S$ show that
+$f (x)$ is irreducible over $F$.
+
+{\tmem{Solution:}} Suppose that $f (x)$ is irreducible over $F$. Let $s_i, s_j
+\in S$, then we know by corollary to proposition 1.9 and 1.10 that there is an
+$F$-automorphism of $K, \phi,$ such that $\phi (s_i) = s_j$. Yet $\phi \in G$
+and with $s_i$ and $s_j$ arbitrary, we have that $G$ acts transitively on $S$.
+Conversely, suppose that $G$ is transitive on $S$ and $f (x)$ has no repeated
+roots. Let $g \in F [x]$ be a nonconstant irreducible factor of $f$, then we
+know that $g (s_i) = 0$ for some $s_i \in S$. Since $G$ is transitive on $S$,
+then we know there exists a $\phi \in G$ such that $\phi (s_i) = s_j \in S$.
+But this means that $g (s_j) = 0$, by corollary to proposition 1.9, hence
+$\deg g \geq |S|$ and it follows that $f$ must be irreducible.
+
+III.8.3: Suppose that $K$ is an algebraic extension of $F$ and $R$ is a ring,
+with $F \subseteq R \subseteq K$. Show that $R$ is a field.
+
+{\tmem{Solution:}} It suffices to show that $R$ is closed under multiplicative
+inverses since commutativity and unity follow directly from the field
+inclusions. So, let $r \in R$, then $r^{- 1} \in K$ since $K$ is a field that
+contains $r$. But $K$ is also algebraic over $F$ which means for some $f (x)
+\in F [x]$, $f (r) = 0 = a_0 + a_1 r + a_2 r^2 + \cdots + a_n r^n$. Hence $a_0
+= - \sum^n_{i = 1} a_i r^i$ and multiplying both sides by $r^{- 1}$ and
+$a_0^{- 1}$, which we know exists since $a_0$ is in the field $F$, we achieve
+$r^{- 1} = - a^{- 1}_0 \sum^n_{i = 1} a_i r^{i - 1}$ and $r^{- 1}$ is clearly
+in $R$.
+
+III.8.11: Determine the Galois groups (over $\mathbbm{Q}$) of the following
+polynomials:
+
+(a) $x^3 - 1$
+
+{\tmem{Solution:}} The splitting field for $x^3 - 1$ over $\mathbbm{Q}$ is
+$\mathbbm{Q}(\omega)$ and the roots are $1, \omega, \omega^2$, where $\omega$
+is the primitive 3rd root of unity. So with $1 \in \mathbbm{Q}$ then any
+$\mathbbm{Q}$-automorphism of $\mathbbm{Q}(\omega)$ is going to fix 1. Hence
+any $\mathbbm{Q}$-automorphism of $\mathbbm{Q}(\omega)$ is dictated by where
+$\omega$ is sent. This leads us to only two possible mappings $\omega \mapsto
+\omega$ and $\omega \mapsto \omega^2$. Thus $G (\mathbbm{Q}(\omega) :
+\mathbbm{Q}) \cong \mathbbm{Z}_2$.
+
+(b) $x^5 - 1$
+
+{\tmem{Solution:}} From homework 1, we have that $\mathbbm{Q}(\omega)$ is the
+splitting field for $x^5 - 1$ over $\mathbbm{Q}$, where $\omega$ is the
+primitive 5th root of unity. Similar to part (a), we know for any $\phi \in G
+(\mathbbm{Q}(\omega) : \mathbbm{Q})$, $\phi (\omega) = \omega^i$, where $1
+\leq i \leq 4$. Once $i$ is chosen then $\phi (\omega^2), \phi (\omega^3),
+\tmop{and} \phi (\omega^4)$ are determined. We use a table to illustrate all
+possibilities
+
+\begin{tabular}{|c|c|c|c|c|}
+  & $\omega$ & $\omega^2$ & $\omega^3$ & $\omega^4$\\
+  \hline
+  $1$ & $\omega$ & $\omega^2$ & $\omega^3$ & $\omega^4$\\
+  \hline
+  $\phi$ & $\omega^2$ & $\omega^4$ & $\omega$ & $\omega^3$\\
+  \hline
+  $\theta$ & $\omega^3$ & $\omega$ & $\omega^4$ & $\omega^2$\\
+  \hline
+  $\sigma$ & $\omega^4$ & $\omega^3$ & $\omega^2$ & $\omega$\\
+  \hline
+\end{tabular} but notice that $\phi^2 = \sigma$, $\phi^3 = \theta$, and
+$\phi^4 = 1$. Thus $\langle \phi \rangle = G (\mathbbm{Q}(\omega) :
+\mathbbm{Q}) \cong \mathbbm{Z}_4$.
+
+(c) $x^6 - 1$
+
+{\tmem{Solution:}} Once again the splitting field is $\mathbbm{Q}(\omega)$,
+where $\omega$ is the primitive 6th root of unity. We know that
+$[\mathbbm{Q}(\omega) : \mathbbm{Q}] = \phi (6) = 2$ and thus $G
+(\mathbbm{Q}(\omega) : \mathbbm{Q}) \cong \mathbbm{Z}_2$ by fundamental
+theorem of galois theory. We could also have noted that any $\theta \in G
+(\mathbbm{Q}(\omega) : \mathbbm{Q})$ sends $\omega \mapsto \omega^i$, where $1
+\leq i \leq 5$. Since 2, 3, and 4 are not relatively prime to 5, it follows
+that when $i = 2, 3, 4$ then $\theta (\omega^k) = 1 \neq \omega^j$ for some $1
+\leq j, k \leq 5$. Hence only the automorphisms which takes $\omega \mapsto
+\omega^5$ and $\omega \mapsto \omega$ will be contained in $\text{$G
+(\mathbbm{Q}(\omega) : \mathbbm{Q})$}$.
+
+(d) $x^3 - 2$
+
+{\tmem{Solution:}} The splitting field of $x^3 - 2$ over $\mathbbm{Q}$ is
+$\mathbbm{Q}( \sqrt[3]{2}, \omega)$, since $\sqrt[3]{2}, \omega \sqrt[3]{2},
+\tmop{and} \omega^2 \sqrt[3]{2}$ are the roots, where $\omega$ is the
+primitive 3rd root of unity. With 3 distinct roots, we know that $G
+(\mathbbm{Q}( \sqrt[3]{2}, \omega) : \mathbbm{Q})$ can be viewed as a subgroup
+of $S_3$ (page 96, statement before Ex. 4.1). Yet, $[\mathbbm{Q}( \sqrt[3]{2})
+: \mathbbm{Q}] = 3$ and $[\mathbbm{Q}(\omega) : \mathbbm{Q}( \sqrt[3]{2})] =
+2$, so that $[\mathbbm{Q}( \sqrt[3]{2}, \omega) : \mathbbm{Q}] = 6 = |G
+(\mathbbm{Q}( \sqrt[3]{2}, \omega) : \mathbbm{Q}) | = |S_3 |$ by proposition
+1.1 and corollary to theorem 2.10. Thus $S_3 \cong G (\mathbbm{Q}(
+\sqrt[3]{2}, \omega) : \mathbbm{Q})$.
+
+(e) $x^4 - 2$
+
+{\tmem{Solution:}} The splitting field of $x^4 - 2$ over $\mathbbm{Q}$ is
+$\mathbbm{Q}( \sqrt[4]{2}, i)$. We have $[\mathbbm{Q}( \sqrt[4]{2}, i) :
+\mathbbm{Q}] = [ \text{$\mathbbm{Q}( \sqrt[4]{2}, i)$} : \mathbbm{Q}(
+\sqrt[4]{2})] [\mathbbm{Q}( \sqrt[4]{2} : \mathbbm{Q}] = 2 \cdot 4 = 8 = |G
+(\mathbbm{Q}( \sqrt[4]{2}, i) : \mathbbm{Q}) |$. Furthermore, any $\phi \in G
+( \mathbbm{Q}( \sqrt[4]{2}, i) : \mathbbm{Q})$ is dictated by $\phi (
+\sqrt[4]{2}) \in \{ \sqrt[4]{2}, - \sqrt[4]{2}, i, - i\}$ and $\phi (i) \in
+\{i, - i\}$. We choose the particular $\sigma, \theta \in G ( \mathbbm{Q}(
+\sqrt[4]{2}, i) : \mathbbm{Q})$ such that $\sigma ( \sqrt[4]{2}) =
+\sqrt[4]{2}$, $\sigma (i) = - i$ and $\theta ( \sqrt[4]{2}) = i \sqrt[4]{2},
+\theta (i) = i$ to analyze. First, direct calculation shows that $\sigma^2 =
+1$ and $\theta^4 = 1$, now if we show that $\sigma \theta \sigma = \theta^{-
+1}$, then we have an epimorphism from $D_4$ onto $\langle \theta, \sigma
+\rangle$ by theorem 10.2 and consequently an isomorphism. So, $\sigma \theta
+\sigma ( \sqrt[4]{2}) = \sigma \theta ( \sqrt[4]{2}) = \sigma (i \sqrt[4]{2})
+= \sigma (i) \sigma ( \sqrt[4]{2}) = - i \sqrt[4]{2} = \theta^{- 1} (
+\sqrt[4]{2})$ and $\sigma \theta \sigma (i) = \sigma \theta (- i) = \sigma (-
+i) = i = \theta^{- 1} (i)$. With $\langle \theta, \sigma \rangle \leq G
+(\mathbbm{Q}( \sqrt[4]{2}, i) : \mathbbm{Q})$ and $| \langle \theta, \sigma
+\rangle | = |G (\mathbbm{Q}( \sqrt[4]{2}, i) : \mathbbm{Q}) |$ then $G
+(\mathbbm{Q}( \sqrt[4]{2}, i) : \mathbbm{Q}) \cong \langle \theta, \sigma
+\rangle \cong D_4$.
+
+III.8.14 Suppose $L$ is a finite Galois extension of $F$, and $F \subseteq E
+\subseteq K$, $F \subseteq L \subseteq K$. Show that the join $E \vee L$ is
+finite and Galois over $E$, that $L$ is Galois over $E \cap L$, and that $G (E
+\vee L : E) \cong G (L : E \cap L)$.
+
+{\tmem{Solution:}} $L$ is finite over $F$, hence by theorem 1.4, $L$ is also
+algebraic over $F$. Now, by theorem 3.4, $L$ is a separable splitting field
+for some set $\mathcal{F} \subseteq F [x]$ since it's Galois over $F$.
+Consequently since $L \subseteq E \vee L$, then $E \vee L$ is a separable
+splitting field for $\mathcal{F} \subseteq F [x] \subseteq E [x]$ and thus $E
+\vee L$ is Galois over $E$. The fact that $L$ is Galois over $E \cap L$
+follows directly from part (2) of corollary following theorem 2.5, as $F
+\subseteq E \cap L \subseteq L$ and with $[L : F]$ finite, then $[E \cap L :
+F]$ is finite. To show that $G (E \vee L : E) \cong G (L : E \cap L)$, we
+consider the map $f : G (E \vee L : E) \rightarrow G (L : F)$ such that $f
+(\phi) = \phi_L$, where $\phi \in G (E \vee L : E)$ and $\phi_L$ is the
+restriction to $L$. Straightforwardly, $f$ is a homomorphism and it's well
+defined since we have $L$ a Galois extension of $F$. Consider $\phi \in G (E
+\vee L : E)$ such that $f (\phi) = 1_L$. Now, $\phi$ must fix $E$, by
+definition, but it must also fix $L$ by restriction, hence $\phi$ fixes $E
+\vee L$ and is the identity in $G (E \vee L : E)$, so $f$ is injective. This
+means that $f (G (E \vee L : E)) = G (L : X) \subseteq G (L : F)$, where $F
+\subseteq X \subseteq L$. We observe that any $f (\phi) \in G (L : X)$ fixes
+all elements of $E$ and consequently those elements of $E$ which are in $L$ as
+well, thus $G (L : X) \subseteq G (L : E \cap L)$. Yet $\theta \in G (L : E
+\cap L)$ is an $L$-automorphism that fixes those elements in common with both
+$E$ and $L$ in which we can extend to a $E \vee L$-automorphism, $\theta'$,
+that continues to fix all elements in $E$, then $\theta' \in G (E \vee L : E)$
+in which next we notice that $\theta = \theta'_L = f (\theta') \in G (L : X)$.
+Ultimately, $X = E \cap L$ and by the fundamental homomorphism theorem, we
+have our result.
+
+III.8.15 Let $F =\mathbbm{C}$, let $K$ be the field $\mathbbm{C}(t)$ of
+rational functions, and let $G = G (K : F)$. If $\phi$ and $\theta$ in $G$ are
+determined by $\phi (t) = \zeta t$ and $\theta (t) = 1 / t$, where $\zeta \in
+\mathbbm{C}$ is a primitive $n$th root of unity, show that $H = \langle \phi,
+\theta \rangle \leq G$ is isomorphic with the dihedral group $D_n$. Show that
+$\mathcal{F}H =\mathbbm{C}(t^n + t^{- n})$.
+
+{\tmem{Solution:}} By a previous homework, we know that $D_n = \langle a, b |
+a^n = b^2 = 1, b^{- 1} a b = a^{- 1} \rangle$. Furthermore, $f : \{a, b\}
+\rightarrow \{\phi, \theta\}$ where $f (a) = \phi$ and $f (b) = \theta$ is
+clearly a function that is onto. We now observe that $\theta^{- 1} \phi \theta
+(t) = \theta^{- 1} \phi (1 / t) = \theta^{- 1} (\zeta / t) = t / \zeta =
+\phi^{- 1} (t)$, $\phi^n (t) = \zeta^n t = t$ so $\phi^n = 1$ and $\theta^2
+(t) = \frac{1}{1 / t} = t$ so $\theta^2 = 1$. Hence the generators of $H$
+satisfy the relations defining $D_n$ and thus by proposition I.10.2, we will
+have that there is a homomorphism from $D_n$ onto $H$. We know that since $H$
+satisfies those relations that it can be written as $\theta^i \phi^j$, where
+$0 \leq i \leq 1, 0 \leq j < n$, and much like the example below proposition
+I.10.2, we have that $|H| = 2 n$ and $H \cong D_n$. To find the fixed field of
+$H$, we first note that $\mathcal{F} H \subseteq \mathbbm{C}(t)$ and that $[
+\mathcal{F} H : \mathbbm{C}] = 2 n = |H|$ by the fundamental theorem of Galois
+theory. Noticing that $t^n + t^{- n}$ is fixed under $\phi$ and $\theta$,
+since $\phi (t^n + t^{- n}) = [\phi (t)]^n + [\phi (t)]^{- n} = \omega^n t^n +
+\omega^{- n} t^{- n} = t^n + t^{- n}$ and $\theta (t^n + t^{- n}) = [\theta
+(t)]^n + [\theta (t)]^{- n} = (t^{- 1})^n + (t^{- 1})^{- n} = t^{- n} + t^n =
+t^n + t^{- n}$ , it's clear that $\mathbbm{C}(t^n + t^{- n}) \subseteq
+\mathcal{F} H \subseteq \mathbbm{C}(t)$. Now we use proposition VI.5.5, $t^n +
+t^{- n} = \frac{t^{2 n} + 1}{t^n} \in \mathbbm{C}(t) \setminus \mathbbm{C}$
+and $t^n + t^{- n}$ is transcendental over $\mathbbm{C}$ while
+$[\mathbbm{C}(t^n + t^{- n}) : \mathbbm{C}] = \max \{\deg (t^{2 n} + 1), \deg
+(t^n)\}= 2 n$ since $t^{2 n} + 1$ and $t^n$ have no common divisors other than
+1. Thus we have $[\mathbbm{C}(t^n + t^{- n}) : \mathbbm{C}] = [ \mathcal{F} H
+: \mathbbm{C}]$ with $\mathbbm{C}(t^n + t^{- n}) \subseteq \mathcal{F} H$, so
+it must be that $\mathcal{F} H =\mathbbm{C}(t^n + t^{- n})$.
+
+III.8.20: Let $s$ and $t$ be distinct indeterminates over $\mathbbm{Z}_p$, and
+let $F =\mathbbm{Z}_p (s, t)$, the field of rational functions in $s$ and $t$.
+Let $a$ and $b$ be roots of $x^p - s$ and $x^p - t$, respectively, in some
+extension of $F$, and let $K = F (a, b)$. Show that $K$ is not a simple
+extension of $F$.
+
+{\tmem{Solution:}} By corollary 3 to proposition 3.2, we have $x^p - s$ is
+irreducible over $F$, so let $E = F (a)$ and $x^p - t$ is irreducible over
+$E$, so the $K = F (a, b)$. By proposition 1.1 and 1.3, we have that $[K : F]
+= [K : E] [E : F] = p \cdot p = p^2$. We want to show that the number of
+intermediate fields is infinite between $K$ and $F$, so that by theorem 3.8,
+we have that $K$ is not a simple extension of $F$. We consider $f \in F$ and
+the subfield $F (f a + b) \subseteq K$. Yet $(f a + b)^p = f^p s + t \in F$
+and $[F (f a + b) : F] \leq p$. Consider $f \neq g \in F$ and suppose for the
+sake of contradiction that $F (f a + b) = F (g a + b)$. Then $f a + b, g a + b
+\in F (f a + b)$ which implies that $(f a + b) - (g a + b) = (f - g) a$ and $a
+\in F (f a + b)$. But then $(f a + b) - f a = b \in F (f a + b)$ and $F (f a +
+b) = K$. Contradiction since $[F (f a + b) : F] = [K : F] = p^2 \nleq p$. Thus
+with an infinite number of $f \in F$ and $F \subseteq F (f a + b) \subseteq
+K$, we have achieved our result.
+
+III.8.23: Suppose $F_q$ and $F_r$ are Galois fields, with $q = p^m$ and $r =
+p^n$, $p$ prime. Show that $F_q$ has a subfield (isomorphic with) $F_r$ if and
+only if $n | m$.
+
+{\tmem{Solution:}} Suppose that $F_q$ has a subfield isomorphic with $F_r$,
+which we will just call $F_r$ for all intents and purposes. Now by proposition
+1.1 and theorem 3.11, we have $[F_q : F_p] = n = [F_q : F_r] [F_r : F_p] =
+[F_q : F_r] m$. Thus $n | m$. Conversely, suppose that $n | m$. By theorem
+3.11, we have that $G (F_q : F_p)$ is cyclic of order $m$. Furthermore, we
+know that there exists a unique $H \leq G (F_q : F_p)$ of order $m / n$. Since
+$F_p \subseteq \mathcal{F} H \subseteq F_q$, we have by the fundamental
+theorem of galois theory that $[G (F_q : F_p) : H] = m / (m / n) = n = [
+\mathcal{F} H : F_p]$. Once again by theorem 3.11, we have that $\mathcal{F}
+H$ is a unique field isomorphic to $F_{p^n} = F_r$.
+
+III.8.24: List all subfields of $F_q$ if $q = 2^{20}$; if $q = p^{30}$, $p$
+prime.
+
+{\tmem{Solution:}} Up to isomorphism and by problem 23 above; if $q = 2^{20}$,
+then $F_{2^{}}, F_{2^2}, F_{2^4}, F_{2^5}, F_{2^{10}}, F_{2^{20}}$. If $q =
+p^{30}$, then $F_p, F_{p^2}, F_{p^3}, F_{p^5}, F_{p^6}, F_{p^{10}},
+F_{p^{15}}, F_{p^{30}}$.
+
+III.8.26: If $0 < k \in \mathbbm{Z}$ show that there exists an irreducible
+polynomial of degree $k$ over any Galois field $F_q$.
+
+{\tmem{Solution:}} First we note that any finite field, $F$, is not
+algebraically closed since there are no roots in $F$ for the polynomial $[
+\prod_{a \in F} (x - a)] + 1 \in F [x]$. So by theorem 1.12, let $A$ be the
+algebraic closure of $F_q$ and consider the subfield, $F_{q^k}$. By theorem
+3.11, we have $[F_{q^k} : F_q] = k$ and by both theorem 3.8 and Pr. 23, we
+have $F_{q^k}$ is simple, which means that for a primitive element $a \in
+F_{q^k}$ such that $F_{q^k} = F_q (a)$, $\deg m_{a, F_q} (x) = k$ and we are
+done.
+
+III.8.37: Show that $f (x) = x^7 - 7 x^6 - 189 x^4 + 1701 x^2 - 7 \in
+\mathbbm{Q}[x]$ is not solvable by radicals.
+
+{\tmem{Solution:}} This problem will follow similar to the example on pg 101
+of Grove's book. First, we note that $f$ is irreducible over $\mathbbm{Q}$ by
+Eisenstein's by $p = 7$. To simplify things, we use a computer program like
+{\tmem{maxima}} to quickly determine the roots of $f$, or more precisely
+approximations of the roots, which is good enough for our purposes here as we
+only want to count the number of real and complex roots of $f$. For $f$, we
+have $- \frac{86917673}{33554432}, - \frac{2153011}{33554432},
+\frac{2153011}{33554432}, \frac{92967571}{33554432},
+\frac{303765015}{33554432}, - 1.12 - 4.99 i, - 1.12 + 4.99 i$. Thus $f$ has
+$5$ real roots and $2$ complex ones. Considering $G (K : \mathbbm{Q})$ as the
+Galois group of $f$, we know that $G = G (K : \mathbbm{Q}) \leq S_7$.
+Moreover, since $7 | [K : \mathbbm{Q}]$, which we can see since we first
+adjoin an element of degree $7$ since $f$ is irreducible, then $7 | |G|$ and
+by Cauchy's theorem, $G$ contains an element of order 7. Yet the only elements
+in $S_7$ of order 7 are 7-cycles, hence $G$ contains a 7-cycle. Furthermore,
+$G$ also contains a 2-cycle induced by complex conjugation by the reasoning
+given in the book that follows from theorem 3.5(c). Now, utilizing the
+``trick'' mentioned in class and on pg 101, since $G$ contains a 7-cycle and
+2-cycle, then $G = S_7$. Note the ``trick'' is a result that follows from
+direct computation of conjugating the 2-cycle by the 7-cycle then continuously
+taking the product of that and conjugating again by the 7-cycle. Eventually
+this yields all transpositions of the form $(n - 1, n)$, which reduces the
+problem to an exercise already done on a previous homework. Conclusively, we
+know that $S_n$ is not solvable for $n \geq 5$, hence $G$ is not solvable, and
+by theorem 4.6 (contrapositive), we have that $f$ is not solvable by radicals.
+
+III.8.44: The discriminant of the general polynomial $f (x) = \prod \{x - x_i
+: 1 \leq i \leq n\}$ is $D = \prod \{(x_i - x_j)^2 : 1 \leq i \leq j \leq
+n\}$. Write $D$ as a polynomial in $\sigma_1, \ldots, \sigma_n$ in the cases
+$n = 2$ and $n = 3$.
+
+{\tmem{Solution:}} When $n = 2$: $f (x) = (x - x_1) (x - x_2) = x^2 - (x_1 +
+x_2) x + x_1 x_2$. So $\sigma_1 = x_1 + x_2$ and $\sigma_2 = x_1 x_2$. We note
+that $\sigma^2_1 = x_1^2 + x^2_2 + 2 x_1 x_2 \Rightarrow x_1^2 + x_2^2 =
+\sigma^2_1 - 2 x_1 x_2 = \sigma_1^2 - 2 \sigma_2$ Now $D = (x_1 - x_2)^2 =
+x_1^2 + x^2_2 - 2 x_1 x_2 = \sigma^2_1 - 2 \sigma_2 - 2 \sigma_2 = \sigma_1^2
+- 4 \sigma_2$ by substition.
+
+When $n = 3$: $\sigma_1 = x_1 + x_2 + x_3, \sigma_2 = x_1 x_2 + x_1 x_3 + x_2
+x_3, \sigma_3 = x_1 x_2 x_3$.
+
+$D = (x_1 - x_2)^2 (x_1 - x_3)^2 (x_2 - x_3)^2 = x_1^4 x_2^2 + x_1^2 x_2^4 +
+x_2^4 x_3^2 - 2 x_1^3 x_2^3 + x_1^4 x_3^2 + x_1^2 x_3^4 - 2 x_1^3 x_3^3 +
+x_2^2 x_3^4 - 2 x_2^3 x_3^3 - 6 x_1^2 x_2^2 x_3^2 + 2 x_1^3 x_2^2 x_3 - 2 x_1
+x_2^4 x_3 + 2 x_1^2 x_2^3 x_3 + 2 x_1 x_2^2 x_3^3 + 2 x_1^3 x_2 x_3^2 - 2 x_1
+x_2 x_3^4 + 2 x_1^2 x_2 x_3^3 - 2 x_1^4 x_2 x_3 + 2 x_1 x_2^3 x_3^2
+= - 4 x_1^3 x_2^3 - 4 x_2^3 x_3^3 - 4 x_1^3 x_3^3 - 12 x_1^2 x_2^3 x_3 - 12
+x_1^3 x_2^2 x_3 - 12 x_1 x_2^3 x_3^2 - 24 x_1^2 x_2^2 x_3^2 - 12 x_1^3 x_2
+x_3^2 - 12 x_1 x_2^2 x_3^3 - 12 x_1^2 x_2 x_3^3 - 27 x_1^2 x_2^2 x_3^2 + x_1^4
+x_2^2 + x_1^4 x_3^2 + x_1^2 x_2^4 + x_2^4 x_3^2 + 2 x_1^3 x_2^3 + 2 x_2^3
+x_3^3 + 2 x_1^3 x_3^3 + x_1^2 x_3^4 + x_2^2 x_3^4 + 8 x_1^3 x_2^2 x_3 + 2
+x_1^4 x_2 x_3 + 15 x_1^2 x_2^2 x_3^2 + 8 x_1^3 x_2 x_3^2 + 2 x_1 x_2^4 x_3 + 8
+x_1^2 x_2^3 x_3 + 8 x_1 x_2^3 x_3^2  + 8 x_1 x_2^2 x_3^3 + 8 x_1^2 x_2
+x_3^3 + 2 x_1 x_2 x_3^4 - 4 x_1^4 x_2 x_3 - 4 x_1 x_2^4 x_3 - 4 x_1 x_2 x_3^4
+- 12 x_1^2 x_2^3 x_3 - 12 x_1^2 x_2 x_3^3 - 12 x_1^3 x_2^2 x_3 - 24 x_1^2
+x_2^2 x_3^2 - 12 x_1^3 x_2 x_3^2 - 12 x_1 x_2^2 x_3^3 - 12 x_1 x_2^3 x_3^2 +
+18 x_1^3 x_2^2 x_3 + 18 x_1^3 x_2 x_3^2 + 18 x_1^2 x_2^3 x_3 + 18 x_1 x_2^3
+x_3^2 + 18 x_1^2 x_2 x_3^3 + 18 x_1 x_2^2 x_3^3 + 54 x_1^2 x_2^2 x_3^2 $
+$= - 4 \sigma_2^3 - 27 \sigma_3^2 + \sigma_1^2 \sigma_2^2 - 4 \sigma_1^3
+\sigma_3 + 18 \sigma_1 \sigma_2 \sigma_3$.
+
+III.8.45: If char $F \neq 3$ show that a monic cubic polynomial $f (x) = a_0
++ a_1 x + a_2 x^2 + x^3 \in F [x]$ can be written as $f (x) = g (y) = y^3 + a
+y + b$ by means of the substitution $x = y - a_2 / 3$. Observe that $f (x)$
+and $g (y)$ have the same Galois group over $F$.
+
+{\tmem{Solution:}} We note that $x^2 = y^2 - \frac{2 b_2}{3} y +
+\frac{a^2_2}{9}$ and $x^3 = y^3 - a_2 y^2 + \frac{a_2^2}{3} y -
+\frac{a_2^3}{27}$. Now
+
+$f (x) = a_0 + a_1 x + a_2 x^2 + x^3 = a_0 + a_1 y - \frac{a_1 a_2}{3} + a_2
+y^2 - \frac{2 a_2^2}{3} y + \frac{a_2^3}{9} + y^3 - a_2 y^2 + \frac{a_2^2}{3}
+y - \frac{a_2^3}{27}$
+
+$= (a_0 - \frac{a_1 a_2}{3} + \frac{2 a_2^3}{27}) + (a_1 - \frac{a_2^2}{3}) y
++ y^3 = a + b y + y^3 = g (y)$ by letting $a = a_0 - \frac{a_1 a_2}{3} +
+\frac{2 a_2^3}{27}$ and $b = a_1 - \frac{a_2^2}{3}$. Furthermore, once we have
+found the roots, $y_i$, of $g (y)$, then $x_i = y_i - a_2 / 3$ are the roots
+of $f (x)$ and it's clear that any permutation of $y_i$ is going to permuate
+$x_i$ in the same fashion.
+
+III.8.46: Suppose $F$ is a field and char $F \neq 2$, $f (x) = x^3 + a x + b
+\in F [x]$, and $F \subseteq K$ is a splitting field for $f (x)$ over $F$.
+Write $D$ for the discriminant of $f (x)$ and let $d$ be a square root for
+$D$.
+
+(1) Show that $D = - 4 a^3 - 27 b^2$ and that $d \in K$.
+
+{\tmem{Solution:}} We first show that $d = \sqrt{D} \in K$, where $K$ is the
+splitting field for $g (x) = (x - x_i) \in F [x]$, $1 \leq i \leq 3$. It
+follows that $x_1, x_2, x_3 \in K$ and $D = (x_1 - x_2)^2 (x_1 - x_3)^2 (x_2 -
+x_3)^2$, by above, so that $d = (x_1 - x_2) (x_1 - x_3) (x_2 - x_3)$, which is
+clearly in $K$. Since the result holds for the general polynomial, $g (x)$, it
+must also hold for $f (x)$. Now, we can use Newton's identities, proposition
+VI.9.2, and proposition VI.9.3 to show that $D = - 4 a^3 - 27 b^2$, and this
+is exactly the method used in example 2 on page 278. Referring to the
+determinant matrix of proposition VI.9.3 and with $n = 3$, we need to compute
+up to $s_4$. Since $\sigma_1 = 0, \sigma_2 = a, \sigma_3 = - b$ then: $s_1 =
+s_0 \cdot 0 = 0$, $s_2 = s_1 \cdot \sigma_1 - s_0 \cdot \sigma_2 = - 2 a$,
+$s_3 = s_2 \cdot \sigma_1 - s_1 \cdot \sigma_2 + s_0 \cdot \sigma_3 = - 3 b$,
+and $s_4 = s_3 \cdot \sigma_1 - s_2 \cdot \sigma_2 + s_1 \cdot \sigma_3 = 2
+a^2$. Now \ $\left|\begin{array}{ccc}
+  3 & 0 & - 2 a\\
+  0 & - 2 a & - 3 b\\
+  - 2 a & - 3 b & 2 a^2
+\end{array}\right| = - 4 a^3 - 27 b^2 = D$.
+
+(2) If $f (x)$ is irreducible show that $G = G (K : F)$ is the alternating
+group $A_3$ if and only if $d \in F$.
+
+{\tmem{Solution:}} We consider the sign homomorphism from page 17, $\sigma :
+S_3 \rightarrow \{- 1, 1\}$, where $\sigma (\tau) = 1$ when $\tau$ is even and
+$\sigma (\tau) = - 1$ when $\tau$ is odd and note that $G \leq S_3$. Now we
+want to show that for all $\phi \in G$, that $\phi (d) = \sigma (\phi) \cdot
+d$, observing here the small abuse of notation as we use $\phi$ as the field
+automorphism on the LHS and for the corresponding element in $S_3$ on the RHS.
+Since $\phi \in G$ permutes the $x_i$'s in $(x_1 - x_2) (x_1 - x_3) (x_2 -
+x_3)$, we can list all possibilities in a table:
+
+\begin{tabular}{|l|l|l|}
+  \hline
+  $\phi$ & $\sigma (\phi)$ & $\phi (d)$\\
+  \hline
+  (1) & $1$ & $d$\\
+  \hline
+  (12) & $- 1$ & $(x_2 - x_1) (x_2 - x_3) (x_1 - x_3)$\\
+  \hline
+  (23) & $- 1$ & $(x_1 - x_3) (x_1 - x_2) (x_3 - x_2)$\\
+  \hline
+  (13) & $- 1$ & $(x_3 - x_2) (x_3 - x_1) (x_2 - x_3)$\\
+  \hline
+  (123) & $1$ & $(x_2 - x_3) (x_2 - x_1) (x_3 - x_1)$\\
+  \hline
+  (213) & $1$ & $(x_3 - x_1) (x_3 - x_2) (x_1 - x_2)$\\
+  \hline
+\end{tabular} quick observation tell us that $\sigma (\phi)$ is exactly the
+product of -1's that transform $d$ into $\phi (d)$ and thus we have our
+equality. Now suppose that $G \cong A_3$, then for all $\phi \in G$, $\phi (d)
+= d$, so $d$ is fixed so $d \in F$. Conversely, suppose that $d \in F$ and let
+$\phi \in G$, then $\phi (d) = d = \sigma (\phi) \cdot d$, so $\sigma (\phi) =
+1$. But $\sigma (\phi) = 1$ if and only if $\phi \in A_3$.
+
+(3) Conclude, if $f (x)$ is irreducible, that $G$ is $A_3$ if $- 4 a^3 - 27
+b^2$ is a square root in $F$, and otherwise $G$ is $S_3$.
+
+{\tmem{Solution:}} Since $f (x)$ is irreducible of degree 3, then we know that
+$G$ must be a transitive subgroup of $S_3$ by a previous homework problem. Yet
+we know exactly which subgroups of $S_3$ are transitive by a previous homework
+problem from last semester. Since $G$ cannot be the trivial group, it must be
+either $A_3$ or $S_3$. We have by part (2) a necessary and sufficient
+condition for $G$ being $A_3$, namely $d = \sqrt{D} = \sqrt{- 4 a^3 - 27 b^2}
+\in F$, otherwise $G$ must be $S_3$.
+
+IV.7.1: If $R$ is a ring with 1 and $M$ is an $R$-module that is not unitary
+show that $R m = 0$ for some $0 \neq m \in M$.
+
+{\tmem{Solution:}} Since $M$ is not unitary, then there exists an $0 \neq x
+\in M$ such that $1 \cdot x \neq x$. This means that $1 \cdot x - x \neq 0$,
+thus $1 \cdot x - x = m \in M$ and $m \neq 0$. Now for any $r \in R$, we have
+$r \cdot m = r \cdot (1 \cdot x - x) = r \cdot (1 \cdot x) - r \cdot x = (r
+\cdot 1) \cdot x - r \cdot x = r \cdot x - r \cdot x = 0$.
+
+IV.7.2: Give an example of an $R$-module $M$ having $R$-isomorphic submodules
+$N_1$ and $N_2$ such that $M / N_1$ and $M / N_2$ are not isomorphic.
+
+{\tmem{Solution:}} Let $M =\mathbbm{Z}$, the group under addition, and $R
+=\mathbbm{Z}$ as the commutative ring with 1. We then choose $N_1 =
+2\mathbbm{Z}$ and $N_2 = 3\mathbbm{Z}$ as our submodules of $M$, which is
+clear since $2\mathbbm{Z}$ and $3\mathbbm{Z}$ are maximal ideals in
+$\mathbbm{Z}$ and thus subgroups of $M$ under addition. Once we have shown
+that $N_1$ is $R$-isomorphic to $N_2$, then $M / N_1$ and $M / N_2$ cannot
+possibly be isomorphic since they have differing finite cardinalities. So let
+$\phi : N_1 \rightarrow N_2$ such that $\phi (2 k) = 3 k$. Let $2 k, 2 m \in
+N_1$, so that $\phi (2 k + 2 m) = \phi (2 (k + m)) = 3 (k + m) = 3 k + 3 m =
+\phi (2 k) + \phi (2 m)$ and $\phi$ is a group homomorphism. Furthermore, let
+$\phi (2 k) = \phi (2 m)$, then $3 k = 3 m \Rightarrow k = m$ which means $2 k
+= 2 m$ and $\phi$ is injective. Let $3 k \in N_2$, then there exists an
+element in $N_1$, namely $2 k$, such that $\phi (2 k) = 3 k$ and $\phi$ is
+onto. Now let $r \in R$ and $2 k \in N_1$, then $\phi (r 2 k) = \phi (2 r k) =
+3 r k = r (3 k) = r \phi (2 k)$. Hence $N_1$ and $N_2$ are $R$-isomorphic.
+
+IV.7.4: A sequence $K \overset{f}{\rightarrow} M \overset{g}{\rightarrow} K$
+of $R$-homomorphisms of $R$-modules is exact at $M$ if $\tmop{Im} (f) = \ker
+g$. A short exact sequence $0 \rightarrow K \rightarrow M \rightarrow N
+\rightarrow 0$ is exact at $K, M, \tmop{and} N$. If $0 \rightarrow K
+\rightarrow M \rightarrow N \rightarrow 0$ is short exact show that $M$ is
+Noetherian if and only if $K$ and $N$ are both Noetherian.
+
+{\tmem{Solution:}} Let $0 \overset{i}{\rightarrow} K \overset{f}{\rightarrow}
+M \overset{g}{\rightarrow} N \overset{p}{\rightarrow} 0$ be a short exact
+sequence. Now look at $0 \overset{i}{\rightarrow} K \overset{f}{\rightarrow}
+M$, where $K$ is exact, so it must be that $\{0\}= \tmop{Im} (i) = \ker f$ and
+$f$ must be injective. Moreover, $M \overset{g}{\rightarrow} N
+\overset{p}{\rightarrow} 0$ where $N$ is exact means that $\tmop{Im} (g) =
+\ker p = N$ and so $g$ must be onto. With $f$ an $R$-monomorphism, then we can
+view $K$ as a submodule of $M$ and by proposition 1.7, $M$ is Noetherian if
+and only if every submodule is finitely generated. Hence $K$ is a finitely
+generated submodule of $M$ and any submodule of $K$ is also a submodule of $M$
+and thus must be finitely generated, so by proposition 1.7, $K$ is also
+Noetherian. With $g$ an $R$-epimorphism, then it follows by the FHTM that $M /
+\ker g \cong N$ and it follows by proposition 1.8 that $M$ is Noetherian if
+and only if $N$ and $\ker g$ are Noetherian.
+
+IV.7.9: Suppose $R$ is a PID and $M = R \langle a \rangle$ is a cyclic
+$R$-module of order $0 \neq r \in R$. Show that if $N$ is a submodule of $M$,
+then $N$ is cyclic of order $s$ for some divisor $s$ of $r$. Conversely, $M$
+has a cyclic submodule $N$ of order $s$ for each divisor $s$ of $r$ in $R$.
+
+{\tmem{Solution:}} We first prove that $M [s] =\{x \in M : s x = 0\}$, where
+$s \in R$, is a submodule of $M$. Let $x, y \in M [s]$ and $r \in R$, then $s
+(x - y) = s x - s y = 0$, so $x - y \in M [s]$ and $s (r x) = (s r) x = (r s)
+x = r (s x) = 0$ and $r x \in M [s]$. We first show that for each divisor $s$
+of $r$ in $R$, we can construct $R / (r, s) \cong M [s]$, a cyclic submodule
+of $M$, by proposition 3.5. Now, suppose that $N$ is a submodule of $M$, then
+by theorem 2.9, rank$(N) \leq 1 = \tmop{rank} (M)$. Since $M \neq 0$, then
+rank$(N) \neq 0$, hence rank$(N) = 1$, which by definition makes $N$ cyclic.
+Since $N$ is now a cyclic submodule there exists an $x \in M$ of order $s \in
+R$ such that $R \langle x \rangle = N$. By the corollary to proposition 3.5,
+if $\gcd (r, s) = 1$, then $M [s] = 0$, so it must be that $0 \neq M [s] \cong
+N$, when $s | r$. IV.7.10: Suppose $R$ is a commutative ring and $M$ is an
+$R$-module. A submodule $N$ is called pure if $r N = r M \cap N$ for all $r
+\in R$.
+
+(i) Show that any direct summand of $M$ is pure.
+
+{\tmem{Solution:}} Let's prove exercise 2.2 first since we will use it in our
+solution: Show that $M = M_1 \oplus \cdots \oplus M_k$ if and only if each $x
+\in M$ has a unique expression of the form $x = x_1 + x_2 + \cdots x_k$, for
+some $k \in \mathbbm{N}$, with $x_i \in M_i$ .
+
+{\tmem{Proof:}} Suppose $M = M_1 \oplus \cdots \oplus M_k .$ \ Then $M = M_1
++ \cdots + M_k$ and hence if $x \in M$, then $x = x_1 + \cdots + x_k, x_i \in
+M_i$. Now assume $x = x_1' + \cdots + x_k'$, then $x_i - x_i' = (x_1 - x_1') +
+\cdots + (x_{i - 1} - x_{i - 1}') + (x_{i + 1} - x_{i + 1}') + \cdots + (x_k -
+x_k')$, so $x_i - x_i' \in M_i$ and $x_i - x_i' \in \sum \{M_j : 1 \leq j \leq
+k, j \neq i\}$. Thus $x_i - x_i' \in M_i \cap \sum \{M_j : 1 \leq j \leq k, j
+\neq i\}=\{0\}$ by theorem 2.3 and$x_i - x_i' = 0$ so each $x_i$ is uniquely
+determined by $x$. \ Conversely, suppose that each $x \in M$ has a unique
+expression of the form $x = x_1 + x_2 + \cdots x_k$, for some $k \in
+\mathbbm{N}$, with $x_i \in M_i$. Then $x = x_1 + \cdots + x_k$ so $M = M_1 +
+\cdots + M_k$. \ Let $x \in \bigcap_{i = 1}^k M_i$, then it holds for all $i$
+that $x = 0 + \cdots + 0 + x + 0 + \cdots + 0$, where $x \in M_i$ and $0 \in
+M_j$, $1 \leq j \leq k$ and $i \neq j$. But by distinctness $x = 0 \in
+\bigcap_{i = 1}^k M_i$ and by theorem 2.3, $M = M_1 \oplus \cdots \oplus M_k$.
+\ \ \
+
+Now, let $M = M_1 \oplus \cdots \oplus M_k$ and consider any $M_i$ where $1
+\leq i \leq k$ and $r \in R$. We want to show that $r M_i = r M \cap M_i$. So
+let $x \in r M_i$, then $x = r x_i$ for some $x_i \in M_i$ and it follows that
+since $M_i$ is a submodule then $x \in M_i$. Now $r M = r (M_1 + \cdots + M_k)
+= r M_1 + \cdots + r M_k$ and clearly $x \in r M$. Hence $x \in r M$ and $x
+\in M_i$ so $x \in r M \cap M_i$ and $r M_i \subseteq r M \cap M_i$. For the
+reverse inclusion, let $x \in r M \cap M_i$, which means that $x \in r M$ and
+$x \in M_i$. Since $x = r y \in r M$ for some $y \in M$, then $x = r (y_1 +
+\cdots + y_k) = r y_1 + \cdots + r y_k$ and conclusively $x = r y_i$ since $y
+\in M_i$. Thus $x \in r M_i$ and we have our desired result.
+
+(ii) If $M$ is torsion free and $N$ is a pure submodule show that $M / N$ is
+torsion free.
+
+{\tmem{Solution:}} Suppose $r (x + N) = r x + N = N$ in $M / N$, then $r x \in
+N$. Yet $r x \in M$ since $N \subseteq M$ and since $N$ is pure, $r x \in r N$
+which implies $x \in N$. Thus $M / N$ is torsion free.
+
+(iii) If $M / N$ is torsion free show that $N$ is pure.
+
+{\tmem{Solution:}} Since $r M \cap N \subseteq r N$ is almost trivial by the
+fact that if $x = r y \in r M$ and $x \in N$ says that $r y \in N$ and with
+$N$ a submodule of $M$, $y \in N$ and $x \in r N$. Consider $r x \in r N$.
+Then $r x \in r M$ by definition and $r x + N = r (x + N) = N \in M / N$ since
+$M / N$ is torsion free. Hence $r x \in N$ and thus $r N \subseteq r M \cap
+N$. Consequently, $r N = r M \cap N$ and $N$ is pure.
+
+IV.7.17: If $p$ and $q$ are distinct primes use elementary divisors to
+describe all abelian groups of order
+
+(i) $p^2 q^2$
+
+{\tmem{Solution:}} $\mathbbm{Z}_{p^2 q^2}, \mathbbm{Z}_{p q^2} \oplus
+\mathbbm{Z}_p, \mathbbm{Z}_{p^2 q} \oplus \mathbbm{Z}_q, \mathbbm{Z}_{p q}
+\oplus \mathbbm{Z}_{p q}$
+
+(ii) $p^4 q$
+
+{\tmem{Solution:}} $\mathbbm{Z}_{p^4 q}, \mathbbm{Z}_{p^3 q} \oplus
+\mathbbm{Z}_p, \mathbbm{Z}_{p^2 q} \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p,
+\mathbbm{Z}_{p q} \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus
+\mathbbm{Z}_p, \mathbbm{Z}_{p^2 q} \oplus \mathbbm{Z}_{p^2}$
+
+(iii) $p^n$, $1 \leq n \leq 6$
+
+{\tmem{Solution:}} $p^1 : \mathbbm{Z}_p$ \ \ \ \ \ \ \ \ \ \ \ $p^2 :
+\mathbbm{Z}_{p^2}, \mathbbm{Z}_p \oplus \mathbbm{Z}_p$ \ \ \ \ \ \ \ \ \ \ \ \
+$p^3 : \mathbbm{Z}_{p^3}, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_p,
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p$
+
+$p^4 : \mathbbm{Z}_{p^4}, \mathbbm{Z}_{p^3} \oplus \mathbbm{Z}_p,
+\mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_{p^2}, \mathbbm{Z}_{p^2} \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p$
+
+$p^5 : \mathbbm{Z}_{p^5}, \mathbbm{Z}_{p^4} \oplus \mathbbm{Z}_p,
+\mathbbm{Z}_{p^3} \oplus \mathbbm{Z}_{p^2}, \mathbbm{Z}_{p^3} \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_{p^2}
+\oplus \mathbbm{Z}_p, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_p \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p $
+
+$p^6 : \mathbbm{Z}_{p^6}, \mathbbm{Z}_{p^5} \oplus \mathbbm{Z}_p,
+\mathbbm{Z}_{p^4} \oplus \mathbbm{Z}_{p^2}, \mathbbm{Z}_{p^4} \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_{p^3} \oplus
+\mathbbm{Z}_{p^3}, \mathbbm{Z}_{p^3} \oplus \mathbbm{Z}_{p^2} \oplus
+\mathbbm{Z}_p, \mathbbm{Z}_{p^3} \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p
+\oplus \mathbbm{Z}_p, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_{p^2} \oplus
+\mathbbm{Z}_{p^2}, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_{p^2} \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_{p^2} \oplus \mathbbm{Z}_p
+\oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p, \mathbbm{Z}_p
+\oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus \mathbbm{Z}_p \oplus
+\mathbbm{Z}_p \oplus \mathbbm{Z}_p $
+
+IV.7.19: Suppose $R$ is a PID and $M$ is a finitely generated torsion
+$R$-module. Show that the elementary divisors of $M$ are just the prime power
+factors (with multiplicities) that result when the invariant factors of $M$
+are factored into prime powers. Show on the other hand that the invariant
+factors can be recovered from the list of elementary divisors as follows: the
+last invariant factor is the LCM of all the elementary divisors. If the
+elementary divisors whose product is the last invariant factor are removed
+from the list, then the LCM of those that remain is the next invariant factor,
+etc.
+
+{\tmem{Solution:}} By theorem 3.7, $M = M_1 \oplus \cdots \oplus M_k$, for
+some $k \in \mathbbm{N}$, where each $M_i$ is cyclic of order $r_i$ with $r_i
+| r_{i - 1}, 2 \leq i \leq k$ and $r_1$ the exponent of $M$. The $r_i$'s are
+the invariant factors and, moreover, $r_i = u_i p_1^{e_{i 1}} \cdots p_n^{e_{i
+n}}$ by theorem II.5.11 since by proposition II.5.10, $R$ is a UFD. Now by
+theorem 3.11, each $M_i = \bigoplus \{M_{i j} : 1 \leq j \leq n\}$, where each
+$M_{i j}$ is cyclic of order $p_i^{e_{i j}}$, and the set $\{p_i^{e_{i j}} : 1
+\leq i \leq k, 1 \leq j \leq n\}$ are the set of elementary divisors. Working
+the other way, assume we have the set of elementary divisors $E =\{p_i^{e_{i
+j}} : 1 \leq i \leq k, 1 \leq j \leq n\}$, and let $e_j = \min \{e_{1 j},
+\ldots, e_{k j} \}$ where $1 \leq j \leq n$. Then $r_i = p_1^{e_1} \cdots
+p_k^{e_k}$ is the LCM of all the elementary divisors and moreover by theorem
+3.11, we have just created the exponent of some $M_i$ in $M = \bigoplus \{M_i
+: 1 \leq i \leq k\}$. Yet we know by the ordering of the exponents of the
+$M_i$'s, that $r_i | r_{i - 1}$ for $2 \leq i \leq k$ and thus $r_i = r_k$
+since it is the LCM. Removing the set $\{p_1^{e_1}, \ldots, p_k^{e_k} \}$ from
+$E$ and repeating the process, we yield $r_{k - 1}$. Eventually the process
+will terminate since $E$ is finite and we will have reconstructed all
+invariant factors from the elementary divisors.
+
+IV.7.23: Find all integral solutions to the following systems $A X = B$ of
+equations:
+
+(iv) $A = \left(\begin{array}{ccc}
+  8 & 19 & 30\\
+  6 & 14 & 22
+\end{array}\right), B = \left(\begin{array}{c}
+  5\\
+  7
+\end{array}\right)$
+
+{\tmem{Solution:}}
+
+$\left(\begin{array}{ccccc}
+  8 & 19 & 30 & | & 5\\
+  6 & 14 & 22 & | & 7
+\end{array}\right) \sim \left(\begin{array}{ccccc}
+  2 & 0 & - 2 & | & 63\\
+  0 & - 1 & - 2 & | & 13
+\end{array}\right)$ by $R_{12 (- 1)}, R_{21 (- 3)}, R_{125}$ and so $2 x_1 - 2
+x_3 = 2 (x_1 - x_3) \neq 63$ with $x_1, x_3 \in \mathbbm{Z}$. Hence there are
+no integral solutions to this system.
+
+IV.7.24: What are the invariant factors and the elementary divisors of a
+diagonal matrix over a field $F$?
+
+{\tmem{Solution:}} Letting the diagonal matrix, $D$, represent the linear
+transformation $T : V \rightarrow V$, where $V$ is a finite dimensional vector
+space over $F$, we have by theorem 4.6 that $m_T (x)$ splits as a product of
+distinct linear factors in $F [x]$. Furthermore, the set of elementary
+divisors is comprised of these linear factors of $m_T (x)$ and since each
+linear factor of $m_T (x)$ is the exponent of its respective primary
+submodule, then the set of elementary divisors is also the set of invariant
+factors.
+
+IV.7.27: Determine whether or not $A = \left(\begin{array}{ccc}
+  3 & 0 & 2\\
+  0 & 1 & - 1\\
+  - 4 & 0 & 3
+\end{array}\right)$ and $B = \left(\begin{array}{ccc}
+  5 & - 8 & 4\\
+  6 & - 11 & 6\\
+  6 & - 12 & 7
+\end{array}\right)$ are similar over $\mathbbm{Q}$.
+
+{\tmem{Solution:}} Assuming that $A$ is similar to $B$ over $\mathbbm{Q}$,
+then we would have $A = P^{- 1} B P$. It is a well known fact that $\det (P^{-
+1}) = \det (P)^{- 1}$ and we have that $\det (A - x I) = \det (P^{- 1} B P - x
+I) = \det (P^{- 1} (B - x I) P) = \det (B - x I)$ by properties of
+determinants. Hence if $A$ is similar to $B$, then characteristic polynomial
+of $A$ and $B$ are the same (or contrapositively, if the characteristic
+polynomial of $A$ and $B$ are not the same, then $A$ and $B$ are not similar).
+Yet $\det (A - x I) = - x^3 + 7 x^2 - 23 x + 17$ and $\det (B - x I) = - x^3 +
+x^2 + x - 1$ means that $A$ and $B$ have two different characteristic
+polynomials. Thus $A$ and $B$ are not similar.
+
+IV.7.30: Find the characteristic polynomial, invariant factors, elementary
+divisors, rational canonical form, and Jordan canonical form (when possible)
+over $\mathbbm{Q}$ for each of the following matrices:
+
+(ii) $\left(\begin{array}{cc}
+  c + 6 & - 9\\
+  4 & c - 6
+\end{array}\right), c \in \mathbbm{Q}$
+
+{\tmem{Solution:}} det($\left(\begin{array}{cc}
+  c + 6 & - 9\\
+  4 & c - 6
+\end{array}\right) - x I)) = (x - c)^2$ and we have $(x - c)^2$ as our
+characteristic polynomial, $\chi$. It follows that $(x - c)^2$ is also the
+minimal polynomial, $m$, since $m| \chi$ and $\left(\begin{array}{cc}
+  c + 6 & - 9\\
+  4 & c - 6
+\end{array}\right) - \left(\begin{array}{cc}
+  c & 0\\
+  0 & c
+\end{array}\right)$ is not the zero matrix. It follows that $m$ is the only
+invariant factor, so the rational canonical form is $\left(\begin{array}{cc}
+  0 & - c^2\\
+  1 & 2 c
+\end{array}\right)$. $m$ also happens to be the elementary divisor and thus
+the Jordan canonical form is $\left(\begin{array}{cc}
+  c & 0\\
+  1 & c
+\end{array}\right)$.
+
+IV.7.31: An $n \times n$ matrix $A$ over a field $F$ is called idempotent if
+$A^2 = A$.
+
+(i) What are the possible minimal polynomials for an idempotent matrix?
+
+{\tmem{Solution:}} Since $A^2 = A \Rightarrow A^2 - A = 0$, then we have $x^2
+- x = 0$. Thus the minimal polynomials are either $x, x - 1, \tmop{or} x^2 -
+x$. \
+
+(ii) Show that an idempotent matrix is similar over $F$ to a diagonal matrix?
+
+{\tmem{Solution:}} By theorem 4.6, if the minimal polynomial of $A$ splits as
+a product of distinct factors, then it can be represented by a diagonal
+matrix. By part (i), we see that the minimal polynomial does in fact split
+into linear factors.
+
+(iii) Show that idempotent $n \times n$ matrices $A$ and $B$ are similar over
+$F$ if and only if they have the same rank.
+
+{\tmem{Solution:}} Matrices with the same rank will have equivalent row and
+column space and consequently the same minimal polynomial, so their Jordan
+canonical form is are the same, which means they are similar by theorem 4.5.
+
+IV.7.35: Compute the invariants of the abelian groups with generators $a_1,
+\ldots, a_n$ subject to the following relations:
+
+(i) $n = 2, a_1 - 5 a_2 = 0, 3 a_1 + 7 a_2 = 0$
+
+{\tmem{Solution:}} $\left(\begin{array}{cc}
+  1 & 3\\
+  - 5 & 7
+\end{array}\right) \sim \left(\begin{array}{cc}
+  1 & 0\\
+  0 & 22
+\end{array}\right)$ by the sequence $R_{215}$ and $C_{21 (- 3)}$ and thus the
+invariant factors are $22$. So $G$ is isomorphic to $\mathbbm{Z}_{22}$.
+
+IV.7.37: If $R$ is a commutative ring with 1 and $x_1, x_2$ are distinct
+indeterminates show that $R [x_1, x_2]$ and $R [x_1] \otimes_R R [x_2]$ are
+isomorphic as $R$-algebras. \
+
+{\tmem{Solution:}} Let $\phi : R [x_1] \times R [x_2] \rightarrow R [x_1,
+x_2]$ where $\phi (f, g) = f g$. We check it's $R$-balanced:
+
+$\phi (f + f', g) = (f + f') g = f g + f' g = \phi (f, g) + \phi (f', g), \phi
+(f, g + g') = f (g + g') = f g + f g' = \phi (f, g) + \phi (f, g'), \tmop{and}
+\phi (f r, g) = (f r) g = f (r g) = \phi (f, r g)$ for all $f, f' \in R [x_1],
+g, g' \in R [x_2] \tmop{and} r \in R$. Thus there is a group homomorphism
+$\psi : R [x_1] \otimes R [x_2] \rightarrow R [x_1, x_2]$ where $\psi (f
+\otimes g) = \phi (f, g) = f g$, by the universal property. Let $r \in R$,
+then $\psi (r f \otimes g) = (r f) g = r (f g) = r \psi (f \otimes g)$ and
+$\psi$ is a $R$-homomorphism. We check that $\psi$ is a ring homomorphism,
+$\psi ((f \otimes g) (f' \otimes g')) = \psi (f f' \otimes g g') = f f' g g' =
+f g f' g' = \psi (f \otimes g) \psi (f' \otimes g')$. We let $\sigma : R [x_1,
+x_2] \rightarrow R [x_1] \otimes R [x_2]$, where $\sigma (f (x_1) g (x_2)) = f
+\otimes g$. By similar arguments above, we have $\sigma$ a homomorphism of
+rings and module structure. Furthermore, $\sigma \circ \psi = \psi \circ
+\sigma$ is the identity mapping and so $\sigma$ and $\psi$ are inverses of
+eachother and $R [x_1, x_2]$ is isomorphic to $R [x_1] \otimes_R R [x_2]$ as
+$R$-algebras.
+
+IV.7.41: If $F$ is a field and $K$ is an extension field show that $M_n (K)
+\cong K \otimes_F M_n (F)$ (as $F$-algebras).
+
+{\tmem{Solution:}} Let us show that $\phi : K \times M_n (F) \rightarrow M_n
+(K)$, where $\phi (k, A) = k A$ is an $F$-balanced map:
+
+$\phi (k + k', A) = (k + k') A = k A + k' A = \phi (k, A) + \phi (k', A)$,
+$\phi (k, A + B) = k (A + B) = k A + k B = \phi (k, A) + \phi (k, B)$, and
+$\phi (k f, A) = (k f) A = k (f A) = \phi (k, f A)$ for all $k, k' \in K, f
+\in F, \tmop{and} A, B \in M_n (F)$. Thus, we have a group homomorphism, $\psi
+: K \otimes M_n (F) \rightarrow M_n (K)$, where $\psi (k \otimes A) = \phi (k,
+A) = k A$. Next, we show that $\psi$ is a ring homomorphism as well, $\psi ((k
+\otimes A) (k' \otimes B)) = \psi (k k' \otimes A B) = k k' A B = k A k' B =
+\psi (k \otimes A) \psi (k' \otimes B)$. $\psi$ being an $R$-homomorphism
+follows from $\psi (f k \otimes A) = (f k) A = f (k A) = f \psi (k \otimes
+A)$. Now we know from linear algebra and tensor products that $\dim_F (M_n
+(K)) = [K : F] \dim_F (M_n (F)) = \dim_F (K) \dim_F (M_n (F)) = \dim_F (K
+\otimes_F M_n (F))$ and thus vector spaces over the same base field of the
+same dimension must be isomorphic. Thus $M_n (K) \cong K \otimes_F M_n (F)$ as
+desired.
+
+IV.7.42: Suppose that $F$ is a field, $K$ is a finite Galois extension, and
+that $G = G (K : F)$ is a direct product of two subgroups $G_1$ and $G_2$. \
+Set $L_1 =\mathcal{F}G_1$ and $L_2 =\mathcal{F}G_2$. \ Show that the ring $L_1
+\otimes_F L_2$ is a field, with a subfield isomorphic with $F$, and that if
+$L_1 \otimes_F L_2$ is viewed as an extension of $F$, then $K$ and $L_1
+\otimes_F L_2$ are $F$-isomorphic.
+
+{\tmem{Solution:}} First, $L_1$ and $L_2$ are vector spaces over $F$ (more
+precisely $F$-algebras since $L_1$ and $L_2$ are both extensions of $F$). \
+Let $\phi : L_1 \times L_2 \rightarrow K$, where $\phi (l_1, l_2) = l_1 l_2$.
+\ We show that $\phi$ is $F$-balanced: $\phi (l_1 + l_1', l_2) = (l_1 + l_1')
+l_2 = l_1 l_2 + l_1' l_2 = \phi (l_1 + l'_1, l_2')$, $\phi (l_1, l_2 + l_2') =
+l_1 (l_2 + l_2') = l_1 l_2 + l_1 l_2' = \phi (l_1, l_2) + \phi (l_1, l'_2)$,
+and $\phi (l_1 f, l_2) = (l_1 f) l_2 = (f l_1) l_2 = f (l_1 l_2) = f \phi
+(l_1, l_2)$. Thus, there is a homomorphism $\psi : L_1 \otimes_f L_2
+\rightarrow K$ by $\psi (l_1 \otimes l_2) = \psi (l_1, l_2)$. \ Let $f \in F$,
+then $\psi (f l_1 \otimes l_2) = (f l_1) l_2 = f (l_1 l_2) = f \psi (l_1
+\otimes l_2)$ so then $\psi$ is an $F$ homomorphism. Furthermore, $\psi ((l_1
+\otimes l_2) (l_1' \otimes l_2')) = \psi (l_1 l_1' \otimes l_2 l_2') = l_1
+l_1' l_2 l_2' = l_1 l_2 l_1' l_2' = \psi (l_1 \otimes l_2) \psi (l_1' \otimes
+l_2')$ and so $\psi$ is also a ring homomorphism. Now $\dim_F (L_1 \otimes_F
+L_2) = \dim_F (L_1) \dim_F (L_2) = \dim_{L_2} (K) \dim_F (L_2) = [K : L_2]
+[L_2 : F] = [K : F] = \dim_F (K)$ and so $L \otimes_F L_2$ is isomorphic to
+$K$ as an $F$-algebra. Notice we get the second equality by Galois
+correspondence. It now follows directly that there is a subfield within $L_1
+\otimes_F L_2$ isomorphic to $F$ since $K$ contains $F$ and an isomorphism of
+algebras means there is an $F$-isomorphism between $L_1 \otimes_F L_2$ and
+$K$.
+
+IV.7.44: Suppose $R$ is a commutative ring and $L, M, N$ are $R$-modules. \
+Show that $\tmop{Hom}_R (L, \tmop{Hom}_R (M, N))$ and $\tmop{Hom}_R (L
+\otimes_R M, N)$ are isomorphic $R$-modules. \ Conclude in particular that $(L
+\otimes_R M)^{\ast} \cong \tmop{Hom}_R (L, M^{\ast})$.
+
+{\tmem{Solution:}} For brevity, let $X = \text{$\tmop{Hom}_R (L, \tmop{Hom}_R
+(M, N))$}$ and $Y = \text{$\tmop{Hom}_R (L \otimes_R M, N)$}$. Using the hint,
+we let $\phi : X \rightarrow Y$, where $\phi (f) = \hat{f}$ and $\hat{f} (a
+\otimes b) = f_a (b) = [f (a)] (b)$, where $a \in L, b \in M$. Let $f, g \in
+X$, then $\phi (f + g) = \widehat{f + g} = \hat{f} + \hat{g} = \phi (f) + \phi
+(g)$, once we show that $\widehat{f + g} = \hat{f} + \hat{g}$. So consider $a
+\otimes b \in L \otimes_R M$, then $( \widehat{f + g}) (a \otimes b) = [(f +
+g)_a] (b) = [(f + g) (a)] (b) = [f (a) + g (a)] (b) = (f_a + g_a) (b) = f_a
+(b) + g_a (b) = \hat{f} (a \otimes b) + \hat{g} (a \otimes b)$ and thus $\phi$
+is a group homomorphism. Now let $r \in R$ and $f \in X$ so that $\phi (r f) =
+\widehat{(r f)} = r \hat{f} = r \phi (f)$, when we show that $\widehat{(r f)}
+= r \hat{f}$. So consider $a \otimes b \in L \otimes_R M$, then $\widehat{(r
+f)} (a \otimes b) = [(r f) (a)] (b) = [f (r a)] (b) = f_{r a} (b) = \hat{f} (r
+a \otimes b) = r \hat{f} (a \otimes b)$ and thus $\phi$ is an $R$-module
+homomorphism. Using definition from exercise 13 and the faact that $R$ is an
+$R$-module, $(L \otimes_R M)^{\ast} = \tmop{Hom}_R (L \otimes_R M, R) \cong
+\tmop{Hom}_R (L, \tmop{Hom}_R (M, R)) = \text{$\tmop{Hom}_R (L, M^{\ast})$}$
+follows directly from above.
+
+\end{document}

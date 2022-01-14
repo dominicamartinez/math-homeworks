@@ -1,0 +1,983 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\usepackage{wrapfig}
+\usepackage{shapepar}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{calrsfs}
+\usepackage{amsmath}
+%\usepackage[symbol*]{footmisc}
+%\usepackage[enableskew]{youngtab}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\begin{document}
+Analysis with an introduction to Proof (4th ed.) by Steven R. Lay
+\begin{enumerate}
+
+\item[13.2] Let $S \subseteq \mathbb{R}$. Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] bd $S = $ bd $(\mathbb{R}\backslash S)$. \\
+True; pg. 131 states, "\ldots since bd $S = $ bd$(\mathbb{R}\backslash S)$\ldots".
+\item[b)] bd $S \subseteq \mathbb{R}\backslash S$. \\
+False; this is true only if the set $S$ is open.
+\item[c)] $S \subseteq S' \subseteq $ cl $S$. \\
+False; Example 13.16(c) shows us that it's possible for $S \not\subseteq S'$.
+\item[d)] $S$ is closed iff cl $S \subseteq S$. \\
+True; by theorem 13.17(c).
+\item[e)] $S$ is closed iff $S' \subseteq S$. \\
+True; by theorem 13.17(a).
+\item[f)] If $x \in S$ and $x$ is not an isolated point of $S$, then $x \in S'$. \\
+True; a point is either isolated or an accumulation point.
+\item[g)] The set $\mathbb{R}$ of real numbers is neither open nor closed. \\
+False; Example 13.8 says that $\mathbb{R}$ is both open and closed.
+\item[h)] The intersection of any collection of open sets is open. \\
+False; by Theorem 13.10(b), "The intersection of any finite collection of open sets is open.",
+but not necessary true for an infinite collection of open sets. See Exercise 13.5(d).
+\item[i)] The intersection of any collection of closed sets is closed. \\
+True; this is Corollary 13.11(a).
+\end{enumerate}
+
+\item[13.5] Classify each of the following sets as open, closed, neither, or both. 
+\begin{enumerate}
+\item[a)] $\{ 1/n: n \in \mathbb{N} \}$ \\
+Neither. bd $\{ 1/n: n \in \mathbb{N} \} = \{ 0, 1 \}$ and $0 \in \mathbb{R}\backslash 
+\{ 1/n: n \in \mathbb{N} \}$ \\
+and $1 \in \{ 1/n: n \in \mathbb{N} \}$.
+\item[b)] $\mathbb{N}$ \\
+Closed. bd $\mathbb{N} = \mathbb{N}$ and since $\mathbb{N} \subseteq \mathbb{N}$.
+\item[c)] $\mathbb{Q}$ \\
+Neither. By theorem 12.12 and 12.14, $\mathbb{Q}$ is not open because we can't find an open
+interval that is a subset of $\mathbb{Q}$, since there exists a rational and irrational number between
+the interval. For the same reason, $\mathbb{R}\backslash \mathbb{Q}$ is not open, thus $\mathbb{Q}$
+cannot be closed.
+\item[d)] $\bigcap_{n = 1}^{\infty} \left(0, \frac{1}{n}\right)$ \\
+Both. $\emptyset = \bigcap_{n = 1}^{\infty} \left(0, \frac{1}{n}\right)$ and the empty set is
+both open and closed.
+\item[e)] $\{ x : |x - 5| \leq \frac{1}{2} \}$ \\
+Closed. $\{ x : |x - 5| \leq \frac{1}{2} \} = [4\frac{1}{2}, 5\frac{1}{2}]$, thus bd 
+$[4\frac{1}{2}, 5\frac{1}{2}] = \{4\frac{1}{2}, 5\frac{1}{2}\}$, both of which are elements of 
+$\{ x : |x - 5| \leq \frac{1}{2} \}$.
+\item[f)] $\{x: x^2 > 0\}$ \\
+Open. bd $\{x: x^2 > 0\} = \{0\}$ and $0 \in \mathbb{R}\backslash \{x: x^2 > 0\}$.
+\end{enumerate}
+
+\item[13.6] Find the closure of each set in Exercise 13.5.
+\begin{enumerate}
+\item[a)] cl $\{ 1/n: n \in \mathbb{N} \} = \{ 1/n: n \in \mathbb{N} \} \cup \,\{0\}$
+\item[b)] cl $\mathbb{N} = \mathbb{N} \cup \,\emptyset = \mathbb{N}$.
+\item[c)] cl $\mathbb{Q} = \mathbb{Q} \cup \mathbb{R}\backslash \mathbb{Q} = \mathbb{R}$.
+\item[d)] cl $\emptyset = \emptyset$.
+\item[e)] cl $\{ x : |x - 5| \leq \frac{1}{2} \} = \{ x : |x - 5| \leq \frac{1}{2} \}$ by Theorem 13.17(c).
+\item[f)] cl $\{x: x^2 > 0\} = \{x: x^2 > 0\} \cup \{0\}$.
+\end{enumerate}
+
+\item[13.7] Let $S$ and $T$ be subsets of $\mathbb{R}$. Find a counterexample for each of the following.
+\begin{enumerate}
+\item[e)] bd (bd $S$) = bd $S$ \\
+Let $S$ be the set of all rational numbers between 0 and 1. Thus bd $S = [0, 1]$, yet
+bd (bd $S$) $= \{0, 1\}$, which goes to show that these two are not equal.
+\item[g)] bd ($S \cap T$) = (bd $S$) $\cap$ (bd $T$) \\
+Let $S = (0, 1)$ and $T = [1, 2)$. So, bd $S = \{0, 1\}$ and bd $T = \{1, 2\}$. Thus
+$(\mbox{bd } S) \cap (\mbox{bd } T) = \{1\} \neq \emptyset = \mbox{bd }\emptyset = \mbox{bd }(S \cap T)$.
+\end{enumerate}
+
+\item[13.9] Prove the following.
+\begin{enumerate}
+\item[a)] An accumulation point of a set $S$ is either an interior point of $S$ or a boundary point of $S$. \\
+For the sake of contradiction, suppose that $s \in S$ is an accumulation point of $S$ but is not an interior point nor a boundary point of $S$. This means that $s$ must be an interior point of $\mathbb{R}\backslash S$ and that there is a neighborhood of $s$, $N(s, \varepsilon )$, such that $N(s, \varepsilon ) \subseteq \mathbb{R}\backslash S$. Thus, $N(s, \varepsilon ) \cap S = \emptyset$ and $N^*(s, \varepsilon ) \cap S = \emptyset$ but this violates the definition of an accumulation point.
+$\blacklozenge$
+\end{enumerate}
+
+\item[13.16] 
+\begin{enumerate}
+\item[a)] Prove: bd $S$ = (cl $S) \cap [$cl $(\mathbb{R}\backslash S)]$. \\
+From definition, $x \in \mbox{bd } S$ iff every neighborhood of $x$, $N(x, \varepsilon)$, 
+$N(x, \varepsilon) \cap S \neq \emptyset$ and $N(x, \varepsilon) \cap \,\mathbb{R}\backslash S 
+\neq \emptyset$. This is the same as saying that every neighborhood of $x$, 
+$N(x, \varepsilon) \cap S \neq \emptyset$ and for every neighborhood of $x$, 
+$N(x, \varepsilon) \cap \,\mathbb{R}\backslash S \neq \emptyset$. Since this is the definition of
+closure, we have $x \in \mbox{cl }S$ and $x \in \mbox{cl }\mathbb{R}\backslash S$. Hence, 
+$x \in \mbox{cl }S \cap \mbox{cl }\mathbb{R}\backslash S$. $\blacklozenge$
+
+\item[b)] Prove: bd $S$ is a closed set. \\
+By the above proof, bd $S = (\mbox{cl } S) \cap [\mbox{cl }(\mathbb{R}\backslash S)]$. 
+By Theorem 13.17(b), $\mbox{cl } S$ and $\mbox{cl }(\mathbb{R}\backslash S)$ are both closed.
+Since bd $S$ is an intersection of two closed sets, by corollary 13.11(a), it too must be closed.
+$\blacklozenge$
+\end{enumerate}
+
+\item[13.19] Let $A$ be a nonempty open subset of $\mathbb{R}$ and let $\mathbb{Q}$ be the set of rationals. Prove that $A \cap \mathbb{Q} \neq \emptyset$.
+\begin{enumerate}
+\item[] By Theorem 12.12 (the density of $\mathbb{Q}$ in $\mathbb{R}$), then for any $x, y \in \mathbb{R}$, $x < y$, there exists a rational number, $w$, such that $x < w < y$. Since $A$ is an open and nonempty set, this means that there is an interior point, $a \in A$. By definition, there is a $N(a, \varepsilon) \subseteq A$, which means that $a - \varepsilon < a < a + \varepsilon$. Thus, by Theorem 12.12 and $\varepsilon > 0$, we can find a rational number, $n \in A$, such that $a - \varepsilon < n < a + \varepsilon$. We have shown that there exists a rational number in $A$, so that $A \cap \mathbb{Q}$ cannot possibly be the empty set. $\blacklozenge$
+\end{enumerate}
+
+\item[13.20] Let $S$ and $T$ be subsets of $\mathbb{R}$. Prove the following.
+\begin{enumerate}
+\item[a)] cl (cl $S$) = cl $S$ \\
+This just follows from definition. By theorem 13.17(c), cl (cl $S$) = cl $S$ iff 
+cl $S$ is a closed set. Thus by theorem 13.17(b), we know that cl $S$ is in fact a closed set.
+$\blacklozenge$
+
+\item[c)] cl $(S \cap T) \subseteq$ (cl $S$) $\cap$ (cl $T$) \\
+If $x \in (S \cap T)'$, then $x \in S'$ and $x \in T'$, which is the same as $x \in S' \cap T'$.
+Thus, $(S \cap T)' \subseteq S' \cap T'$. Therefore by definition, 
+\begin{eqnarray*}
+\mbox{cl } (S \cap T) &=& (S \cap T) \cup (S \cap T)' \\
+&=& [S \cup (S \cap T)'] \cap [T \cup (S \cap T)'] \hskip .6cm \mbox{by distribution}\\
+&\subseteq & [S \cup (S' \cap T')] \cap [T \cup (S' \cap T')] \\
+&\subseteq & (S \cup S') \cap (T \cup T') \\
+&=& \mbox{cl } S \cap\, \mbox{cl } T
+\end{eqnarray*}
+\hskip 14.0cm $\blacklozenge$
+
+\item[d)] Find an example to show that equality need not hold in part (c). \\
+Let $S = (0, 1)$ and $T = (1, 2)$, then cl $S = [0, 1]$ and cl $T = [1, 2]$. 
+Also, $S \cap T = \emptyset$ and cl $\emptyset = \emptyset$. Thus,
+cl $(S \cap T) = \mbox{cl } \emptyset = \emptyset \neq \{1\} = [0, 1] \cap [1, 2] = (\mbox{cl }S) \cap (\mbox{cl }T)$.
+\end{enumerate}
+
+\item[13.21] Let $S$ and $T$ be subsets of $\mathbb{R}$. Prove the following.
+\begin{enumerate}
+\item[a)] int $S$ is an open set. \\
+int $S$ is the set of all interior points in $S$. This means that for every $s \in \mbox{int}\,S$, there exists a neighborhood, $N$ of $s$, by definition that is a subset of $S$. Since int $S$ is comprised of all these neighborhoods and we know from Example 13.8 that all neighborhoods are open sets, then int $S$ is the union of all the open sets in $S$. By Theorem 13.10(a), we know that the union of any collection of open sets is an open set. Thus int $S$ is an open set. $\blacklozenge$
+
+\item[b)] int (int $S$) = int $S$ \\
+Since int (int $S$) is the set of all interior points in int $S$, and all the points 
+in $S$ are interior points, it must follow that the inclusion int (int $S$) $\subseteq$ int $S$ always holds. Thus we have int (int $S$) $=$ int $S$. $\blacklozenge$
+
+\item[c)] int $(S \cap T) = ($int $S) \cap ($int $T)$ \\
+To prove int $(S \cap T) = ($int $S) \cap ($int $T)$, need to show that \\
+int $(S \cap T) \subseteq ($int $S) \cap ($int $T)$ and (int $S)\, \cap $ (int $T) \subseteq $ int$(S \cap T)$.
+Firstly, let's show that int $(S \cap T) \subseteq ($int $S) \cap ($int $T)$. By definition, if
+$x \in \mbox{int }(S \cap T)$ then there is a neighborhood, $N$ of $x$, such that $N \subseteq S \cap T$.
+This means, that $N \subseteq S$ and $N \subseteq T$ which implies that $x \in \mbox{int }S$ and 
+$x \in \mbox{int }T$. Thus $x \in (\mbox{int } S) \cap (\mbox{int } T)$, which shows that
+int $(S \cap T) \subseteq ($int $S) \cap ($int $T)$. \\
+Secondly, we need to show that (int $S)\, \cap $ (int $T) \subseteq $ int$(S \cap T)$.
+If $x \in (\mbox{int }S) \cap (\mbox{int }T)$, then $x \in \mbox{int }S$ and $x \in \mbox{int }T$.
+By definition there is a neighborhood, $N$ of $x$, such that $N \subseteq S$ and $N \subseteq T$.
+Thus $N \subseteq S \cap T$, which implies that $x \in \mbox{int }(S \cap T)$. \\
+Thus proven that int $(S \cap T) \subseteq ($int $S) \cap ($int $T)$ and 
+(int $S)\, \cap $ (int $T) \subseteq $ int$(S \cap T)$, we have 
+int $(S \cap T) = ($int $S) \cap ($int $T)$. $\blacklozenge$
+
+\item[d)] (int $S) \cup ($int $T) \subseteq$ int $(S \cup T)$ \\
+To show this, if $x \in (\mbox{int }S) \cup (\mbox{int } T)$, then either 
+$x \in \mbox{int } S$ or $x \in \mbox{int }T$. If $x \in \mbox{int } S$ then by definition
+there is a neighborhood, $N$ of $x$, such that $N \subseteq S$. Since $S \subseteq (S \cup T)$, then $N \subseteq (S \cup T)$ and thus $x \in \mbox{int } (S \cup T)$. Similarly, if $x \in \mbox{int } T$ then by definition there is a neighborhood, $N$ of $x$, such that $N \subseteq T$. 
+Since $T \subseteq (S \cup T)$, then $N \subseteq S \cup T$ and thus $x \in \mbox{int }(S \cup T)$.
+$\blacklozenge$
+\item[e)] Find an example to show that equality need not hold in part (d). \\
+Let $S = (1, 2)$ and $T = [2, 3)$. We have $S \cup T = (1, 3)$ and int $(S \cup T) = (1, 3)$, 
+yet int $S = (1, 2)$ and int $T = (2, 3)$. We can now see that \\
+(int $S$) $\cup$ (int $T$) $= (1, 2)\cup (2, 3) \subseteq (1, 3)$ but $(1, 2)\cup (2, 3) \neq (1, 3)$.
+\end{enumerate}
+
+\item[14.2] Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] Some unbounded sets are compact.\\
+False; this goes against the Heine-Borel theorem.
+\item[b)] If $S$ is a compact subset of $\mathbb{R}$, then there is at least one point in $\mathbb{R}$ that is an accumulation point of $S$. \\
+False; the Bolzano-Weierstrass theorem states, "If a \emph{bounded} subset $S$ of
+$\mathbb{R}$ contains infinitely man points, then there exists a least one point in
+$\mathbb{R}$ that is an accumulation point of $S$." Moreover, this problem is false because
+of what is said in part(c), as well. 
+\item[c)] If $S$ is compact and $x$ is an accumulation point of $S$, then $x \in S$. \\
+True; since $S$ is compact, then it is closed. We know that if $S$ is closed, by 
+theorem 13.17(a), then $S$ contains all of its accumulation points. 
+\item[d)] If $S$ is unbounded, then $S$ has at least one accumulation point. \\
+False; the set $\mathbb{N}$ is unbounded and has no accumulation points.
+\item[e)] Let $\mathcal{F} = \{ A_i : i \in \mathbb{N} \}$ and suppose that the intersection of any finite subfamily of $\mathcal{F}$ is nonempty. If $\bigcap \mathcal{F} = \emptyset$, then for some $k \in \mathbb{N}, A_k$ is not compact. \\
+True; the set from Exercise 13.5(d) is one example.
+\end{enumerate}
+
+\item[14.3] Show that each subset of $\mathbb{R}$ is not compact by describing an open cover for it that has no finite subcover.
+\begin{enumerate}
+\item[a)] [1, 3) \\
+$A_n = ${\Large $\left( 0, 2 + \frac{(n - 1)}{n} \right)$} for all $n \in \mathbb{N}$.
+\end{enumerate}
+
+\item[14.5] 
+\begin{enumerate}
+\item[a)] If $S_1$ and $S_2$ area compact subsets of $\mathbb{R}$, prove that $S_1 \cup S_2$ is compact. \\
+Let $\mathcal{F}$ be any open cover of both $S_1$ and $S_2$. Since $S_1$ and $S_2$
+are both compact, we can let $\mathcal{G}$ be a finite subcover of $S_1$ and 
+$\mathcal{H}$ be a finite subcover of $S_2$, such that $\mathcal{G} \subseteq \mathcal{F}$ 
+and $\mathcal{H} \subseteq \mathcal{F}$. 
+It's clear that $\mathcal{G} \cup \mathcal{H} \subseteq \mathcal{F}$, hence $S_1 \cup S_2$
+has a finite subcover in $\mathcal{F}$ and thus is compact.
+\item[b)] Find an infinite collection $\{ S_n : n \in \mathbb{N} \}$ of compact sets in $\mathbb{R}$ such taht $\bigcup^\infty_{n=1}S_n$ is not compact. \\
+$\{S_n = [0, n] : n \in \mathbb{N}\}$.
+\end{enumerate}
+
+\item[14.6] Show that compactness is necessary in Corollary 14.8. That is, find a family of intervals $\{ A_n : n \in \mathbb{N} \}$ with $A_{n+1} \subseteq A_n$ for all $n, \bigcap^\infty_{n=1} A_n = \emptyset$, such that
+\begin{enumerate}
+\item[a)] The sets $A_n$ are all closed. \\
+$\{ A_n = [n, \infty ) : n \in \mathbb{N} \}$.
+\item[b)] The sets $A_n$ are all bounded. \\
+The set from Exercise 13.5(d); $\{ A_n = (0, 1/n) : n \in \mathbb{N} \}$.
+\end{enumerate}
+
+\item[14.7]
+\begin{enumerate}
+\item[b)] Find an example of a collection of disjoint closed subsets of $\mathbb{R}$ that is not countable. \\
+The collection of sets, where each set is a singleton set of an irrational number. 
+A singleton set is closed and the set of all irrational numbers is uncountable, thus
+since every irrational number is will be represented by a singleton set in this collection, 
+this collection must also be uncountable.
+\end{enumerate}
+
+\item[14.12] Let $S$ be a subset of $\mathbb{R}$. Prove that $S$ is compact iff every infinite subset of $S$ has an accumulation point in $S$.
+\begin{enumerate}
+\item[] If $S$ is compact, then every infinite subset of $S$ has an accumulation point in $S$, follows
+directly from the Bolzano-Weierstrass theorem. The rest of the proof is verbatim from the one found at \\
+http://www.econ.upenn.edu/Courses/2003/summer2/econ897/part1/chpt5.pdf: 
+\\ Suppose that every infinite subset of $S$ has an accumulation point in
+$S$ but $S$ is not compact. Then $S$ is not bounded or not closed. Suppose first that $S$ is
+not bounded. This means that for every $n \in N$ there exists $x_n \in S$ such that $|x_n| > n$.
+Construct a subset $T \subseteq S$ as \\
+$T = \{x_n \in S : |x_n| > n, |x_n| > |x_m| \wedge |x_n - x_m| > 1, \forall m,n \in \mathbb{N} \wedge m < n\}$
+This subset is nonempty and is infinite, for if not we would be contradicting the
+unboundedness assumption of $S$. Indeed take $T$ to be a finite set $T = \{x_1, x_2,\ldots,x_N\}$.
+This means that there is no $x \in S$ such that $|x| > N + 1$ and $|x| > |x_N|$ and
+$|x - x_m| > 1$ for all $m < N$. In other words, for all $x \in S$ we have that $|x| \leq N + 1$
+or $|x| < |x-N|$ or $|x - x_m| \leq 1$ meaning the S is bounded. 
+Finally, by construction $T$ has no accumulation point. 
+Thus we have constructed an infinite subset of $S$ which
+does not have an accumulation point in $S$, contradicting the initial assumption. Then $S$ must
+be bounded. \\
+Suppose now $S$ is not closed. Then there exists $x \in \mathbb{R}\backslash S$ such that $x \in S'$.
+Since $x \in S'$, for every $\varepsilon > 0$ there is $x_\varepsilon \in S$ such that 
+$|x_\varepsilon - x| < \varepsilon$. Construct a
+subset $T \subseteq S$ as \\
+$T = \{x_n \in S : |x_n - x| < |x_m - x| \wedge |x_n - x| < 1/n$ for every $m, n \in \mathbb{N}$ and $m< n\}$
+This subset $T$ is nonempty and infinite, for if not we would be contradicting that $x$
+is an accumulation point of $S$. Moreover $x$ is the unique limit point of $T$ in $\mathbb{R}$.
+To show this assume it were not, and let $y \in R$ and $y \neq x$ be another accumulation point of $T$.
+Let $\delta = \frac{|x - y|}{3}$. By the Archimedean property there exists $N \in \mathbb{N}$ such that 
+$1/N < \delta$. This
+implies that for all $n \geq N$ and $x_n \in T, |x_n - y| > \delta$. This leaves at most a finite set
+$T = {x_1, x_2..., x_N}$ such that $|x_i - y| < \delta$. Without loss of generality we can assume
+that all $x_i \in T$ are different from $y$\ldots otherwise we can remove those $x_i = y$ from $T$,
+since we are interested in the properties of deleted neighborhoods of $y$. If $T$ is empty
+then we are done, since there exists $\varepsilon = \delta > 0$ for which 
+$N^* (y, \varepsilon ) \cap T = \emptyset $, meaning that $y$ is not an accumulation point. 
+Now let $T \neq \emptyset$ and call $\varepsilon = \min (|x_i - y|)$ for $x_i \in T$.
+For such $\varepsilon > 0$ we also have $N^* (y, \varepsilon) \cap T = \emptyset$, 
+leading to the desired result. Thus we
+have constructed an infinite subset of $S$ whose only accumulation point is in 
+$\mathbb{R}\backslash S$ and
+not in $S$, contradicting the initial assumption. Therefore $S$ must be both closed and
+bounded, hence compact.
+\end{enumerate}
+
+\item[16.2] Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] If $s_n \rightarrow 0$, then for every $\epsilon > 0$ there exists $N \in \mathbb{R}$ such that $n > N$ implies $s_n < \epsilon$. \\
+False; the statement should say, "\ldots $|s_n| < \varepsilon$ \ldots ".
+\item[b)] If for every $\epsilon > 0$ there exists $N \in \mathbb{R}$ such that $n > N$ implies $s_n < \epsilon$, then $s_n \rightarrow 0$. \\
+False; for same reason as above.
+\item[c)] Given sequences $(s_n)$ and $(a_n)$, if for some $s \in \mathbb{R}, k > 0$ and $m \in \mathbb{N}$ we have $|s_n - s| \leq k|a_n|$ for all $n > m$, then lim $s_n = s$. \\
+False; the statement is similar to theorem 16.8 except it
+leaves out that the limit of $a_n$ must be $0$. 
+\item[d)] If $s_n \rightarrow s$ and $s_n \rightarrow t$, then $s = t$. \\
+True; by theorem 16.14.
+\end{enumerate}
+
+\item[16.4] Find $k > 0$ and $m \in \mathbb{N}$ so that $7n^3 + 13n \leq kn^3$ for all integers $n \geq m$.
+\begin{enumerate}
+\item[] If $13 \leq n^2$ when $n \geq 4$ then we can choose $m = 4$. Thus \\
+$7n^3 + 13n \leq 7n^3 + n^3 = 8n^3$, from which we can choose $k = 8$.
+\end{enumerate}
+
+\item[16.6] Using only Definition 16.2, prove the following.
+\begin{enumerate}
+\item[a)] For any real number $k$, $\lim_{n \to \infty}(k/n) = 0$. \\
+In Example 16.3, they chose $N = 1/\varepsilon$, in this problem we can choose $N = |k|/\varepsilon$. Hence, given $\varepsilon > 0$, let $N = |k|/\varepsilon$. Then for any $n > N$ we have
+$|(k/n) - 0| = |k/n| = |k|/n < |k|/N = \varepsilon$. Thus, lim $(k/n) = 0$. $\blacklozenge$
+\item[c)]
+\[
+\lim \frac{3n + 1}{n + 2} = 3
+\]
+Given $\varepsilon > 0$, let $N = 5/\varepsilon$. Then for any $n > N$ we have 
+\[
+\left| \frac{3n + 1}{n + 2} - 0 \right| = \left| \frac{3n + 1 - 3n - 6}{n + 2}\right|
+= \left| \frac{-5}{n + 2} \right| = \frac{5}{n + 2} <  \frac{5}{n} < \frac{5}{N} = \varepsilon
+\]
+Thus lim $\frac{3n + 1}{n + 2} = 3$. $\blacklozenge$
+\end{enumerate}
+
+\item[16.7] Use any of the results in this section, prove the following.
+\begin{enumerate}
+\item[a)] 
+\[
+\lim \frac{1}{1 + 3n} = 0
+\]
+
+Clearly, $3n < 3n + 1$ for all $n \in \mathbb{N}$, meaning that $1/(3n + 1) < 1/3n$. Thus,
+\[ 
+\left| \frac{1}{1 + 3n} - 0 \right| = \frac{1}{1 + 3n} < \frac{1}{3n} = \left( \frac{1}{3} \right) 
+\left( \frac{1}{n} \right)
+\]
+Since the lim $1/n = 0$, theorem 16.8 implies that that lim $1/(1 + 3n) = 0$.
+\item[c)] 
+\[
+\lim \frac{6n^2 + 5}{2n^2 - 3n} = 3
+\]
+
+If $n \geq 6$, then $2n^2 - 3n > n^2$ and $5 + 9n < 10n$. Thus,
+\[
+\left| \frac{6n^2 + 5}{2n^2 - 3n} - 3 \right| = \left| \frac{5 + 9n}{2n^2 - 3n} \right| < 
+\frac{10n}{n^2} = 10 \cdot \left( \frac{1}{n} \right) 
+\]
+Since the lim $1/n = 0$, theorem 16.8 implies that that lim $\frac{6n^2 + 5}{2n^2 - 3n} = 3$.
+
+\item[e)] 
+\[
+\lim \frac{n^2}{n!} = 0
+\]
+
+If $n \geq 6$, then $(n - 1)! > n^2$. Thus, 
+\[
+\left| \frac{n^2}{n!} - 0 \right| = \left| \frac{n^2}{n \cdot (n - 1)!} \right| =
+\left| \frac{n}{(n - 1)!} \right| < \frac{n}{n^2} = 1 \cdot \frac{1}{n}
+\]
+Since the lim $1/n = 0$, theorem 16.8 implies that that lim $\frac{n^2}{n!} = 0$.
+\end{enumerate}
+
+\item[16.8] Show that each of the following sequences is divergent.
+\begin{enumerate}
+\item[a)] $a_n = 2n$ \\
+To prove that the sequence $a_n = 2n$ is divergent, let us suppose that $a_n$ converges
+to some real number $s$. Letting $\varepsilon = 1$ in the definition of convergence, we find that
+there exists a number $N$ such that $n > N$ implies that $|2n - s| < 1$. We obtain 
+$-1 < 2n - s < 1$, which is the same as $2n - 1 < s < 2n + 1$. It's just as well that $2n > N$
+which implies $|2(2n) - s| < 1$, which we obtain the inequality $-1 < 4n - s < 1$, which
+is the same as $4n - 1 < s < 4n + 1$. Since $s$ cannot satisfy both inequalities, we have 
+reached a contradiction. Thus the sequence $(a_n)$ is divergent. $\blacklozenge$
+
+\item[c)] $c_n = \cos (n\pi/3)$ \\
+To prove that the sequence $c_n =$ cos$\left( \frac{n\pi}{3} \right)$ 
+is divergent, let us suppose that $c_n$ converges
+to some real number $s$. Letting $\varepsilon = 1$ in the definition of convergence, we find that
+there exists a number $N$ such that $n > N$ implies that \\
+$|$ cos$[(n\pi )/3] - s| < 1$. If $n > N$ and $n$ is of a number such that $6$ divided by $n$ 
+will yield a remainder of $3$, then we have the inequality $| -1 - s | < 1$, which is the same
+as $-2 < s < 0$. On the other hand, if $n > N$ and $n$ is of a number such that $6$ divided
+by $n$ will yield a remainder of $0$, then we have the inequality $|\, 1 - s | < 1$, which is
+the same as $0 < s < 2$. Since $s$ cannot satisfy both inequalities, we have reached
+a contradiction. Thus the sequence $(c_n)$ is divergent. $\blacklozenge$
+\end{enumerate}
+
+\item[16.9] For each of the following, prove or give a counterexample.
+\begin{enumerate}
+\item[a)] If $(s_n)$ converges to $s$, then $(|s_n|)$ converges to $|s|$.\\
+As proven in class: Let $\varepsilon > 0$. By definition of convergence, 
+$\exists N \in \mathbb{R}$ such that $\forall n > N$, we have $|s_n - s| < \varepsilon$.
+By exercise 11.6(a), $||s_n| - |s|| \leq |s_n - s|$. Therefore $\forall \varepsilon > 0$,
+$\exists N \in \mathbb{R}$ such that $\forall n > N$, we have $||s_n| - |s|| \leq |s_n - s| < 
+\varepsilon$. Thus, we see that lim $|s_n| = |s|$. $\blacklozenge$
+
+\item[b)] If $(|s_n|)$ is convergent, then $(s_n)$ is convergent.\\
+Counterexample: Let $s_n = (-1)^n$. We can see that $(|s_n|)$ converges to $1$, 
+while $(s_n)$ does not converge as it alternates between $1$ and $-1$.
+
+\item[c)] $\lim s_n = 0$ iff $\lim |s_n| = 0$. \\
+If lim $s_n = 0$, then lim $|s_n| = 0$ follows trivially from part (a), since $|\,0| = 0$.
+Conversly, if lim $|s_n| = 0$ then by definition, for each $\varepsilon > 0$, 
+$\exists N \in \mathbb{R}$ such that $\forall n \in \mathbb{N}$, $n > N$ implies
+$||s_n| - 0| < \varepsilon$. By idempotence, $||s_n|| = |s_n|$ and thus, 
+the implication $||s_n| - 0| = ||s_n|| = |s_n| < \varepsilon$ is also true, 
+which also happens to show that the limit of $(s_n)$ is $0$. $\blacklozenge$
+\end{enumerate}
+
+\item[17.2] Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] If lim $s_n = s$ and lim $t_n = t$, then lim $(s_nt_n) = st$. \\
+True; this is theorem 17.1(c).
+\item[b)] If lim $s_n = +\infty$, then $(s_n)$ is said to converge to $+\infty$.\\
+False; $(s_n)$ is said to \emph{diverge} to $+\infty$.
+\item[c)] Given sequences $(s_n)$ and $(t_n)$ with $s_n \leq t_n$ for all $n \in \mathbb{N}$, if lim $s_n = +\infty$, then lim $t_n = +\infty$. \\
+True; by theorem 17.4.
+\item[d)] Suppose $(s_n)$ is a sequence such that the sequence of ratios $(s_{n+1}/s_n)$ converges to $L$. If $L < 1$, then lim $s_n = 0$. \\
+False; $(s_n)$ must be a sequence of positive terms.
+\end{enumerate}
+
+\item[17.4] Prove Theorem 17.1(b).
+\begin{enumerate}
+\item[b)] In one case, we can say that $(t_n)$ is an increasing sequence, that is for all
+$t_n \leq t_{n+1}$, and that it converges to $t$. Since by theorem 16.13, $(t_n)$ is bounded
+and we can also say that for this type of sequence the supremum would be $t$. 
+Thus, it follows that since $t_n \geq 0$
+for all $n \in \mathbb{N}$, that $0 \leq t_1 \leq \cdots \leq t_n \leq t$. \\
+In another case, we can say that $(t_n)$ is an decreasing sequence, that is for all
+$t_n \geq t_{n+1}$, and that it converges to $t$. Since by theorem 16.13, $(t_n)$ is bounded
+and we can also say that the infimum would be $t$. Thus, it follows that since $t_n \geq 0$
+for all $n \in \mathbb{N}$, that $t_1 \geq \cdots \geq t_n \geq t \geq 0$. \\
+In our third case, let $(t_n)$ converge to some $t$ such that \\
+$\min\{t_1, t_2, \ldots, t_n\} \leq t \leq \max\{t_1, t_2, \ldots, t_n\}$. Hence,
+it follows that since $t_n \geq 0$ for all $n \in \mathbb{N}$, that 
+$0 \leq \min\{t_1, t_2, \ldots, t_n\} \leq t$.
+\end{enumerate}
+
+\item[17.5] 
+\begin{enumerate}
+\item[a)] 
+\[
+s_n = \frac{3 - 2n}{1 + n} = \frac{(3/n) - 2}{(1/n) + 1}
+\]
+Now lim $(1/n) = 0$ by example 16.3 and lim $(3/n) = 0$ by theorem 17.1(b). Thus
+\[
+\mbox{lim } \left[ \frac{(3/n) - 2}{(1/n) + 1} \right]
+\,\, = \frac{0 - 2}{0 + 1} = \,-2
+\]
+by theorem 17.1(a). Hence, $(s_n)$ converges to $-2$.
+
+\item[c)] 
+\[ 
+s_n = \frac{(-1)^nn}{2n - 1} = (-1)^n \cdot \frac{n}{2n - 1}
+\]
+By theorem 17.1(c), we can find the limit of $(-1)^n$ and $n/(2n - 1)$, which is the same as 
+$1/(2 - 1/n)$. Since we know that lim $1/n = 0$, thus the lim $[1/(2 - 1/n)] = 1/2$ and
+$(-1)^n$ diverges because it alternates between $1$ and $-1$. No matter the
+limit for $n/(2n - 1)$, we can see that $(s_n)$ is going to diverge with no limit due to
+$(-1)^n$.
+
+\item[e)] 
+\[
+s_n = \frac{n^2 - 2}{n + 1}
+\]
+Given any $M \in \mathbb{R}$, let $N = \max\{1, 4M\}$. Then $n > N$ implies that
+$n > 1$ and $n > 4M$. Since $n > 1$, $n + 1 \leq 2n$ and $n^2 - 2 \geq n^2/2$.
+Thus for $n \geq N$ we have
+\[
+\frac{n^2 - 2}{n + 1} \geq \frac{n^2/2}{2n} = \frac{n^2}{4n} = \frac{n}{4} > M
+\]
+Hence lim $(n^2 - 2)/(n + 1) = +\infty$.
+
+\item[g)] 
+\[
+s_n = \frac{1 - n}{2^n}
+\]
+Just by observation we can see that this is probably going to go to $0$. 
+To show this is true, for $n \geq 5$, $n^2 < 2^n$ and $1 - n > -n$, thus
+\[
+\left| \frac{1 - n}{2^n} - 0 \right| = \frac{1 - n}{2^n} < \frac{-n}{n^2} = (-1) \cdot \frac{1}{n}
+\]
+by theorem 16.8, lim $(s_n) = 0$.
+
+\end{enumerate}
+
+\item[17.6] For each of the following, prove or give a counterexample.
+\begin{enumerate}
+\item[c)] If $(s_n)$ and $(s_n + t_n)$ are convergent sequences, then $(t_n)$ converges. \\
+\emph{Proof by contrapositive:} If $(t_n)$ is a divergent sequence, then either $(s_n)$ is 
+divergent or $(s_n + t_n)$ is divergent. If $(s_n)$ is a divergent sequence, then we are done.
+On the other hand, $(s_n)$ could be a convergent sequence. For the sake of contradiction, let
+$(s_n + t_n)$ be a convergent sequence. Thus it follows from theorem 17.1(a), that $(s_n)$ and
+$(t_n)$ both must be convergent, which contradicts that $(t_n)$ is divergent. Hence
+$(s_n + t_n)$ must be divergent. $\blacklozenge$
+
+\item[d)] If $(s_n)$ and $(s_nt_n)$ are convergent sequences, then $(t_n)$ converges. \\
+\emph{Counterexample:} Let $(s_n)$ be the sequence given by $s_n = 1/n$ 
+and $(s_nt_n)$ be the sequence given by $s_nt_n = 1$. Thus, $(s_n)$ and $(s_nt_n)$
+are convergent. Hence, $(t_n)$ is the sequence given by $t_n = n$, 
+which we know diverges to $+\infty$.
+\end{enumerate}
+
+\item[17.8] Give an example of a divergent sequence $(t_n)$ of positive numbers such that lim $(t_{n+1}/t_n) = 1$.
+\begin{enumerate}
+\item[b)] The sequence given by $t_n = n$ is divergent as well as the lim $(t_{n+1}/t_n) = 1$.
+\[
+\mbox{lim } \left( \frac{n + 1}{n} \right) = \mbox{lim } \left( \frac{1 + (1/n)}{1} \right) =
+\frac{1 + 0}{1} = 1
+\]
+\end{enumerate}
+
+\item[17.9] Prove Theorem 17.12.
+\begin{enumerate}
+\item[a)] If $(s_n)$ diverges to $+\infty$, by definition we have, 
+for every $M \in \mathbb{R}$ there exists a number $N$ such that
+$n > N$ implies that $s_n > M$. Since $s_n \leq t_n$ for all $n \in \mathbb{N}$, 
+the implication $t_n > M$ will also be true. Thus, $t_n$ also diverges to
+$+\infty$.
+\item[b)] If $(t_n)$ diverges to $-\infty$, by definition we have, 
+for every $M \in \mathbb{R}$ there exists a number $N$ such that
+$n > N$ implies that $t_n < M$. Since $s_n \leq t_n$ for all $n \in \mathbb{N}$, 
+the implication $s_n < M$ will also be true. Thus, $s_n$ also diverges to
+$-\infty$.
+\end{enumerate}
+
+\item[17.15] Prove the following.
+\begin{enumerate}
+\item[c)] $\lim (\sqrt{n^2 + n} - n) = 1/2$
+\[
+\sqrt{n^2 + n} - n = \frac{(\sqrt{n^2 + n} - n)(\sqrt{n^2 + n} + n)}{\sqrt{n^2 + n} + n}
+= \frac{n}{\sqrt{n^2 + n} + n}
+\]
+Thus,
+\[
+\mbox{lim }\left( \frac{n}{\sqrt{n^2 + n} + n} \right) = 
+\mbox{lim }\left( \frac{1}{\sqrt{1 + (1/n)} + 1} \right) =
+\frac{\mbox{lim }1}{\mbox{lim } [\sqrt{1 + (1/n)}] + \mbox{lim } 1}
+\]
+and from that we get $1/(1 + 1) = 1/2$. \hskip 7.2cm $\blacklozenge$ 
+\end{enumerate}
+
+\item[18.2] Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] If a convergent sequence is bounded, then it is monotone. \\
+False; the convergent sequence, {\large $\left( \frac{(-1)^n}{n} \right)$},
+is bounded and it is not monotone.
+\item[b)] If $(s_n)$ is an unbounded increasing sequence, then lim $s_n = +\infty$. \\
+True; this is theorem 18.8(a).
+\item[c)] The Cauchy convergence criterion holds in $\mathbb{Q}$, the ordered field of rational numbers. \\
+False; the Cauchy convergence criterion depends on the completeness of $\mathbb{R}$
+and we already established in section 12 that $\mathbb{Q}$ is not complete.
+\end{enumerate}
+
+\item[18.4] Find an example of a sequence of real numbers satisfying each set of properties.
+\begin{enumerate}
+\item[a)] Cauchy, but not monotone: {\large $\left( \frac{(-1)^n}{n} \right)$}
+\item[b)] Monotone, but not Cauchy: $(n)$
+\item[c)] Bounded, but not Cauchy: $s(n) = 1 + (-1)^n$
+\end{enumerate}
+
+\item[18.7] Let $s_1 = \sqrt{6}, s_2 = \sqrt{6 + \sqrt{6}}, s_3 = \sqrt{6 + \sqrt{6 + \sqrt{6}}}$,
+and in general define $s_{n+1} = \sqrt{6 + s_n}$. Prove that $(s_n)$ converges and find its limit.
+\begin{enumerate}
+\item[] Let $(s_n)$ be the sequence defined by $s_1 = \sqrt{6}$ and 
+$s_{n + 1} = \sqrt{6 + s_n}$ for $n \geq 1$. We shall show that $(s_n)$ is a
+bounded increasing sequence. Computing the next three terms of the sequence we find
+\begin{eqnarray*}
+s_2 &=& \sqrt{6 + \sqrt{6}} \hskip 3.17cm \approx 2.91 \\
+s_3 &=& \sqrt{6 + \sqrt{6 + \sqrt{6}}} \hskip 2.05cm \approx 2.98 \\
+s_4 &=& \sqrt{6 + \sqrt{6 + \sqrt{6 + \sqrt{6}}}} \hskip 0.9cm \approx 3.0
+\end{eqnarray*}
+where the decimals have been rounded off. It appears that the sequence is bounded
+above by 4. To see if this conjecture is true, let us try to prove it using 
+induction. Certainly, $s_1 = \sqrt{6} < 4$. Now suppose that $s_k < 4$ for 
+some $k \in \mathbb{N}$. Then
+\[
+s_{k + 1} = \sqrt{6 + s_k} < \sqrt{6 + 4} = \sqrt{10} < 4.
+\]
+Thus we may conclude by induction that $s_n < 4$ for all $n \in \mathbb{N}$. \\
+To verify that $(s_n)$ is an increasing sequence, we also argue by induction.
+Since $s_1 = \sqrt{6}$ and $s_2 = \sqrt{6 + \sqrt{6}}$, we have $s_1 < s_2$, which
+establishes the basis for induction. Now suppose that $s_k < s_{k + 1}$ for some
+$k \in \mathbb{N}$. Then we have
+\[
+s_{k + 1} = \sqrt{6 + s_k} < \sqrt{6 + s_{k + 1}} = s_{k + 2}
+\]
+Thus the induction step holds and we conclude that $s_n < s_{n + 1}$ for all 
+$n \in \mathbb{N}$. \\
+Thus $(s_n)$ is an increasing sequence and it is bounded by the interval [2, 4].
+We conclude from the monotone convergence therorem (18.3) that $(s_n)$ is 
+convergent. The only question that remains is to find the value $s$ to which
+it converges. Since lim $s_{n + 1} = $lim $s_n$ (Exercise 16.11), we see that $s$
+must satisfy the equation 
+\[
+s = \sqrt{6 + s}
+\]
+Solving algebraically for $s$, we obtain $s = 3$ or $s = -2$. Since $s_n \geq \sqrt{6}$
+for all $n$, $-2$ cannot be the limit. We conclude that lim $s_n = s = 3$.
+\end{enumerate}
+
+
+\item[18.8] Let $s_1 = k$ and define $s_{n+1} = \sqrt{4s_n - 1}$ for $n \in \mathbb{N}$. Determine for what values of $k$ the sequence $(s_n)$ will be monotone increasing and for what values of $k$ it will be monotone decreasing.
+\begin{enumerate}
+\item[] In order for $\sqrt{4x - 1}$ to be a real number, then $x \geq 1/4$. We can find
+the roots of $x = \sqrt{4x - 1}$ to be $2 \pm \sqrt{3}$. Thus when $k = 2 \pm \sqrt{3}$, it
+follows that the sequence will be both monotone increasing and monotone decreasing, since
+$s_1 = s_2 = \cdots = s_n$. Also, since we can say the domain of $x^2 - 4x + 1$ is
+$[1/4, +\infty)$, after taking the roots into account, we need to 
+say whether the intervals $[1/4, 2 - \sqrt{3}), (2 - \sqrt{3}, 2 + \sqrt{3})$, and 
+$(2 + \sqrt{3}, +\infty)$ are monotone increasing or decreasing. \\
+Let's start with $[1/4, 2 - \sqrt{3})$. Let $k = 1/4$, then $s_1 = 1/4$ and 
+$s_2 = 0$. Now suppose that $s_k > s_{k + 1}$ for some $k \in \mathbb{N}$, then
+\[
+s_{k + 1} = \sqrt{4s_k - 1} > \sqrt{4s_{k+1} - 1} = s_{k + 2}
+\]
+This shows that if $k = 1/4$ then it is a monotone decreasing sequence.
+More generally, the inequality $k > \sqrt{4k - 1}$ holds true $\forall k \in [1/4, 2 - \sqrt{3})$,
+thus if $k \in [1/4, 2 - \sqrt{3})$, then the sequence will also be monotone decreasing. The 
+aforementioned inequality also happens to hold true $\forall k \in (2 + \sqrt{3}, +\infty)$, 
+thus if $k \in (2 + \sqrt{3}, +\infty)$, then the sequence will also be monotone decreasing.\\
+Lastly, the inequality, $k < \sqrt{4k - 1}$ holds true $\forall k \in (2 - \sqrt{3}, 2 + \sqrt{3})$.
+This shows that $s_1 < s_2$ and assuming that $s_k < s_{k + 1}$ for some $k \in \mathbb{N}$, then
+we can show that $s_k = \sqrt{4s_k - 1} < \sqrt{4s_{k+1} - 1} = s_{k + 2}$. By induction,
+we have shown that for all $k$ in this interval will make the sequence monotone increasing.
+\end{enumerate}
+
+\item[18.13] Prove Lemma 18.11.
+\begin{enumerate}
+\item[] By theorem 18.12, we know that every Cauchy sequence is convergent and by theorem 16.13, 
+we know that every convergent sequence is bounded. Thus every Cauchy sequence must be bounded.
+\end{enumerate}
+
+\item[20.2] Let $f: D \rightarrow \mathbb{R}$ and let $c$ be an accumulation point of $D$. Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] For any polynomial $P$ and any $c \in \mathbb{R}, \lim_{x \to c}P(x) = P(c)$. \\
+True; this is word for word what was said in example 20.14.
+\item[b)] For any polynomials $P$ and $Q$ and any $c \in \mathbb{R}$,
+\[
+\lim_{x \to c}\frac{P(x)}{Q(x)} = \frac{P(c)}{Q(c)}.
+\]
+True; follows from what was said in part (a) and the quotient of
+definition 20.12.
+\item[c)] In evaluating $\lim_{x \to a-}f(x)$ we only consider points $x$ that are greater than $a$. \\
+False; this is a left-handed limit, which is defined as 
+taking into consideration all points less than but no equal to $a$.
+\item[d)] If $f$ is defined in a deleted neighborhood of $c$, then $\lim_{x \to c}f(x) = L$ iff 
+\\ $\lim_{x \to c+}f(x) = \lim_{x \to c-}f(x) = L$. \\
+True; this is the last two sentences of the section.
+\end{enumerate}
+
+\item[20.3] Determine the following limits.
+\begin{enumerate}
+\item[a)]
+\[
+\lim_{x \to 1} \frac{x^3 + 5}{x^2 + 2} = \frac{1 + 5}{1 + 2} = \frac{6}{3} = 2
+\]
+\item[c)]
+\[
+\lim_{x \to 1} \frac{\sqrt{x} - 1}{x - 1} = 
+\lim_{x \to 1} \frac{(\sqrt{x} - 1)(\sqrt{x} + 1)}{(x - 1)(\sqrt{x} + 1)} =
+\lim_{x \to 1} \frac{1}{\sqrt{x} + 1} = \frac{1}{2}
+\]
+\item[e)]
+\[
+\lim_{x \to 0} \frac{x^2 + 3x}{x^2 + 1} = \frac{0 + 0}{0 + 1} = 0
+\]
+\item[g)] As, $x < 0, |x| = -x$, therefore
+\[
+\lim_{x \to 0-} \frac{4x}{|x|} = \lim_{x \to 0-} \frac{4x}{-x} = \lim_{x \to 0-} -4 = -4
+\]
+\end{enumerate}
+
+\item[20.5] Find a $\delta > 0$ so that $|x - 2| < \delta$ implies that $|x^2 - 7x + 10| < 1/3$.
+\begin{enumerate}
+\item[] First note that $|x^2 - 7x + 10| = |x - 5||x - 2|$. Thus we need to have an upper
+bound on the size of $|x - 5|$. Now if $|x - 2| < 1/3$, then 
+$|x - 5| = |x - 2 - 3| \leq |x - 2| + |-3| < 4$, so that 
+$|x^2 - 7x + 10| = |x - 5||x - 2| < 4|x - 2|$. Thus we take $\delta = 1/12$.
+\end{enumerate}
+
+
+\item[20.6] Use definition 20.1 to prove each limit.
+\begin{enumerate}
+\item[b)] $\lim_{x \rightarrow -2}(x^2 + 2x + 7) = 7$
+\[
+|x^2 + 2x + 7 - 7 | = |x^2 + 2x| = |x||x + 2|
+\]
+If we bound $|x|$ when $x$ is approaching $2$ from the left side, then we make
+$|x| < 2$. Thus we can choose $|x + 2| < \varepsilon /2$. Hence we can choose 
+$\delta = \min\{2, \varepsilon /2 \}$.
+\[
+|x^2 + 2x + 7 - 7 | = |x^2 + 2x| = |x||x + 2| < 2|x + 2| < 2\delta \leq \varepsilon
+\]
+\end{enumerate}
+
+\item[20.11] Prove Theorem 20.10.
+\begin{enumerate}
+\item[] To prove that (a) $\Rightarrow$ (b), suppose that (b) is false. Let $(s_n)$ be a sequence
+in $D$ with $s_n \rightarrow c$ and $s_n \neq c$ for all $n$. Since (b) is false, $(f(s_n))$ 
+converges to some value, say $L$. We must now show that any given sequence $(t_n)$ in $D$ with
+$t_n \rightarrow c$ and $t_n \neq c$ for all $n$, we have $\lim f(t_n) = L$. We only know from the
+negation of (b) that $(f(t_n))$ is convergent. To see the $\lim f(t_n) = L$, consider the sequence
+$(u_n) = (s_1, t_1, s_2, t_2, \ldots )$, clearly this sequence converges to $c$. Now let's say
+that $f(u_n)$ converged to $M$, $M \neq L$. By theorem 19.4, since $f(u_n)$ converges to 
+$M$, then $f(s_n)$ would also converge to $M$ as well. We know that $f(s_n)$ converges to $L$, thus
+since it is a subsequence of $f(u_n)$, then $f(u_n)$ converges to $L$ as well. Again, by 
+theorem 19.4, since $f(t_n)$ is a subsequence of $f(u_n)$ then it must also converge to $L$,
+which following the negation and theorem 20.8, implies that $f$ has a limit at $c$. To prove
+(b) $\Rightarrow$ (a), for the sake of contradiction suppose that (a) is false. Then (a) reads
+that $f$ has a limit at $c$, which contradicts theorem 20.8 where every sequence $(s_n)$ converging
+to $c$ with $s_n \neq c$ for all $n$, then the sequence $f(s_n)$ converges. Thus $f$ must not
+have a limit at $c$. $\blacklozenge$
+\end{enumerate}
+
+\item[20.16] Let $f: D \rightarrow \mathbb{R}$ and let $c$ be and accumulation point of $D$. Suppose that $\lim_{x \rightarrow c}f(x) > 0$. Prove that there exists a deleted neighborhood $U$ of $c$ such that $f(x) > 0$ for all $x \in U \cap D$.
+\begin{enumerate}
+\item[] Since $f: D \rightarrow \mathbb{R}$ and $c$ is an accumulation point in $D$ and 
+$\lim_{x \to c}f(x) = L > 0$, then that means for each neighborhood $V$ of $L$ there exists
+a deleted neighborhood $U$ of $c$ such that $f(U \cap D) \subseteq V$, by theorem 20.2.
+Using the $\varepsilon - \delta$ definition, then $V$ is a open interval bounded by
+$L - \varepsilon$ and $L + \varepsilon$. Thus since $L > 0$, for any $\varepsilon$,
+$0 < \varepsilon < L$ implies that $L - \varepsilon > 0$ and since this happens
+to a lower bound of $V$ then we have $0 < L - \varepsilon < f(x)$, for all $x \in U \cap D$. 
+Since by definition 20.1, the $\delta$ depends on the $\varepsilon$, 
+thus it follows there there exist a $U^*(c, \delta)$ that satisfies our requirements.
+$\blacklozenge$
+\end{enumerate}
+
+\item[21.2] Let $f: D \rightarrow \mathbb{R}$ and let $c \in D$. Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] If $f$ is continuous at $c$ and $c$ is an accumulation point of $D$, then $\lim_{x \to c}f(x) = f(c)$. \\
+True; as stated in theorem 21.2(d).
+\item[b)] Every polynomial is continuous at each point in $\mathbb{R}$. \\
+True; as stated in example 21.3.
+\item[c)] If $(x_n)$ is a Cauchy sequence in $D$, then $(f(x_n))$ is convergent. \\
+False; consider the function $f(1/x) = x$ and the Cauchy sequence (1/n).
+\item[d)] If $f: \mathbb{R} \rightarrow \mathbb{R}$ is continuous at each irrational number, then $f$ is continuous on $\mathbb{R}$. \\
+False; the modified Dirichlet function is a counterexample.
+\item[e)] If $f: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ are both continuous on $\mathbb{R}$, then $f \circ g$ and $g \circ f$ are both continuous on $\mathbb{R}$. \\
+True; by theorem 21.12 by letting $D = \mathbb{R}$ and $E = \mathbb{R}$.
+\end{enumerate}
+
+\item[21.4] Define $f: \mathbb{R} \rightarrow \mathbb{R}$ by $f(x) = x^2 - 3x + 5$. Use Definition 21.1 to prove that $f$ is continuous at 2.
+\begin{enumerate}
+\item[] 
+\[ 
+|f(x) - f(c)| = |x^2 - 3x + 5 - (4 - 6 + 5)| = |x^2 - 3x + 2| = |x - 2||x - 1|
+\]
+We arbitrarily want $|x - 2| < 1$ that way we can bound $|x - 1|$. Hence, 
+$|x - 1| = |x - 2 + 1| = \leq |x - 2| + |1| \leq 1 + 1 = 2$. Thus for any given
+$\varepsilon > 0$, let $\delta = \min \{1, \varepsilon /2 \}$. Then for all $x$
+satisfying $|x - 2| < \delta$ we have $|x - 2| < 1$, so that $|x - 1| < 2$. It
+foloows that for these $x$ we have 
+\[
+|f(x) - f(c)| = |x - 2||x - 1| \leq 2|x - 2| \leq \varepsilon
+\]
+\end{enumerate}
+
+\item[21.6] Prove or give a counterexample for each statement.
+\begin{enumerate}
+\item[a)] If $f$ is continuous on $D$ and $k \in \mathbb{R}$, then $kf$ is continuous on $D$. \\
+To show that $kf$ is continuous on $D$, we show that 
+$\lim kf(x_n) = k \lim f(x_n) = kf(c)$, by the fact that $f$ is continuous on $D$
+and theorem 17.1(b).
+\item[b)] If $f$ and $f + g$ are continuous on $D$, then $g$ is continuous on $D$. \\
+As proven in class: If $f$ is continuous, then $-f$ is also continuous. Since
+we can represent $g$ as $(-f) + (f + g)$ and we know that $(f + g)$ is also continuous,
+hence $g$ must be continuous.
+\item[c)] If $f$ and $fg$ are continuous on $D$, then $g$ is continuous on $D$. \\
+If $f$ is continuous and $f(c) \neq 0$ then $1/f$ is also continuous. Since
+we can represent $g = (fg)/f$ and we know that $fg$ is continuous then we know that
+$g$ is continuous by theorem 21.10(b).
+\item[d)] If $f^2$ is continuous on $D$, then $f$ is continuous on $D$. \\
+As shown in class: Counterexample: Let $f(x)$ be $1$ when $x \geq 0$ and 
+$-1$ when $x < 0$.
+\item[e)] If $f$ is continuous on $D$, then $f(D)$ is a bounded set. \\
+Counterexample: Let $f(x) = 1/x$ and $D = (0, 1]$.
+\item[f)] If $f$ and $g$ are not continuous on $D$, then $f+g$ is not continuous on $D$. \\
+Counterexample: Let $f(x)$ be $1$ when $x \geq 0$ and 
+$-1$ when $x < 0$, also, let $g(x)$ be $-1$ when $x \geq 0$ and 
+$1$ when $x < 0$.
+\item[g)] If $f$ and $g$ are not continuous on $D$, then $fg$ is not continuous on $D$. \\
+Counterexample: Let $f(x)$ and $g(x)$ be $1$ when $x \geq 0$ and 
+$-1$ when $x < 0$.
+\item[h)] If $f: D \rightarrow E$ and $g: E \rightarrow F$ are not continuous on $D$ and $E$, respectively, then $g \circ f : D \rightarrow F$ is not continuous on $D$. \\
+Counterexample: Consider $ f(x) = 
+\begin{cases}
+-1, & x < 0 \\
+1, & x \geq 0
+\end{cases}
+$ \quad and \\ 
+$g(x) = 
+\begin{cases}
+1, & x = 1 \vee x = -1 \\
+-1, & \mbox{for anything else} 
+\end{cases}
+$
+\end{enumerate}
+
+\item[21.14] Let $f: D \rightarrow \mathbb{R}$ be continuous at $c \in D$. Prove that there exists an $M > 0$ and a neighborhood $U$ of $c$ such that $|f(x)| \leq M$ for all $x \in U \cap D$.
+\begin{enumerate}
+\item[] Since $f$ is continuous at $c \in D$, by theorem 21.2, for every neighborhood
+$V$ of $f(c)$ there exists a neighborhood $U$ of $c$ such that 
+$f(U \cap D) \subseteq V$. Using the $\varepsilon - \delta$ definition, 
+$V$ is the open interval bounded by $f(c) - \varepsilon$ and $f(c) + \varepsilon$. 
+Hence we can choose $M = \max \{ |f(c) - \varepsilon |, |f(c) + \varepsilon |\} > 0$,
+such that $\forall x \in U \cap D$, $|f(x)| \leq M$. $\blacklozenge$
+\end{enumerate}
+
+\item[21.16] Let $f: \mathbb{R} \rightarrow \mathbb{R}$. Prove that $f$ is continuous on $\mathbb{R}$ iff $f^{-1}(H)$ is a closed set whenever $H$ is a closed set.
+\begin{enumerate}
+\item[] Let us note that $\mathbb{R} = \mathbb{R}\backslash H \cup H$ and that
+$\mathbb{R} = f^{-1}(\mathbb{R}) = f^{-1}(\mathbb{R}\backslash H) \cup f^{-1}(H)$. 
+We also know that $H$ is closed whenever $\mathbb{R}\backslash H$ is open and 
+vice versa. So if $H$ is closed, then $f^{-1}(H)$ must also be closed if and 
+only if $\mathbb{R}\backslash f^{-1}(H)$ is open which also happens to be equal 
+to $f^{-1}(\mathbb{R}\backslash H)$, which we know follows from corollary 21.15.
+Thus, $f$ is continuous on $\mathbb{R}$ iff $f^{-1}(H)$ is a closed set
+whenever $H$ is a closed set. $\blacklozenge$
+\end{enumerate}
+
+\item[22.2] Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] Let $f : [a, b] \rightarrow \mathbb{R}$ be continuous and suppose $f(a) < 0 < f(b)$. Then there exists a point $c$ in $(a, b)$ such that $f(c) = 0$. \\
+True; by lemma 22.5.
+\item[b)] Let $f : [a, b] \rightarrow \mathbb{R}$ be continuous and suppose $f(a) \leq k \leq f(b)$. Then there exists a point $c \in [a, b]$ such that $f(c) = k$. \\
+False; $f(a) < k < f(b)$ must be true.
+\item[c)] If $f: D \rightarrow \mathbb{R}$ is continuous and bounded on $D$, then $f$ assumes maximum and minimum values on $D$. \\
+False; $D$ must be a compact subset of $\mathbb{R}$.
+\end{enumerate}
+
+\item[22.3] Let $f: D \rightarrow \mathbb{R}$ be continuous. For each of the following, prove or give a counterexample.
+\begin{enumerate}
+\item[a)] If $D$ is open, then $f(D)$ is open. \\
+\emph{Counterexample:} Consider $D = \mathbb{R}$ and $f(x) = \sin x$.
+\item[b)] If $D$ is closed, then $f(D)$ is closed. \\
+\emph{Counterexample:} Consider $D = \mathbb{N}$ and $f(x) = 1/x$.
+\item[c)] If $D$ is not open, then $f(D)$ is not open. \\
+\emph{Counterexample:} Consider $D = \mathbb{N}$ and $f(x) = 1/x$.
+\item[d)] If $D$ is not closed, then $f(D)$ is not closed. \\
+\emph{Counterexample:} Consider $D = (0, 1)$ and $f(x) = 5$.
+\item[e)] If $D$ is not compact, then $f(D)$ is not compact. \\
+\emph{Counterexample:} Consider $D = (0, 1)$ and $f(x) = 5$.
+\item[f)] If $D$ is unbounded, then $f(D)$ is unbounded. \\
+\emph{Counterexample:} Consider $D = [1, \infty)$ and $f(x) = 1/x$.
+\item[g)] If $D$ is finite, then $f(D)$ is finite. \\
+This is clearly true as the definition of a function states that
+there is exactly 1 mapping for all elements in $D$ 
+to some element in the range. Since $D$ is finite, then the 
+image, $f(D)$, can have at most the same amount of elements in $D$.
+\item[h)] If $D$ is infinite, then $f(D)$ is infinite. \\
+\emph{Counterexample:} Consider $D = \mathbb{R}$ and $f(x) = 0$.
+\item[j)] If $D$ is an interval that is not open, then $f(D)$ is an interval that is not open. \\
+\emph{Counterexample:} Consider $D = \mathbb{N}$ and $f(x) = 1/x$.
+\end{enumerate}
+
+\item[22.6] Show that any polynomial of odd degree has at least one real root.
+\begin{enumerate}
+\item[] Let $P(x) = a_nx^n + \cdots + a_0$ be our odd degree polynomial.
+Now either $P(x) \rightarrow \infty$ or $P(x) \rightarrow -\infty$ as
+$x \rightarrow \infty$, depending on whether $a_n$ is positive or negative. 
+When $P(x) \rightarrow \infty$ as $x \rightarrow \infty$ then
+$P(x) \rightarrow -\infty$ as $x \rightarrow -\infty$. It's just as well, that
+when $P(x) \rightarrow -\infty$ as $x \rightarrow \infty$, then $P(x) \to \infty$
+as $x \rightarrow -\infty$. This property implies that $P(x)$ takes both
+positive and negative values, so we can apply the Intermediate Value Theorem
+so that we know there exists at least one $c$ such that $P(c) = 0$, meaning
+there is at least one root. 
+\end{enumerate}
+
+\item[22.10] Suppose that $f: [a, b] \rightarrow \mathbb{R}$ is two-to-one. That is, for each $y \in \mathbb{R}, f^{-1}(\{y\})$ either is empty of contains exactly two points.
+\begin{enumerate}
+\item[a)] Find an example of such a function. \\
+If we can turn a blind eye to $x = 0$ then $f(x) = x^2$ is a 
+two-to-one function for $f: \mathbb{R} \rightarrow \mathbb{R}$.
+\end{enumerate}
+
+\item[22.13] Let $f$ be a function defined on an interval $I$. We say that $f$ is {\bf strictly increasing} if $x_1 < x_2$ in $I$ implies that $f(x_1) < f(x_2)$. Similarly, $f$ is {\bf strictly decreasing} if $x_1 < x_2$ in $I$ implies that $f(x_1) > f(x_2)$. Prove the following.
+\footnote{
+The answer to part(a) and (b) was taken from\\
+http://students.csci.unt.edu/\%7Ehgc0005/homeworks/h8ra.pdf
+}
+\begin{enumerate}
+\item[a)] If $f$ is continuous and injective on $I$, then $f$ is strictly increasing or strictly decreasing. \\
+If $f$ is not strictly increasing nor decreasing, then there exists
+$x \in I$ such that $f(x) < f(z)$ for some $z < x$ in $I$. Now choose any 
+$y < z \in I$ such that $f(y) < f(x)$. If there exist no such $y$, then let
+$x = c$ such that $f(y) < f(c) < f(z)$ and $c \in (z, x)$, this is guaranteed
+by the Intermediate Value Theorem applied to $f(z)$ and $f(x)$. Now, applying
+again the Intermediate Value Theorem to $f(y)$ and $f(z)$ there exists 
+$d \in (y, z)$ such that $f(d) = f(c)$, clearly $d \neq c$, thus this 
+contradicts our assumption that $f$ is injective.
+\item[b)] If $f$ is strictly increasing and if $f(I)$ is an interval, then $f$ is continuous. Furthermore, $f^{-1}$ is a strictly increasing continuous function on $f(I)$. \\
+Let $V$ be the neighborhood $(y_0 - \varepsilon, y_0 + \varepsilon)$ 
+such that $V \subseteq f(I)$, then there exists $x_1, x_2 \in I$ such that
+$f(x_1) = x - \varepsilon$ and $f(x_2) = x + \varepsilon$, 
+clearly $x_1 < x_2$, let $U$ be the neighborhood $(x_1, x_2)$. Now for every
+$y \in V$ there exists an $x \in U$ such that $f(x) = y$ (otherwise if 
+$y_0 - \varepsilon < y < y_0 + \varepsilon$ and $x < x_1$ or $x > x_2$ would
+contradict the fact that the function is strictly increasing), then $f(U) 
+\subseteq V$, then by theorem 21.2(c), $f$ is continuous. Now since $f$
+is a strictly increasing function on $I$, then for every $x_1 < x_2 \in I$, 
+$f(x_1) < f(x_2)$, this implies that for every $f(x_1) < f(x_2) \in f(I)$,
+$f^{-1}(f(x_1)) < f^{-1}(f(x_2))$, in other words for every
+$f(x_1) < f(x_2) \in f(I)$, $x_1 < x_2$.
+\end{enumerate}
+
+\item[23.2] Let $f: D \rightarrow \mathbb{R}$. Mark each statement True or False. Justify each answer.
+\begin{enumerate}
+\item[a)] In the definition of uniform continuity, the positive $\delta$ depends only on the function $f$ and the given $\epsilon > 0$.\\
+False; $\delta$ only depends on $\varepsilon$ in the definition of
+uniform continuity.
+\item[b)] If $f$ is continuous and $(x_n)$ is a Cauchy sequence in $D$, then $(f(x_n))$ is a Cauchy sequence. \\
+False; $f$ must be uniformly continuous by theorem 23.8.
+\item[c)] If $f: (a, b) \rightarrow \mathbb{R}$ can be extended to a function that is continuous on $[a, b]$, then $f$ is uniformly continuous on $(a, b)$. \\
+True; by theorem 23.9.
+\end{enumerate}
+
+\item[23.3] Determine which of the following continuous functions are uniformly continuous on the given set. Justify your answers.
+\begin{enumerate}
+\item[a)] $f(x) = e^x/x$ on [2, 5] \\
+It is uniformly continuous since it is continuous on a compact set.
+\item[b)] $f(x) = e^x/x$ on (0, 2) \\
+Not uniformly continuous because it cannot be extended to a function
+that is continuous because $e^x/x$ is undefined at $0$ on the compact set $[0, 2]$.
+\item[c)] $f(x) = x^2 + 3x - 5$ on [0, 4] \\
+It is uniformly continuous since it is continuous on a compact set.
+\item[d)] $f(x) = x^2 + 3x - 5$ on (1, 3) \\
+It is uniformly continuous since it is continuous on the compact set, [1, 3].
+\item[e)] $f(x) = 1/x^2$ on (0, 1) \\
+It is uniformly continuous since it is continuous on a compact set.
+\item[f)] $f(x) = 1/x^2$ on $(0, \infty)$ \\
+It is not uniformly continuous since it cannot be extended to a function
+that is continuous on $[0, \infty]$ because $\lim_{x \to 0} f(x) = \infty$.
+\item[g)] $f(x) = x \sin (1/x)$ on $(0, 1)$. \\
+It is uniformly continuous since it can be extended to a function that
+is continuous on [0, 1] by example 21.5.
+\end{enumerate}
+
+\item[23.4] Prove that each function is uniformly continuous on the given set by directly verifying the $\epsilon-\delta$ property in Definition 23.1.
+\begin{enumerate}
+\item[b)] $f(x) = \frac{1}{x}$ on $[2, \infty )$
+\[
+|f(x) - f(y)| = |\frac{1}{x} - \frac{1}{y}| = \frac{|x - y|}{|xy|}
+\]
+Hence $x$ and $y$ are both positive so $|xy| = xy$. Also, since both 
+$x \geq 2$ and $y \geq 2$ then $\frac{|x - y|}{|xy|} \leq |x - y|$.
+Given $\varepsilon$, take $\delta = \varepsilon$.
+If $|x - y| < \delta$, then \[
+|\frac{1}{x} - \frac{1}{y}| = \frac{|x - y|}{|xy|} \leq |x - y| < \delta =
+\varepsilon
+\]. Thus $f(x)$ is uniformly continuous on $[2, \infty)$.
+\end{enumerate}
+
+\item[23.5] Prove that $f(x) = \sqrt{x}$ is uniformly continuous on $[0, \infty )$.
+\begin{enumerate}
+\item[] Let $\varepsilon > 0$. Choose $\delta = \varepsilon^2$. Since
+$x, y \in [0, \infty)$ then we have two cases. \\
+Case 1: $x, y \in [0, \varepsilon^2)$. Then $\sqrt{x}\sqrt{y} \in [0, \varepsilon)$,
+thus \[ |f(x) - f(y)| = |\sqrt{x} - \sqrt{y}| < |\varepsilon - 0| = \varepsilon \]
+Case 2: At least one of $x, y$ is greater or equal to $\varepsilon^2$. In this
+case, $\sqrt{x} + \sqrt{y} \geq \sqrt{\varepsilon^2} = \varepsilon$, then
+\[
+|\sqrt{x} - \sqrt{y}| = \frac{|x - y|}{|\sqrt{x} + \sqrt{y}|} \leq 
+\frac{|x - y|}{\varepsilon} < \delta/\varepsilon = \varepsilon^2/\varepsilon 
+= \varepsilon 
+\].
+\end{enumerate}
+
+\item[23.10] Find two real-valued functions $f$ and $g$ that are uniformly continuous on a set $D$, but such that their product $fg$ is not uniformly continuous on $D$.
+\begin{enumerate}
+\item[] Consider when $D = \mathbb{R}$ and $f(x) = g(x) = x$. By Example 23.4, we
+know that $fg = x^2$, which is not uniformly continuous on $\mathbb{R}$.
+\end{enumerate}
+
+\item[23.13] Suppose that $f$ is uniformly continuous on $[a, b]$ and uniformly continuous on $[b, c]$. Prove that $f$ is uniformly continuous on $[a, c]$.
+\begin{enumerate}
+\item[] Given any $\varepsilon > 0$, find $\delta_1$ so that if $x, y \in [a, b]$ 
+with $|x - y| < \delta_1$, then $|f(x) - f(y)| < \varepsilon /2$. Similarly, find
+$\delta_2$ so that if $x, y \in [b, c]$, and $|x - y| < \delta_2$, then 
+$|f(x) - f(y)| < \varepsilon /2$. Let $\delta = \min \{\delta_1, \delta_2 \}$.
+Now, suppose that $x, y \in [a, b]$ with $|x - y| < \delta$. If $x$ and $y$ are both
+elements of $[a, b]$, we can conclude that $|f(x) - f(y)| < \varepsilon /2 < \varepsilon$.
+Similarly, if $x$ and $y$ are both elements of $[b, c]$, then we conclude that
+$|f(x) - f(y)| < \varepsilon$.
+Suppose instead that $x \in [a, b]$ and $y \in [b, c]$. We then can conclude
+that $|x - b| < \delta$ and $|b - y| < \delta$. Therefore, 
+$|f(x) - f(b)| < \varepsilon /2$ and $|f(b) - f(y)| < \varepsilon /2$. So 
+$|f(x) - f(y)| = |f(x) - f(b) + f(b) - f(y)| \leq |f(x) - f(b)| - |f(b) - f(y)|
+< \varepsilon /2 + \varepsilon /2 = \varepsilon$.
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
