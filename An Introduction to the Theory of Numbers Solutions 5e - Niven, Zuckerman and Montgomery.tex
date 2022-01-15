@@ -1,0 +1,786 @@
+\documentclass{letter}
+\usepackage{geometry,amsmath,amssymb,bbm}
+\geometry{letterpaper}
+\usepackage{fullpage}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\nequiv}{\not\equiv}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+2.2.8 Show that if $p$ is an odd prime, then the congruence $x^2 \equiv 1
+(\tmop{mod} p^{\alpha})$ has only two solutions, $x \equiv \pm 1 (\tmop{mod}
+p^{\alpha})$.
+
+{\tmem{Solution:}} By theorem 2.16, any solution to $f (x) = x^2 - 1 \equiv 0
+(\tmop{mod} p^{\alpha})$ is also a solution to $f (x) \equiv 0 (\tmop{mod}
+p)$. But by lemma 2.10, the only solutions to $f (x) \equiv 0 (\tmop{mod} p)$
+are $x \equiv \pm 1 (\tmop{mod} p)$. Hence the only possible solutions to $f
+(x) \equiv 0 (\tmop{mod} p^{\alpha})$ are $\pm 1 (\tmop{mod} p^{\alpha})$,
+plugging these in verifies they are both solutions and consequently the only
+ones.
+
+2.3.33 Find the smallest positive integer $n$ so that $\phi (x) = n$ has no
+solution; exactly two solutions, exactly three solutions, exactly four
+solutions.
+
+{\tmem{Solution:}} We let $\phi^{- 1} (n) =\{x \in \mathbbm{N}| \phi (x) =
+n\}$ and thus we want to find the lowest $n \in \mathbbm{N}$ such that the
+cardinality of $\phi^{- 1} (n)$ is 0, 2, 3, and 4. Furthermore let $x =
+p_1^{e_1} \cdots p_k^{e_k}$, $\phi (x) = p^{e_1 - 1} \cdots p^{e_k - 1_{}}
+(p_1 - 1) \cdots (p_k - 1)$ and $1 \leq i, j \leq k$ throughout.
+
+We claim that 3 is the lowest positive integer such that for all $x \in
+\mathbbm{N}$, $\phi (x) \neq 3$. In fact for all $x \in \mathbbm{N}, x \geq
+3$, $\phi (x) = 2 k$ for some $k \in \mathbbm{N}$, to see this one just needs
+to note that any $x$ will have a prime factorization that is either a power of
+$2$ and by above some $p^{e_i - 1}$ is even so the product is even or it has
+an odd prime and thus some $p_i - 1$ is even and so the product is even. Hence
+$O =\{2 r + 1 | r \in \mathbbm{N}\} \subseteq \mathbbm{N} \setminus \phi
+(\mathbbm{N})$ which means that any positive odd integer besides 1 has no
+solutions. With 3 the minimum element of $O$ it must be checked that $3$ is
+also minimum element of $\mathbbm{N} \setminus \phi (\mathbbm{N})$. Clearly it
+is since $\phi (1) = \phi (2) = 1$.
+
+It's almost immediate that $n = 1$ is the lowest number with two solutions, as
+well as being the lowest number we are considering for the $\phi$ function,
+since the only time $p_i - 1 = 1$ is when $p_i = 2$ and $e_i = 1$, so $2 \in
+\phi^{- 1} (1)$ and well by definition $\phi (1) = 1$, so $1 \in \phi^{- 1}
+(1)$.
+
+Now, we show that $\phi^{- 1} (2)$ contains 3 elements, by noting that the
+only possibilities for $\phi (x)$ to be 2, is when $p^{e_i - 1} = 2$ and
+everything else is 1, or when $p_i - 1 = 2$ and everything else is 1. We
+consider some $p^{e_i - 1} = 2$ first; this is only possible when $p_i = 2$
+and $e_i = 2$, thus $4 \in \phi^{- 1} (n)$. Now $p_i - 1 = 2$ can only occur
+when $p_i = 3$ and $e_i = 1$, so $3 \in \phi^{- 1} (2)$, yet we can have $p_j
+- 1 = 1$ where $j \neq i$, when $p_j = 2$ and $e_j = 1$, hence $6 \in \phi^{-
+1} (2)$ and no others.
+
+4 is the $n$ with four solutions. We automatically see that $5 \in \phi^{- 1}
+(n)$ since $\phi (p) = p - 1$ for any prime. Yet, we can have a hidden factor
+when $p_i = 5, e_i = 1$ when $p_j = 2, e_j = 1$ since $p_j^{e_j - 1} = 1$ and
+$p_j - 1 = 1$, so $10 \in \phi^{- 1} (4)$. Now, we consider when $p_i^{e_i -
+1} = 4$, then it must be that $p_i = 2$ and $e_i = 3$, since $p_i - 1 = 1$, so
+$8 \in \phi^{- 1} (4)$. If $p_i^{e_i - 1} = 2$, then $p_i = 2, e_i = 2$, but
+we need another factor of $2$, which we can get from $p_j - 1 = 2$, so $p_j =
+3$ and $e_j = 1$, so $12 \in \phi^{- 1} (4)$.
+
+2.5.3 Show that if $d | m$, then $\phi (d) | \phi (m)$.
+
+{\tmem{Solution:}} Suppose that $d | m$. Now $m = p_1^{e_1} p^{e_2}_2 \cdots
+p^{e_n}_n$ and $d = q_1^{r_1} \cdots q_k^{r_k}$, where the key thing to note
+is that we reorder the prime factorization of $m$ so that $p_1 = q_1, \ldots,
+p_k = q_k$ and $1 \leq r_i \leq e_i$ for $1 \leq i \leq k$. Now
+
+$\phi (m) = \phi (p_1^{e_1} \cdots p_n^{e_n}) = p_1^{e_1 - 1} \cdots p_n^{e_n
+- 1} (p_1 - 1) \cdots (p_n - 1) =$
+
+$[q_1^{r_1 - 1} \cdots q_k^{r_k - 1} (q_1 - 1) \cdots (q_k - 1)] [p_1^{e_1 -
+r_1} \cdots p_k^{e_k - r_k} p_{k + 1}^{e_{k + 1} - 1} \cdots p_n^{e_n - 1}
+(p_{k + 1} - 1) \cdots (p_n - 1)] =$
+
+$\phi (d)_{} [p_1^{e_1 - r_1} \cdots p_k^{e_k - r_k} p_{k + 1}^{e_{k + 1} - 1}
+\cdots p_n^{e_n - 1} (p_{k + 1} - 1) \cdots (p_n - 1)]$ \ and hence $\phi (d)
+| \phi (m)$.
+
+2.5.4 Suppose that $m$ is squarefree, and that $k$ and $k'$ are positive
+integers such that $k k' \equiv 1 (\tmop{mod} \phi (m))$. Show that $a^{k k'}
+\equiv a (\tmop{mod} m)$ for all integers $a$.
+
+{\tmem{Solution:}} First, let $a \in \mathbbm{Z}$, then we note that $k k'
+\equiv 1 (\tmop{mod} \phi (m))$ means $\phi (m) n + 1 = k k'$ for some $n \in
+\mathbbm{Z}$. Now $a^{k k'} = a^{\phi (m) n + 1} = (a^{\phi (m)})^n a \equiv a
+(\tmop{mod} m)$ by Euler's theorem when $\gcd (a, m) = 1$. Otherwise $\gcd (a,
+m) = d$, now since $d | a$, then $a^{k k'} \equiv 0 \equiv a (\tmop{mod} d)$.
+Furthermore, by exercise 2.5.3, since $\frac{m}{d} | m$, then $\phi (
+\frac{m}{d}) | \phi (m)$, which means $\phi (m) = \phi ( \frac{m}{d}) s$ for
+some $s \in \mathbbm{Z}$. Hence $a^{k k'} = a^{\phi (m) n + 1} = (a^{\phi (
+\frac{m}{d})})^{s n} a \equiv 1^{s n} a \equiv a (\tmop{mod} \frac{m}{d})$ by
+Euler's theorem and the fact that $\gcd (a, \frac{m}{d}) = 1$. Thus $a^{k k'}
+- a = d r$ and $a^{k k'} - a = \frac{m}{d} t$ for some $r, t \in \mathbbm{Z}$
+and with $d$ and $\frac{m}{d}$ relatively prime, which only holds since $m$ is
+squarefree (any prime dividing $d$ will not show up again the prime
+factorization of $\frac{m}{d}$), then $a^{k k'} - a = d \frac{m}{d} w = m w$
+for some $w \in \mathbbm{Z}$, concluding that $a^{k k'} \equiv a (\tmop{mod}
+m)$.
+
+2.6.2 Solve $x^5 + x^4 + 1 \equiv 0 (\tmop{mod} 3^4)$.
+
+{\tmem{Solution:}} Let $f (x) = x^5 + x^4 + 1$, then $f' (x) = 5 x^4 + 4 x^3$.
+Now the only root to $f (x) \equiv 0 (\tmop{mod} 3)$ is 1. Checking $f' (1)$,
+we see that $f' (1) \equiv 0 (\tmop{mod} 3)$ and so is singular. Also $f (1)
+\equiv 3 \nequiv 0 (\tmop{mod} 9)$, but this means that there is no root of $x
+(\tmop{mod} 9)$ that for which $x \equiv 1 (\tmop{mod} 3)$ which means $x
+\equiv 1 (\tmop{mod} 3)$ cannot be lifted to modulo 9 and thus most certainly
+cannot be lifted to modulo $3^4$. Since this was the only possibility for
+roots and it failed, we conclude that this has no solution.
+
+2.8.2 Find a primitive root of $23$.
+
+{\tmem{Solution:}} We note by corollary 2.32 that the order of any residue
+class will divide $\phi (23)$ since 23 is prime. Using the remark on
+calculation after theorem 2.36, we check to see if $a$ is a primitive root of
+23 by analyzing $a^2$ and $a^{11}$ modulo 23 as both 2 and 11 are the prime
+divisors of $\phi (23)$. If either is congruent to 1 modulo 23, then $a$ is
+not a primitive root. So letting $a = 2$, then $a^2 \equiv 4 (\tmop{mod} 23)$
+and $a^{11} \equiv 1 (\tmop{mod} 23)$ which means 2 is not a primitive root.
+If $a = 3$, then $a^3 \equiv 4 (\tmop{mod} 23)$ and $3^{11} \equiv 1
+(\tmop{mod} 23)$, so 3 is not a primitive root. If $a = 2^2$, then
+$\tmop{order}_{23} (a) = 11 / \gcd (4, 11) = 11$, so $a$ cannot be a primitive
+root. We now try $a = 5$, then $a^2 \equiv 2 (\tmop{mod} 23)$ and $a^{11} =
+(a^2)^5 a \equiv 9 \cdot 5 \equiv - 1 (\tmop{mod} 23)$, thus 5 is a primitive
+root as the order$_{23} (5) = 22 = \phi (23)$.
+
+2.8.4 To what exponents do each of 1, 2, 3, 4, 5, 6 belong modulo 7? To what
+exponents do they belong modulo 11?
+
+{\tmem{Solution:}} Small numbers can be brute forced but we can still minimize
+our efforts by noting that $\phi (7) = 6$ and any order must divide 6, so it
+suffices to check by raising our numbers to 1, 2, 3 or 6.
+
+$1^1 \equiv 1, 2^2 \equiv 4, 2^3 \equiv 1, 3^2 \equiv 2, 3^3 \equiv 6, 3^6
+\equiv 1$, $4^2 \equiv 2, 4^3 \equiv 1, 5^2 \equiv 4, 5^3 \equiv 6, 5^6 \equiv
+1$, $6^2 \equiv 1$ \ \ \ \ \ \ \ \ \ \ \ all mod 7
+
+Thus 1 belongs to exponent 1 modulo 7; 6 belongs to exponent 2 modulo 7; 2 and
+4 belong to exponent 3 modulo 7; 3 and 5 belong to exponent 6 modulo 7.
+
+For the second part, we continue as we did above except we only check 1, 2, 5,
+10, since these are factors of $\phi (11) = 10$.
+
+$1^1 \equiv 1, 2^2 \equiv 4, 2^5 \equiv 10, 2^{10} = 1, 3^2 \equiv 9, 3^5
+\equiv 1, 4^2 \equiv 5, 4^5 \equiv 1, 5^2 \equiv 3, 5^5 \equiv 1$, $6^2 \equiv
+3, 6^5 \equiv 10, 6^{10} \equiv 1$ \ \ \ all mod 11
+
+Thus 1 belongs to exponent 1 modulo 11; 3, 4 and 5 belong to exponent 5 modulo
+11; 2 and 6 belong to exponent 10 modulo 11.
+
+2.8.8 Use theorem 2.37 to determine how many solutions each of the following
+congruences has:
+
+(a) $x^{12} \equiv 16 (\tmop{mod} 17)$
+
+{\tmem{Solution:}} We check $16^{16 / 4} = 16^4 \equiv (- 1)^4 \equiv 1
+(\tmop{mod} 17)$ and so with $\gcd (16, 17) = 1$, then $x^{12} \equiv 16
+(\tmop{mod} 17)$ has $\gcd (12, 16) = 4$ solutions.
+
+(b) $x^{48} \equiv 9 (\tmop{mod} 17)$
+
+{\tmem{Solution:}} We check $9^{16 / 16} = 9 \nequiv 1 (\tmop{mod} 17)$ and
+thus $x^{48} \equiv 9 (\tmop{mod} 17)$ has no solutions.
+
+(c) $x^{20} \equiv 13 (\tmop{mod} 17)$
+
+{\tmem{Solution:}} We check $13^{16 / 4} = 13^4 \equiv (- 4)^4 = (- 16)^2
+\equiv 1 (\tmop{mod} 17)$ and so with $\gcd (13, 17) = 1$, $x^{20} \equiv 13
+(\tmop{mod} 17)$ has $\gcd (20, 16) = 4$ solutions.
+
+(d) $x^{11} \equiv 9 (\tmop{mod} 17)$
+
+{\tmem{Solution:}} We check $9^{16 / 1} = 9^{16} \equiv 1 (\tmop{mod} 17)$ by
+Euler's theorem and so with $\gcd (9, 17) = 1$, $x^{11} \equiv 9 (\tmop{mod}
+17)$ has $\gcd (11, 16) = 1$ solutions.
+
+3.2.6 Decide whether $x^2 \equiv 150 (\tmop{mod} 1009)$ is solvable or not.
+
+{\tmem{Solution:}} $\left( \frac{150}{1009} \right) = \left( \frac{3}{1009}
+\right) \left( \frac{5^2}{1009} \right) \left( \frac{2}{1009} \right) = [
+\left( \frac{1009}{3} \right) (- 1)^{( \frac{3 - 1}{2}) ( \frac{1009 -
+1}{2})}] (1) (- 1)^{\frac{1009^2 - 1}{8}} = \left( \frac{1}{3} \right) = 1$
+
+and so it is solvable.
+
+3.2.7 Find all primes $p$ such that $x^2 \equiv 13 (\tmop{mod} p)$ has a
+solution.
+
+{\tmem{Solution:}} Just by inspection we can see that $p = 2$ is one of the
+primes we want, since $13 \equiv 1 (\tmop{mod} 2) \Rightarrow x = 1
+(\tmop{mod} 2)$. Furthermore, $\left( \frac{13}{p} \right) = \left(
+\frac{p}{13} \right) (- 1)^{( \frac{p - 1}{2}) ( \frac{13 - 1}{2})} = \left(
+\frac{p}{13} \right)$. Thus $\left( \frac{p}{13} \right) = \left\{
+\begin{array}{ll}
+  1 & p \equiv 1, 3, 4, 9, 10, 12 (\tmop{mod} 13)\\
+  - 1 & p \equiv 2, 5, 6, 7, 8, 11 (\tmop{mod} 13)
+\end{array} \right.$, where we can see some like $1, 2^2, 3^2, 4^2, 5^2, 6^2
+(\tmop{mod} 13)$ are solutions very quickly. We know this is the complete set
+of them as half the equivalence classes modulo $13$ will produce $1$.
+
+3.2.8 Find all primes $p$ such that $\left( \frac{10}{p} \right) = 1$.
+
+{\tmem{Solution:}} $\left( \frac{10}{p} \right) = \left( \frac{2}{p} \right)
+\left( \frac{5}{p} \right)$. Yet $\left( \frac{5}{p} \right) = \left(
+\frac{p}{5} \right)$, now $\left( \frac{p}{5} \right) = \left\{
+\begin{array}{ll}
+  1 & p \equiv 1 (\tmop{mod} 5)\\
+  - 1 & p \equiv 2 (\tmop{mod} 5)\\
+  - 1 & p \equiv 3 (\tmop{mod} 5)\\
+  1 & p \equiv 4 (\tmop{mod} 5)
+\end{array} \right.$ and $\left( \frac{2}{p} \right) = \left\{
+\begin{array}{ll}
+  1 & p \equiv 1, 7 (\tmop{mod} 8)\\
+  - 1 & p \equiv 3, 5 (\tmop{mod} 8)
+\end{array} \right.$. Thus by applying the chinese remainder theorem, to all
+possibilities that yield $\left( \frac{10}{p} \right) = 1$, we get $p \equiv
+1, 3, 13, 19, 23, 29, 31, 33 (\tmop{mod} 40)$.
+
+3.2.13 Prove that there are infinitely many primes of the form $3 n + 1$ and
+$3 n - 1$.
+
+{\tmem{Solution:}} We follow Euclid's proof that there are infintely many
+primes: Suppose that there are a finite number of primes, $p_1, \ldots, p_n$,
+that are of the form $3 n + 1$. Consider $4 p_1^2 \cdots p_n^2 + 3$ so that
+none of the $p_i$'s divide it. Now there must be an odd prime $p$ that divides
+$4 p_1^2 \cdots p_n^2 + 3$ that is not one of the $p_i$'s. But this just means
+that $\text{$(2 p_1 \cdots p_n)^2$} \equiv - 3 (\tmop{mod} p)$ and we can find
+our options for $p$ by looking at $\left( \frac{- 3}{p} \right) = (-
+1)^{\frac{p - 1}{2}} \left( \frac{3}{p} \right) = (- 1)^{\frac{p - 1}{2}} (-
+1)^{( \frac{p - 1}{2}) ( \frac{3 - 1}{2})} \left( \frac{p}{3} \right) = \left(
+\frac{p}{3} \right) = \left\{ \begin{array}{ll}
+  1 & p \equiv 1 (\tmop{mod} 3)\\
+  - 1 & p \equiv 2 (\tmop{mod} 3)
+\end{array} \right.$. Hence $p$ is of the form $3 n + 1$ and is not in the
+list of $p_i$'s, a contradiction.
+
+Suppose that there are a finite number of primes, $p_1, \ldots, p_n$, that are
+of the form $3 n - 1$. Consider $3 p_1 \cdots p_n - 1$ so that none of the
+$p_i$'s divide it. Now there must be a prime $p$ that divides $3 p_1 \cdots
+p_n - 1$ that is not one of the $p_i$'s, moreover $p \equiv - 1 (\tmop{mod}
+3)$ as $3 p_1 \cdots p_n - 1 \equiv - 1 (\tmop{mod} 3)$. Note the possibility
+that $p \equiv 1 (\tmop{mod} 3)$ is discarded since $3 p_1 \cdots p_n - 1 = p
+\cdot a \equiv 1 \cdot a \equiv - 1 (\tmop{mod} 3) \Rightarrow a \equiv - 1
+(\tmop{mod} 3)$ and so there must be another prime factor (either $a$ or
+dividing $a)$ that is congruent to $- 1$modulo 3. Conclusively, we have a
+contradiction as $p$ is was not in our finite list, yet is a prime and of the
+form $3 n - 1$.
+
+3.3.3 Which of the following congruences are solvable?
+
+(a) $x^2 \equiv 11 (\tmop{mod} 61)$
+
+{\tmem{Solution:}} $\left( \frac{11}{61} \right) = \left( \frac{61}{11}
+\right) (- 1)^{( \frac{61 - 1}{2}) ( \frac{11 - 1}{2})} = \left( \frac{6}{11}
+\right) (1) = \left( \frac{2}{11} \right) \left( \frac{3}{11} \right) (1) = (-
+1)^{\frac{11^2 - 1}{8}} (1) (1) = - 1$ and thus is not solvable.
+
+(b) $x^2 \equiv 42 (\tmop{mod} 97)$
+
+{\tmem{Solution:}} $\left( \frac{42}{97} \right) = \left( \frac{2}{97} \right)
+\left( \frac{3}{97} \right) \left( \frac{7}{97} \right) = \left( \frac{97}{2}
+\right) \left( \frac{97}{3} \right) \left( \frac{97}{7} \right) = \left(
+\frac{1}{2} \right) \left( \frac{1}{3} \right) \left( \frac{6}{7} \right) =
+\left( \frac{2}{7} \right) \left( \frac{3}{7} \right) = (1) (- 1) = - 1$ and
+thus is not solvable.
+
+(c) $x^2 \equiv - 43 (\tmop{mod} 79)$
+
+{\tmem{Solution:}} $\left( \frac{- 43}{79} \right) = \left( \frac{- 1}{79}
+\right) \left( \frac{43}{79} \right) = (- 1)^{39} (- 1) \left( \frac{79}{43}
+\right) = \left( \frac{36}{43} \right) = \left( \frac{6^2}{43} \right) = 1$
+and so is solvable.
+
+(d) $x^2 - 31 \equiv 0 (\tmop{mod} 103)$
+
+{\tmem{Solution:}} $\left( \frac{31}{103} \right) = (- 1) \left(
+\frac{103}{31} \right) = (- 1) \left( \frac{10}{31} \right) = (- 1) \left(
+\frac{2}{31} \right) \left( \frac{5}{31} \right) = (- 1) (- 1)^{\frac{31^2 -
+1}{8}} \left( \frac{31}{5} \right) = (- 1) \left( \frac{1}{5} \right) = - 1$
+and thus is not solvable.
+
+3.3.4 Determine whether $x^4 \equiv 25 (\tmop{mod} 1013)$ is solvable, given
+that 1013 is a prime.
+
+{\tmem{Solution:}} Firstly, $x^4 - 25 = (x^2 - 5) (x^2 + 5) \equiv 0
+(\tmop{mod} 1013)$. Hence we test the solvability by checking by $x^2 \equiv
+\pm 5 (\tmop{mod} 1013)$; $\left( \frac{5}{1013} \right) = \left(
+\frac{1013}{5} \right) = \left( \frac{3}{5} \right) = - 1$, since $5 \nequiv 1
+(\tmop{mod} 12)$ or $11 (\tmop{mod} 12)$. Furthermore, $\left( \frac{-
+5}{1013} \right) = \left( \frac{- 1}{1013} \right) \left( \frac{5}{1013}
+\right) = (- 1)^{506} (- 1) = - 1$ and we conclude that the given congruence
+is not solvable.
+
+3.3.6 For any prime $p$ of the form $4 k + 3$, prove that $x^2 + (p + 1) / 4
+\equiv 0 (\tmop{mod} p)$ is not solvable.
+
+{\tmem{Solution:}} $x^2 + k + 1 \equiv 0 (\tmop{mod} p)$ $\Rightarrow x^2
+\equiv - (k + 1) (\tmop{mod} p)$. Thus we look at $\left( \frac{- (k + 1)}{p}
+\right) = \left( \frac{- 1}{p} \right) \left( \frac{k + 1}{p} \right)$. Since
+$\left( \frac{- 1}{p} \right) = - 1$ whenever $p \equiv 3 (\tmop{mod} 4)$, it
+suffices to calculate $\left( \frac{k + 1}{p} \right)$, which we analyze by
+looking at $k (\tmop{mod} 4)$. If $k \equiv 0 (\tmop{mod} 4)$, then $\left(
+\frac{k + 1}{p} \right) = \left( \frac{4 t + 1}{16 t + 3} \right) = \left(
+\frac{16 t + 3}{4 t + 1} \right) = \left( \frac{- 1}{4 t + 1} \right) = 1$. \
+If $k \equiv 1 (\tmop{mod} 4)$, then $\left( \frac{k + 1}{p} \right) = \left(
+\frac{4 t + 2}{16 t + 7} \right) = \left( \frac{16 t + 7}{4 t + 2} \right) =
+\left( \frac{- 1}{4 t + 2} \right) = 1$. If $k \equiv 2 (\tmop{mod} 4)$, then
+$\left( \frac{k + 1}{p} \right) = \left( \frac{4 t + 3}{16 t + 11} \right) =
+(- 1) \left( \frac{16 t + 11}{4 t + 3} \right) = (- 1) \left( \frac{- 1}{4 t +
+3} \right) = (- 1) (- 1) = 1$. If $k \equiv 3 (\tmop{mod} 4)$, then $\left(
+\frac{k + 1}{p} \right) = \left( \frac{4 t + 4}{16 t + 15} \right) = \left(
+\frac{16 t + 15}{4 t + 4} \right) = \left( \frac{- 1}{4 t + 4} \right) =
+\left( \frac{- 1}{t + 1} \right) = 1$. In all cases we have $\left( \frac{- (k
++ 1)}{p} \right) = (- 1) (1) = - 1$ and thus the original congruence has no
+solution.
+
+(8) Characterize all integers which can be written as difference of two
+squares of integers.
+
+{\tmem{Solution:}} Let $n = x^2 - y^2 = (x - y) (x + y)$ and consider some
+cases:
+
+Case 1: $x = 2 s, y = 2 m$ for some $s, m \in \mathbbm{Z}$. $x^2 - y^2 = (2 s
+- 2 m) (2 s + 2 m) = 4 (s - m) (s + m) \equiv 0 (\tmop{mod} 4)$.
+
+Case 2: $x = 2 s + 1, y = 2 m + 1$ for some $s, m \in \mathbbm{Z}$. $x^2 - y^2
+= (2 s + 1 - 2 m - 1) (2 s + 1 + 2 m + 1) = 4 (s + m) (s + m + 1) \equiv 0
+(\tmop{mod} 4)$.
+
+Case 3: $x = 2 s + 1, y = 2 m$ for some $s, m \in \mathbbm{Z}$. $x^2 - y^2 =
+(2 [s - m] + 1) (2 [s + m] + 1) = 4 (s - m) (s + m) + 4 s + 1 \equiv 1
+(\tmop{mod} 4)$.
+
+Case 4: $x = 2 s, y = 2 m + 1$ for some $s, m \in \mathbbm{Z}$. $x^2 - y^2 =
+(2 [s - m] - 1) (2 [s + m] + 1) = 4 (s - m) (s + m) - 4 m - 1 \equiv 3
+(\tmop{mod} 4)$.
+
+We note that case 3 and 4, means $n$ could be any odd integer or $n$ is
+divisible by 4 from case 1 and 2.
+
+4.1.1 \ What is the highest power of 2 dividing 533!? The highest power of 3?
+The highest power of 6? The highest power of 12? The highest power of 70?
+
+{\tmem{Solution:}} Using theorem 4.2, we find the highest power, $e$, of $2$
+dividing $533!$, so $e = \sum_{i = 1}^{\infty} \left\lfloor \frac{533}{2^i}
+\right\rfloor = 529$. Applying same theorem, we find the highest power, $e$,
+of 3 dividing $533!$, so $e = \sum_{i = 1}^{\infty} \left\lfloor
+\frac{533}{3^i} \right\rfloor = 263$.
+
+Since, the highest power of 6 dividing 533! is the smaller of the highest
+power of 2 which divides it and the highest power of 3 which divides it, the
+highest power of 6 which divides the number is 263.
+
+Note that that 3 and 4 are relatively prime. The highest power of 4 which
+divides 533! is $\left\lfloor \frac{529}{4} \right\rfloor = 264$. Hence, the
+highest power of 12 is 263 as that's the highest power of 3 that divides
+$533!$.
+
+$70 = 2 \cdot 5 \cdot 7$ which means the highest power of 70 which divides
+533! has got to be 7 since it will produce the smallest number. Thus $e =
+\sum_{i = 1}^{\infty} \left\lfloor \frac{533}{7^i} \right\rfloor = 87$.
+
+4.1.34 Let $a$ and $b$ be positive integers with $a + b = n$. Show that the
+power of $p$ dividing $\binom{n}{a}$ is exactly the number of carries when $a$
+and $b$ are added base $p$.
+
+{\tmem{Solution:}} First we prove exercise 4.1.32: Let us consider the
+expansion of $n$ base $p$: $n = \alpha_k p^k + \cdots + \alpha_1 p + \alpha_0$
+and $S (n) = \alpha_k + \cdots + \alpha_1 + \alpha_0$. \ By theorem 4.2, $e =
+\left\lfloor \frac{n}{p^1} \right\rfloor + \left\lfloor \frac{n}{p^2}
+\right\rfloor + \cdots + \left\lfloor \frac{n}{p^k} \right\rfloor = (\alpha_k
+p^{k - 1} + \cdots + \alpha_1) + \cdots + (\alpha_k) = (p^{k - 1} + \cdots +
+1) \alpha_k + \cdots + \alpha_1 = \frac{1}{p - 1} [(p^k - 1) \alpha_k + \cdots
++ (p - 1) \alpha_1] = \frac{n - S (n)}{p - 1}$ and $p^e \|n!$.
+
+Note without loss of generality $a > b$. Now $\binom{n}{a} = \frac{n!}{a!b!}$
+and we want to look at $p^e \| \binom{n}{a}$. But $e = x - y - z$, where $p^x
+\|n!, p^y \|a!, \tmop{and} p^z \|b!$, and by above $e = \frac{n - S (n) - a +
+S (a) - b + S (b)}{p - 1} = \frac{S (a) + S (b) - S (n)}{p - 1} = \frac{(p -
+1) (c_k + \cdots + c_1)}{p - 1} = c_k + \cdots + c_1$, where the $c_i$'s are
+either 0 or 1, depending on if there was a carry or not. To see the third
+equality clearly, $S (n) = n_{k + 1} p^{k + 1} + n_k p^k + \cdots + n_0$,
+where $S (a) = a_k p^k + \cdots + a_0$, $S (b) = b_j p^j + \cdots + b_0$, and
+$n_i = a_i + b_i - c_i p + c_{i - 1}$, the rest is just arithmetic.
+
+4.1.35 Suppose that $a = \alpha p + a_0$ and that $0 \leq a_0 < p$. Show that
+$a! / (\alpha !p^{\alpha}) \equiv (- 1)^{\alpha} a_0 ! (\tmop{mod} p)$.
+Suppose also that $b = \beta p + b_0$ with $0 \leq b_0 < p$. Show that
+$\binom{a + b}{a} \equiv \binom{\alpha + \beta}{\alpha} \binom{a_0 + b_0}{a_0}
+(\tmop{mod} p)$. Deduce that if $a = \sum_i a_i p^i$ and $b = \sum_i b_i p^i$
+in base $p$, then $\binom{a + b}{a} \equiv \prod_i \binom{a_i + b_i}{a_i}
+(\tmop{mod} p)$.
+
+{\tmem{Solution:}} We notice that $a! / (\alpha !p^{\alpha}) = \prod_{1 \leq n
+\leq a, p \nmid n} n = ( \prod_{0 \leq q \leq \alpha - 1} q p + r) ( \prod_{1
+\leq r \leq a_0} q p + r) \equiv (- 1)^{\alpha} a_0 ! (\tmop{mod} p)$.
+Now let's look at the leading $a_0$ terms of $\binom{a + b}{a} = ( \frac{a +
+b}{a}) ( \frac{a + b - 1}{a - 1}) \cdots (b + 1)$ since there won't be a
+multiple of $p$ in there and see that $( \frac{a + b}{a}) \equiv ( \frac{a_0 +
+b_0}{a_0}), ( \frac{a + b - 1}{a_0 - 1}) \equiv ( \frac{a_0 + b_0 - 1}{a_0 -
+1}), \cdots, ( \frac{a + b - a_0}{a}) \equiv b_0 (\tmop{mod} p)$, but this is
+just $\binom{a_0 + b_0}{a_0}$. To get $\binom{\alpha + \beta}{\alpha}$, it
+suffices to look at the multiples of $p$ as all others will disappear in the
+$\binom{a + b}{a}$ expansion which are placed every $a_0$ quantities. This
+yields our $\binom{\alpha + \beta}{\alpha}$.
+
+Lastly, we deduce $\binom{a + b}{a} \equiv \prod_i \binom{a_i + b_i}{a_i}
+(\tmop{mod} p)$ by applying what we proved above to $\binom{a + b}{a} \equiv
+\binom{a_1 + b_1}{a_1} \binom{\left\lfloor \frac{a + b}{p}
+\right\rfloor}{\left\lfloor \frac{a}{p} \right\rfloor}$, then to
+$\binom{\left\lfloor \frac{a + b}{p} \right\rfloor}{\left\lfloor \frac{a}{p}
+\right\rfloor}$, and so on and so forth till it ends.
+
+4.2.10 Give an example to show that if $f (n)$ is totally multiplicative, $F
+(n)$ need not also be totally multiplicative, where $F (n)$ is defined as
+$\sum_{d | n} f (d)$.
+
+{\tmem{Solution:}} Consider the identity function, $f (n) = n$, which is
+totally multiplicative. Then $F (n)$ cannot be \ totally multiplicative for
+otherwise $F (4) = [F (2)]^2$. But $F (4) = f (1) + f (2) + f (4) = 1 + 2 + 4
+= 7 \neq 21 = 1 + 4 + 16 = [f (1)]^2 + 2 f (2) f (1) + [f (2)]^2 = (f (1) + f
+(2))^2 = [F (2)]^2$ and we have our result.
+
+4.3.7 Prove that for every positive integer $n$, $\sum_{d | n} \mu (d) d (d) =
+(- 1)^{\omega (n)}$. Similarly, evaluate
+
+$\sum_{d | n} \mu (d) \sigma (d)$.
+
+{\tmem{Solution:}} Let's prove exercise 4.2.9 and that is if $f$ and $g$ are
+multiplicative functions, then $F (n) = f (n) g (n)$ is also a multiplicative
+function: $F (n) = F (p_1^{e_1} \cdots p_k^{e_k}) = f (p_1^{e_1} \cdots
+p_k^{e_k}) g (p_1^{e_1} \cdots p_k^{e_k}) = f (p_1^{e_1}) \cdots f (p_k^{e_k})
+g (p_1^{e_1}) \cdots g (p_k^{e_k}) = f (p_1^{e_1}) g (p_1^{e_1}) \cdots f
+(p_k^{e_k}) g (p_k^{e_k}) = F (p_1^{e_1}) \cdots F (p_k^{e_k})$. Now we show
+that if $f$ is a multiplicative function, then $F (n) = \sum_{d | n} \mu (d) f
+(d) = [f (1) - f (p_1)] \cdots [f (1) - f (p_k)]$. By what was just proven, $F
+(n)$ is multiplicative so we have $F (n) = F (p_1^{e_1} \cdots p_k^{e_k}) = F
+(p_1^{e_1}) \cdots F (p^{e_k}_k) = [\mu (1) f (1) + \mu (p_1) f (p_1) + \cdots
++ \mu (p^{e_1}_1) f (p^{e_1}_1)] \cdots [\mu (1) f (1) + \mu (p_k) f (p_k) +
+\cdots + \mu (p^{e_k}_k) f (p^{e_k}_k)] = [f (1) - f (p_1)] \cdots [f (1) - f
+(p_k)]$ since $\mu (p^i) = 0$ for all primes $p$ and $i > 1$. Now the problem
+we've been asked to show becomes simply plugging in our functions in the
+equation so $\sum_{d | n} \mu (d) d (d) = [d (1) - d (p_1)] \cdots [d (1) - d
+(p_k)] = \overbrace{(- 1) \cdots (- 1)}^{k \tmop{times}} = (- 1)^{\omega
+(n)}$. Also
+
+$\sum_{d | n} \mu (d) \sigma (d) = [\sigma (1) - \sigma (p_1)] \cdots [\sigma
+(1) - \sigma (p_k)] = (- p_1) \cdots (- p_k) = (- 1)^{\omega (n)} p_1 \cdots
+p_k$.
+
+4.3.8 If $n$ is any even integer, prove that $\sum_{d | n} \mu (d) \phi (d) =
+0$.
+
+{\tmem{Solution:}} Suppose that $n = 2^m k$ for some $k, m \in \mathbbm{N}$,
+it should go without saying that $\gcd (2^m, k) = 1$. We know by theorem 2.19
+that $\phi$ is multiplicative and by theorem 4.7 that $\mu$ is multiplicative,
+so it follows that $\mu (n) \phi (n)$ is multiplicative by proof to exercise
+4.2.9 above. Letting $F (n) = \sum_{d | n} \mu (d) \phi (d)$, we have $F (n)$
+is multiplicative by theorem 4.4. Now consider $F (2^m) = \sum_{d | 2^m} \mu
+(d) \phi (d) = \mu (1) \phi (1) + \mu (2) \phi (2) + \sum_{i = 2}^m \mu (2^i)
+\phi (2^i) = (1) (1) + (- 1) (1) + 0 = 0$ since $\mu (2^i) = 0$ for all $2
+\leq i \leq k$. In general, $F (n) = F (2^m) F (k) = 0 \cdot F (k) = 0$.
+
+4.3.26 Prove that $\prod_{d | n} \Phi_d (x) = x^n - 1$ for all real and
+complex numbers $x$. Deduce that $\Phi_n (x) = \prod_{d | n} (x^d - 1)^{\mu (n
+/ d)}$. Show that the coefficients are integers.
+
+{\tmem{Solution:}} Note that both sides are polynomials with leading
+coefficient 1 and so it suffices to show that all the linear factors of the
+RHS are exactly those of the LHS. Now, the roots of $x^n - 1$ are called the
+$n$th roots of unity; $1, \omega, \omega^2, \ldots, \omega^{n - 1}$. Let $d |
+n$, then ($x - \omega^d) | \Phi_d$ and consequently $\omega^d$ is a root of
+$\prod_{d | n} \Phi_d (x)$. But this means that both sides have the same
+roots, same number of roots, and thus must be equal.
+
+We show that all coefficents of $\Phi_n (x)$ are integers by induction:
+$\Phi_1 (x) = x - 1$, so our base is verified since we only see integer
+coefficients. Now assume true for all $i < n$. Then by above, we have $\Phi_n
+(x) = (x^n - 1) / ( \prod_{d | n, d \neq n} \Phi_d (x))$ so the coefficients
+must be in the field of rationals. But Gauss' lemma concerning polynomials in
+a polynomial ring applies here and we have in actuality that the coefficients
+are in the integers.
+
+There is exercise 4.3.23, that once shown, makes $\Phi_n (x) = \prod_{d | n}
+(x^d - 1)^{\mu (n / d)}$ trivial. Hence we have $\prod_{d | n} F (n / d)^{\mu
+(d)} = \prod_{d|n} [ \prod_{x | \frac{n}{d}} f (x)]^{\mu (d)} = \prod_{x|n} f
+(x)^{\sum_{d| \frac{n}{x}} \mu (d)} = f (n)$. Applying $\prod_{d | n} \Phi_d
+(x) = x^n - 1$ to $f (n) = \prod_{d | n} F (n / d)^{\mu (d)}$, we have our
+result.
+
+4.4.1 Find a formula for $u_n$ if $u_n = 2 u_{n - 1} - u_{n - 2}, u_0 = 0, u_1
+= 1$. Also if $u_0 = 1$ and $u_1 = 1$.
+
+{\tmem{Solution:}} We get $u^2 - 2 u + 1 = (u - 1)^2 = 0$ and thus $1$ is a
+double root. Now our formula is of the form $u_n = (c_1 + c_2 n) (1)^2 = c_1 +
+c_2 n$. Using the first initial conditions, $u_0 = c_1 = 0$ and $u_1 = c_2 =
+1$, hence $u_n = n$. Otherwise, using the second initial conditions, $u_0 =
+c_1 = 1$ and $u_1 = 1 + c_2 = 1 \Rightarrow c_2 = 0$ and so $u_n = 1$.
+
+9.1.5 If a polynomial $f (x)$ with integral coefficients factors into a
+product $g (x) h (x)$ of two polynomials with coefficients in $\mathbbm{Q}$,
+prove that there is a factoring $g_1 (x) h_1 (x)$ with integral coefficients.
+
+{\tmem{Solution:}} Suppose that $f (x) \in \mathbbm{Z}[x]$ and $g (x), h (x)
+\in \mathbbm{Q}[x]$ such that $f (x) = g (x) h (x)$. Without loss of
+generality, we can also state the $f (x)$ is primitive, since otherwise we
+could just factor out the gcd of all coefficients of $f (x)$ and divide on
+both sides. Now, $l_1 l_2 f (x) = l_1 g (x) l_2 h (x)$, where $l_1$ and $l_2$
+are the lowest common multiples of all the denominators of $g (x)$ and $h
+(x)$, respectively. Furthermore, $l_1 g (x) = d_1 g_1 (x)$ and $l_2 h (x) =
+d_2 h_1 (x)$, where $d_1$ and $d_2$ is the gcd of all of the coefficients of
+$g_1 (x)$ and $h_1 (x)$, respectively, and $g_1, h_1 \in \mathbbm{Z}[x]$. Thus
+$l_1 l_2 f (x) = d_1 d_2 g_1 (x) h_1 (x)$ and by virtue of theorem 9.6, the
+product of two primitive polynomials $g_1 (x) h_1 (x)$ is also primitive, in
+this case $f (x)$, which means $l_1 l_2 = d_1 d_2$ and we can divide on both
+sides to get $f (x) = g_1 (x) h_1 (x)$ and our result.
+
+9.1.8 Let $f (x)$ and $g (x)$ be primitive nonconstant polynomials in
+$\mathbbm{Z}[x]$ such that the $\gcd (f (m), g (m)) > 1$ for infinitely many
+positive integers $m$. Construct an example to show that such polynomials
+exist with $\gcd (f (x), g (x)) = 1$ in the polynomial sense.
+
+{\tmem{Solution:}} Let $m \in \mathbbm{N}$, then consider $f (x) = x^2 + 3 x +
+2$ and $g (x) = x^2 + 3 x + 4$. The gcd($f (x), g (x)) = 1$ since $f (x) = (x
++ 1) (x + 2)$ and the roots of $g (x)$ are complex since the discriminant is
+less than 0 which means that $g (x)$ is irreducible over $\mathbbm{Z}$.
+Furthermore, when $m = 2 k$, then $f (m) = 4 k^2 + 6 k + 2 = 2 (2 k^2 + 6 k +
+1)$ and $g (m) = 4 k^2 + 6 k + 4 = 2 (2 k^2 + 3 k + 2)$ and thus $\gcd (f (m),
+g (m)) \geq 2$ when $m$ even. Now for when $m = 2 k + 1$, then $f (m) = 4 k^2
++ 4 k + 1 + 6 k + 3 + 2 = 2 (2 k^2 + 5 k + 2)$ and $g (m) = 4 k^2 + 4 k + 1 +
+6 k + 3 + 4 = 2 (2 k^2 + 5 k + 4)$, so again $\gcd (f (m), g (m)) \geq 2$.
+
+9.2.1 Find the minimal polynomial of each of the following algebraic numbers:
+$7, \sqrt[3]{7}, \frac{1 + \sqrt[3]{7}}{2}, 1 + \sqrt{2} + \sqrt{3}$. Which of
+these are algebraic?
+
+{\tmem{Solution:}} $x - 7$ is the minimal polynomial for 7 since it's a
+rational integer. So $7$ is an algebraic integer.
+
+$x = \sqrt[3]{7} \Rightarrow x^3 = 7 \Rightarrow x^3 - 7 = 0$. So
+$\sqrt[3]{7}$ is an algebraic integer.
+
+$x = \frac{1 + \sqrt[3]{7}}{2} \Rightarrow 2 x - 1 = \sqrt[3]{7} \Rightarrow 8
+x^3 - 12 x^2 + 6 x - 1 = 7 \Rightarrow 4 x^3 - 6 x^2 + 3 x - 4 = 0 \Rightarrow
+x^3 - \frac{3}{2} x^2 + \frac{3}{4} x - 1 = 0$.
+
+$x - 1 = \sqrt{2} + \sqrt{3} \Rightarrow x^2 - 2 x - 4 = 2 \sqrt{6}
+\Rightarrow x^4 - 4 x^3 - 4 x^2 + 18 x + 16 = 24 \Rightarrow x^4 - 4 x^3 - 4
+x^2 + 18 x - 8 = 0$
+
+. So $1 + \sqrt{2} + \sqrt{3}$ is an algebraic integer.
+
+9.7.2 Prove that $1 + i$ is a prime in $\mathbbm{Q}(i)$.
+
+{\tmem{Solution:}} $N (1 + i) = (1 + i) (1 - i) = 1 + 1 = 2$, with 2 a
+rational prime, by theorem 9.24, $1 + i$ is a prime in $\mathbbm{Q}(i)$.
+
+9.7.3 Prove that $11 + 2 \sqrt{6}$ is a prime in $\mathbbm{Q}( \sqrt{6})$.
+
+{\tmem{Solution:}} $N ( \text{$11 + 2 \sqrt{6}$}) = \text{$(11 + 2 \sqrt{6}$)}
+\text{($11 - 2 \sqrt{6}$)} = 121 - 24 = 97$, with 97 a rational prime, by
+theorem 9.24, $11 + 2 \sqrt{6}$ is a prime in $\mathbbm{Q}( \sqrt{6})$.
+
+9.8.2 Prove that $\mathbbm{Q}( \sqrt{5})$ has the unique factorization
+property.
+
+{\tmem{Solution:}} We follow theorem 9.27 in almost the exact same manner. We
+let $\alpha, \beta \in \mathbbm{Q}( \sqrt{5})$ with $\beta \neq 0$, then
+$\alpha / \beta = u + v \sqrt{5}$, where $u, v \in \mathbbm{Q}$. Now select
+the closest integer, $y$, to $2 v$ and the closest integer, $x$, to $u -
+\frac{y}{2}$, then let $n = v - \frac{1}{2} y$ and $m = u - x - \frac{y}{2}$
+so that $|n| \leq \frac{1}{4}$ and $|m| \leq \frac{1}{2}$. Considering $z = x
++ \frac{y}{2} (1 + \sqrt{5})$, note that $\alpha = \beta z + \delta$, where
+$\delta = \beta (m + n \sqrt{5})$. Since $|m^2 - 5 n^2 | \leq \frac{1}{4} +
+\frac{5}{16} < 1$, it follows that $N (\delta) < N (\beta)$ which shows that
+$\mathbbm{Q}( \sqrt{5})$ is a Euclidean quadratic field and thus has a unique
+factorization property by theorem 9.26.
+
+9.9.2 The rational prime 13 can be factored in two ways in $\mathbbm{Q}(
+\sqrt{- 3})$,
+\[ 13 = \frac{7 + \sqrt{- 3}}{2} \cdot \frac{7 - \sqrt{- 3}}{2} = (1 + 2
+   \sqrt{- 3}) (1 - 2 \sqrt{- 3}) . \]
+Prove that this is not in conflict with the fact that $\mathbbm{Q}( \sqrt{-
+3})$ has the unique factorization property.
+
+{\tmem{Solution:}} We need to find a unit, $u$, such that $u \cdot \frac{7 +
+\sqrt{- 3}}{2} \cdot \frac{7 - \sqrt{- 3}}{2} = (1 + 2 \sqrt{- 3}) (1 - 2
+\sqrt{- 3}) .$ Now
+
+$( \frac{7}{2} + \frac{1}{2} \sqrt{- 3}) (a + b \sqrt{- 3}) = ( \frac{7 a}{2}
+- \frac{3 b}{2}) + ( \frac{7 b}{2} + \frac{a}{2}) \sqrt{- 3} \Rightarrow (
+\frac{7 a}{2} - \frac{3 b}{2}) = 1$ and $( \frac{7 b}{2} + \frac{a}{2}) = 2$.
+Solving for these two equations yields $a = \frac{1}{2}$ and $b =
+\frac{1}{2}$. Doing the same for $\frac{7 - \sqrt{- 3}}{2}$ yields $a =
+\frac{1}{2}$ and $b = - \frac{1}{2}$. So $u = ( \frac{1}{2} + \frac{1}{2}
+\sqrt{- 3}) ( \frac{1}{2} - \frac{1}{2} \sqrt{- 3}) = 1$, which we know is a
+unit by theorem 9.22.
+
+9.9.5 Prove that the primes of $\mathbbm{Q}( \sqrt{2})$ are $\sqrt{2}$, all
+rational primes of the form $8 k + 3$, and all factors $a + b \sqrt{2}$ of
+rational primes of the form $8 k \pm 1$, and all associates of these primes.
+
+{\tmem{Solution:}} We follow the same lines as example 1 and 2 from section
+9.9, $\left( \frac{2}{p} \right) = \left\{ \begin{array}{ll}
+  1 & \tmop{if} p \equiv \pm 1 (\tmop{mod} 8)\\
+  - 1 & \tmop{if} p \equiv \pm 3 (\tmop{mod} 8)
+\end{array} \right.$ and $2 m = 4$, then one of $x^2 - 2 y^2 = \pm 3$ has
+solutions. For each odd $p = 8 k + 1$, choose $a_p, b_p$ such that $a_p^2 - 2
+b_p^2 = p$. Now the primes are $\sqrt{2}$, all rational primes of the form $p
+\equiv 3 (\tmop{mod} 8)$, and all $a_p \pm b_p \sqrt{2}$ and all their
+associates.
+
+(9) Find all integers $x, y$ satisfying $y^2 + 4 = (2 x + 1)^3$. (Hint: Factor
+in Gaussian integers)
+
+{\tmem{Solution:}} Using a quick parity congruence $(2 x + 1)^3 \equiv 1
+(\tmop{mod} 2) \Rightarrow y \equiv 1 (\tmop{mod} 2)$. Now,
+
+$y^2 + 4 = (y + 2 i) (y - 2 i) = (2 x + 1)^3 = s^3$. Consider $\gcd (y + 2 i,
+y - 2 i) = d$, then $d | 2 y = (y + 2 i) + (y - 2 i)$ and $d | 4 i = (y + 2 i)
+- (y - 2 i)$, which means that $N (d)$ is even, but $N (y + 2 i)$ is odd since
+$y$ is odd, so $y + 2 i$ and $y - 2 i$ are relatively prime. Thus $y + 2 i =
+(a + b i)^3 = (a^3 - 3 a b^2) + (3 a^2 b - b^3) i$ \ and $y - 2 i = (a - b
+i)^3$. But this means that $b (3 a^2 - b^2) = 2 \Rightarrow a = 1 \tmop{and} b
+= 1$ or $a = 1 \tmop{and} a = - 1$ or $a = - 1$ and $b = 1$ or $a = - 1$ and
+$b = - 2$. Simple plugging and chugging yields that $s = 5 \Rightarrow x = 2
+\tmop{and} y = \pm 11$.
+
+(10) Express $30 + 30 i$ as a product of irreducible elements for Gaussian
+integers. Justify from first principles why the elements you write are
+irreducible.
+
+{\tmem{Solution:}} $30 + 30 i = 30 (1 + i)$ and by exercise 9.7.2, $1 + i$ is
+irreducible in $\mathbbm{Q}[i]$ and thus irreducible in $\mathbbm{Z}[i]$. So
+all we have left to factor is 30. But $30 = 2 \cdot 3 \cdot 5$, which we see
+by using the norm, that $3$ is irreducible. We can further factor $2 = (1 + i)
+(1 - i)$ and $5 = (2 + i) (2 - i)$, all factors which are irreducible by once
+again noticing that the norm is a prime integer. So $30 + 30 i = 3 (1 + i)^2
+(1 - i) (2 + i) (2 - i)$.
+
+EXTRA
+
+1. Let $\beta$ satisfy $9 \beta^2 + 14 \beta + 4 = 0$ and $K
+=\mathbbm{Q}(\beta)$ be the number field it generates. Let $O_K$ be its ring
+of integers. Write explicitly $\alpha$ in $O_K$ such that $O_K =\{a + b \alpha
+: a, b \in \mathbbm{Z}\}$. Explain. Write explicitly an irreducible element in
+$O_K$ and explain why it is irreducible.
+
+{\tmem{Solution:}} Consider $9 x^2 + 14 x + 4 = 0 \Rightarrow x = \frac{- 7
+\pm \sqrt{13}}{9}$. Thus without loss of generality, $\beta = \frac{- 7 +
+\sqrt{13}}{9}$ and by the first paragraph of section 9.5, $\mathbbm{Q}(
+\frac{- 7 + \sqrt{13}}{9}) =\mathbbm{Q}( \sqrt{13})$. If we complete exercise
+9.5.2, then by exercise 9.5.2 and since $13 \equiv 1 (\tmop{mod} 4)$, $\alpha
+= \frac{1 + \sqrt{13}}{2}$. We have by theorem 9.20 that $O_K =\{ \frac{a + b
+\sqrt{13}}{2} : a \equiv b (\tmop{mod} 2)\}$ so it suffices to show that $O_K
+=\{c + d ( \frac{1 + \sqrt{13}}{2}) : c, d \in \mathbbm{Z}\}$. Now consider
+$\frac{a + b \sqrt{13}}{2} \in O_K$, we have two cases to look at when $a
+\equiv b \equiv 0 (\tmop{mod} 2)$ and when $a \equiv b \equiv 1 (\tmop{mod}
+2)$: $a = 2 k, b = 2 l$ so that $\frac{a + b \sqrt{13}}{2} = k + l \sqrt{13}$
+doing a substitution here, $x = k - l \in \mathbbm{Z}$ and $y = 2 l \in
+\mathbbm{Z}$, we have $k + l \sqrt{13} = x + y ( \frac{1 + \sqrt{13}}{2})$
+hence $\frac{a + b \sqrt{13}}{2} \in \{c + d ( \frac{1 + \sqrt{13}}{2}) : c, d
+\in \mathbbm{Z}\}$. $a = 2 k + 1, b = 2 l + 1$ so that $\frac{a + b
+\sqrt{13}}{2} = k + \frac{1}{2} + (l + \frac{1}{2}) \sqrt{13}$, once again
+using substitution, $x = k - l \in \mathbbm{Z}$ and $y = 2 l + 1 \in
+\mathbbm{Z}$, we get $k + \frac{1}{2} + (l + \frac{1}{2}) \sqrt{13} = k +
+\frac{1}{2} - (l + \frac{1}{2}) + (l + \frac{1}{2}) + (l + \frac{1}{2})
+\sqrt{13} = x + y \sqrt{13}$ hence $\frac{a + b \sqrt{13}}{2} \in \{c + d (
+\frac{1 + \sqrt{13}}{2}) : c, d \in \mathbbm{Z}\}$, concluding that $O_K
+\subseteq \{c + d ( \frac{1 + \sqrt{13}}{2}) : c, d \in \mathbbm{Z}\}$.
+Letting $c + d ( \frac{1 + \sqrt{13}}{2}) \in \{c + d ( \frac{1 +
+\sqrt{13}}{2}) : c, d \in \mathbbm{Z}\}$ and working backwards in the same
+manner as above which goes without saying due to the equalities, we get $c + d
+( \frac{1 + \sqrt{13}}{2}) \in O_K$, which means $\{c + d ( \frac{1 +
+\sqrt{13}}{2}) : c, d \in \mathbbm{Z}\} \subseteq O_K$ and we have $O_K =
+\text{$\{c + d ( \frac{1 + \sqrt{13}}{2}) : c, d \in \mathbbm{Z}\}$}$ as
+desired. We claim that $2 \in O_K$, which we get by letting $a = 4, b = 0$
+using the set notation from theorem 9.20, is an irreducible element. Suppose
+$2 = x y$, where $x, y \in \mathbbm{Q}( \sqrt{13})$ neither of them units,
+then by theorem 9.21, $4 = N (2) = N (x) N (y) N (x) N (y) \Rightarrow N (x) =
+\pm 2$ and $N (y) = \pm 2$ since $N (x) \neq \pm 1 \neq N (y)$ because $x$ and
+$y$ were assumed to not be units. We let $x = r + s \sqrt{13}$, so that $r^2 -
+13 s^2 = \pm 2$. But this means that $r \equiv s (\tmop{mod} 2)$ for
+otherwise, the left hand side would not be even. If $r \tmop{and} s$are both
+even, then $4 | r^2 - 13 s^2$ but $4 \nmid \pm 2$ so this is impossible. If
+$r$ and $s$ are both odd, then $(4 n^2 + 4 n + 1) - 13 (4 m^2 + 4 m + 1) = 4
+(n^2 + n + m^2 + m - 3)$ and $4 | r^2 - 13 s^2$ yet $4 \nmid \pm 2$ which
+makes this case also impossible. By the same analysis applied to $y$ we get
+the same result from which we can conclude that either $x$ or $y$ must be a
+unit, a contradiction, hence $2$ is irreducible.
+
+2. Use $\sqrt{21} = [4, \overline{1, 1, 2, 1, 1, 8}]$ to produce explicitly
+infinitely many units in quadratic number field $\mathbbm{Q}( \sqrt{21})$.
+
+{\tmem{Solution:}} We note that the period length is $r = 6$. Then by theorem
+7.25, we know that $x^2 - 21 y^2 = - 1$ has no solution and all positive
+solutions of $x^2 - 21 y^2 = 1$ are given by $x_n = h_{n r - 1}$ and $y_n =
+k_{n r - 1}$, $n \in \mathbbm{N}$. So let's look at the convergents of
+$\sqrt{21}$; simple arithmetic yields $\frac{h_0}{k_0} = \frac{4}{1},
+\frac{h_1}{k_1} = \frac{5}{1}, \frac{h_2}{k_2} = \frac{9}{2}, \frac{h_3}{k_3}
+= \frac{23}{5}, \frac{h_4}{k_4} = \frac{32}{7}, \frac{h_5}{k_5} =
+\frac{55}{12}$. So the least positive solution is $x = 55$ and $y = 12$ which
+means by theorem 7.26 all positive solutions $x_n, y_n$ are defined by $(55 +
+12 \sqrt{21})^n = x_n + y_n \sqrt{21}$. Since $\mathbbm{N}$ is infinite, $(55
++ 12 \sqrt{21})^n$ produces an explicit infinite number of elements in
+$\mathbbm{Q}( \sqrt{21})$ such that the norm is 1 (since they satisfy Pell's
+equation above), and thus all are units by theorem 9.21.
+
+\newpage
+
+3. We proved in the class Lagrange's theorem showing that every non-negative
+integer is sum of 4 squares (of integers). Prove (much easier) theorem that
+every integer is sum of 5 cubes, making use of the identity $6 x = (x + 1)^3 +
+(x - 1)^3 + (- x)^3 + (- x)^3$.
+
+{\tmem{Solution:}} We note that $0$ is also a cube as $0^3 = 0$ . Let $x \in
+\mathbbm{Z}$ and we have:
+
+$6 x = (x + 1)^3 + (x - 1)^3 + (- x)^3 + (- x)^3 + 0^3$
+
+$6 x + 1 = (x + 1)^3 + (x - 1)^3 + (- x)^3 + (- x)^3 + 1^3$
+
+$6 x + 2 = 6 x + (8 - 6) = 6 (x - 1) + 2^3 = ((x - 1) + 1)^3 + ((x - 1) - 1)^3
++ (- (x - 1))^3 + (- (x - 1))^3 + 2^3 = x^3 + (x - 2)^3 + (1 - x)^3 + (1 -
+x)^3 + 2^3$
+
+$6 x + 3 = 6 x + (30 - 27) = 6 (x + 5) + 3^3 = ((x + 5) + 1)^3 + ((x + 5) -
+1)^3 + (- (x + 5))^3 + (- (x + 5))^3 + 3^3 = (x + 6)^3 + (x + 4)^3 + (- x -
+5)^3 + (- x - 5)^3 + 3^3$
+
+$6 x + 4 = 6 x + (12 - 8) = 6 (x + 2) + (- 2)^3 = ((x + 2) + 1)^3 + ((x + 2) -
+1)^3 + (- (x + 2))^3 + (- (x + 2))^3 + (- 2)^3 = (x + 3)^3 + (x + 1)^3 + (- x
+- 2)^3 + (- x - 2)^3 + (- 2)^3$
+
+$6 x + 5 = 6 x + (6 - 1) = 6 (x + 1) + (- 2)^3 = ((x + 1) + 1)^3 + ((x + 1) -
+1)^3 + (- (x + 1))^3 + (- (x + 1))^3 + (- 2)^3 = (x + 2)^3 + x^3 + (- x - 1)^3
++ (- x - 1)^3 + (- 2)^3$
+
+Since any integer can be represented in one of these 6 ways due to it
+belonging to 1 of the 6 equivalence classes modulo 6, we have shown any
+integer is representable by a sum of 5 cubes.
+
+4. Use countability argument and continued fraction theory to show that there
+is a transcendental real number $\alpha$ such that $| \alpha - \frac{p}{q} | >
+1 / (5 q^2)$, for all $q > 1$ and $p$ integer.
+
+{\tmem{Solution:}} Let $\alpha \in \mathbbm{I}$, the set of irrational numbers
+which is well known to be uncountable, and $\mathbbm{A}$ be the set of
+algebraic numbers, which is well known to be countable. We know by theorem
+7.14 that the contrapositve is true, that is to say, if $\frac{p}{q}$ is not
+equal to one of the convergents of the simple continued fraction expansion of
+$\alpha$, then $| \alpha - \frac{p}{q} | \geq \frac{1}{2 q^2} > \frac{1}{5
+q^2}$ for all $\frac{p}{q}$. With there being uncountably many possibilities
+for $\alpha$ and only countable many possibilities in $\mathbbm{I} \cap
+\mathbbm{A}$, we conclude there must exist an $\beta \in \mathbbm{I} \setminus
+\mathbbm{A}$, the set of transcendental numbers which is well known to be
+uncountable, such that $\alpha = \beta$.
+
+5. Find $x$ modulo $7^{10}$ such that order of $x$ modulo $7^{10}$ is $2 \cdot
+7^8$. Justify.
+
+{\tmem{Solution:}} Referring to exercise 2.8.4 (a solved problem on homework
+2), we showed that $3$ was a primitive root modulo 7 since it's of exponent
+$\phi (7) = 6$ modulo 7. We remark that $\phi (7^2) = 42$ and verify that $3$
+is also a primitive root modulo $7^2$. It suffices to check only those powers
+which are divisors of 42, thus the following is all modulo 49: $3^2 \equiv 9,
+3^3 \equiv 27, 3^6 \equiv 43, 3^7 \equiv 31, 3^{14} \equiv 30, 3^{21} \equiv
+48, 3^{42} \equiv 1$. With $3$ a primitive root modulo $7^2$, it follows from
+theorem 2.40 that $3$ is also a primitive root modulo $7^{10}$. With
+
+$\phi (7^{10}) = 7^9 \cdot 6$ being the order of $3$ modulo $7^{10}$, by
+lemma 2.33, $3^{21}$ has order $\frac{2 \cdot 3 \cdot 7^9}{3 \cdot 7} =
+\text{$2 \cdot 7^8$}$ modulo $7^{10}$.
+
+\end{document}
